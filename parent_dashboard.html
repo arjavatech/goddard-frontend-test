@@ -111,10 +111,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <a href="pdf/Parent Handbook.pdf" download><i
-                                    class="fa-solid fa-circle-arrow-down p-2 action-icons" id="downloadForm"
-                                    name="downloadForm"></i></a>
-                            <i class="fa-solid fa-print p-2 action-icons"></i>
+                            <i class="fa-solid fa-circle-arrow-down p-2 action-icons" id="GetFile"
+                            name="Parent Handbook"></i>
+                        <i class="fa-solid fa-print p-2 action-icons"></i>
                         </td>
                     </tr>
                     </tfoot>
@@ -161,6 +160,34 @@
             <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
         </ol>
     </div>
+
+    <script>
+        document.getElementById('GetFile').addEventListener('click', async function () {
+            AWS.config.update({
+                accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
+                secretAccessKey: '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',
+                region: 'us-west-2'
+            });
+
+            const s3 = new AWS.S3();
+            const bucketName = 'goddard-form';
+            const objectKey = 'Parent Handbook.pdf';
+
+            const params = {
+                Bucket: bucketName,
+                Key: objectKey,
+                ResponseContentDisposition: 'attachment; filename="' + objectKey + '"',
+                Expires: 60
+            };
+
+            const url = s3.getSignedUrl('getObject', params);
+
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = objectKey;
+            link.click();
+        });
+    </script>
 
 
 </body>
