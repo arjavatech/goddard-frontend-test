@@ -2,7 +2,15 @@
 function submitForm() {
     const form = document.getElementById("enrollment_from");
     const formData = new FormData(form);
+    var textBoxValue1 = document.getElementById('point_one_field_one').value;
+    var textBoxValue2 = document.getElementById('point_one_field_two').value;
+    var textBoxValue3 = document.getElementById('point_one_field_three').value;
+    formData.append('point_one_field_one', textBoxValue1);
+    formData.append('point_one_field_two', textBoxValue2);
+    formData.append('point_one_field_three', textBoxValue3);
+    console.log(formData);
     const obj = Object.fromEntries(formData);
+    console.log(obj);
     obj.child_id = "CD0001";
     const json = JSON.stringify(obj);
 
