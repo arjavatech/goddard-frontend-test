@@ -9,25 +9,6 @@ function parentDashBoardDetails(val) {
                 document.querySelector('[name="child_name"]').innerHTML = response.child_name;
                 document.querySelector('[name="enrollment_agreement"]').innerHTML = response.form_name1;
                 document.querySelector('[name="date_value"]').innerHTML = response.form_expiry_date;
-<<<<<<< HEAD
-                if(response.form_status == "Yet To Be Filled"){
-                    document.querySelector('[name="form_status"]').innerHTML = response.form_status;
-                    document.getElementById('form_status').style.color = '#0F2D52';
-                    document.getElementById('form_status').style.fontWeight = 'bold';
-                }else if(response.form_status == "Completed"){
-                    document.querySelector('[name="form_status"]').innerHTML = response.form_status;
-                    document.getElementById('form_status').style.color = 'green';
-                    document.getElementById('form_status').style.fontWeight = 'bold';
-                }else if(response.form_status == "Incomplete"){
-                    document.querySelector('[name="form_status"]').innerHTML = response.form_status;
-                    document.getElementById('form_status').style.color = 'red';
-                    document.getElementById('form_status').style.fontWeight = 'bold';
-                }else{
-                    document.querySelector('[name="form_status"]').innerHTML = response.form_status;
-                    document.getElementById('form_status').style.color = 'yellow';
-                    document.getElementById('form_status').style.fontWeight = 'bold';
-                }
-=======
                 if (response.form_status == "Yet To Be Filled") {
                     document.querySelector('[name="form_status"]').innerHTML = response.form_status;
                     document.getElementById('form_status').style.color = '#0F2D52';
@@ -50,14 +31,11 @@ function parentDashBoardDetails(val) {
                     enableAction();
                   }
                   
->>>>>>> aarthi
             }
         }
     })
 }
 
-<<<<<<< HEAD
-=======
 // Disable the action and styling
 function disableAction() {
     let link = document.getElementById('pencil_icon_link');
@@ -92,7 +70,6 @@ function disableAction() {
     icon2.classList.remove('disabled'); // Remove disabled styling
   }
 
->>>>>>> aarthi
 function parentDashBoardYear(){
     $.ajax({
         url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/all',
