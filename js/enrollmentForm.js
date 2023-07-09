@@ -30,6 +30,7 @@ export function fetchEnrollmentFormBody(callback) {
                         let textBox = document.createElement('input');
                         textBox.setAttribute('type', 'text');
                         textBox.setAttribute('id', textboxId);
+
                         if(typeof responseData[i] == 'undefined' || responseData[i] == ''){
                             textBox.setAttribute('value','');
                         }else{
