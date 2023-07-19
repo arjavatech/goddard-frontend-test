@@ -1,3 +1,4 @@
+'use strict';
 //name validation with particular format
 function namevalidation(inputtxtID,errorSpanId){
     let regName =  /^[a-zA-Z\s]+$/;
@@ -58,38 +59,50 @@ function ValidatePincode(inputtxt, errorSpan) {
     }
 }
 
-// function appendparent(val,element) {
-//     var course1 = document.getElementById("course1");
-//     var course2 = document.getElementById("course2");
-//     if(val <=2 && val >=0){
-//         if (val == 1) {
-//             course1.style.display = "block";
-//             course2.style.display = "none";
-//             document.getElementById(element).style.display = "none";
-//         }else if (val == 2) {
-//             course1.style.display = "block";
-//             course2.style.display = "block";
-//             document.getElementById(element).style.display = "none";
-//         }else {
-//             course1.style.display = "none";
-//             course2.style.display = "none";
-//         }
-//     }else if(val== ''){
+function checkbox() {
+    console.log('checking the checkbox if valid or not');
+    var additional_parent_info = document.getElementById("additional_parent_info");
+    if ($('input[name="additional_parent_add"]').is(":checked")) {
+        additional_parent_info.style.display = "block";
+    }
+    else{
+        additional_parent_info.style.display = "none";
+    }
+}
+
+function appendvalidation(val,element) {
+    var additional_emegengy_release1 = document.getElementById("additional_emegengy_release1");
+    var additional_emegengy_release2 = document.getElementById("additional_emegengy_release2");
+    if(val <=2 && val >=0){
+        if (val == 1) {
+            additional_emegengy_release1.style.display = "block";
+            additional_emegengy_release2.style.display = "none";
+            document.getElementById(element).style.display = "none";
+        }else if (val == 2) {
+            additional_emegengy_release1.style.display = "block";
+            additional_emegengy_release2.style.display = "block";
+            document.getElementById(element).style.display = "none";
+        }else {
+            additional_emegengy_release1.style.display = "none";
+            additional_emegengy_release2.style.display = "none";
+        }
+    }else if(val== ''){
         
-//         course1.style.display = "none";
-//         course2.style.display = "none";
-//         document.getElementById(element).style.display = "none";
-//     }else{
-//         // alert('else');
-//         document.getElementById(element).style.display = "block";
-//         course1.style.display = "none";
-//         course2.style.display = "none";
-//     }
-// }
+        additional_emegengy_release1.style.display = "none";
+        additional_emegengy_release2.style.display = "none";
+        document.getElementById(element).style.display = "none";
+    }else{
+        // alert('else');
+        document.getElementById(element).style.display = "block";
+        additional_emegengy_release1.style.display = "none";
+        additional_emegengy_release2.style.display = "none";
+    }
+}
 
 $(document).ready(function() {
     namevalidation();
     validatePhone();
     emailValidation();
     dateValidation();
+    checkbox();
 });

@@ -21,7 +21,7 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar d-flex justify-content-center">
-        <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476" height="112">
+        <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
     </nav>
     <!-- Navigation Bar End -->
     <section class="wizard-section">
@@ -174,307 +174,331 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="parent1_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
-                                                <input type="text" class="form-control" id="parent1_name" name="parent1_name"
-                                                    onchange="namevalidation(this,'parent1_name_span')">
-                                                <span class="spanmsg" id="parent1_name_span" style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default m-4">
+                                        <div class="panel panel-info m-4">
                                             <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>HOME ADDRESS</b></h5>
+                                                <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S DETAILS</b></h3>
                                             </div>
                                             <div class="panel-body">
-                                                <div class="row m-1">
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="parent1_street_address" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control"
-                                                            id="parent1_street_address" name="parent1_street_address">
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="parent1_city_address" class="form-label">CITY</label>
-                                                        <select class="form-control"aria-label=".form-select-lg example"
-                                                            id="parent1_city_address" name="parent1_city_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="parent1_state_address" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="parent1_state_address" name="parent1_state_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
+                                                        <label for="parent1_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
+                                                        <input type="text" class="form-control" id="parent1_name" name="parent1_name"
+                                                            onchange="namevalidation(this,'parent1_name_span')">
+                                                        <span class="spanmsg" id="parent1_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
-                                                <div class="row m-1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>HOME ADDRESS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="parent1_street_address" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="parent1_street_address" name="parent1_street_address">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="parent1_city_address" class="form-label">CITY</label>
+                                                                <select class="form-control"aria-label=".form-select-lg example"
+                                                                    id="parent1_city_address" name="parent1_city_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="parent1_state_address" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="parent1_state_address" name="parent1_state_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="parent1_zip_address" class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="parent1_zip_address" name="parent1_zip_address"
+                                                                    onchange="ValidatePincode (this,'parent1_zip_address_span')">                                                     
+                                                                    <span id="parent1_zip_address_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="home_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
+                                                                <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number1"
+                                                                    name="home_telephone_number1"
+                                                                    onchange="validatePhone(this,'home_telephone_number1_span')">
+                                                                <span id="home_telephone_number1_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="parent1_zip_address" class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control"
-                                                            id="parent1_zip_address" name="parent1_zip_address"
-                                                             onchange="ValidatePincode (this,'parent1_zip_address_span')">                                                     
-                                                            <span id="parent1_zip_address_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="business1_name" class="form-label">BUSINESS NAME</label>
+                                                        <input type="text" class="form-control" id="business1_name" name="business1_name">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="home_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number1"
-                                                            name="home_telephone_number1"
-                                                            onchange="validatePhone(this,'home_telephone_number1_span')">
-                                                        <span id="home_telephone_number1_span" style="color:red; display:none">
+                                                        <label for="work_hours1" class="form-label">WORK HOURS</label>
+                                                        <input type="number" class="form-control" id="work_hours1" name="work_hours">
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label for="business_telephone_number1" class="form-label">BUSINESS TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control"
+                                                            id="business_telephone_number1" name="business_telephone_number1"
+                                                            onchange="validatePhone(this,'business_telephone_number1_span')">
+                                                        <span id="business_telephone_number1_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="business1_name" class="form-label">BUSINESS NAME</label>
-                                                <input type="text" class="form-control" id="business1_name" name="business1_name">
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="work_hours1" class="form-label">WORK HOURS</label>
-                                                <input type="number" class="form-control" id="work_hours1" name="work_hours">
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="business_telephone_number1" class="form-label">BUSINESS TELEPHONE NUMBER</label>
-                                                <input type="text" class="form-control"
-                                                    id="business_telephone_number1" name="business_telephone_number1"
-                                                    onchange="validatePhone(this,'business_telephone_number1_span')">
-                                                <span id="business_telephone_number1_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default m-4">
-                                            <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>BUSINESS ADDRESS</b></h5>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row m-1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>BUSINESS ADDRESS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="business_street_address1" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control" id="business_street_address1"
+                                                                    name="business_street_address1">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_city_address1" class="form-label">CITY</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="business_city_address1" name="business_city_address1">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_state_address1" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="business_state_address1" name="business_state_address1">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_zip_address1" class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="business_zip_address1" name="business_zip_address1" 
+                                                                    onchange="ValidatePincode (this,'business_zip_address1_span')">                                                     
+                                                                    <span id="business_zip_address1_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="business_street_address1" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control" id="business_street_address1"
-                                                            name="business_street_address1">
+                                                        <label for="business_cell_number1" class="form-label">CELL NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Telephone Number"
+                                                            id="business_cell_number1" name="business_cell_number1"
+                                                            onchange="validatePhone(this,'business_cell_number1_span')">
+                                                        <span id="business_cell_number1_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_city_address1" class="form-label">CITY</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="business_city_address1" name="business_city_address1">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="business_state_address1" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="business_state_address1" name="business_state_address1">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="business_zip_address1" class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control"
-                                                            id="business_zip_address1" name="business_zip_address1" 
-                                                            onchange="ValidatePincode (this,'business_zip_address1_span')">                                                     
-                                                            <span id="business_zip_address1_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="business_email1" class="form-label">EMAIL ADDRESS</label>
+                                                        <input type="text" class="form-control" id="business_email1" name="business_email1"
+                                                            onchange="emailValidation(this,'business_email1_span')">
+                                                        <span id="business_email1_span" style="color:red; display:none">
+                                                            Enter valid input [should be in @ and .].</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="business_cell_number1" class="form-label">CELL NUMBER</label>
-                                                <input type="text" class="form-control" aria-label="Telephone Number"
-                                                    id="business_cell_number1" name="business_cell_number1"
-                                                    onchange="validatePhone(this,'business_cell_number1_span')">
-                                                <span id="business_cell_number1_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="business_email1" class="form-label">EMAIL ADDRESS</label>
-                                                <input type="text" class="form-control" id="business_email1" name="business_email1"
-                                                    onchange="emailValidation(this,'business_email1_span')">
-                                                <span id="business_email1_span" style="color:red; display:none">
-                                                    Enter valid input [should be in @ and .].</span>
+                                                <input type="checkbox" class="input-checkbox" id="additional_parent_add"
+                                                name="additional_parent_add" onclick="checkbox()">
+                                                <label class="form-check-label" for="additional_parent_add"><span>
+                                                    <!-- <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                    </svg></span> -->
+                                                    <span>Do you want to add additional parent details?</span>
+                                                </label>
                                             </div>
                                         </div>
-
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="parent2_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
-                                                <input type="text" class="form-control" id="parent2_name" name="parent2_name"
-                                                    onchange="namevalidation(this,'parent2_name_span')">
-                                                <span class="spanmsg" id="parent2_name_span"
-                                                    style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default m-4">
+                                        <div class="panel panel-info m-4" id="additional_parent_info" style="display:none">
                                             <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>HOME ADDRESS</b></h5>
+                                                <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S DETAILS</b></h3>
                                             </div>
                                             <div class="panel-body">
-                                                <div class="row m-1">
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="parent2_street_address" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control"
-                                                            id="parent2_street_address" name="parent2_street_address">
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="parent2_city_address" class="form-label">CITY</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="parent2_city_address" name="parent2_city_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="parent2_state_address" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="parent2_state_address" name="parent2_state_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
+                                                        <label for="parent2_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
+                                                        <input type="text" class="form-control" id="parent2_name" name="parent2_name"
+                                                            onchange="namevalidation(this,'parent2_name_span')">
+                                                        <span class="spanmsg" id="parent2_name_span"
+                                                            style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
-                                                <div class="row m-1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>HOME ADDRESS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="parent2_street_address" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="parent2_street_address" name="parent2_street_address">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="parent2_city_address" class="form-label">CITY</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="parent2_city_address" name="parent2_city_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="parent2_state_address" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="parent2_state_address" name="parent2_state_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="parent2_zip_address" class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="parent2_zip_address" name="parent2_zip_address" 
+                                                                    onchange="ValidatePincode (this,'parent2_zip_address_span')">                                                     
+                                                                    <span id="parent2_zip_address_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="home_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
+                                                                <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number2"
+                                                                    name="home_telephone_number2" onchange="validatePhone(this,'home_telephone_number2_span')">
+                                                                <span id="home_telephone_number2_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="parent2_zip_address" class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control"
-                                                            id="parent2_zip_address" name="parent2_zip_address" 
-                                                            onchange="ValidatePincode (this,'parent2_zip_address_span')">                                                     
-                                                            <span id="parent2_zip_address_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="business2_name" class="form-label">BUSINESS NAME</label>
+                                                        <input type="text" class="form-control" id="business2_name" name="business2_name">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="home_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number2"
-                                                            name="home_telephone_number2" onchange="validatePhone(this,'home_telephone_number2_span')">
-                                                        <span id="home_telephone_number2_span" style="color:red; display:none">
+                                                        <label for="work_hours2" class="form-label">WORK HOURS</label>
+                                                        <input type="number" class="form-control" id="work_hours2" name="work_hours2">
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label for="business_telephone_number2" class="form-label">BUSINESS TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" id="business_telephone_number2" name="business_telephone_number2"
+                                                            onchange="validatePhone(this,'business_telephone_number2_span')">
+                                                        <span id="business_telephone_number2_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="business2_name" class="form-label">BUSINESS NAME</label>
-                                                <input type="text" class="form-control" id="business2_name" name="business2_name">
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="work_hours2" class="form-label">WORK HOURS</label>
-                                                <input type="number" class="form-control" id="work_hours2" name="work_hours2">
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="business_telephone_number2" class="form-label">BUSINESS TELEPHONE NUMBER</label>
-                                                <input type="text" class="form-control" id="business_telephone_number2" name="business_telephone_number2"
-                                                    onchange="validatePhone(this,'business_telephone_number2_span')">
-                                                <span id="business_telephone_number2_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default m-4">
-                                            <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>BUSINESS ADDRESS</b></h5>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row m-1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>BUSINESS ADDRESS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="business_street_address2" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control" id="business_street_address2"
+                                                                    name="business_street_address2">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_city_address2" class="form-label">CITY</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="business_city_address2" name="business_city_address2">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_state_address2" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="business_state_address2" name="business_state_address2">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_zip_address2" class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="business_zip_address2" name="business_zip_address2" 
+                                                                    onchange="ValidatePincode (this,'business_zip_address2_span')">                                                     
+                                                                    <span id="business_zip_address2_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="business_street_address2" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control" id="business_street_address2"
-                                                            name="business_street_address2">
+                                                        <label for="business_cell_number2" class="form-label">CELL NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Telephone Number"
+                                                            id="business_cell_number2" name="business_cell_number2"
+                                                            onchange="validatePhone(this,'business_cell_number2_span')">
+                                                        <span id="business_cell_number2_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_city_address2" class="form-label">CITY</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="business_city_address2" name="business_city_address2">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="business_state_address2" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="business_state_address2" name="business_state_address2">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="business_zip_address2" class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control"
-                                                            id="business_zip_address2" name="business_zip_address2" 
-                                                            onchange="ValidatePincode (this,'business_zip_address2_span')">                                                     
-                                                            <span id="business_zip_address2_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="business_email2" class="form-label">EMAIL ADDRESS</label>
+                                                        <input type="text" class="form-control" id="business_email2" name="business_email"
+                                                            onchange="emailValidation(this,'business_email2_span')">
+                                                        <span id="business_email2_span" style="color:red; display:none">
+                                                            Enter valid input [should be in @ and .].</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="business_cell_number2" class="form-label">CELL NUMBER</label>
-                                                <input type="text" class="form-control" aria-label="Telephone Number"
-                                                    id="business_cell_number2" name="business_cell_number2"
-                                                    onchange="validatePhone(this,'business_cell_number2_span')">
-                                                <span id="business_cell_number2_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="business_email2" class="form-label">EMAIL ADDRESS</label>
-                                                <input type="text" class="form-control" id="business_email2" name="business_email"
-                                                    onchange="emailValidation(this,'business_email2_span')">
-                                                <span id="business_email2_span" style="color:red; display:none">
-                                                    Enter valid input [should be in @ and .].</span>
-                                            </div>
-                                        </div>
-
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title text-center">
@@ -482,237 +506,236 @@
                                                 </h3>
                                             </div>
                                             <div class="panel-body">
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_name1" class="form-label">NAME</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name1"
-                                                            name="emergency_contact_name1" onchange="namevalidation(this,'emergency_contact_name1_span')">
-                                                        <span class="spanmsg" id="emergency_contact_name1_span" style="color:red; display:none">
-                                                            Enter valid input[only letters].</span>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_full_address1" class="form-label">FULL ADDRESS</label>
-                                                        <input type="text" class="form-control" aria-label="emergency_address"
-                                                            id="emergency_contact_full_address1" name="emergency_contact_full_address1">
-                                                    </div>
-                                                </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_relationship1" class="form-label">RELATIONSHIP</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
-                                                            id="emergency_contact_relationship1" name="emergency_contact_relationship1">
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
-                                                            id="emergency_contact_telephone_number1" name="emergency_contact_telephone_number1"
-                                                            onchange="validatePhone(this,'emergency_contact_telephone_number1_span')">
-                                                        <span id="emergency_contact_telephone_number1_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers,+,-,()].</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="child_care_provider_name1" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</label>
-                                                        <input type="text" class="form-control" id="child_care_provider_name1"
-                                                            name="child_care_provider_name1" onchange="namevalidation(this,'child_care_provider_name1_span')">
-                                                        <span class="spanmsg" id="child_care_provider_name1_span" style="color:red; display:none">
-                                                            Enter valid input[only letters].</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="care_provider_telephone_number1"
-                                                            class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" id="care_provider_telephone_number1"
-                                                            name="care_provider_telephone_number1" onchange="validatePhone(this,'care_provider_telephone_number1_span')">
-                                                        <span id="care_provider_telephone_number1_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers,+,-,()].</span>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="hospital_affiliation1" class="form-label">HOSPITAL AFFILIATION</label>
-                                                        <input type="text" class="form-control"
-                                                            id="hospital_affiliation1" name="hospital_affiliation1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-body">
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_name1" class="form-label">NAME</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name1"
+                                                                    name="emergency_contact_name1" onchange="namevalidation(this,'emergency_contact_name1_span')">
+                                                                <span class="spanmsg" id="emergency_contact_name1_span" style="color:red; display:none">
+                                                                    Enter valid input[only letters].</span>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_full_address1" class="form-label">FULL ADDRESS</label>
+                                                                <input type="text" class="form-control" aria-label="emergency_address"
+                                                                    id="emergency_contact_full_address1" name="emergency_contact_full_address1">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_relationship1" class="form-label">RELATIONSHIP</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                                    id="emergency_contact_relationship1" name="emergency_contact_relationship1">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                                    id="emergency_contact_telephone_number1" name="emergency_contact_telephone_number1"
+                                                                    onchange="validatePhone(this,'emergency_contact_telephone_number1_span')">
+                                                                <span id="emergency_contact_telephone_number1_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel-body">
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_name2" class="form-label">NAME</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name2"
-                                                            name="emergency_contact_name2" onchange="namevalidation(this,'emergency_contact_name2_span')">
-                                                        <span class="spanmsg" id="emergency_contact_name2_span" style="color:red; display:none">
-                                                            Enter valid input[only letters].</span>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_full_address2" class="form-label">FULL ADDRESS</label>
-                                                        <input type="text" class="form-control" aria-label="emergency_address"
-                                                            id="emergency_contact_full_address2" name="emergency_contact_full_address2">
-                                                    </div>
+                                            <div class="row m-3">
+                                                <div class="col-sm">
+                                                    <label for="additional_emergency_release" class="form-label"><b>How many details do you want to add additional?</b></label>
+                                                    <input name="additional_emergency_release" type="text" class="form-control" id="additional_emergency_release" 
+                                                    onchange="appendvalidation(this.value,'ErrorSpannoofsiblings');">
+                                                    <span id="ErrorSpannoofsiblings" style="color:red; display:none">
+                                                        Enter positive value within 2.</span>  
+                                                        
+                                                    <!-- <select class="form-control" aria-label=".form-select-lg example" id="additional_emergency_release"
+                                                         name="additional_emergency_release" onchange="appendvalidation(this.value);">
+                                                        <option selected disabled>Select</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                    </select>
+                                                    <i class="fa fa-chevron-down"></i> -->
                                                 </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_relationship2" class="form-label">RELATIONSHIP</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
-                                                            id="emergency_contact_relationship2" name="emergency_contact_relationship2">
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
-                                                            id="emergency_contact_telephone_number2" name="emergency_contact_telephone_number2"
-                                                            onchange="validatePhone(this,'emergency_contact_telephone_number2_span')">
-                                                        <span id="emergency_contact_telephone_number2_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers,+,-,()].</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="child_care_provider_name2" class="form-label">NAME OF CHILD’S PHYSICIAN/MEDICAL CARE PROVIDER</label>
-                                                        <input type="text" class="form-control" id="child_care_provider_name2"
-                                                            name="child_care_provider_name2" onchange="namevalidation(this,'child_care_provider_name2_span')">
-                                                        <span class="spanmsg" id="child_care_provider_name2_span" style="color:red; display:none">
-                                                            Enter valid input[only letters].</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="care_provider_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" id="care_provider_telephone_number2"
-                                                            name="care_provider_telephone_number2" onchange="validatePhone(this,'care_provider_telephone_number2_span')">
-                                                        <span id="care_provider_telephone_number2_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers,+,-,()].</span>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="hospital_affiliation2" class="form-label">HOSPITAL AFFILIATION</label>
-                                                        <input type="text" class="form-control" id="hospital_affiliation2" name="hospital_affiliation2">
+                                                <div class="col-sm"></div>
+                                                <!-- <div class="col-sm"></div> -->
+                                            </div>
+                                            <div class="panel-body" id="additional_emegengy_release1" style="display:none">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-body">
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_name2" class="form-label">NAME</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name2"
+                                                                    name="emergency_contact_name2" onchange="namevalidation(this,'emergency_contact_name2_span')">
+                                                                <span class="spanmsg" id="emergency_contact_name2_span" style="color:red; display:none">
+                                                                    Enter valid input[only letters].</span>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_full_address2" class="form-label">FULL ADDRESS</label>
+                                                                <input type="text" class="form-control" aria-label="emergency_address"
+                                                                    id="emergency_contact_full_address2" name="emergency_contact_full_address2">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_relationship2" class="form-label">RELATIONSHIP</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                                    id="emergency_contact_relationship2" name="emergency_contact_relationship2">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                                    id="emergency_contact_telephone_number2" name="emergency_contact_telephone_number2"
+                                                                    onchange="validatePhone(this,'emergency_contact_telephone_number2_span')">
+                                                                <span id="emergency_contact_telephone_number2_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel-body">
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_name3" class="form-label">NAME</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name3"
-                                                            name="emergency_contact_name3" onchange="namevalidation(this,'emergency_contact_name3_span')">
-                                                        <span class="spanmsg" id="emergency_contact_name3_span" style="color:red; display:none">
-                                                            Enter valid input[only letters].</span>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_full_address3" class="form-label">FULL ADDRESS</label>
-                                                        <input type="text" class="form-control" aria-label="emergency_address"
-                                                            id="emergency_contact_full_address3" name="emergency_contact_full_address3">
-                                                    </div>
-                                                </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_relationship3" class="form-label">RELATIONSHIP</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
-                                                            id="emergency_contact_relationship3" name="emergency_contact_relationship3">
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="emergency_contact_telephone_number3" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
-                                                            id="emergency_contact_telephone_number3" name="emergency_contact_telephone_number3"
-                                                            onchange="validatePhone(this,'emergency_contact_telephone_number3_span')">
-                                                        <span id="emergency_contact_telephone_number3_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers,+,-,()].</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="child_care_provider_name3" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</label>
-                                                        <input type="text" class="form-control" id="child_care_provider_name3" name="child_care_provider_name3"
-                                                            onchange="namevalidation(this,'child_care_provider_name3_span')">
-                                                        <span class="spanmsg" id="child_care_provider_name3_span" style="color:red; display:none">
-                                                            Enter valid input[only letters].</span>
+                                            <div class="panel-body" id="additional_emegengy_release2" style="display:none">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-body">
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_name3" class="form-label">NAME</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name3"
+                                                                    name="emergency_contact_name3" onchange="namevalidation(this,'emergency_contact_name3_span')">
+                                                                <span class="spanmsg" id="emergency_contact_name3_span" style="color:red; display:none">
+                                                                    Enter valid input[only letters].</span>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_full_address3" class="form-label">FULL ADDRESS</label>
+                                                                <input type="text" class="form-control" aria-label="emergency_address"
+                                                                    id="emergency_contact_full_address3" name="emergency_contact_full_address3">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_relationship3" class="form-label">RELATIONSHIP</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                                    id="emergency_contact_relationship3" name="emergency_contact_relationship3">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="emergency_contact_telephone_number3" class="form-label">TELEPHONE NUMBER</label>
+                                                                <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                                    id="emergency_contact_telephone_number3" name="emergency_contact_telephone_number3"
+                                                                    onchange="validatePhone(this,'emergency_contact_telephone_number3_span')">
+                                                                <span id="emergency_contact_telephone_number3_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="care_provider_telephone_number3" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" id="care_provider_telephone_number3"
-                                                            name="care_provider_telephone_number3" onchange="validatePhone(this,'care_provider_telephone_number3_span')">
-                                                        <span id="care_provider_telephone_number3_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers,+,-,()].</span>
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>PHYSICIAN /MEDICAL CARE PROVIDER DETAILS</b></h5>
                                                     </div>
-                                                    <div class="col-sm">
-                                                        <label for="hospital_affiliation3" class="form-label">HOSPITAL AFFILIATION</label>
-                                                        <input type="text" class="form-control" id="hospital_affiliation3" name="hospital_affiliation3">
+                                                    <div class="panel-body">
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="child_care_provider_name3" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</label>
+                                                                <input type="text" class="form-control" id="child_care_provider_name3" name="child_care_provider_name3"
+                                                                    onchange="namevalidation(this,'child_care_provider_name3_span')">
+                                                                <span class="spanmsg" id="child_care_provider_name3_span" style="color:red; display:none">
+                                                                    Enter valid input[only letters].</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="care_provider_telephone_number3" class="form-label">TELEPHONE NUMBER</label>
+                                                                <input type="text" class="form-control" id="care_provider_telephone_number3"
+                                                                    name="care_provider_telephone_number3" onchange="validatePhone(this,'care_provider_telephone_number3_span')">
+                                                                <span id="care_provider_telephone_number3_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="hospital_affiliation3" class="form-label">HOSPITAL AFFILIATION</label>
+                                                                <input type="text" class="form-control" id="hospital_affiliation3" name="hospital_affiliation3">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center">
+                                                            <b>PHYSICIAN /MEDICAL CARE PROVIDER - ADDRESS</b>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="child_care_provider_street_address" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control" id="child_care_provider_street_address"
+                                                                    name="child_care_provider_street_address">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="child_care_provider_city_address" class="form-label">CITY</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="child_care_provider_city_address" name="child_care_provider_city_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="child_care_provider_state_address" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="child_care_provider_state_address" name="child_care_provider_state_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="child_care_provider_zip_address"class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control" id="child_care_provider_zip_address"
+                                                                    name="child_care_provider_zip_address" 
+                                                                    onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">                                                     
+                                                                    <span id="child_care_provider_zip_address_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="panel panel-default m-4">
                                             <div class="panel-heading">
-                                                <h5 class="panel-title text-center">
-                                                    <b>PHYSICIAN /MEDICAL CARE PROVIDER - ADDRESS</b>
-                                                </h5>
+                                                <h5 class="panel-title text-center"><b>DENTIST DETAILS</b></h5>
                                             </div>
                                             <div class="panel-body">
-                                                <div class="row p-3">
+                                                <div class="row m-2 mb-4 p-1">
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_street_address" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control" id="child_care_provider_street_address"
-                                                            name="child_care_provider_street_address">
+                                                        <label for="child_dentist_name" class="form-label">NAME OF CHILD'S DENTIST</label>
+                                                        <input type="text" class="form-control" id="child_dentist_name" name="child_dentist_name"
+                                                            onchange="namevalidation(this,'child_dentist_name_span')">
+                                                        <span class="spanmsg" id="child_dentist_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_city_address" class="form-label">CITY</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="child_care_provider_city_address" name="child_care_provider_city_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="child_care_provider_state_address" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="child_care_provider_state_address" name="child_care_provider_state_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="child_care_provider_zip_address"class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control" id="child_care_provider_zip_address"
-                                                            name="child_care_provider_zip_address" 
-                                                            onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">                                                     
-                                                            <span id="child_care_provider_zip_address_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="dentist_telephone_number" class="form-label">DENTIST TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" id="dentist_telephone_number" name="dentist_telephone_number"
+                                                            onchange="validatePhone(this,'dentist_telephone_number_span')">
+                                                        <span id="dentist_telephone_number_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row m-2 mb-4 p-1">
-                                            <div class="col-sm">
-                                                <label for="child_dentist_name" class="form-label">NAME OF CHILD'S DENTIST</label>
-                                                <input type="text" class="form-control" id="child_dentist_name" name="child_dentist_name"
-                                                    onchange="namevalidation(this,'child_dentist_name_span')">
-                                                <span class="spanmsg" id="child_dentist_name_span" style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="dentist_telephone_number" class="form-label">DENTIST TELEPHONE NUMBER</label>
-                                                <input type="text" class="form-control" id="dentist_telephone_number" name="dentist_telephone_number"
-                                                    onchange="validatePhone(this,'dentist_telephone_number_span')">
-                                                <span id="dentist_telephone_number_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                        </div>
-                                        <div class="row m-2 mb-4 p-1">
-                                            <div class="col-sm">
-                                                <label for="dentist_address" class="form-label">DENTIST ADDRESS</label>
-                                                <input type="text" class="form-control" id="dentist_address" name="dentist_address">
+                                                <div class="row m-2 mb-4 p-1">
+                                                    <div class="col-sm">
+                                                        <label for="dentist_address" class="form-label">DENTIST ADDRESS</label>
+                                                        <input type="text" class="form-control" id="dentist_address" name="dentist_address">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
@@ -749,38 +772,38 @@
                                                 <input type="number" class="form-control" id="policy_number" name="policy_number">
                                             </div>
                                         </div>
-                                        <div class="panel panel-info m-4">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title text-center">
-                                                    <b>PARENT’S / LEGAL GUARDIAN’S SIGNATURE IS REQUIRED</b>
-                                                </h3>
+                                    </div>
+                                    <div class="panel panel-info m-4">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title text-center">
+                                                <b>PARENT’S / LEGAL GUARDIAN’S SIGNATURE IS REQUIRED</b>
+                                            </h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row p-3">
+                                                <div class="col-sm">
+                                                    <label for="obtaining_emergency_medical_care" class="form-label">OBTAINING EMERGENCY MEDICAL CARE</label>
+                                                    <input type="text" class="form-control" id="obtaining_emergency_medical_care"
+                                                        name="obtaining_emergency_medical_care">
+                                                </div>
                                             </div>
-                                            <div class="panel-body">
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="obtaining_emergency_medical_care" class="form-label">OBTAINING EMERGENCY MEDICAL CARE</label>
-                                                        <input type="text" class="form-control" id="obtaining_emergency_medical_care"
-                                                            name="obtaining_emergency_medical_care">
-                                                    </div>
+                                            <div class="row p-3">
+                                                <div class="col-sm">
+                                                    <label for="administration_first_aid_procedures"
+                                                        class="form-label">ADMINISTRATION OF MINOR FIRST-AID PROCEDURES</label>
+                                                    <input type="text" class="form-control" id="administration_first_aid_procedures"
+                                                        name="administration_first_aid_procedures">
                                                 </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="administration_first_aid_procedures"
-                                                            class="form-label">ADMINISTRATION OF MINOR FIRST-AID PROCEDURES</label>
-                                                        <input type="text" class="form-control" id="administration_first_aid_procedures"
-                                                            name="administration_first_aid_procedures">
-                                                    </div>
+                                            </div>
+                                            <div class="row p-3">
+                                                <div class="col-sm">
+                                                    <label for="parent_sign" class="form-label">SIGNATURE OF PARENT /LEGAL GUARDIAN</label>
+                                                    <input type="text" class="form-control" id="parent_sign" name="parent_sign">
                                                 </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="parent_sign" class="form-label">SIGNATURE OF PARENT /LEGAL GUARDIAN</label>
-                                                        <input type="text" class="form-control" id="parent_sign" name="parent_sign">
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="sign_date">DATE</label>
-                                                        <input type="date" class="form-control" id="sign_date"
-                                                            name="sign_date" onclick="dateValidation('sign_date')" />
-                                                    </div>
+                                                <div class="col-sm">
+                                                    <label for="sign_date">DATE</label>
+                                                    <input type="date" class="form-control" id="sign_date"
+                                                        name="sign_date" onclick="dateValidation('sign_date')" />
                                                 </div>
                                             </div>
                                         </div>
@@ -928,7 +951,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="panel panel-default">
                                             <div class="panel-heading">
                                                 <h5 class="panel-title text-center"><b>PREGNANCY AND INFANT HISTORY</b></h5>
@@ -997,67 +1019,104 @@
                                                 <h3 class="panel-title text-center"><b>FAMILY HISTORY</b></h3>
                                             </div>
                                             <p class="text-center pt-5"><b>Has any blood relative of this child had
-                                                    any of the following conditions? (please check off)</b></p>
-                                            <div class="panel-body">
+                                                    any of the
+                                                    following conditions? (please check off)</b>
+                                            </p>
+                                            <div class="panel-body ">
                                                 <div class="row">
                                                     <div class="col-sm m-4">
-                                                        <input type="checkbox" id="family_history_allergies"
-                                                            name="family_history_allergies">&nbsp;
-                                                        <label for="family_history_allergies"
-                                                            class="form-check-label">Allergies</label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_allergies" name="family_history_allergies">
+                                                            <label class="form-check-label" for="family_history_allergies"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>Allergies</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-sm m-4">
-                                                        <input type="checkbox" id="family_history_heart_problems"
-                                                            name="family_history_heart_problems">&nbsp;
-                                                        <label for="family_history_heart_problems"
-                                                            class="form-check-label">Heart Problems</label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_heart_problems" name="family_history_heart_problems">
+                                                            <label class="form-check-label" for="family_history_heart_problems"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>Heart Problems</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-sm m-4">
-                                                        <input type="checkbox" id="family_history_tuberculosis"
-                                                            name="family_history_tuberculosis">&nbsp;
-                                                        <label for="family_history_tuberculosis"
-                                                            class="form-check-label">Tuberculosis</label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_tuberculosis" name="family_history_tuberculosis">
+                                                            <label class="form-check-label" for="family_history_tuberculosis"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>Tuberculosis</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm m-4">
-                                                        <input type="checkbox" id="family_history_asthma"
-                                                            name="family_history_asthma">&nbsp;
-                                                        <label for="family_history_asthma"
-                                                            class="form-check-label">Asthma</label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_asthma" name="family_history_asthma">
+                                                            <label class="form-check-label" for="family_history_asthma"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>Asthma</span>
+                                                            </label>
+                                                        </div>  
                                                     </div>
                                                     <div class="col-sm m-4">
-                                                        <input type="checkbox" id="family_history_high_blood_pressure"
-                                                            name="family_history_high_blood_pressure">&nbsp;
-                                                        <label for="family_history_high_blood_pressure"
-                                                            class="form-check-label">High Blood Pressure</label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_high_blood_pressure" name="family_history_high_blood_pressure">
+                                                            <label class="form-check-label" for="family_history_high_blood_pressure"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>High Blood Pressure</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-sm m-4">
-                                                        <input type="checkbox" id="family_history_vision_problems"
-                                                            name="family_history_vision_problems">&nbsp;
-                                                        <label for="family_history_vision_problems"
-                                                            class="form-check-label">Vision Problems</label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_vision_problems" name="family_history_vision_problems">
+                                                            <label class="form-check-label" for="family_history_vision_problems"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>Vision Problems</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm m-4">
-                                                        <input type="checkbox" id="family_history_diabetes"
-                                                            name="family_history_diabetes">&nbsp;
-                                                        <label for="family_history_diabetes"
-                                                            class="form-check-label">Diabetes
-                                                        </label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_diabetes" name="family_history_diabetes">
+                                                            <label class="form-check-label" for="family_history_diabetes"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>Diabetes</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-sm m-4">
-                                                            <input type="checkbox" id="family_history_hyperactivity"
-                                                                name="family_history_hyperactivity">&nbsp;
-                                                            <label for="family_history_hyperactivity"
-                                                                class="form-check-label">Hyperactivity</label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_hyperactivity" name="family_history_hyperactivity">
+                                                            <label class="form-check-label" for="family_history_hyperactivity"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>Hyperactivity</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-sm m-4">
-                                                        <input type="checkbox" id="family_history_epilepsy"
-                                                            name="family_history_epilepsy">&nbsp;
-                                                        <label for="family_history_epilepsy"
-                                                            class="form-check-label">Epilepsy</label>
+                                                        <div class="wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="family_history_epilepsy" name="family_history_epilepsy">
+                                                            <label class="form-check-label" for="family_history_epilepsy"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span><span>Epilepsy</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1848,14 +1907,12 @@
                                                 through the electronic daily activity reports.</p>
                                             <div class="row m-4">
                                                 <div class="col-sm">
-                                                    <div class="checkbox">
-                                                        <label for="photo_permission_agree" class="form-check-label">
-                                                            <input type="checkbox" id="photo_permission_agree"
-                                                                name="photo_permission_agree" value="1"><b>I agree to
-                                                                have individual photos of my child and photos of group
-                                                                activities that include mychild shared through the
-                                                                School’s
-                                                                electronic daily activity reports.</b>
+                                                    <div class="wizard-form-checkbox">
+                                                        <input type="checkbox" class="input-checkbox" id="photo_permission_agree" name="photo_permission_agree">
+                                                        <label class="form-check-label" for="photo_permission_agree"><span>
+                                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                </svg></span><span>I agree to have individual photos of my child and photos of group School’s electronic daily activity reports.</span>
                                                         </label>
                                                     </div>
                                                 </div>
@@ -2189,6 +2246,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </fieldset> 
                         <fieldset class="wizard-fieldset">
                             <div class="container">
