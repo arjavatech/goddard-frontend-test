@@ -37,26 +37,3 @@ function checkLoginState() {
 //     });
 // }
 
-// Function to perform logout/sign out
-function signOut() {
-    // Clear session data and perform cleanup tasks as needed// ...
-    // Redirect the user to the logout page or homepage
-    window.location.href = "login.html";
-}
-
-// Set the inactivity timeout duration in milliseconds (e.g., 10 minutes)
-const inactivityTimeoutDuration = 1 * 60 * 1000;
-let inactivityTimeoutId;
-// Function to reset the inactivity timer
-function resetInactivityTimer() {
-    // Clear the existing timeout, if any
-    clearTimeout(inactivityTimeoutId);
-    // Start a new timeout
-    inactivityTimeoutId = setTimeout(signOut, inactivityTimeoutDuration);
-}
-// Attach event listeners to document events to reset the inactivity timer
-document.addEventListener("mousemove", resetInactivityTimer);
-document.addEventListener("keydown", resetInactivityTimer);
-document.addEventListener("click", resetInactivityTimer);
-// Start the inactivity timer on page load
-document.addEventListener("DOMContentLoaded", resetInactivityTimer);
