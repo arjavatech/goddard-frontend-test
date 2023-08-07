@@ -6,6 +6,10 @@ function handleCredentialResponse(response) {
     console.log('Family Name: ' + responsePayload.family_name);
     console.log("Image URL: " + responsePayload.picture);
     console.log("Email: " + responsePayload.email)
+    // Store email
+    localStorage.clear()
+    localStorage.setItem('logged_in_email', responsePayload.email);
+    // Redirect
     window.location.href = "child_add.html";
 }
 
@@ -32,3 +36,4 @@ function checkLoginState() {
 //         console.log('User signed out.');
 //     });
 // }
+

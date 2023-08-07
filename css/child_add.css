@@ -4,14 +4,31 @@ body {
     padding: 0;
     font-family: 'roboto', sans-serif;
     overflow-x: clip;
+    visibility: hidden;
+}
+
+#additionalHtmlContainer {
+    display: none;
 }
 
 
 /*****Navigation Style*****/
 
-.navbar {
+.navbar_bg {
     background: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signout
+{
+    position: absolute !important;
+    top: 45px;
+    right: 80px !important;
+    color: #0F2D52 !important;
+}
+
+.signout_icon{
+    color: #0F2D52 !important;
 }
 
 /*****Navigation Style End*****/
@@ -58,6 +75,22 @@ body {
     width: 200px !important;
     height: 170px !important;
     background: #a7cdff !important;
+    border-radius: 20px !important;
+    cursor: pointer;
+}
+
+.dashboard_card_style_on_process{
+    width: 200px !important;
+    height: 170px !important;
+    background: #ff0000 !important;
+    border-radius: 20px !important;
+    cursor: pointer;
+}
+
+.dashboard_card_style_on_process:hover{
+    width: 200px !important;
+    height: 170px !important;
+    background: #cd5c5c !important;
     border-radius: 20px !important;
     cursor: pointer;
 }
