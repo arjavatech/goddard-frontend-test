@@ -14,16 +14,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
-        <script src="js/parent_dashboard.js"></script>
         <script type="module" src='js/script.js'></script>
         <script type="module" src='js/emailSend.js'></script>
         <script type="module" src='js/downloadpdf.js'></script>
         <script type="module" src='js/printpdf.js'></script>
         <script src="js/parentHandBookDownload.js"></script>
+        <script src="js/parent_dashboard.js"></script>
         <script type="module" src='js/timeout.js'></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-
         <style>
             .fa-pen {
                 padding-left: 20px !important;
@@ -123,7 +121,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-lg-2 control-label pt-2">Message</label>
                                                                 <div class="col-lg-10">
-                                                                    <textarea rows="10" cols="50" class="form-control"
+                                                                    <textarea rows="10" cols="30" class="form-control"
                                                                         id="messageData" name=""></textarea>
                                                                 </div>
                                                             </div>
@@ -450,5 +448,11 @@
                 link.href = `form.html?id=${dynamicValue}`;
             </script>
         </div>
+
+        <script>
+            var link = document.querySelector('a[data-dynamic-value]');
+            var dynamicValue = localStorage.getItem('child_id');
+            link.href = `form.html?id=${dynamicValue}`;
+        </script>
     </body>
 </html>
