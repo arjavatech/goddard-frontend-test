@@ -114,26 +114,26 @@ function parentDashBoardYear() {
     const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/'
     console.log(url + child_id)
     $.ajax({
-               url: url + child_id,
-               type: 'get',
-               success: function (response) {
-                   console.log(response)
-                   let yearArray = []
-                   for (let i = 0; i < response.length; i++) {
-                       yearArray.push(response[i].year)
-                   }
-                   yearArray.sort().reverse();
-                   console.log(yearArray);
-                   let optionsData = '';
-                   document.querySelector('[name="form_year"]').innerHTML = '';
-                   for (let i = 0; i < yearArray.length; i++) {
-                       optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
-                                      + '</option>';
-                       document.querySelector('[name="form_year"]').innerHTML =
-                           optionsData;
-                   }
-               }
-           });
+        url: url + child_id,
+        type: 'get',
+        success: function (response) {
+            console.log(response)
+            let yearArray = []
+            for (let i = 0; i < response.length; i++) {
+                yearArray.push(response[i].year)
+            }
+            yearArray.sort().reverse();
+            console.log(yearArray);
+            let optionsData = '';
+            document.querySelector('[name="form_year"]').innerHTML = '';
+            for (let i = 0; i < yearArray.length; i++) {
+                optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
+                                + '</option>';
+                document.querySelector('[name="form_year"]').innerHTML =
+                    optionsData;
+            }
+        }
+    });
 }
 
 $(document).ready(function () {
