@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/styles_form_parent_dashboard.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
-        <link rel="stylesheet" href="css/parent_dashboard_styel.css">
+        <link rel="stylesheet" href="css/parent_dashboard_style.css">
         <link rel="stylesheet" href="css/application_status.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -15,7 +15,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
-        <script type="module" src='js/script.js'></script>
         <script type="module" src='js/applicationStatus.js'></script>
         <script src='js/applicationStatusfilter.js'></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -41,7 +40,7 @@
             <div class="row">
                 <div class="col-1">
                     <h4>Year : </h4>
-                </div><br><br>
+                </div>
                 <!-- Year dynamic dropdown -->
                 <div class="col-1 dropdown">
                     <!-- <h4>Year : <span id="form_year" name="form_year"></span></h4> -->
@@ -60,8 +59,11 @@
                       </svg></div>
                 </div>
                 <div class="col-3">
-                    <select id="enrollmentStatus" class="form-control">
-                        <option hidden>Filter <span class="fa-solid fa-filter-list">🔖</span></option>
+                    <select id="enrollmentStatus" class="form-control" onchange="filterTableByEnrollmentStatus(this.value)">
+                        <option >Filter <span class="fa-solid fa-filter-list">🔖</span></option>
+                        <option value="Completed">Completed</option>
+                        <option value="Reviewing">Reviewing</option>
+                        <option value="Incompleted">Incompleted</option>
                     </select>
                 </div>
             </div>
@@ -83,12 +85,12 @@
                             <!-- Table Head End -->
                             <!-- Table Body -->
                             <tbody id="tableBody">
-                                <tr>
+                                <!-- <tr>
                                     <td id="child_name" name="child_name"></td>
                                     <td id="parent_name" name="parent_name"></td>
                                     <td id="application_status" name="application_status"></td>
                                     <td id="enrollment_form_status" name="enrollment_form_status"></td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                             <!-- Table Body End -->
                             <!-- Table Footer -->
@@ -104,6 +106,7 @@
                         </table>
                         <!-- Form Action Table End -->
                     </div>
+                
                     <div class="position-relative p-4">
                         <div class="position-absolute top-50 start-50 translate-middle">
                             <nav aria-label="Page navigation example">
@@ -111,11 +114,6 @@
                                     <li class="page-item disabled" id="prevPage">
                                         <a class="page-link" href="#" tabindex="-1">Previous</a>
                                     </li>
-                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item" id="nextPage">
                                         <a class="page-link" href="#">Next</a>
                                     </li>
@@ -123,15 +121,9 @@
                             </nav>
                         </div>
                     </div>
-                    <!-- <div class="pagination">
-                        <button id="prevPage">Previous</button>
-                        <button id="nextPage">Next</button>
-                    </div> -->
                 </div>
-               
             </div>
         </div>
-       <!-- ... Your HTML code ... -->
-      
+
     </body>
 </html>
