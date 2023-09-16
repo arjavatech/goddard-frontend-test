@@ -139,11 +139,13 @@ async function emailSend() {
 
         const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
         obj.attachmentKey = attachmentKey;
+        const json =JSON.stringify(obj);
+        console.log(json);
         $.ajax({
                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
                type: "POST",
                contentType: "application/json",
-               data: JSON.stringify(obj),
+               data: json,
                success: function (response) {
                    alert("Email Sent Successfully")
                    let modal = document.querySelector('.modal');

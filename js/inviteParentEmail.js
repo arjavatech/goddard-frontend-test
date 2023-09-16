@@ -1,42 +1,46 @@
-
 let title, globalBase64;
 AWS.config.update({
-                      accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
-                      secretAccessKey: '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',
-                      region: 'us-west-2'
-                  });
+        accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
+        secretAccessKey: '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',
+        region: 'us-west-2'
+    });
 
 const s3 = new AWS.S3();
 
-var parent_email;
-let email = $('#parent_email').val();
-console.log(email);
 let obj = {
     "from": "noreply.goddard@gmail.com",
-    "to": `${email}`,
+    "to": "noreply.goddard@gmail.com",
     "subject": "subject",
     "body": "message data",
+    "attachmentName": "AttachmentForm",
+    "attachmentKey": "attachments/Test.pdf"
 }
-console.log(obj);
 
 async function emailSend() {
     try {
-        obj.subject = 'invite parent';
-        let parent_email = $('#parent_email').val();
-        console.log(parent_email);
+        // const base64Data = await getPDFBase64Data();
+        obj.attachmentName = "AttachmentForm";
+        let parent_email = $('#parent_one_email').val();
         obj.to =parent_email;
-        let messageData = $('#messageData').val();
-        console.log(messageData);
+        obj.subject = 'Invite parents';
+        let messageData = $('#messageData').val();;
         obj.body = messageData;
-        console.log(obj);
+
+        // const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
+        // obj.attachmentKey = attachmentKey;
+        const json =JSON.stringify(obj);
+        console.log(json);
         $.ajax({
                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
-               type: "OPTIONS",
+               type: "POST",
                contentType: "application/json",
-               data: JSON.stringify(obj),
+               data: json,
                success: function (response) {
                    alert("Email Sent Successfully")
-                   window.location.href = "admin_dashboard.html";
+                //    let modal = document.querySelector('.modal');
+                //    $('#mailbox').modal('hide');
+                //    let bootstrapModal = bootstrap.Modal.getInstance(modal);
+                //    bootstrapModal.hide();
                },
                error: function (xhr, status, error) {
                    alert("Email sending failed")
@@ -47,13 +51,17 @@ async function emailSend() {
     }
 }
 
-
 $(document).ready(function () {
     $('#sendButton').click(function () {
-        emailSend();
-        // Clear the text area
-        $('#staticBackdrop').on('show.bs.modal', function() {
-            $('#messageData').val('');
-        });
+        console.log('xfvdfvds');
+        // fetchEnrollmentFormTitle(function () {
+        //     fetchEnrollmentFormBody(function () {
+                emailSend();
+                // Clear the text area
+        //         $('#staticBackdrop').on('show.bs.modal', function() {
+        //             $('#messageData').val('');
+        //         });
+        //     });
+        // });
     });
 })
