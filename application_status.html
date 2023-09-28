@@ -15,8 +15,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
-        <script type="module" src='js/script.js'></script>
-        <script type="module" src='js/applicationStatus.js'></script>
+        <!-- <script type="module" src='js/script.js'></script>
+        <script type="module" src='js/applicationStatus.js'></script> -->
         <script src='js/applicationStatusfilter.js'></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
@@ -34,23 +34,23 @@
         <!-- Parent Dashboard -->
         <div class="container">
             <!-- Child Name -->
-            <h2 class="parent_dashboard_title h2 pt-4 text-center">Application Status for :<span id="applicationStatusYear"></span>
+            <h2 class="parent_dashboard_title h2 pt-4 text-center">
+                <span id="applicationStatusLabel">Application Status for :</span><span id="applicationStatusYear"></span>
                 <span class="child-name fs-2" id="applicationStatusyear" name="applicationStatusyear"></span>
             </h2><br><br>
             <!-- Year -->
             <div class="row">
                 <div class="col-1">
-                    <h4>Year : </h4>
+                    <!-- <h4>Year : </h4> -->
                 </div>
-                <!-- Year dynamic dropdown -->
-                <div class="col-1 dropdown">
-                    <!-- <h4>Year :</h4>&nbsp; -->
-                    <select name="form_year" id="form_year" class="form-control"
-                        onclick="applicationStatusYear(this.value)" required>
-                        <!-- <option value="2023">2023</option> -->
+             
+                <!-- <div class="col-1 dropdown">
+                  
+                    <select name="form_year" id="form_year"
+                        onclick="applicationStatusYear(this.value)" required><i class="fa fa-chevron-down"></i>
+                        
                     </select>
-                    <i class="fa fa-chevron-down"></i>
-                </div>
+                </div> -->
                 <!-- Year dynamic dropdown End -->
                 <div class="col-7 search-container">
                     <input type="text" id="searchInput" class=" search-input" 
@@ -60,12 +60,13 @@
                       </svg></div>
                 </div>
                 <div class="col-3">
-                    <select id="enrollmentStatus" class="form-control" onchange="filterTableByEnrollmentStatus(this.value)">
+                    <!-- <select id="enrollmentStatus" class="form-control" onchange="filterTableByEnrollmentStatus(this.value)">
                         <option >Filter <span class="fa-solid fa-filter-list">🔖</span></option>
                         <option value="Completed">Completed</option>
                         <option value="Reviewing">Reviewing</option>
+                        <option value="Inprogress">Inprogress</option>
                         <option value="Incomplete">Incomplete</option>
-                    </select>
+                    </select> -->
                 </div>
             </div>
             <!-- Year End -->
@@ -80,7 +81,14 @@
                                     <th>Child Name</th>
                                     <th>Parent Name</th>
                                     <th>Admission Form Status</th>
-                                    <th>Form Status</th>
+                                    <th id="form_status">
+                                        <label for="form_name" class="form-label">Form Status</label>
+                                        <select name="form_name" id="form_name" 
+                                           onclick="formdetails(this.value)"><i id="form_name" class="fa fa-chevron-down form_status_dropdown"></i>
+                                          <!-- <option>Form 1</option>
+                                          <option>Form 2</option> -->
+                                        </select>   
+                                    </th>
                                 </tr>
                             </thead>
                             <!-- Table Head End -->
