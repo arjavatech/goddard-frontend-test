@@ -1,88 +1,72 @@
+<!-- the code taken by this link : https://getbootstrap.com/docs/5.3/components/accordion/ -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Welcome-Dashboard</title>
+        <title>Child Basic Information</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
-        <link rel="stylesheet" href="css/form_style.css">
-        <link rel="stylesheet" href="css/navbar_signout_style.css">
-        <link rel="stylesheet" href="css/child_add.css">
+        <link rel="shortcut icon" href="/image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="/css/navbar_signout_style.css">
+        <link rel="stylesheet" href="/css/form_style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script type="module" src='/js/welcomeScreen.js'></script>
-        <script type="module" src='/js/timeout.js'></script>
-        <!-- <script type="module" src='/js/script.js'></script> -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <style>
-            .accordion-button:not(.collapsed)::after {
-                background-image: url('image/down_white.png');
-                transform: rotate(-180deg);
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+       <style>
+            .inputBox {
+                /* display: block; */
+                /* width: 100%; */
+                padding: 0.375rem 0.75rem !important;
+                font-size: 1rem !important;
+                font-weight: 400 !important;
+                line-height: 1.5 !important;
+                color: #212529 !important;
+                background-color: #fff !important;
+                background-clip: padding-box !important;
+                border: 1px solid #ced4da !important;
+                -webkit-appearance: none !important;
+                -moz-appearance: none !important;
+                appearance: none !important;
+                border-radius: 0.25rem !important;
+                transition: border-color .15s ease-in-out ,box-shadow .15s ease-in-out !important;
             }
+    
+            .child_basic_card
+            {
+              width: 450px;
+              background: #D8E9FF !important;
+              box-shadow: 0px 4px 15px rgba(83, 53, 73, 0.25);
+              border-radius: 10px !important;
+              border: none !important;
+              padding: 20px;
+            }
+
+            .card_center
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
         </style>
     </head>
     <body>
         <!-- Navigation Bar -->
         <nav class="navbar_bg">
             <div class="text-center">
-                <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+                <img src="/image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
             </div>
-            <div id="btn-signout" class="btn signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign Out</b></div>
+            <div id="btn-signout" class="btn signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign Out</b>
+            </div>
         </nav>
         <!-- Navigation Bar End -->
-        <!-- Welcome Screen -->
-        <div class="p-3">
-            <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard</h2>
-            <!-- Welcome Text -->
-            <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
-            <div class="row" id="additionalHtmlContainer">
-                <!-- Dynamic Child Cards -->
-                <div id="dynamicChildCards" class="row">
-                    <!--        <div class="col-2 m-3 mt-4">-->
-                    <!--            <a href="parent_dashboard.html" class="text-decoration-none">-->
-                    <!--                <div class="card dashboard_card_style1">-->
-                    <!--                    <div class="card-body pt-4">-->
-                    <!--                        <h5 id="childname" class="text-center dashboard_card_text pt-3 h4"></h5>-->
-                    <!--                    </div>-->
-                    <!--                </div>-->
-                    <!--            </a>-->
-                    <!--        </div>-->
-                </div>
-                <!-- Add Child -->
-                <div class="col-2 m-3 mt-4" onclick="divShow()" id="showDiv">
-                    <!-- <a href="parent/child_basic_details.html" class="text-decoration-none"> -->
-                        <div class="card dashboard_card_style">
-                            <div class="card-body pt-4">
-                                <h5 class="card-title text-center dashboard_card_icon">
-                                    <!-- Add Child Icon -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60"
-                                        height="60" fill="currentColor"
-                                        class="bi bi-plus-circle-fill"
-                                        viewBox="0 0 17 17">
-                                        <path
-                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                                    </svg>
-                                </h5>
-                                <h5 class="text-center dashboard_card_icon pt-3 h4">Add Child</h5>
-                            </div>
-                        </div>
-                    <!-- </a> -->
-                </div>
-                <!-- Add Child End -->
-            </div>
-        </div>
-        <!-- Welcome Screen End -->
-        <div class="row m-3" style="display: none;" id="addChildDiv">
+
+        <div class="row m-3">
             <!--Child and Family History Form-->
             <div id="child_basic_form"><br>
+                <h2 class="text-center">Child Basic Information</h2><br>
                 <div class="card_center">
                     <div class="card child_basic_card">
-                        <h2 class="text-center card_title p-4">Child Basic Information</h2><br>
                         <div class="container" id="avf_form">
                             <section class="wizard-section">
                                 <div class="row no-gutters">
@@ -149,33 +133,27 @@
         <script>
             $(document).ready(function () {
           
-                $("#showDiv").on("click", function (e) {
-                    e.preventDefault(); // Prevent the default form submission
-                    divShow();
-                });
                 $("#submit_button").on("click", function (e) {
                     e.preventDefault(); // Prevent the default form submission
                     submitForm();
                 });
             });
-            function divShow(){
-                let addChildDiv = document.getElementById('addChildDiv');
-                if(addChildDiv){
-                    addChildDiv.style.display = 'block';
-                }else{
-                    addChildDiv.style.display = 'none';
-                }
-            }
             // Function to submit the form data
             function submitForm() {
                 const form = document.getElementById("childBasicForm");
                 const formData = new FormData(form);
                 const obj = Object.fromEntries(formData);
-                const logged_in_email = localStorage.getItem('logged_in_email');
-                obj.primary_parent_email = logged_in_email;
-                obj.on_process = true;
-                localStorage.setItem('child_full_name', obj.child_full_name);
-                localStorage.setItem('dob', obj.dob);
+                // const enformData = new FormData(form);
+                // obj.child_id = "NCD0005";
+                // const logged_in_email = localStorage.getItem('logged_in_email');
+                obj.on_process = false;
+                // obj.parent_email_one = logged_in_email;
+                obj.form_status = "10";
+                obj.year = new Date().getFullYear() + '';
+                // const child_id_val = localStorage.getItem('child_id');
+                // if (child_id_val !== null && child_id_val !== undefined) {
+                //     obj.child_id = child_id_val;
+                // }
                 console.log(obj);
                 $.ajax({
                     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
@@ -183,9 +161,9 @@
                     contentType: "application/json",
                     data: JSON.stringify(obj),
                     success: function (response) {
-                        alert(response.message);
-                        console.log(response.message);
-                        window.location.reload();
+                        alert(response);
+                        console.log(response);
+                        window.location.href = "/child_add.html";
                     },
                     error: function (xhr, status, error) {
                         alert("failed to submit admission form");
@@ -194,4 +172,4 @@
             }
         </script>
     </body>
-</html>
+</html>        

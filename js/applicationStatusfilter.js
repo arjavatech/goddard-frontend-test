@@ -8,10 +8,10 @@ function enrollmentValueSend(status,id,year,form_name){
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
         success: function (response) {
-            alert("form submitted successfully");
+            // alert("form submitted successfully");
         },
         error: function (xhr, status, error) {
-            alert("form submit failed");
+            // alert("form submit failed");
         }
     });
 
@@ -78,7 +78,7 @@ function applicationStatusYear() {
                         const reviewingOption = document.createElement('option');
                         reviewingOption.value = 'Reviewing';
                         reviewingOption.textContent = 'Reviewing';
-                        reviewingOption.style.color = 'yellow';
+                        reviewingOption.style.color = '#a5a202';
 
                         const incompleteOption = document.createElement('option');
                         incompleteOption.value = 'Incomplete';
@@ -108,7 +108,7 @@ function applicationStatusYear() {
                             enrollmentStatusCell.style.color = 'red';
                             enrollmentStatusCell.style.fontWeight = 'bold';
                         } else {
-                            enrollmentStatusCell.style.color = '#FFCC00';
+                            enrollmentStatusCell.style.color = '#a5a202';
                             enrollmentStatusCell.style.fontWeight = 'bold';
                         }
             
@@ -199,7 +199,7 @@ function formdetails(val){
                                 childNameaCell.textContent = responseValue[j].child_name;
                                
                                 if(val == 'ACH Recurring payments form'){
-                                    childNameaCell.href = `authorization_form.html?id=${responseValue[j].child_id}`;
+                                    childNameaCell.href = `./forms/authorization_form.html?id=${responseValue[j].child_id}`;
                                 }else{
                                     childNameaCell.href = `form.html?id=${responseValue[j].child_id}`;
                                 }
@@ -315,72 +315,76 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
 
-    //for pagination code
-    // Number of rows to display per page
-    const rowsPerPage = 5;
-    let currentPage = 1;
+    // //for pagination code
+    // // Number of rows to display per page
+    // const rowsPerPage = 4;
+    // let currentPage = 1;
     
-    // Function to update the table based on the current page
-    function updateTable() {
-        const tableRows = document.querySelectorAll("#tableBody tr");
-        const startIndex = (currentPage - 1) * rowsPerPage;
-        const endIndex = currentPage * rowsPerPage;
+    // // Function to update the table based on the current page
+    // function updateTable() {
+    //     const tableRows = document.querySelectorAll("#tableBody tr");
+    //     console.log(tableRows);
+    //     const startIndex = (currentPage - 1) * rowsPerPage;
+    //     console.log(startIndex);
+    //     const endIndex = currentPage * rowsPerPage;
+    //     console.log(endIndex);
     
-        tableRows.forEach((row, index) => {
-            if (index >= startIndex && index < endIndex) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
+    //     tableRows.forEach((row, index) => {
+    //         console.log(row);
+    //         console.log(index);
+    //         if (index >= startIndex && index < endIndex) {
+    //             row.style.display = "";
+    //         } else {
+    //             row.style.display = "none";
+    //         }
+    //     });
     
-        // Update the pagination buttons
-        updatePaginationButtons();
-    }
+    //     // Update the pagination buttons
+    //     updatePaginationButtons();
+    // };
     
-    // Function to update the pagination buttons
-    function updatePaginationButtons() {
-        const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
-        const prevPageButton = document.getElementById("prevPage");
-        const nextPageButton = document.getElementById("nextPage");
+    // // Function to update the pagination buttons
+    // function updatePaginationButtons() {
+    //     const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
+    //     const prevPageButton = document.getElementById("prevPage");
+    //     const nextPageButton = document.getElementById("nextPage");
     
-        prevPageButton.classList.toggle("disabled", currentPage === 1);
-        nextPageButton.classList.toggle("disabled", currentPage === totalPages);
-    }
+    //     prevPageButton.classList.toggle("disabled", currentPage === 1);
+    //     nextPageButton.classList.toggle("disabled", currentPage === totalPages);
+    // }
     
-    // Event listener for previous page button
-    document.getElementById("prevPage").addEventListener("click", () => {
-        if (currentPage > 1) {
-            currentPage--;
-            updateTable();
-        }
-    });
+    // // Event listener for previous page button
+    // document.getElementById("prevPage").addEventListener("click", () => {
+    //     if (currentPage > 1) {
+    //         currentPage--;
+    //         updateTable();
+    //     }
+    // });
     
-    // Event listener for next page button
-    document.getElementById("nextPage").addEventListener("click", () => {
-        const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
+    // // Event listener for next page button
+    // document.getElementById("nextPage").addEventListener("click", () => {
+    //     const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
+    //     if (currentPage < totalPages) {
+    //         currentPage++;
+    //         updateTable();
+    //     }
+    // });
     
-        if (currentPage < totalPages) {
-            currentPage++;
-            updateTable();
-        }
-    });
+    // // Initial table setup and update
+    // window.addEventListener("load", () => {
+    //     hideRowsInitially();
+    //     updateTable();
+    // });
     
-    // Initial table setup and update
-    window.addEventListener("load", () => {
-        hideRowsInitially();
-        updateTable();
-    });
-    
-    // Function to hide rows that should not be displayed on the first page
-    function hideRowsInitially() {
-        const tableRows = document.querySelectorAll("#tableBody tr");
-        tableRows.forEach((row, index) => {
-            if (index >= rowsPerPage) {
-                row.style.display = "none";
-            }
-        });
-    }
+    // // Function to hide rows that should not be displayed on the first page
+    // function hideRowsInitially() {
+    //     const tableRows = document.querySelectorAll("#tableBody tr");
+    //     tableRows.forEach((row, index) => {
+    //         if (index >= rowsPerPage) {
+    //             row.style.display = "none";
+    //         }
+    //     });   
+    // }
     
 
     

@@ -53,27 +53,28 @@ function submitForm() {
 }
 
 // Function to submit the form data
-function saveForm(value) {
-    const form = document.getElementById("admission_form");
+function saveForm() {
+    const form = document.getElementById("childInfo");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     // obj.child_id = "NCD0005"; 
     // const logged_in_email = localStorage.getItem('logged_in_email');
     obj.on_process = true;
     // obj.parent_email_one = logged_in_email;
-    obj.parent_id = localStorage.getItem('parent_id');
-    obj.form_status = value;
+    obj.primary_parent_email = localStorage.getItem('logged_in_email');
     const child_id_val = localStorage.getItem('child_id');
+    console.log(child_id_val);
     if (child_id_val !== null && child_id_val !== undefined) {
-        obj.child_id = child_id_val;
+        obj.child_id = child_id_val; 
     }
-    obj.year = new Date().getFullYear() + '';
     console.log(obj);
+    const json = JSON.stringify(obj);
+    console.log(json);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
+        url: " https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify(obj),
+        data: json,
         success: function (response) {
             alert("Form saved successfully")
             localStorage.setItem('child_id', response.child_id);
@@ -92,94 +93,113 @@ $(document).ready(function () {
         document.body.style.visibility = 'visible';
 
         // Add click event listener to the "Save" button
-        $("#first_save_button").on("click", function (e) {
+        $("#child_basic_info").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="1";
-            saveForm(application_value);
+            saveForm();
         });
-        $("#second_save_button").on("click", function (e) {
+        $("#parent_info").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="2";
-            saveForm(application_value);
+            saveForm();
         });
-        $("#third_save_button").on("click", function (e) {
+        $("#emergency_info").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="3";
-            saveForm(application_value);
+            saveForm();
         });
-        $("#four_save_button").on("click", function (e) {
+        $("#fourth_save").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="4";
-            saveForm(application_value);
+            saveForm();
         });
-        $("#five_save_button").on("click", function (e) {
+        $("#fifth_save").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="5";
-            saveForm(application_value);
+            saveForm();
         });
-        $("#six_save_button").on("click", function (e) {
+        $("#sixth_save").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="6";
-            saveForm(application_value);
+            saveForm();
         });
-        $("#seven_save_button").on("click", function (e) {
+        $("#seventh_save").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="7";
-            saveForm(application_value);
+            saveForm();
         });
-        $("#eight_save_button").on("click", function (e) {
+        $("#eigth_save").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="8";
-            saveForm(application_value);
+            saveForm();
         });
-        $("#nine_save_button").on("click", function (e) {
+        $("#nine_save").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value ="9";
-            saveForm(application_value);
+            saveForm();
+        });
+        $("#ten_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#eleven_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#twelve_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#thirteen_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#fourteen_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#fifteen_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#sixteen_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#seventeen_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#eighteen_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#nineteen_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#twenty_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#twentyone_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#twentytwo_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#twentythree_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#twentyfour_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#twentyfive_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $("#twentysix_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
         });
         $("#submit_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-            if ($(this).prop("disabled")) {
-                return; // If the button is already disabled, do nothing and return
-            }
-            $(this).prop("disabled", true); // Disable the button after the first click
-            submitForm();
+          
         });
 
     }

@@ -13,6 +13,14 @@
     color: #fff !important;
 }
 
+.card_style{
+    background: #cadffa !important; 
+}
+
+.card_style:hover{
+    opacity: 0.6;
+}
+
 .dashboard_card_style1{
     width: 200px !important;
     height: 170px !important;
@@ -38,11 +46,7 @@
 }
 
 .dashboard_card_style:hover {
-    width: 200px !important;
-    height: 170px !important;
-    background: #a7cdff !important;
-    border-radius: 20px !important;
-    cursor: pointer;
+    opacity: 0.8;
 }
 
 .dashboard_card_style_on_process{
@@ -60,6 +64,30 @@
     border-radius: 20px !important;
     cursor: pointer;
 }
+
+
+.child_basic_card
+    {
+    width: 450px;
+    background: #D8E9FF !important;
+    box-shadow: 0px 4px 15px rgba(83, 53, 73, 0.25);
+    border-radius: 10px !important;
+    border: none !important;
+    }
+
+.card_title
+{
+    background-color:#0F2D52; 
+    color: #fff;
+    border-radius: 10px 10px 0 0 !important;
+}    
+            
+.card_center
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }            
 
 
 /*****Parent Dashboard Style End*****/
