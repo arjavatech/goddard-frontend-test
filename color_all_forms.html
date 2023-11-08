@@ -13,12 +13,22 @@
     <script type="module" src="js/admission_form_validation.js"></script>
     <style>
         .accordion-button:not(.collapsed)::after {
-            background-image: url('/image/down_white.png');
+            background-image: url('image/down_white.png');
             transform: rotate(-180deg);
         }
         .accordion-button-one:not(.collapsed)::after {
-            background-image: url('/image/down_white.png');
+            background-image: url('image/down_white.png');
             transform: rotate(-180deg);
+        }
+
+        span.icon
+       {
+        position: absolute;
+        z-index: 10;
+        background-image: url('image/tick.png');
+        background-repeat: no-repeat;
+        width: 5%;
+        height: 5%;
         }
     </style>
 </head>
@@ -49,66 +59,112 @@
                     <ul class="nav nav-pills flex-column" role="tablist">
                         <div id="admission" class="accordion-collapse collapse show"
                             data-bs-parent="#accordionExampleone">
-                            <div class="accordion-body accordion_body_style">
-                                <li class="nav-item" id="aaa">
-                                    <a class="nav-link active" data-bs-toggle="pill" href="#childinformation"
-                                    >Child Information</a>
+                            <div class="accordion-body accordion_body_style">        
+                                <li class="nav-item" >
+                                    <a class="nav-link active" data-bs-toggle="pill" 
+                                        href="#childinformation" id="aaa">
+                                        Child Information&nbsp;&nbsp;
+                                            <!-- <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;"> -->
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">Child
-                                        and Family History</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill"
-                                        href="#immunizationinstructions">Immunization Instructions</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#childprofile">Child Profile</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#pickuppassword">Pick-up
-                                        Password</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory" id="bbb">
+                                        Child and Family History
+                                            <img src="image/tick.png" height="10%" width="10%" class="childhistory-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childhistory-circle" style="display: none;">
+                                        
+                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="pill"
-                                        href="#photovideopermission">Photo/Video Permission</a>
+                                        href="#immunizationinstructions">
+                                        <span>Immunization Instructions
+                                            <img src="image/tick.png" height="10%" width="10%" class="immunization-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="immunization-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#securitypolicy">Security &
-                                        Policy</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#childprofile">
+                                        <span>Child Profile
+                                            <img src="image/tick.png" height="10%" width="10%" class="childprofile-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childprofile-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#medicaltransportation">Medical
-                                        Transportation</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#pickuppassword">
+                                        <span>Pick-up Password
+                                            <img src="image/tick.png" height="10%" width="10%" class="childpickup-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childpickup-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#healthpolicies">Health
-                                        Policies</a>
+                                    <a class="nav-link" data-bs-toggle="pill"
+                                        href="#photovideopermission">
+                                        <span>Photo/Video Permission
+                                            <img src="image/tick.png" height="10%" width="10%" class="childphotopermission-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childphotopermission-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#outsideengagements">Outside
-                                        Engagements</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#securitypolicy">
+                                        <span>Security & Policy
+                                            <img src="image/tick.png" height="10%" width="10%" class="childsecurity-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childsecurity-circle" style="display: none;">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#medicaltransportation">
+                                        <span>Medical Transportation
+                                            <img src="image/tick.png" height="10%" width="10%" class="childmedical-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childmedical-circle" style="display: none;">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#healthpolicies">
+                                        <span>Health Policies
+                                            <img src="image/tick.png" height="10%" width="10%" class="childhealth-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childhealth-circle" style="display: none;">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#outsideengagements">
+                                        <span>Outside Engagements
+                                            <img src="image/tick.png" height="10%" width="10%" class="childoutside-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childoutside-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                             </div>
                         </div><br>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="pill" href="#enrollmentagreement">Enrollment
-                                Agreement</a>
+                            <a class="nav-link" data-bs-toggle="pill" href="#enrollmentagreement">
+                                <span>Enrollment Agreement
+                                    <img src="image/tick.png" height="10%" width="10%" class="childenrollment-tick" style="display: none;">
+                                    <img src="image/circle-with.png" height="5%" width="5%" class="childenrollment-circle" style="display: none;">
+                                </span>
+                            </a>
                         </li><br>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="pill" href="#authorization">Authorization</a>
+                            <a class="nav-link" data-bs-toggle="pill" href="#authorization">
+                                <span>Authorization
+                                    <img src="image/tick.png" height="10%" width="10%" class="childauthorization-tick" style="display: none;">
+                                    <img src="image/circle-with.png" height="5%" width="5%" class="childauthorization-circle" style="display: none;">
+                                </span>
+                            </a>
                         </li><br>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="pill" href="#parentsignature"
-                             style="background-color: blanchedalmond !important;" disabled>Parent Signature</a>
+                            <a class="nav-link" data-bs-toggle="pill" href="#parentsignature">Parent Signature</a>
                         </li>
                     </ul>
-
                 </div><br>
-                <!--Admission Form Tab End-->
-                <ul class="nav nav-pills flex-column" role="tablist">
-
-                </ul>
             </div>  
         </div>
         <div class="col-9">
@@ -122,10 +178,13 @@
                             <!--Child Details-->
                             <div class="accordion-item">
                                 <h2 class="accordion-header shadow" id="childinfoHeadingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" id="childDetailsId"
                                         data-bs-target="#childifoCollapseOne" aria-expanded="true" aria-controls="childifoCollapseOne">
-                                        Child Details
+                                        Child Details&nbsp;&nbsp;
+                                        <!-- <img src="image/tick.png" height="3%" width="3%" class="childdetails-tick float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childdetails-circle" style="display: none;"> -->
                                     </button>
+                                    
                                 </h2>
                                 <div id="childifoCollapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="childinfoHeadingOne" data-bs-parent="#childinfoAccordionExample">
@@ -136,7 +195,7 @@
                                                     <label for="child_full_name" class="form-label"><b>CHILD’S FULL NAME
                                                             </b></label><br>
                                                     <input name="child_full_name" type="text" maxlength="20"
-                                                        class="form-control " id="child_full_name" onchange="checking(this,'childinfoHeadingOne')">
+                                                        class="form-control " id="child_full_name">
                                                 </div>
                                             </div>
                                             <div class="col-sm">
@@ -157,8 +216,61 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row m-1 mb-4">
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="primary_language" class="form-label"><b>PRIMARY LANGUAGE</b></label>
+                                                    <input type="text" class="form-control " aria-label="Telephone Number"
+                                                        id="primary_language" name="primary_language">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="school_age_child_school" class="form-label"><b>SCHOOL-AGE CHILD’S SCHOOL</b>
+                                                    </label>
+                                                    <input type="text" class="form-control " id="school_age_child_school"
+                                                        name="school_age_child_school">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row m-1 mb-4">
+                                            <div id="do_relevant_custody_papers_apply" class="col-sm">
+                                                <div class="form-group">
+                                                    <p><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></p>
+                                                    <div class="wizard-form-radio">
+                                                        <input name="do_relevant_custody_papers_apply"
+                                                            id="do_relevant_custody_papers_apply1" value="Yes"
+                                                            type="radio">
+                                                        <label for="do_relevant_custody_papers_apply1">Yes</label>
+                                                    </div>
+                                                    <div class="wizard-form-radio">
+                                                        <input name="do_relevant_custody_papers_apply"
+                                                            id="do_relevant_custody_papers_apply2" type="radio"
+                                                            value="No" checked>
+                                                        <label for="do_relevant_custody_papers_apply2">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="gender" class="col-sm">
+                                                <div class="form-group">
+                                                    <p><b>GENDER</b></p>
+                                                    <div class="wizard-form-radio">
+                                                        <input name="gender" id="gender1" value="Male" type="radio" checked>
+                                                        <label for="gender1">Male</label>
+                                                    </div>
+                                                    <div class="wizard-form-radio">
+                                                        <input name="gender" id="gender2" type="radio" value="Female">
+                                                        <label for="gender2">Female</label>
+                                                    </div>
+                                                    <div class="wizard-form-radio">
+                                                        <input name="gender" id="gender3" type="radio" value="Others">
+                                                        <label for="gender3">Others</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="text-center">
-                                            <button class="save-btn">Save</button>
+                                            <button class="save-btn" id="child_basic_info">Save</button>
                                         </div>
                                     </div>
                                     
@@ -168,9 +280,11 @@
                             <div class="accordion-item">
                                 <form>
                                     <h2 class="accordion-header shadow" id="parentDetailsHeadingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" id="parentDetails"
                                             data-bs-target="#parentDetailsCollapseTwo" aria-expanded="false" aria-controls="parentDetailsCollapseTwo">
-                                            Parent Details
+                                            Parent Details&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="parentdetails-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="parentdetails-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="parentDetailsCollapseTwo" class="accordion-collapse collapse" aria-labelledby="parentDetailsHeadingTwo"
@@ -179,11 +293,11 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_name" class="form-label"><b>PARENT’S / LEGAL
+                                                        <label for="parent_name" class="form-label"><b>PARENT’S / LEGAL
                                                                 GUARDIAN’S NAME</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent1_name"
-                                                            name="parent1_name">
+                                                        <input type="text" class="form-control " id="parent_name"
+                                                            name="parent_name">
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,39 +305,39 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_street_address" class="form-label"><b>STREET</b>
+                                                        <label for="parent_street_address" class="form-label"><b>STREET</b>
                                                         </label>
-                                                        <input type="text" class="form-control" id="parent1_street_address"
-                                                            name="parent1_street_address"
-                                                            onchange="autoPopulateAddress(this.value,'parent2_street_address')">
+                                                        <input type="text" class="form-control" id="parent_street_address"
+                                                            name="parent_street_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_street_address')"> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_city_address" class="form-label"><b>CITY</b>
+                                                        <label for="parent_city_address" class="form-label"><b>CITY</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent1_city_address"
-                                                            name="parent1_city_address"
-                                                            onchange="autoPopulateAddress(this.value,'parent2_city_address')">
+                                                        <input type="text" class="form-control " id="parent_city_address"
+                                                            name="parent_city_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_city_address')"> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_state_address" class="form-label"><b>STATE</b>
+                                                        <label for="parent_state_address" class="form-label"><b>STATE</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent1_state_address"
-                                                            name="parent1_state_address"
-                                                            onchange="autoPopulateAddress(this.value,'parent2_state_address')">
+                                                        <input type="text" class="form-control " id="parent_state_address"
+                                                            name="parent_state_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_state_address')"> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_zip_address" class="form-label"><b>ZIP</b>
+                                                        <label for="parent_zip_address" class="form-label"><b>ZIP</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent1_zip_address"
-                                                            name="parent1_zip_address"
-                                                            onchange="ValidatePincode (this,'parent1_zip_address_span'),autoPopulateAddress(this.value,'parent2_zip_address')">
-                                                        <span id="parent1_zip_address_span" style="color:red; display:none">
+                                                        <input type="text" class="form-control " id="parent_zip_address"
+                                                            name="parent_zip_address"
+                                                            onchange="ValidatePincode (this,'parent_zip_address_span'),autoPopulateAddress(this.value,'parent2_zip_address')">
+                                                        <span id="parent_zip_address_span" style="color:red; display:none">
                                                             Enter valid input [only numbers].</span>
                                                     </div>
                                                 </div>
@@ -231,13 +345,13 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm"><br>
                                                     <div class="form-group">
-                                                        <label for="home_telephone_number1" class="form-label"><b>TELEPHONE
+                                                        <label for="home_telephone_number" class="form-label"><b>TELEPHONE
                                                                 NUMBER</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Telephone Number"
-                                                            id="home_telephone_number1" name="home_telephone_number1"
-                                                            onchange="validatePhone(this,'home_telephone_number1_span')">
-                                                        <span id="home_telephone_number1_span" style="color:red; display:none">
+                                                            id="home_telephone_number" name="home_telephone_number"
+                                                            onchange="validatePhone(this,'home_telephone_number_span')">
+                                                        <span id="home_telephone_number_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
@@ -246,29 +360,29 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business1_name" class="form-label"><b>BUSINESS NAME</b>
+                                                        <label for="business_name" class="form-label"><b>BUSINESS NAME</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business1_name"
-                                                            name="business1_name">
+                                                        <input type="text" class="form-control " id="business_name"
+                                                            name="business_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="work_hours1" class="form-label"><b>WORK HOURS</b>
+                                                        <label for="work_hours" class="form-label"><b>WORK HOURS</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="work_hours1"
-                                                            name="work_hours1">
+                                                        <input type="text" class="form-control " id="work_hours"
+                                                            name="work_hours">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_telephone_number1" class="form-label"><b>BUSINESS
+                                                        <label for="business_telephone_number" class="form-label"><b>BUSINESS
                                                                 TELEPHONE NUMBER</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_telephone_number1"
-                                                            name="business_telephone_number1"
-                                                            onchange="validatePhone(this,'business_telephone_number1_span')">
-                                                        <span id="business_telephone_number1_span"
+                                                        <input type="text" class="form-control " id="business_telephone_number"
+                                                            name="business_telephone_number"
+                                                            onchange="validatePhone(this,'business_telephone_number_span')">
+                                                        <span id="business_telephone_number_span"
                                                             style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
@@ -284,39 +398,39 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_street_address1" class="form-label"><b>STREET</b>
+                                                        <label for="business_street_address" class="form-label"><b>STREET</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_street_address1"
-                                                            name="business_street_address1"
+                                                        <input type="text" class="form-control " id="business_street_address"
+                                                            name="business_street_address"
                                                             onchange="autoPopulateAddress(this.value,'business_street_address2')">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_city_address1" class="form-label"><b>CITY</b>
+                                                        <label for="business_city_address" class="form-label"><b>CITY</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_city_address1"
-                                                            name="business_city_address1"
+                                                        <input type="text" class="form-control " id="business_city_address"
+                                                            name="business_city_address"
                                                             onchange="autoPopulateAddress(this.value,'business_city_address2')">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_state_address1" class="form-label"><b>STATE</b>
+                                                        <label for="business_state_address" class="form-label"><b>STATE</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_state_address1"
-                                                            name="business_state_address1"
+                                                        <input type="text" class="form-control " id="business_state_address"
+                                                            name="business_state_address"
                                                             onchange="autoPopulateAddress(this.value,'business_state_address2')">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_zip_address1" class="form-label"><b>ZIP</b>
+                                                        <label for="business_zip_address" class="form-label"><b>ZIP</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_zip_address1"
-                                                            name="business_zip_address1"
-                                                            onchange="ValidatePincode (this,'business_zip_address1_span'),autoPopulateAddress(this.value,'business_zip_address2')">
-                                                        <span id="business_zip_address1_span" style="color:red; display:none">
+                                                        <input type="text" class="form-control " id="business_zip_address"
+                                                            name="business_zip_address"
+                                                            onchange="ValidatePincode (this,'business_zip_address_span'),autoPopulateAddress(this.value,'business_zip_address2')">
+                                                        <span id="business_zip_address_span" style="color:red; display:none">
                                                             Enter valid input [only numbers].</span>
                                                     </div>
                                                 </div>
@@ -326,30 +440,30 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_cell_number1" class="form-label"><b>CELL NUMBER</b>
+                                                        <label for="business_cell_number" class="form-label"><b>CELL NUMBER</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Telephone Number"
-                                                            id="business_cell_number1" name="business_cell_number1"
-                                                            onchange="validatePhone(this,'business_cell_number1_span')">
-                                                        <span id="business_cell_number1_span" style="color:red; display:none">
+                                                            id="business_cell_number" name="business_cell_number"
+                                                            onchange="validatePhone(this,'business_cell_number_span')">
+                                                        <span id="business_cell_number_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent_email_one" class="form-label"><b>EMAIL ADDRESS</b>
+                                                        <label for="parent_email_two" class="form-label"><b>EMAIL ADDRESS</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent_email_one"
-                                                            name="parent_email_one"
-                                                            onchange="emailValidation(this,'parent_email_one_span')">
-                                                        <span id="parent_email_one_span" style="color:red; display:none">
+                                                        <input type="text" class="form-control " id="parent_email_two"
+                                                            name="parent_email_two"
+                                                            onchange="emailValidation(this,'parent_email_two_span')">
+                                                        <span id="parent_email_two_span" style="color:red; display:none">
                                                             Enter valid input [should be in @ and .].</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Business info end-->
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="parent_info">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -361,7 +475,9 @@
                                     <h2 class="accordion-header shadow" id="emergencyHeadingThree">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#emergencyCollapseThree" aria-expanded="false" aria-controls="emergencyCollapseThree">
-                                            Emergency Contact
+                                            Emergency Contact&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="emergencycontact-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="emergencycontact-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="emergencyCollapseThree" class="accordion-collapse collapse" aria-labelledby="emergencyHeadingThree"
@@ -370,45 +486,45 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_name1" class="form-label"><b>NAME</b>
+                                                        <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
                                                         </label>
-                                                        <input type="text" class="form-control " aria-label="Emergency Name" id="emergency_contact_name1"
-                                                            name="emergency_contact_name1">
+                                                        <input type="text" class="form-control " aria-label="Emergency Name" id="child_emergency_contact_name"
+                                                            name="child_emergency_contact_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_full_address1" class="form-label"><b>FULL ADDRESS</b>
+                                                        <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="emergency_address"
-                                                            id="emergency_contact_full_address1" name="emergency_contact_full_address1">
+                                                            id="child_emergency_contact_full_address" name="child_emergency_contact_full_address">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_relationship1" class="form-label"><b>RELATIONSHIP</b>
+                                                        <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
-                                                            id="emergency_contact_relationship1" name="emergency_contact_relationship1">
+                                                            id="child_emergency_contact_relationship" name="child_emergency_contact_relationship">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_telephone_number1" class="form-label"><b>TELEPHONE NUMBER</b>
+                                                        <label for="child_emergency_contact_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
-                                                            id="emergency_contact_telephone_number1" name="emergency_contact_telephone_number1"
-                                                            onchange="validatePhone(this,'emergency_contact_telephone_number1_span')">
-                                                        <span id="emergency_contact_telephone_number1_span" style="color:red; display:none">
+                                                            id="child_emergency_contact_telephone_number" name="child_emergency_contact_telephone_number"
+                                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')">
+                                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Additional Parent's or legal guardian's business info end -->
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="emergency_info">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -421,7 +537,9 @@
                                     <h2 class="accordion-header shadow" id="medicalcareHeadingFour">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#medicalcareCollapseFour" aria-expanded="false" aria-controls="medicalcareCollapseFour">
-                                            Medical Care Provider Details
+                                            Medical Care Provider Details&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="medicalcare-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="medicalcare-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="medicalcareCollapseFour" class="accordion-collapse collapse" aria-labelledby="medicalcareHeadingFour"
@@ -437,36 +555,36 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="child_care_provider_name3" class="form-label"><b>NAME OF
+                                                        <label for="child_care_provider_name" class="form-label"><b>NAME OF
                                                                 CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="child_care_provider_name3"
-                                                            name="child_care_provider_name3">
+                                                        <input type="text" class="form-control " id="child_care_provider_name"
+                                                            name="child_care_provider_name">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="care_provider_telephone_number3"
+                                                        <label for="child_care_provider_telephone_number"
                                                             class="form-label"><b>TELEPHONE NUMBER</b>
                                                         </label>
                                                         <input type="text" class="form-control "
-                                                            id="care_provider_telephone_number3"
-                                                            name="care_provider_telephone_number3"
-                                                            onchange="validatePhone(this,'care_provider_telephone_number3_span')">
-                                                        <span id="care_provider_telephone_number3_span"
+                                                            id="child_care_provider_telephone_number"
+                                                            name="child_care_provider_telephone_number"
+                                                            onchange="validatePhone(this,'child_care_provider_telephone_number_span')">
+                                                        <span id="child_care_provider_telephone_number_span"
                                                             style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="hospital_affiliation3" class="form-label"><b>HOSPITAL
+                                                        <label for="child_hospital_affiliation" class="form-label"><b>HOSPITAL
                                                                 AFFILIATION</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="hospital_affiliation3"
-                                                            name="hospital_affiliation3">
+                                                        <input type="text" class="form-control " id="child_hospital_affiliation"
+                                                            name="child_hospital_affiliation">
                                                     </div>
                                                 </div>
                                             </div>
@@ -569,11 +687,11 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="special_disabilities" class="form-label"><b>SPECIAL
+                                                        <label for="special_diabilities" class="form-label"><b>SPECIAL
                                                                 DIABILITIES (IF ANY)</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="special_disabilities"
-                                                            name="special_disabilities">
+                                                        <input type="text" class="form-control " id="special_diabilities"
+                                                            name="special_diabilities">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -632,7 +750,7 @@
                                             </div>
                                             <!-- Medical Information end -->
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="fourth_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -645,7 +763,9 @@
                                     <h2 class="accordion-header shadow" id="childinfoagreeHeadingFive">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#childinfoagreeCollapseFive" aria-expanded="false" aria-controls="childinfoagreeCollapseFive">
-                                            Parent Agreement
+                                            Parent Agreement&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="parentagreement-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="parentagreement-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childinfoagreeCollapseFive" class="accordion-collapse collapse" aria-labelledby="childinfoagreeHeadingFive"
@@ -684,9 +804,9 @@
 
                                             <div class="row m-1 mb-4">
                                                 <div class="form-group wizard-form-checkbox">
-                                                    <input type="checkbox" class="input-checkbox" id="parent_agree_one"
-                                                        name="parent_agree_one">
-                                                    <label class="form-check-label" for="parent_agree_one"><span>
+                                                    <input type="checkbox" class="input-checkbox" id="agree_all_above_information_is_correct"
+                                                        name="agree_all_above_information_is_correct">
+                                                    <label class="form-check-label" for="agree_all_above_information_is_correct"><span>
                                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                             </svg></span>
@@ -695,7 +815,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="fifth_save">Save</button>
                                             </div>
                                         </div>
                                         <!-- Parent's or guardian's signature end -->
@@ -713,9 +833,11 @@
                             <!--Child History-->
                             <div class="accordion-item">
                                 <h2 class="accordion-header shadow" id="historyHeadingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" id="familyHistory"
                                         data-bs-target="#historyCollapseOne" aria-expanded="true" aria-controls="historyCollapseOne">
-                                        Child History
+                                        Child History&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="childhistory-tick float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childhistory-circle" style="display: none;">
                                     </button>
                                 </h2>
                                 <div id="historyCollapseOne" class="accordion-collapse collapse show" aria-labelledby="historyHeadingOne"
@@ -744,7 +866,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="save-btn">Save</button>
+                                            <button class="save-btn" id="sixth_save">Save</button>
                                         </div>
                                     </div>
                                 </div>    
@@ -754,7 +876,9 @@
                                 <h2 class="accordion-header shadow" id="historyHeadingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#historyCollapseTwo" aria-expanded="false" aria-controls="historyCollapseTwo">
-                                        Medical History And Illnesses
+                                        Medical History And Illnesses&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="medicalhistory-tick float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="medicalhistory-circle" style="display: none;">
                                     </button>
                                 </h2>
                                 <div id="historyCollapseTwo" class="accordion-collapse collapse" aria-labelledby="historyHeadingTwo"
@@ -914,7 +1038,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="save-btn">Save</button>
+                                            <button class="save-btn" id="seventh_save">Save</button>
                                         </div>
                                     </div>
                                 </div>   
@@ -925,7 +1049,9 @@
                                 <h2 class="accordion-header shadow" id="historyHeadingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#historyCollapseThree" aria-expanded="false" aria-controls="historyCollapseThree">
-                                        Pregnancy And Ifant History
+                                        Pregnancy And Ifant History&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="pragancyhistory-tick float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="pragancyhistory-circle" style="display: none;">
                                     </button>
                                 </h2>
                                 <div id="historyCollapseThree" class="accordion-collapse collapse" aria-labelledby="historyHeadingThree"
@@ -974,9 +1100,60 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="text-center">
-                                                <button class="save-btn" id="child_basic_info" >Save</button>
+                                            <div class="col-sm">
+                                                <div class="form-group"> 
+                                                    <label for="birth_weight_oz" class="form-label"><b>Birth Weight</b></label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control " id="birth_weight_oz" name="birth_weight_oz">
+                                                        <span class="input-group-text input-group-addon"
+                                                            id="inputGroupPrependlbs">oz.</span>
+                                                    </div>
+                                                </div>
                                             </div>
+                                        </div>
+                                        <div class="row m-1 mb-4">
+                                            <div class="col-sm">
+                                                <div class="form-group"> 
+                                                    <label for="complications" class="form-label"><b>Complications</b>
+                                                    </label>
+                                                    <input type="text" class="form-control " id="complications" name="complications">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group"> 
+                                                    <label for="bottle_fed" class="form-label"><b>Bottle Fed?</b>
+                                                    </label>
+                                                    <input type="text" class="form-control " id="bottle_fed"  name="bottle_fed">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group"> 
+                                                    <label for="breast_fed" class="form-label"><b>Breast Fed?</b>
+                                                    </label>
+                                                    <input type="text" class="form-control " id="breast_fed" name="breast_fed">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row m-1 mb-4">
+                                            <h3 class="text-center">Other Siblings</h3>
+                                            <div class="col-sm">
+                                                <div class="form-group"> 
+                                                    <label for="other_siblings_name" class="form-label"><b>Name</b>
+                                                    </label>
+                                                    <input type="text" class="form-control " id="other_siblings_name"
+                                                     name="other_siblings_name">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group"> 
+                                                    <label for="other_siblings_age" class="form-label"><b>Age</b>
+                                                    </label>
+                                                    <input type="text" class="form-control " id="other_siblings_age" name="other_siblings_age">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button class="save-btn" id="eigth_save">Save</button>
                                         </div>
                                     </div>
                                 </div>
@@ -987,7 +1164,9 @@
                                     <h2 class="accordion-header shadow" id="historyHeadingFour">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#historyCollapseFour" aria-expanded="false" aria-controls="historyCollapseFour">
-                                            Family History
+                                            Family History&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="familyhistory-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="familyhistory-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="historyCollapseFour" class="accordion-collapse collapse" aria-labelledby="historyHeadingFour"
@@ -1120,7 +1299,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="nine_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1132,7 +1311,9 @@
                                     <h2 class="accordion-header shadow" id="historyHeadingFive">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#historyCollapseFive" aria-expanded="false" aria-controls="historyCollapseFive">
-                                            Social Behavior
+                                            Social Behavior&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="socialbehavior-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="socialbehavior-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="historyCollapseFive" class="accordion-collapse collapse" aria-labelledby="historyHeadingFive"
@@ -1173,7 +1354,7 @@
                                                         <label for="relationship_with_father" class="form-label"><b>Relationship
                                                                 with father</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="relationship_with_father" \
+                                                        <input type="text" class="form-control " id="relationship_with_father"
                                                             name="relationship_with_father">
                                                     </div>
                                                 </div>
@@ -1192,8 +1373,7 @@
                                                 <div class="col-sm">
                                                     <div class="form-group">
                                                         <label for="relationship_with_extended_family" class="form-label">
-                                                            <b>Relationship with extended family</b><span
-                                                                style="color:#ff0000;">*</span></label>
+                                                            <b>Relationship with extended family</b></label>
                                                         <input type="text" class="form-control "
                                                             id="relationship_with_extended_family"
                                                             name="relationship_with_extended_family">
@@ -1234,7 +1414,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="ten_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1246,7 +1426,9 @@
                                     <h2 class="accordion-header shadow" id="historyHeadingSix">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#historyCollapseSix" aria-expanded="false" aria-controls="historyCollapseSix">
-                                            Environmental Factors
+                                            Environmental Factors&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="environmentalfactor-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="environmentalfactor-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="historyCollapseSix" class="accordion-collapse collapse" aria-labelledby="historyHeadingSix"
@@ -1313,7 +1495,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="eleven_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1325,7 +1507,9 @@
                                     <h2 class="accordion-header shadow" id="historyHeadingSeven">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#historyCollapseSeven" aria-expanded="false" aria-controls="historyCollapseSeven">
-                                            Parent Agreement
+                                            Parent Agreement&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="parentagreement-two-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="parentagreement-two-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="historyCollapseSeven" class="accordion-collapse collapse" aria-labelledby="historyHeadingSeven"
@@ -1334,9 +1518,9 @@
                                             <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group wizard-form-checkbox">
-                                                        <input type="checkbox" class="input-checkbox" id="parent_agree_two"
-                                                            name="parent_agree_two">
-                                                        <label class="form-check-label" for="parent_agree_two"><span>
+                                                        <input type="checkbox" class="input-checkbox" id="agree_all_above_info_is_correct"
+                                                            name="agree_all_above_info_is_correct">
+                                                        <label class="form-check-label" for="agree_all_above_info_is_correct"><span>
                                                                 <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                     <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                                 </svg></span>
@@ -1346,7 +1530,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="twelve_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1385,9 +1569,9 @@
                                 </p>
                                 <div class="col-sm mb-2">
                                     <div class="form-group wizard-form-checkbox">
-                                        <input type="checkbox" class="input-checkbox" id="parent_agree_three"
-                                        name="parent_agree_three" >
-                                        <label class="form-check-label" for="parent_agree_three"><span>
+                                        <input type="checkbox" class="input-checkbox" id="do_you_agree_this_immunization_instructions"
+                                        name="do_you_agree_this_immunization_instructions" >
+                                        <label class="form-check-label" for="do_you_agree_this_immunization_instructions"><span>
                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                             </svg></span>
@@ -1396,7 +1580,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button class="save-btn">Save</button> 
+                                    <button class="save-btn" id="thirteen_save">Save</button> 
                                 </div>
                             </div>
                             </div>
@@ -1413,7 +1597,9 @@
                                 <form>
                                     <h2 class="accordion-header shadow" id="childproHeadingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseOne" aria-expanded="true" aria-controls="childproCollapseOne">
-                                        Child Profile Details
+                                        Child Profile Details&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="childprofiledetail-tick float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childprofiledetail-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childproCollapseOne" class="accordion-collapse collapse show" aria-labelledby="childproHeadingOne" data-bs-parent="#childproAccordionExample">
@@ -1506,7 +1692,7 @@
                                             </div>
                                         </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="fourteen_save">Save</button> 
                                             </div>
                                         </div>
                                     </div>
@@ -1519,7 +1705,9 @@
                                 <form>
                                     <h2 class="accordion-header shadow" id="childproHeadingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseTwo" aria-expanded="false" aria-controls="childproCollapseTwo">
-                                        Nutrition
+                                            Nutrition&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="nutrition-tick float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="nutrition-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childproCollapseTwo" class="accordion-collapse collapse" aria-labelledby="childproHeadingTwo" data-bs-parent="#childproAccordionExample">
@@ -1590,7 +1778,7 @@
                                             </div>
                                         </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="fifteen_save">Save</button> 
                                             </div>
                                         </div>  
                                     </div> 
@@ -1603,29 +1791,40 @@
                                 <form>
                                     <h2 class="accordion-header shadow" id="childproHeadingThree">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseThree" aria-expanded="false" aria-controls="childproCollapseThree">
-                                        Rest and Diapering/Toilet Learning
+                                        Rest and Diapering/Toilet Learning&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="restdetails-tick float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="restdetails-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childproCollapseThree" class="accordion-collapse collapse" aria-labelledby="childproHeadingThree" data-bs-parent="#childproAccordionExample">
                                         <div class="accordion-body"> 
                                             <div class="row m-1 mb-4">
-                                            <div id="rest_in_the_middle_day" class="col-sm">
-                                                <div class="form-group">
-                                                    <p><b>Does your child rest in the middle of the day?
-                                                        
-                                                    </b></p>
-                                                    <div class="wizard-form-radio">
-                                                        <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
-                                                            type="radio" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');">
-                                                        <label for="rest_in_the_middle_day1">Yes</label>
-                                                    </div>
-                                                    <div class="wizard-form-radio">
-                                                        <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
-                                                            value="No" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');" checked>
-                                                        <label for="rest_in_the_middle_day2">No</label>
+                                                <div id="rest_in_the_middle_day" class="col-sm">
+                                                    <div class="form-group">
+                                                        <p><b>Does your child rest in the middle of the day?
+                                                            
+                                                        </b></p>
+                                                        <div class="wizard-form-radio">
+                                                            <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
+                                                                type="radio" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');">
+                                                            <label for="rest_in_the_middle_day1">Yes</label>
+                                                        </div>
+                                                        <div class="wizard-form-radio">
+                                                            <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
+                                                                value="No" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');" checked>
+                                                            <label for="rest_in_the_middle_day2">No</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row m-1 mb-4" id="reason_for_rest_in_the_middle_day_div" style="display: none;">
+                                                <div class="col-sm">
+                                                    <div class="form-group"> 
+                                                        <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control " id="reason_for_rest_in_the_middle_day"
+                                                        name="reason_for_rest_in_the_middle_day">
+                                                    </div>
+                                                </div>
                                             </div>
                                         
                                         <div class="row m-1 mb-4">
@@ -1668,7 +1867,7 @@
                                         </div>
                                         </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="sixteen_save">Save</button> 
                                             </div>
                                         </div> 
                                     </div>
@@ -1680,7 +1879,9 @@
                                 <form>
                                     <h2 class="accordion-header shadow" id="childproHeadingFour">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseFour" aria-expanded="false" aria-controls="childproCollapseFour">
-                                        Medical/General
+                                        Medical/General&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="medicaldetails-tick float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="medicaldetails-circle" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childproCollapseFour" class="accordion-collapse collapse" aria-labelledby="childproHeadingFour" data-bs-parent="#childproAccordionExample">
@@ -1925,7 +2126,7 @@
                                             </div>
                                         </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="seventeen_save">Save</button> 
                                             </div>  
                                         </div>
                                     </div>    
@@ -1955,9 +2156,9 @@
                                             <div class="row m-1 mb-4">
                                             <div class="col-sm">
                                                 <div class="form-group wizard-form-checkbox">
-                                                    <input type="checkbox" class="input-checkbox" id="parent_agree_four"
-                                                    name="parent_agree_four" >
-                                                    <label class="form-check-label" for="parent_agree_four"><span>
+                                                    <input type="checkbox" class="input-checkbox" id="do_you_agree_this"
+                                                    name="do_you_agree_this" >
+                                                    <label class="form-check-label" for="do_you_agree_this"><span>
                                                         <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                         </svg></span>
@@ -1967,7 +2168,7 @@
                                             </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="eighteen_save">Save</button> 
                                             </div>
                                         </div>      
                                     </div>
@@ -2023,7 +2224,7 @@
                                                     <label for="child_password" class="form-label h-3"><b>Password</b>
                                                         
                                                     </label>
-                                                    <input type="password" class="form-control " id="child_password" 
+                                                    <input type="text" class="form-control " id="child_password" 
                                                     name="child_password">
                                                     <p class="pt-2"><b>(5 digits, alpha numeric characters)</b></p>
                                                 </div>
@@ -2031,9 +2232,9 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="form-group wizard-form-checkbox">
-                                                <input type="checkbox" class="input-checkbox" id="parent_agree_thre"
-                                                name="parent_agree_thre" >
-                                                <label class="form-check-label" for="parent_agree_thre"><span>
+                                                <input type="checkbox" class="input-checkbox" id="do_you_agree_this_pick_up_password_form"
+                                                name="do_you_agree_this_pick_up_password_form" >
+                                                <label class="form-check-label" for="do_you_agree_this_pick_up_password_form"><span>
                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                     </svg></span>
@@ -2042,7 +2243,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="save-btn">Save</button> 
+                                            <button class="save-btn" id="nineteen_save">Save</button> 
                                         </div>
                                     </div>
                                 </form>    
@@ -2069,11 +2270,12 @@
                                                 <div class="row m-1 mb-4">
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
-                                                            <label for="photo_usage" class="form-label"><b>Select One
+                                                            <label for="photo_usage_photo_video_permission_form" class="form-label"><b>Select One
                                                                 </b>
                                                             </label>
-                                                            <select class="form-control form-select-lg" aria-label=".form-control-lg example" id="photo_usage"
-                                                                name="photo_usage">
+                                                            <select class="form-control form-select-lg" aria-label=".form-control-lg example" 
+                                                            id="photo_usage_photo_video_permission_form"
+                                                                name="photo_usage_photo_video_permission_form">
                                                                 <option></option>
                                                                 <option value="1">Full Use</option>
                                                                 <option value="2">In-House Only</option>
@@ -2098,8 +2300,9 @@
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
                                                                 <div class="wizard-form-checkbox">
-                                                                    <input type="checkbox" class="input-checkbox" id="photo_permission_agree" name="photo_permission_agree">
-                                                                    <label class="form-check-label" for="photo_permission_agree"><span>
+                                                                    <input type="checkbox" class="input-checkbox" id="photo_permission_agree_group_photos_electronic"
+                                                                     name="photo_permission_agree_group_photos_electronic">
+                                                                    <label class="form-check-label" for="photo_permission_agree_group_photos_electronic"><span>
                                                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                                             </svg></span><span><b>I agree to have individual photos of my child and photos of group School’s electronic daily activity reports.</b></span>
@@ -2117,8 +2320,23 @@
                                                         electronic daily activity report. My agreement extends to photos or
                                                         videos taken by any member of my family or any visitors that I bring to
                                                         The Goddard School.</p>  
+                                                    <div class="row m-1 mb-4">
+                                                        <div class="col-sm">
+                                                            <div class="form-group"> 
+                                                                <div class="wizard-form-checkbox">
+                                                                    <input type="checkbox" class="input-checkbox" id="do_you_agree_this_photo_video_permission_form"
+                                                                     name="do_you_agree_this_photo_video_permission_form">
+                                                                    <label class="form-check-label" for="do_you_agree_this_photo_video_permission_form"><span>
+                                                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                            </svg></span><span><b>I agree to have individual photos video permisson.</b></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="twenty_save">Save</button> 
                                             </div>
                                     </div>
                                 </form>    
@@ -2159,9 +2377,9 @@
                                     <div class="row m-2 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group wizard-form-checkbox">
-                                                <input type="checkbox" class="input-checkbox" id="parent_agree_seven"
-                                                name="parent_agree_seven" >
-                                                <label class="form-check-label" for="parent_agree_seven"><span>
+                                                <input type="checkbox" class="input-checkbox" id="do_you_agree_this_security_release_policy_form"
+                                                name="do_you_agree_this_security_release_policy_form" >
+                                                <label class="form-check-label" for="do_you_agree_this_security_release_policy_form"><span>
                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                     </svg></span>
@@ -2172,7 +2390,7 @@
                                         </div>
                                     </div>    
                                     <div class="text-center mb-4">
-                                        <button class="save-btn">Save</button> 
+                                        <button class="save-btn" id="twentyone_save">Save</button> 
                                     </div>
                                 </form>    
                             </div>
@@ -2185,44 +2403,38 @@
                         <div class="accordion pt-3" id="accordionExample">
                             <div class="accordion-item accordion_items">
                                 <form>
-                                <h2 class="text-center title_bg">Medical Transportation
-                                    Waiver</h2>
-                                    <div class="row m-1 mb-4">
-                                        <div class="col-sm">
-                                            <div class="form-group">
-                                            <p class="m-2">The undersigned authorizes
-                                                representatives of The Goddard School® to contact Emergency Medical Technicians to transport</p>
-                                                <input type="text" class="form-control " id="contact_emergency_medical_technicians" name="contact_emergency_medical_technicians">
-                                            </div>
+                                    <h2 class="text-center title_bg">Medical Transportation Waiver</h2>
+                                    <div class="m-4">    
+                                        <span>
+                                            <p>The undersigned authorizes representatives of The Goddard School® to contact Emergency Medical Technicians to transport
+                                            <input type="text" class="form-control inputBox" id="contact_emergency_medical_technicians" name="contact_emergency_medical_technicians">
+                                            (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
+                                            <p>The undersigned irrevocably release any claims, demands, actions or
+                                                causes of
+                                                action against The Goddard School®, its franchisor, Goddard Systems,
+                                                Inc., and their
+                                                respective representatives and employees, which arise out of or
+                                                relate to the
+                                                transportation of Student and any medical care provided.</p>
+                                            <p>This authorization and waiver shall remain effective until Student
+                                                withdraws from The Goddard School®.</p>
+                                        </span><br>
+                                        <div class="form-group wizard-form-checkbox">
+                                            <input type="checkbox" class="input-checkbox" id="do_you_agree_this_medical_transportation_waiver"
+                                            name="do_you_agree_this_medical_transportation_waiver" >
+                                            <label class="form-check-label" for="do_you_agree_this_medical_transportation_waiver"><span>
+                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                </svg></span>
+                                                <span><b>I agree medical transportation
+                                                    waiver.</b></span>
+                                            </label>
                                         </div>
-                                        <p>  (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
-                                        <p>The undersigned irrevocably release any claims, demands, actions or
-                                            causes of
-                                            action against The Goddard School®, its franchisor, Goddard Systems,
-                                            Inc., and their
-                                            respective representatives and employees, which arise out of or
-                                            relate to the
-                                            transportation of Student and any medical care provided.</p><br>
-                                        <p>This authorization and waiver shall remain effective until Student
-                                            withdraws from The Goddard School®.</p>
-                                        <div class="col-sm">
-                                            <div class="form-group wizard-form-checkbox">
-                                                <input type="checkbox" class="input-checkbox" id="parent_agree_eight"
-                                                name="parent_agree_eight" >
-                                                <label class="form-check-label" for="parent_agree_eight"><span>
-                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                                    </svg></span>
-                                                    <span><b>I agree Medical Transportation
-                                                        Waiver.</b></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div> 
+                                    </div>    
                                     <div class="text-center mb-4">
-                                        <button class="save-btn">Save</button> 
+                                        <button class="save-btn" id="twentytwo_save">Save</button> 
                                     </div>
-                                </form>    
+                                </form>     
                             </div>
                         </div> 
                     </div>
@@ -2356,9 +2568,9 @@
                                             </p>
                                             <div class="col-sm">
                                                 <div class="form-group wizard-form-checkbox">
-                                                    <input type="checkbox" class="input-checkbox" id="parent_agree_nine"
-                                                    name="parent_agree_nine" >
-                                                    <label class="form-check-label" for="parent_agree_nine"><span>
+                                                    <input type="checkbox" class="input-checkbox" id="do_you_agree_this_health_policies"
+                                                    name="do_you_agree_this_health_policies" >
+                                                    <label class="form-check-label" for="do_you_agree_this_health_policies"><span>
                                                         <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                         </svg></span>
@@ -2370,7 +2582,7 @@
                                     </div>
                                     <!-- Health Policies table end -->
                                     <div class="text-center mb-4">
-                                        <button class="save-btn">Save</button> 
+                                        <button class="save-btn" id="twentythree_save">Save</button> 
                                     </div>
                                 </form>    
                             </div>
@@ -2433,8 +2645,9 @@
                                         <div class="col-sm">
                                             <div class="form-group"> 
                                                 <div class="wizard-form-checkbox">
-                                                    <input type="checkbox" class="input-checkbox" id="outside_agree" name="outside_agree">
-                                                    <label class="form-check-label" for="outside_agree"><span>
+                                                    <input type="checkbox" class="input-checkbox" id="outside_waiver_parent_sign_outside_engagements_waiver" 
+                                                    name="outside_waiver_parent_sign_outside_engagements_waiver">
+                                                    <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver"><span>
                                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                             </svg></span><span><b>I have read this agreement and understand its terms.</b></span>
@@ -2444,7 +2657,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center mb-4">
-                                        <button class="save-btn">Save</button> 
+                                        <button class="save-btn" id="twentyfour_save">Save</button> 
                                     </div>
                                 </form>    
                             </div>
@@ -2466,17 +2679,17 @@
                                                 <!-- <input id="point" name="point" type="text" class=" "> -->
                                                 <span id="apiResponsep1" name="apiResponsep1">
                                                     1. This Enrollment Agreement (the "Agreement"), effective the 
-                                                    <input id="point_one_field_one" name="point_one_field_one" type="text" class=" inputBox">
-                                                    day of <input id="point_one_field_two" name="point_one_field_two" type="text" class=" inputBox">
+                                                    <input id="point_one_field_one" name="point_one_field_one" type="text" class="form-control inputBox">
+                                                    day of <input id="point_one_field_two" name="point_one_field_two" type="text" class="form-control inputBox">
                                                     ,2023 is between Alphabetz Corp dba The Goddard School, 
                                                     an independent franchisee operating The Goddard SchoolÂ® 
                                                     located at 18802 55th Ave W, Lynnwood, WA pursuant to a license 
                                                     from Goddard Systems, Inc.,and
-                                                    <input id="point_one_field_three" name="point_one_field_three" type="text" class=" inputBox"> ("Parents").
+                                                    <input id="point_one_field_three" name="point_one_field_three" type="text" class="form-control inputBox"> ("Parents").
                             
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
-                                                    <input id="point_two_initial_here" name="point_two_initial_here" type="text" class=" inputBox">
+                                                    <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep2" name="apiResponsep2">
                                                     2. The School's non-refundable registration fee of $250 shall be 
@@ -2485,7 +2698,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_three_initial_here" name="point_three_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep3" name="apiResponsep3">
                                                     3. New Family Enrollment - First month's tuition and non-refundable 
@@ -2499,7 +2712,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_four_initial_here" name="point_four_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep4" name="apiResponsep4">
                                                     4. Monthly tuition is due on or before the 1st of each month. A $50 
@@ -2513,7 +2726,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_five_initial_here" name="point_five_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep5" name="apiResponsep5">
                                                     5. At the time of registration, tuition is quoted for the current rate 
@@ -2522,7 +2735,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_six_initial_here" name="point_six_initial_here" type="text"
-                                                        class=" inputBox">
+                                                        class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep6" name="apiResponsep6">
                                                     6. Monthly tuition fees are non-refundable regardless of holidays, 
@@ -2539,7 +2752,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_seven_initial_here" name="point_seven_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep7" name="apiResponsep7">
                                                     7. Monthly tuition fees are non-refundable regardless of illness, 
@@ -2551,7 +2764,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_eight_initial_here" name="point_eight_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep8" name="apiResponsep8">
                                                     8. This School is closed on the following days: 
@@ -2680,7 +2893,7 @@
                                                 </div><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_nine_initial_here" name="point_nine_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep9" name="apiResponsep9">
                                                     9. The Goddard School is a year-round program. Tuition is payable for 
@@ -2694,7 +2907,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
-                                                        class=" inputBox">
+                                                        class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep10" name="apiResponsep10">
                                                     10. The School will open at 7:00am and close at 6:00pm, however 
@@ -2712,7 +2925,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_eleven_initial_here" name="point_eleven_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep11" name="apiResponsep11">
                                                     11. Our School limits each students day to a maximum of 10 hours. 
@@ -2720,7 +2933,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_twelve_initial_here" name="point_twelve_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep12" name="apiResponsep12">
                                                     12. The School requires a 30 day written notice of withdrawal for 1 
@@ -2730,7 +2943,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_thirteen_initial_here" name="point_thirteen_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep13" name="apiResponsep13">
                                                     13. The School reserves the right to deny, cancel, sever or suspend a 
@@ -2740,7 +2953,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_fourteen_initial_here" name="point_fourteen_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep14" name="apiResponsep14">
                                                     14. Children may not attend the School while ill. Children who become 
@@ -2752,7 +2965,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_fifteen_initial_here" name="point_fifteen_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep15" name="apiResponsep15">
                                                     15. Each child in our childcare facility will be required to have 
@@ -2761,7 +2974,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_sixteen_initial_here" name="point_sixteen_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep16" name="apiResponsep16">
                                                     16. Parents acknowledge and agree that representatives of the School's 
@@ -2771,7 +2984,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_seventeen_initial_here" name="point_seventeen_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep17" name="apiResponsep17">
                                                     17. The School's employees are its most important assets. If Parents 
@@ -2782,7 +2995,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep18" name="apiResponsep18">
                                                     18. Parents agree that Outside Engagements are not for the benefit or 
@@ -2798,7 +3011,7 @@
                                                 </span><br><br><br>
                                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                                     <input id="point_nineteen_initial_here" name="point_nineteen_initial_here"
-                                                        type="text" class=" inputBox">
+                                                        type="text" class="form-control inputBox">
                                                 </span>
                                                 <span id="apiResponsep19" name="apiResponsep19">
                                                     19. The undersigned Parents have received an executed copy of this 
@@ -2810,7 +3023,7 @@
                                                 </span><br><br>
                                             </ol>
                                             <div class="text-center mb-4">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="twentyfive_save">Save</button> 
                                             </div>
                                         </form>
                                     </div>   
@@ -2973,42 +3186,21 @@
                                                                                 </div>
                                                                                 <div class="col-sm m-3"> 
                                                                                 </div>
-                                                                            </div>       
-                                                                            <div class="panel panel-default m-1">
-                                                                                <div class="panel-heading">
-                                                                                    <h5 class="panel-title text-center"><b>Statement of authorization</b></h5>
-                                                                                </div>
-                                                                                <div class="panel-body">
-                                                                                    <div class="row">
-                                                                                        <div class="col-sm-1">
-                                                                                            <!-- <label for="i" >I</label> -->
-                                                                                            <p  style="padding-top: 10px !important;padding-left: 70px !important;">I</p>
-                                                                                        </div>
-                                                                                        <div class="col-sm-11">
-                                                                                            <div class="form-group">
-                                                                                                <!-- <p>I</p> -->
-                                                                                                <input type="text"
-                                                                                                class="form-control wizard-required" id="i">
-                                                                                                <div class="wizard-form-error"></div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-sm-12">
-                                                                                            <div class="form-group">
-                                                                                    <p>hereby authorize (Alphabetz Corp, dba The Goddard School) to 
+                                                                            </div><br>
+                                                                            <h5 class="panel-title text-center"><b>Statement of authorization</b></h5><br>
+                                                                            <span> 
+                                                                                <p>I <input type="text" class="form-control inputBox">
+                                                                                    hereby authorize (Alphabetz Corp, dba The Goddard School) to 
                                                                                         charge my above referenced bank account for the invoiced amount once each 
                                                                                         month on the 1st day of the month until changed by me in writing in the future. 
                                                                                         This will constitute the paid tuition for my child(ren) during the period designated. 
                                                                                         For wait-listed/newly enrolled families this is a one-time charge and not a recurring
                                                                                         one until they start the school.</p>
-                                                                                    </div></div></div>       
-                                                                                </div>    
-                                                                            </div>        
+                                                                            </span>      
                                                                         </div>
                                                                         <p><b>Please provide us 10 days advance notice should you wish to put a stop to this authorization. An automatic electronic authorization of the monthly transaction will take place and an email-generated receipt will be automatically sent to the email address provided to us above. A copy of this document will be scanned and saved in an electronic file, the original will be shredded for your protection.</b></p>
                                                                         <div class="text-center mb-4">
-                                                                            <button class="save-btn">Save</button> 
+                                                                            <button class="save-btn" id="twentysix_save">Save</button> 
                                                                         </div>
                                                                     </div>      
                                                                 </div>
@@ -3067,68 +3259,84 @@
     </div>
      <!--Admission Form End-->
     <script>
-        function checking(val,id) {
-            console.log(val.value);
-            console.log(id);
-            var inputVal = document.getElementById("aaa");
-            console.log(inputVal);
-            if (val.value !== "") {
-                console.log('aadd');
-                inputVal.classList.remove('nav-item');
-                inputVal.classList.remove('nav-link');
-                inputVal.classList.add('accordion-button-one');
-                // inputVal.style.backgroundColor = "yellow";
-            }
-            else{
-                inputVal.classList.add('nav-item');
-                inputVal.classList.add('nav-link');
-                inputVal.classList.remove('accordion-button-one');
-            }
-        }
+        // function checking(val,id) {
+        //     console.log(val.value);
+        //     console.log(id);
+        //     var inputVal = document.getElementById("aaa");
+        //     console.log(inputVal);
+        //     if (val.value !== "") {
+        //         console.log('aadd');
+        //         inputVal.classList.remove('nav-item');
+        //         inputVal.classList.remove('nav-link');
+        //         inputVal.classList.add('accordion-button-one');
+        //         // inputVal.style.backgroundColor = "yellow";
+        //     }
+        //     else{
+        //         inputVal.classList.add('nav-item');
+        //         inputVal.classList.add('nav-link');
+        //         inputVal.classList.remove('accordion-button-one');
+        //     }
+        // }
     </script>
      <script>
         let editID = window.location.search.slice(1);
         if(editID != ''){
             //for waking up the aws lambda server   
             $.ajax({
-                url: ` https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/3`,
                 type: 'GET',
                 //this is used to get the response and return the result
                 success: function(response){
                     console.log(response);
-                    if (typeof response.child_full_name !== "undefined"){
+                    if (typeof response.child_full_name !== "undefined")
                         document.getElementsByName('child_full_name')[0].value = response.child_full_name;
-                    }
                     if (typeof response.nick_name !== "undefined")
                         document.getElementsByName('nick_name')[0].value = response.nick_name;
                     if (typeof response.dob !== "undefined")
                         document.getElementsByName('dob')[0].value = response.dob;
-                    // if (typeof response.child_street_address !== "undefined")
-                    //     document.getElementsByName('child_street_address')[0].value = response.child_street_address;
-                    // if (typeof response.child_city_address !== "undefined")
-                    //     document.getElementsByName('child_city_address')[0].value = response.child_city_address;
-                    // if (typeof response.child_state_address !== "undefined")
-                    //     document.getElementsByName('child_state_address')[0].value = response.child_state_address;
-                    // if (typeof response.child_zip_address !== "undefined")
-                    //     document.getElementsByName('child_zip_address')[0].value = response.child_zip_address;
                     if (typeof response.primary_language !== "undefined")
                         document.getElementsByName('primary_language')[0].value = response.primary_language;
                     if (typeof response.school_age_child_school !== "undefined")
                         document.getElementsByName('school_age_child_school')[0].value = response.school_age_child_school;
-                    // if(response.do_relevant_custody_papers_apply === "Yes" ){
-                    //     document.getElementById('do_relevant_custody_papers_apply1').checked = true;
-                    // }else{
-                    //     document.getElementById('do_relevant_custody_papers_apply2').checked = true;
-                    // }
-                    // if(response.gender == "Male" ){
-                    //     document.getElementById('gender1').checked = true;
-                    // }else if(response.gender == "Female"){
-                    //     document.getElementById('gender2').checked = true;
-                    // }else{
-                    //     document.getElementById('gender3').checked = true;
-                    // }
-                    if (typeof response.gender !== "undefined")
-                        document.getElementsByName('gender')[0].value = response.gender;
+                    if(response.do_relevant_custody_papers_apply === "Yes" ){
+                        document.getElementById('do_relevant_custody_papers_apply1').checked = true;
+                    }else{
+                        document.getElementById('do_relevant_custody_papers_apply2').checked = true;
+                    }
+                    if(response.gender == "Male" ){
+                        document.getElementById('gender1').checked = true;
+                    }else if(response.gender == "Female"){
+                        document.getElementById('gender2').checked = true;
+                    }else{
+                        document.getElementById('gender3').checked = true;
+                    }
+                    let inputVal = document.getElementById('aaa');
+                    let childDetailsId = document.getElementById('childDetailsId');
+                    console.log(childDetailsId);
+                    console.log(inputVal);
+                    if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
+                    && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
+                    && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
+                        // document.querySelector('.childinfo-tick').style.display = 'block';
+                        // document.querySelector('.childdetails-tick').style.display = 'block';
+                        // inputVal.classList.remove('nav-item');
+                        // console.log('if');
+                        inputVal.classList.add('active');
+                        inputVal.classList.remove('invalid');
+                        childDetailsId.classList.add('accordion-button');
+                        childDetailsId.classList.remove('accordion-button-invalid');
+                    }else{
+                        // document.querySelector('.childdetails-circle').style.display = 'block';
+                        // document.querySelector('.childdetails-circle').style.display = 'block';
+                        // inputVal.classList.add('nav-item');
+                        console.log('else');
+                        inputVal.classList.remove('active');
+                        inputVal.classList.add('invalid');
+                        childDetailsId.classList.remove('accordion-button');
+                        childDetailsId.classList.add('accordion-button-invalid');
+                    }
+
+
                     if (typeof response.parent_name !== "undefined")
                         document.getElementsByName('parent_name')[0].value = response.parent_name;
                     if (typeof response.parent_street_address !== "undefined")
@@ -3180,20 +3388,26 @@
                         
                     if (typeof response.child_care_provider_name !== "undefined")
                         document.getElementsByName('child_care_provider_name')[0].value = response.child_care_provider_name;
-                    if (typeof response.care_provider_telephone_number !== "undefined")
-                        document.getElementsByName('care_provider_telephone_number')[0].value = response.care_provider_telephone_number;
-                    if (typeof response.hospital_affiliation !== "undefined")
-                        document.getElementsByName('hospital_affiliation')[0].value = response.hospital_affiliation;
-                    if (typeof response.child_emergency_contact_telephone_number3 !== "undefined")
-                        document.getElementsByName('child_emergency_contact_telephone_number3')[0].value = response.child_emergency_contact_telephone_number3;
+                    if (typeof response.child_care_provider_telephone_number !== "undefined")
+                        document.getElementsByName('child_care_provider_telephone_number')[0].value = response.child_care_provider_telephone_number;
+                    if (typeof response.child_hospital_affiliation !== "undefined")
+                        document.getElementsByName('child_hospital_affiliation')[0].value = response.child_hospital_affiliation;
+                    if (typeof response.child_care_provider_street_address !== "undefined")
+                        document.getElementsByName('child_care_provider_street_address')[0].value = response.child_care_provider_street_address;
+                    if (typeof response.child_care_provider_city_address !== "undefined")
+                        document.getElementsByName('child_care_provider_city_address')[0].value = response.child_care_provider_city_address;
+                    if (typeof response.child_care_provider_state_address !== "undefined")
+                        document.getElementsByName('child_care_provider_state_address')[0].value = response.child_care_provider_state_address;
+                    if (typeof response.child_care_provider_zip_address !== "undefined")
+                        document.getElementsByName('child_care_provider_zip_address')[0].value = response.child_care_provider_zip_address;
                     if (typeof response.child_dentist_name !== "undefined")
                         document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
                     if (typeof response.dentist_telephone_number !== "undefined")
                         document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
                     if (typeof response.dentist_address !== "undefined")
                         document.getElementsByName('dentist_address')[0].value = response.dentist_address;
-                    if (typeof response.special_disabilities !== "undefined")
-                        document.getElementsByName('special_disabilities')[0].value = response.special_disabilities;
+                    if (typeof response.special_diabilities !== "undefined")
+                        document.getElementsByName('special_diabilities')[0].value = response.special_diabilities;
                     if (typeof response.allergies_medication_reaction !== "undefined")
                         document.getElementsByName('allergies_medication_reaction')[0].value = response.allergies_medication_reaction;
                     if (typeof response.additional_info !== "undefined")
@@ -3204,22 +3418,44 @@
                         document.getElementsByName('health_insurance')[0].value = response.health_insurance;
                     if (typeof response.policy_number !== "undefined")
                         document.getElementsByName('policy_number')[0].value = response.policy_number;
+                    
+
                     if (typeof response.obtaining_emergency_medical_care !== "undefined")
                         document.getElementsByName('obtaining_emergency_medical_care')[0].value = response.obtaining_emergency_medical_care;
                     if (typeof response.administration_first_aid_procedures !== "undefined")
                         document.getElementsByName('administration_first_aid_procedures')[0].value = response.administration_first_aid_procedures;
-                    if (typeof response.parent_sign !== "undefined")
-                        document.getElementsByName('parent_sign')[0].value = response.parent_sign;
-                    if (typeof response.sign_date !== "undefined")
-                        document.getElementsByName('sign_date')[0].value = response.sign_date;
-                    if (typeof response.Student_id !== "undefined")
-                        document.getElementsByName('Student_id')[0].value = response.Student_id;
-                    // if (typeof response.student_name !== "undefined")
-                    //     document.getElementsByName('student_name')[0].value = response.student_name;
+                    if( response.agree_all_above_information_is_correct == "on" ){
+                        document.getElementById('agree_all_above_information_is_correct').checked = true;
+                    }else{
+                        document.getElementById('agree_all_above_information_is_correct').checked = false;
+                    }
+
+
                     if (typeof response.physical_exam_last_date !== "undefined")
                         document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                     if (typeof response.dental_exam_last_date !== "undefined")
                         document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
+                        let inputVal2 = document.getElementById('bbb');
+                    let familyHistory = document.getElementById('familyHistory');
+                    console.log(childDetailsId);
+                    console.log(inputVal);
+                    if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
+                    && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
+                    && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
+                        inputVal2.classList.add('active');
+                        inputVal2.classList.remove('invalid');
+                        familyHistory.classList.add('accordion-button');
+                        familyHistory.classList.remove('accordion-button-invalid');
+                    }else{
+                        // document.querySelector('.childdetails-circle').style.display = 'block';
+                        // document.querySelector('.childdetails-circle').style.display = 'block';
+                        // inputVal2.classList.add('nav-item');
+                        // console.log('else');
+                        inputVal2.classList.remove('active');
+                        inputVal2.classList.add('invalid');
+                        familyHistory.classList.remove('accordion-button');
+                        familyHistory.classList.add('accordion-button-invalid');
+                    }
                     if (typeof response.allergies !== "undefined")
                         document.getElementsByName('allergies')[0].value = response.allergies;
                     if (typeof response.asthma !== "undefined")
@@ -3252,6 +3488,8 @@
                         document.getElementsByName('vision_problems')[0].value = response.vision_problems;
                     if (typeof response.medical_other !== "undefined")
                         document.getElementsByName('medical_other')[0].value = response.medical_other;
+
+
                     if (typeof response.illness_during_pregnancy !== "undefined")
                         document.getElementsByName('illness_during_pregnancy')[0].value = response.illness_during_pregnancy;
                     if (typeof response.condition_of_newborn !== "undefined")
@@ -3273,6 +3511,7 @@
                     if (typeof response.other_siblings_age !== "undefined")
                         document.getElementsByName('other_siblings_age')[0].value = response.other_siblings_age;
                    
+
                     if( response.family_history_allergies == "on" ){
                         document.getElementById('family_history_allergies').checked = true;
                     }else{
@@ -3318,6 +3557,8 @@
                     }else{
                         document.getElementById('family_history_epilepsy').checked = false;
                     }
+
+
                     if (typeof response.age_group_friends !== "undefined")
                         document.getElementsByName('age_group_friends')[0].value = response.age_group_friends;
                     if (typeof response.neighborhood_friends !== "undefined")
@@ -3336,6 +3577,8 @@
                         document.getElementsByName('child_response_frustration')[0].value = response.child_response_frustration;
                     if (typeof response.favorite_activities !== "undefined")
                         document.getElementsByName('favorite_activities')[0].value = response.favorite_activities;
+
+
                     if (typeof response.last_five_years_moved !== "undefined")
                         document.getElementsByName('last_five_years_moved')[0].value = response.last_five_years_moved;
                     if (typeof response.things_used_at_home !== "undefined")
@@ -3348,20 +3591,25 @@
                         document.getElementsByName('changes_at_home_situation')[0].value = response.changes_at_home_situation;
                     if (typeof response.educational_expectations_of_child !== "undefined")
                         document.getElementsByName('educational_expectations_of_child')[0].value = response.educational_expectations_of_child;
-                    if (typeof response.family_history_parent_sign !== "undefined")
-                        document.getElementsByName('family_history_parent_sign')[0].value = response.family_history_parent_sign;
-                    if (typeof response.family_history_parent_sign_date !== "undefined")
-                        document.getElementsByName('family_history_parent_sign_date')[0].value = response.family_history_parent_sign_date;
+                    
 
 
-                    // if (typeof response.child_profile_name !== "undefined")
-                    //     document.getElementsByName('child_profile_name')[0].value = response.child_profile_name;
-                    if (typeof response.child_nick_name !== "undefined")
-                        document.getElementsByName('child_nick_name')[0].value = response.child_nick_name;
                     if (typeof response.other_important_family_members !== "undefined")
                         document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                     if (typeof response.about_family_celebrations !== "undefined")
                         document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
+                    if( response.agree_all_above_info_is_correct == "on" ){
+                        document.getElementById('agree_all_above_info_is_correct').checked = true;
+                    }else{
+                        document.getElementById('agree_all_above_info_is_correct').checked = false;
+                    }
+
+                    if( response.do_you_agree_this_immunization_instructions == "on" ){
+                        document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_immunization_instructions').checked = false;
+                    }
+
 
                     if(response.childcare_before == "Yes" ){
                         document.getElementById('childcare_before').checked = true;
@@ -3379,6 +3627,7 @@
                     if (typeof response.pick_up_time !== "undefined")
                         document.getElementsByName('pick_up_time')[0].value = response.pick_up_time;
 
+
                     if(response.restricted_diet == "Yes" ){
                         document.getElementById('restricted_diet1').checked = true;
                         document.getElementById('restricted_diet_reason_div').style.display = "block";
@@ -3386,10 +3635,8 @@
                         document.getElementById('restricted_diet2').checked = true;
                         document.getElementById('restricted_diet_reason_div').style.display = "none";
                     }
-                       
                     if (typeof response.restricted_diet_reason !== "undefined")
                         document.getElementsByName('restricted_diet_reason')[0].value = response.restricted_diet_reason;
-
                     if(response.eat_own == "Yes" ){
                         document.getElementById('eat_own1').checked = true;
                         document.getElementById('eat_own_reason_div').style.display = "block";
@@ -3397,25 +3644,23 @@
                         document.getElementById('eat_own2').checked = true;
                         document.getElementById('eat_own_reason_div').style.display = "none";
                     }
-
                     if (typeof response.eat_own_reason !== "undefined")
                         document.getElementsByName('eat_own_reason')[0].value = response.eat_own_reason;
                     if (typeof response.favorite_foods !== "undefined")
                         document.getElementsByName('favorite_foods')[0].value = response.favorite_foods;
                     
-                    // if(response.rest_in_the_middle_day == "Yes" ){
-                    //     document.getElementById('rest_in_the_middle_day1').checked = true;
-                    //     document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
-                    // }else{
-                    //     document.getElementById('rest_in_the_middle_day2').checked = true;
-                    //     document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
-                    // }
 
+                    if(response.rest_in_the_middle_day == "Yes" ){
+                        document.getElementById('rest_in_the_middle_day1').checked = true;
+                        document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
+                    }else{
+                        document.getElementById('rest_in_the_middle_day2').checked = true;
+                        document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
+                    }
                     if (typeof response.reason_for_rest_in_the_middle_day !== "undefined")
                         document.getElementsByName('reason_for_rest_in_the_middle_day')[0].value = response.reason_for_rest_in_the_middle_day;
                     if (typeof response.rest_routine !== "undefined")
                         document.getElementsByName('rest_routine')[0].value = response.rest_routine;
-
                     if(response.toilet_trained == "Yes" ){
                         document.getElementById('toilet_trained1').checked = true;
                         document.getElementById('reason_for_toilet_trained_div').style.display = "block";
@@ -3425,6 +3670,7 @@
                     }
                     if (typeof response.reason_for_toilet_trained !== "undefined")
                         document.getElementsByName('reason_for_toilet_trained')[0].value = response.reason_for_toilet_trained;
+
 
                     if(response.existing_illness_allergy == "Yes" ){
                         document.getElementById('existing_illness_allergy1').checked = true;
@@ -3513,59 +3759,62 @@
                         document.getElementsByName('explain_for_desire_any_accommodations')[0].value = response.explain_for_desire_any_accommodations;
                     if (typeof response.additional_information !== "undefined")
                         document.getElementsByName('additional_information')[0].value = response.additional_information;
-                    if (typeof response.child_profile_parent_sign !== "undefined")
-                        document.getElementsByName('child_profile_parent_sign')[0].value = response.child_profile_parent_sign;
-                    if (typeof response.child_profile_parent_sign_date !== "undefined")
-                        document.getElementsByName('child_profile_parent_sign_date')[0].value = response.child_profile_parent_sign_date;
-                    
-                    
-                    // if (typeof response.emergency_info_child_name !== "undefined")
-                    // document.getElementsByName('emergency_info_child_name')[0].value = response.emergency_info_child_name;
+                    if( response.do_you_agree_this == "on" ){
+                        document.getElementById('do_you_agree_this').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this').checked = false;
+                    }
+
+
+
                     if (typeof response.child_password !== "undefined")
                         document.getElementsByName('child_password')[0].value = response.child_password;
-                    if (typeof response.password_parent_sign !== "undefined")
-                        document.getElementsByName('password_parent_sign')[0].value = response.password_parent_sign;
-                    if (typeof response.password_parent_date !== "undefined")
-                        document.getElementsByName('password_parent_date')[0].value = response.password_parent_date;
-                    // if (typeof response.permission_child_name !== "undefined")
-                    //     document.getElementsByName('permission_child_name')[0].value = response.permission_child_name;
-                    if (typeof response.photo_usage !== "undefined")
-                        document.getElementsByName('photo_usage')[0].value = response.photo_usage;
-                    if( response.photo_permission_agree == "on" ){
-                        document.getElementById('photo_permission_agree').checked = true;
+                    if( response.do_you_agree_this_pick_up_password_form == "on" ){
+                        document.getElementById('do_you_agree_this_pick_up_password_form').checked = true;
                     }else{
-                        document.getElementById('photo_permission_agree').checked = false;
+                        document.getElementById('do_you_agree_this_pick_up_password_form').checked = false;
                     }
-                    // if (typeof response.photo_permission_agree !== "undefined")
-                    //     document.getElementsByName('photo_permission_agree')[0].value = response.photo_permission_agree;
-                    if (typeof response.photo_parent_sign !== "undefined")
-                        document.getElementsByName('photo_parent_sign')[0].value = response.photo_parent_sign;
-                    if (typeof response.photo_parent_date !== "undefined")
-                        document.getElementsByName('photo_parent_date')[0].value = response.photo_parent_date;
-                    // if (typeof response.security_release_child_name !== "undefined")
-                    //     document.getElementsByName('security_release_child_name')[0].value = response.security_release_child_name;
-                    if (typeof response.security_release_parent_sign !== "undefined")
-                        document.getElementsByName('security_release_parent_sign')[0].value = response.security_release_parent_sign;
-                    if (typeof response.security_release_parent_date !== "undefined")
-                        document.getElementsByName('security_release_parent_date')[0].value = response.security_release_parent_date;
-                    if (typeof response.policy_parent_sign !== "undefined")
-                        document.getElementsByName('policy_parent_sign')[0].value = response.policy_parent_sign;
-                    if (typeof response.policy_parent_date !== "undefined")
-                        document.getElementsByName('policy_parent_date')[0].value = response.policy_parent_date;
-                    if (typeof response.contact_emergency_medical_technicians !== "undefined")
-                        document.getElementsByName('contact_emergency_medical_technicians')[0].value = response.contact_emergency_medical_technicians;
-                    if (typeof response.medical_parent_sign !== "undefined")
-                        document.getElementsByName('medical_parent_sign')[0].value = response.medical_parent_sign;
-                    if (typeof response.medical_parent_date !== "undefined")
-                        document.getElementsByName('medical_parent_date')[0].value = response.medical_parent_date;
-                    if (typeof response.health_policy_parent_sign !== "undefined")
-                        document.getElementsByName('health_policy_parent_sign')[0].value = response.health_policy_parent_sign;
-                    if (typeof response.health_policy_parent_date !== "undefined")
-                        document.getElementsByName('health_policy_parent_date')[0].value = response.health_policy_parent_date;
-                    if (typeof response.outside_waiver_parent_sign !== "undefined")
-                        document.getElementsByName('outside_waiver_parent_sign')[0].value = response.outside_waiver_parent_sign;
-                    if (typeof response.outside_waiver_parent_date !== "undefined")
-                        document.getElementsByName('outside_waiver_parent_date')[0].value = response.outside_waiver_parent_date;
+
+
+
+                    if (typeof response.photo_usage_photo_video_permission_form !== "undefined")
+                        document.getElementsByName('photo_usage_photo_video_permission_form')[0].value = response.photo_usage_photo_video_permission_form;
+                    if( response.photo_permission_agree_group_photos_electronic == "on" ){
+                        document.getElementById('photo_permission_agree_group_photos_electronic').checked = true;
+                    }else{
+                        document.getElementById('photo_permission_agree_group_photos_electronic').checked = false;
+                    }
+                    if( response.do_you_agree_this_photo_video_permission_form == "on" ){
+                        document.getElementById('do_you_agree_this_photo_video_permission_form').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_photo_video_permission_form').checked = false;
+                    }
+                  
+
+                    if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
+                        document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
+                    if( response.do_you_agree_this_medical_transportation_waiver == "on" ){
+                        document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = false;
+                    }
+
+                    if( response.do_you_agree_this_security_release_policy_form == "on" ){
+                        document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
+                    }
+                    if( response.do_you_agree_this_health_policies == "on" ){
+                        document.getElementById('do_you_agree_this_health_policies').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_health_policies').checked = false;
+                    }
+                    if( response.outside_waiver_parent_sign_outside_engagements_waiver == "on" ){
+                        document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
+                    }else{
+                        document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = false;
+                    }
+                   
                 }
             });
         }
