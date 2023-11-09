@@ -205,7 +205,7 @@ function parentDashBoardDetails(val) {
                                 formStatusCell.style.color = 'red';
                                 formStatusCell.style.fontWeight = 'bold';
                             } else {
-                                formStatusCell.style.color = '#FFCC00';
+                                formStatusCell.style.color = '#a5a202';
                                 formStatusCell.style.fontWeight = 'bold';
                             }
                         });
@@ -228,7 +228,7 @@ function parentDashBoardDetails(val) {
                                 formStatusCell.style.color = 'red';
                                 formStatusCell.style.fontWeight = 'bold';
                             } else {
-                                formStatusCell.style.color = '#FFCC00';
+                                formStatusCell.style.color = '#a5a202';
                                 formStatusCell.style.fontWeight = 'bold';
                             }
                         });
@@ -244,7 +244,7 @@ function parentDashBoardDetails(val) {
                             formStatusCell.style.color = 'red';
                             formStatusCell.style.fontWeight = 'bold';
                         } else {
-                            formStatusCell.style.color = '#FFCC00';
+                            formStatusCell.style.color = '#a5a202';
                             formStatusCell.style.fontWeight = 'bold';
                         }
                     }
@@ -265,7 +265,7 @@ function parentDashBoardDetails(val) {
                         editLink.href = `form.html?id=${dynamicValue}`;
                     }else if(data.form_name == 'ACH Recurring payments form') {
                         console.log('svg');
-                        editLink.href = `authorization_form.html?id=${dynamicValue}`;
+                        editLink.href = `./forms/authorization_form.html?id=${dynamicValue}`;
                     }
                     
                     editLink.setAttribute('data-dynamic-value', 'example');
