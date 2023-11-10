@@ -165,7 +165,7 @@
                             </a>
                         </li><br>
                         <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Sorry....You Have to fill all the missing fields.">
-                            <a class="nav-link " data-bs-toggle="pill" href="#parentsignature">Parent Signature</a>
+                            <a class="nav-link disabled" data-bs-toggle="pill" href="#parentsignature" id="parentFinalAgreement">Parent Signature</a>
                         </li>
                     </ul>
                 </div><br>
@@ -1298,6 +1298,22 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm m-4">
+                                                    <div class="wizard-form-checkbox">
+                                                        <input type="checkbox" class="input-checkbox"
+                                                            id="no_illnesses_for_this_child" name="no_illnesses_for_this_child">
+                                                        <label class="form-check-label" for="no_illnesses_for_this_child"><span>
+                                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                    </polyline>
+                                                                </svg></span><span><b>No Illnesses</b></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm m-4"></div>
+                                                <div class="col-sm m-4"></div>
+                                            </div>
                                             <div class="text-center">
                                                 <button class="save-btn" id="nine_save">Save</button>
                                             </div>
@@ -2264,7 +2280,7 @@
                                                             <select class="form-control" aria-label=".form-control-lg example" 
                                                             id="photo_usage_photo_video_permission_form"
                                                                 name="photo_usage_photo_video_permission_form">
-                                                                <!-- <option></option> -->
+                                                                <option selected disabled></option>
                                                                 <option value="Full Use">Full Use</option>
                                                                 <option value="In-House Only">In-House Only</option>
                                                                 <option value="No Photos">No Photos</option>
@@ -3221,7 +3237,7 @@
                                     </div>
                                     <!-- Parent's or guardian's signature end -->
                                     <div class="text-center">
-                                        <button class="cancel-btn">Cancel</button>
+                                        <button class="cancel-btn" id="cancelButton">Cancel</button>
                                         <button class="submit-btn mb-4" id="submit_button">submit</button> 
                                     </div>   
                             </div>
@@ -3261,6 +3277,9 @@
                     let childMedicalcare;
                     let childParentAgreementOne;
                     let statuscall;
+
+                    // let parentFinalAgreement = document.getElementById('parentFinalAgreement');
+                    //      parentFinalAgreement.disabled = false;
                     if (typeof response.child_full_name !== "undefined")
                         document.getElementsByName('child_full_name')[0].value = response.child_full_name;
                     if (typeof response.nick_name !== "undefined")
@@ -3584,12 +3603,17 @@
                     }else{
                         document.getElementById('family_history_epilepsy').checked = false;
                     }
+                    if ( response.no_illnesses_for_this_child == "on"){
+                        document.getElementById('no_illnesses_for_this_child').checked = true;
+                    }else{
+                        document.getElementById('no_illnesses_for_this_child').checked = false;
+                    }
 
-                    if(typeof response.family_history_allergies !== "undefined" && typeof response.family_history_heart_problems !== "undefined" 
-                    && typeof response.family_history_tuberculosis !== "undefined" &&  typeof response.family_history_asthma !== "undefined"
-                    && typeof response.family_history_high_blood_pressure !== "undefined" &&  typeof response.family_history_vision_problems !== "undefined"
-                    && typeof response.family_history_diabetes !== "undefined" &&  typeof response.family_history_hyperactivity !== "undefined"
-                    && typeof response.family_history_epilepsy !== "undefined" ){
+                    if(typeof response.family_history_allergies !== "undefined" || typeof response.family_history_heart_problems !== "undefined" 
+                    || typeof response.family_history_tuberculosis !== "undefined" ||  typeof response.family_history_asthma !== "undefined"
+                    || typeof response.family_history_high_blood_pressure !== "undefined" ||  typeof response.family_history_vision_problems !== "undefined"
+                    || typeof response.family_history_diabetes !== "undefined" ||  typeof response.family_history_hyperactivity !== "undefined"
+                    || typeof response.family_history_epilepsy !== "undefined" || typeof response.no_illnesses_for_this_child !== "undefined"){
                         document.querySelector('.familyhistory-tick').style.display = 'block';
                         familyHistroy = true;
                     }else{
@@ -3935,9 +3959,13 @@
                     }
 
                     let photoVideoPermission;
-                    if (typeof response.photo_usage_photo_video_permission_form  !== "undefined"){
-                            $('#photo_usage_photo_video_permission_form').append($("<option></option>").attr("value", response.photo_usage_photo_video_permission_form).text(response.photo_usage_photo_video_permission_form));
-                        }
+                    console.log(response.photo_usage_photo_video_permission_form);
+                    // if (typeof response.photo_usage_photo_video_permission_form  !== "undefined"){
+                    //         $('#photo_usage_photo_video_permission_form').append($("<option></option>").attr("value", response.photo_usage_photo_video_permission_form).text(response.photo_usage_photo_video_permission_form));
+                    //     }
+                    if (typeof response.photo_usage_photo_video_permission_form !== "undefined")
+                    document.getElementsByName('photo_usage_photo_video_permission_form')[0].value = response.photo_usage_photo_video_permission_form;
+
                     if( response.photo_permission_agree_group_photos_electronic == "on" ){
                         document.getElementById('photo_permission_agree_group_photos_electronic').checked = true;
                     }else{
@@ -3966,7 +3994,7 @@
                     }else{
                         document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
                     }
-                    if(typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined"){
+                    if(typeof response.do_you_agree_this_security_release_policy_form !== "undefined"){
                         document.querySelector('.childsecurity-tick').style.display = 'block'; 
                         securityPolicy = true;
                     }else{
@@ -4125,12 +4153,12 @@
                         enrollmentDetails== true && authorizationDetails== true ){
                             console.log('dfvbsdf');
                          let parentFinalAgreement = document.getElementById('parentFinalAgreement');
-                         parentFinalAgreement.disabled = false;
+                         parentFinalAgreement.classList.remove('disabled');
 
                     }else{
                         console.log('elseee');
                         let parentFinalAgreement = document.getElementById('parentFinalAgreement');
-                         parentFinalAgreement.disabled = true;
+                         parentFinalAgreement.classList.add('disabled')
                     }
                 }
             });
