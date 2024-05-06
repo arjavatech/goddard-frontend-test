@@ -259,7 +259,6 @@
                     type: 'GET',
                     dataType:'json',
                     success: function(response) {
-                        console.log(response);
                         let mainTopics = [];
                         // iterate over the values of incompletedformstatus
                         for (let value of Object.values(response['inCompletedFormStatus'])) {
@@ -279,7 +278,6 @@
                         for (let i = 0; i < mainTopics.length; i++) {
                             let mainTopic = mainTopics[i];
                             let trimValues = mainTopic.replace(/\s+/g, '_').toLowerCase();
-                            // console.log(trimValues);
 
                             // $.get(trimValues + "ListItem.html", function(data) {
                             //     $("#menu").append(data);
@@ -287,10 +285,7 @@
 
                             if (trimValues == 'admission_forms' || trimValues == 'authorization' || 
                             trimValues == 'enrollment_agreement' || trimValues == 'parent_handbook') {
-                                // $('.menu').load(trimValues + "ListItem.html");
-                                console.log(trimValues);
                                 $(`.menu.${trimValues}`).load(trimValues + "_list_item.html");
-                                console.log($(`.menu.${trimValues}`).load(trimValues + "_list_item.html"));
                                 
                             }
 
@@ -353,8 +348,6 @@
                 });
 
                 if(editID != ''){
-                    // let aa =document.getElementById("parent_sign_admission").value;
-                    // console.log(aa);
                     // formdiv.classList.remove('hide');
                     // addChildDiv.style.display = 'none';
                     //for waking up the aws lambda server   
@@ -364,7 +357,6 @@
                         //this is used to get the response and return the result
                         success: function(response)
                         {
-                            console.log(response);
                             let childbasicInfo;
                             let childparentInfo;
                             let additionalChildparentInfo;
@@ -1029,7 +1021,6 @@
                            
                             //immunization details
                             let immunizationInstruction;
-                            console.log(response.do_you_agree_this_immunization_instructions);
                             if(document.getElementById('immunizationinstructions') !== null ){
                                 if(response.do_you_agree_this_immunization_instructions == "on" ){
                                     document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
@@ -1516,7 +1507,6 @@
                             
                             // Admission form parent agreement
                             let admissionparentsign;
-                            console.log(response.parent_sign_admission);
                             if(document.getElementById('parentsignature') !== null ){
                                 if(typeof response.parent_sign_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_admission')[0].value = response.parent_sign_admission;
@@ -2155,7 +2145,6 @@
                                 }
 
                                 let expulsion_policy_agreement;
-                                console.log(response.parent_hand_book[expulsion_policy_agreement]);
                                 if(typeof response.parent_hand_book['expulsion_policy_agreement'] == "on" ){
                                     document.getElementById('expulsion_policy_agreement').checked = true;
                                 }else{
