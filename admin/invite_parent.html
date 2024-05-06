@@ -23,6 +23,16 @@
                 -webkit-box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
                 box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
             }
+            .card_style
+            {
+                width: 75%;
+            }
+            .card_center
+            {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }  
         </style>
     </head>
     <body>
@@ -62,6 +72,7 @@
                                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                                         </svg>Invite Parent
                                     </a>
+                                    <a href="../admin/addchild.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="p-2" viewBox="0 0 576 512"><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm16 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v48H368c-8.8 0-16 7.2-16 16s7.2 16 16 16h48v48c0 8.8 7.2 16 16 16s16-7.2 16-16V384h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H448V304z"/></svg>Add Child</a>
                                     <a href="../admin/application_status.html" class="nav-link">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                                             class="bi bi-file-text-fill p-2" viewBox="0 0 16 16">
@@ -76,11 +87,11 @@
                                                 d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                                         </svg>Parent Details
                                     </a>
-                                    <a href="../admin/active_form_details.html" class="nav-link">
+                                    <a href="../admin/formsrepository.html" class="nav-link">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                                             class="bi bi-file-earmark-text-fill p-2" viewBox="0 0 16 16">
                                             <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                                        </svg>Active Form Status
+                                        </svg>Forms Repository
                                     </a>
                                 </li>
                             </ul>
@@ -90,7 +101,7 @@
                 <!-- Side Menu Bar End -->
                 <div class="col-8">
                     <div class="text-center m-2">
-                        <img src="../image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px"
+                        <img src="../image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px"
                             height="112px">
                     </div>
                 </div>
@@ -103,86 +114,61 @@
         </nav><br><br>
         <!-- Navigation Bar End -->
 
-        <div class="container">
-            <div class="card" style="background: #D8E9FF;">
-                <h2 class="admin_dashboard_title h2 pt-4 text-center">Invite mail send to parent</h2>
-                <div class="container">
-                    <div class="row m-5">
-                        <section class="wizard-section">
-                            <div class="form-wizard">
-                                <form id="admission_form">
-                                    <fieldset class="wizard-fieldset show">
-                                        <div class="row">
-                                            <div class="col-sm mb-3">
-                                                <label for="messageData" class="col-form-label">Invite Link</label>
-                                                <input type="text" class="form-control" id="messageData"
-                                                    value="https://arjavatech.github.io/goddard-frontend-dev/signup.html">
-                                            </div>
-                                            <div class="col-sm mb-3">
-                                                <div class="form-group">
-                                                    <label for="child_full_name" class="col-form-label">Child Full
-                                                        Name</label>
-                                                    <input type="text" class="form-control" id="child_full_name"
-                                                        name="child_full_name">
-                                                    <div class="wizard-form-error"></div>
-                                                </div>
+        <div class="container card_center p-3">
+            <div class="card card_style" style="background: #D8E9FF;">
+                <h2 class="card_title">Invite mail send to parent</h2>
+                <div class="row m-5">
+                    <section class="wizard-section">
+                        <div class="form-wizard">
+                            <form id="admission_form">
+                                <fieldset class="wizard-fieldset show">
+                                    <div class="row">
+                                        <div class="col-sm mb-3">
+                                            <label for="messageData" class="col-form-label"><b>Invite Link</b></label>
+                                            <input type="text" class="form-control" id="messageData"
+                                                value="https://arjavatech.github.io/goddard-frontend-dev/signup.html" disabled>
+                                        </div>
+                                        <div class="col-sm mb-3">
+                                            <div class="form-group">
+                                                <label for="child_full_name" class="col-form-label"><b>Child Full Name</b></label>
+                                                <input type="text" class="form-control" id="child_full_name"
+                                                    name="child_full_name">
+                                                <div class="wizard-form-error"></div>
                                             </div>
                                         </div>
-                                        <h5 class="text-center admin_dashboard_title">Parent Details</h5>
-                                        <div class="row">
-                                            <div class="col-sm mb-3">
-                                                <div class="form-group">
-                                                    <label for="parent_name" class="col-form-label">Full Name</label>
-                                                    <input type="text" class="form-control" id="parent_name"
-                                                        name="parent_name">
-                                                    <div class="wizard-form-error"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm mb-3">
-                                                <div class="form-group">
-                                                    <label for="parent_email" class="col-form-label">Email</label>
-                                                    <input type="mail" class="form-control" id="parent_email"
-                                                        name="parent_email"
-                                                        onchange="emailValidation(this,'parent_email_span')">
-                                                    <span id="parent_email_span" style="color:red; display:none">
-                                                        Enter valid input [should be in @ and .].</span>
-                                                    <div class="wizard-form-error"></div>
-                                                </div>
+                                    </div>
+                                    <h5 class="text-center admin_dashboard_title"><b>Parent Details</b></h5>
+                                    <div class="row">
+                                        <div class="col-sm mb-3">
+                                            <div class="form-group">
+                                                <label for="parent_name" class="col-form-label"><b>Full Name</b></label>
+                                                <input type="text" class="form-control" id="parent_name"
+                                                    name="parent_name">
+                                                <div class="wizard-form-error"></div>
                                             </div>
                                         </div>
-                                        <!-- <div class="row">
-                                            <div class="col-sm mb-3">
-                                                <div class="form-group">
-                                                    <label for="parent_mobile" class="col-form-label">Mobile Number</label>
-                                                    <input type="number" class="form-control" id="parent_mobile"
-                                                        name="parent_mobile"
-                                                        onchange="validatePhone(this,'parent_mobile_span')">
-                                                    <span id="parent_mobile_span" style="color:red; display:none">
-                                                        Enter valid input [only numbers,+,-,()].</span>
-                                                    <div class="wizard-form-error"></div>
-                                                </div>
+                                        <div class="col-sm mb-3">
+                                            <div class="form-group">
+                                                <label for="parent_email" class="col-form-label"><b>Email</b></label>
+                                                <input type="mail" class="form-control" id="parent_email"
+                                                    name="parent_email"
+                                                    onchange="emailValidation(this,'parent_email_span')">
+                                                <span id="parent_email_span" style="color:red; display:none">
+                                                    Enter valid input [should be in @ and .].</span>
+                                                <div class="wizard-form-error"></div>
                                             </div>
-                                            <div class="col-sm mb-3"></div>
-                                        </div> -->
-                                        <div class="panel-footer">
-                                            <div class="form-group clearfix">
-                                                <div class="position-relative">
-                                                    <!-- <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Cancel</button> -->
-
-                                                    <div class="position-absolute top-50 end-0 translate-middle-y">
-                                                        <button id="sendButton" type="button"
-                                                            class="btn btn-primary btn-bg">Send</button>
-                                                        <!-- <a href="javascript:;" class="form-wizard-submit" id="submit_button">Submit</a> -->
-                                                    </div>
-                                                </div>
+                                        </div>
+                                    </div><br> 
+                                    <div class="form-group clearfix">
+                                            <div class="text-center">
+                                                <button class="cancel-btn">Cancel</button>
+                                                <button id="sendButton" type="button" class="send-btn">Send</button>
                                             </div>
-                                        </div><br><br>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </section>
-                    </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </section>
                 </div>
             </div><br><br>
         </div>

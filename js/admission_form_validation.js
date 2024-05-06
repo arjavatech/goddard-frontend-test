@@ -57,6 +57,7 @@ function ValidatePincode(inputtxt, errorSpan) {
 // }
 //custom textbox hide and show function
 function CustomChange(inputtxt,labelvalue) {
+    console.log('checck custom change');
     if (inputtxt == "Yes") {
         document.getElementById(labelvalue).style.display = "block";
     } else {
@@ -91,7 +92,6 @@ function autoPopulateAddress(inputtxtId,copyAddressId){
 }
 
 function parentSignValidation(val){
-    console.log('checking');
     alert(`${val},This Signature will be taken as your signature forever.`)
 }
 

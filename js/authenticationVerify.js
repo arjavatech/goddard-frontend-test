@@ -2,8 +2,6 @@ function checkGmailLoginState() {
     let value = localStorage.getItem('logged_in_email');
     if (value !== null && value !== undefined) {
         // Key has a valid value in localStorage
-        // console.log(value)
-        // console.log('Authenticated')
         return true;
     } else {
         // Key does not have a valid value in localStorage
@@ -15,7 +13,7 @@ function checkGmailLoginState() {
                 window.alert("Please login")
             }
         } else {
-            window.alert("Please login")
+            // window.alert("Please login")
         }
         return false;
     }
@@ -24,7 +22,6 @@ function checkGmailLoginState() {
 export function isAuthenticated() {
     return checkGmailLoginState();
 }
-
 
 function clearCookie(cookieName) {
     document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -48,9 +45,9 @@ export function signOut() {
     if (sessionStorage.length > 0) {
         // Clear the session
         sessionStorage.clear();
-        // console.log('Session cleared.');
+        console.log('Session cleared.');
     } else {
-        // console.log('No session found.');
+        console.log('No session found.');
     }
     // Clear cookies
     clearAllCookies();

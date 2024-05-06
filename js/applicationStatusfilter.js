@@ -1,9 +1,8 @@
 'use strict';
 function enrollmentValueSend(status,id,year,form_name){
     var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
-    console.log(enrollmentValue);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child_form/add",
+        url: "http://localhost:8080/child_form/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
@@ -21,11 +20,11 @@ function applicationStatusYear() {
     // let applicationStatusYear = document.getElementById("applicationStatusYear");
     // applicationStatusYear.textContent = val;
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/admission_status_info`,
+        url: `http://localhost:8080/admission_child_personal/all_child_status`,
         type: 'get',
         success: function (response) {
+            console.log(response)
             let responseValue = Object.values(response);
-            // console.log(responseValue);
             if (Array.isArray(responseValue)) {
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // Clear existing content
@@ -33,84 +32,46 @@ function applicationStatusYear() {
                 // for (let i = 0; i < responseValue.length; i++) {
                 //     const rowData = responseValue[i];
                     for (let j = 0; j <responseValue.length; j++) {
-                        // console.log(responseValue[j].child_name);
-        
                         // Create a new row for each data set
                         const row = document.createElement('tr');
+
+                        // const childIdCell = document.createElement('td');
+                        // // childIdCell.textContent = responseValue[j].child_id;
+                        // row.appendChild(childIdCell);
+                        // let anchor = document.createElement('a');
+                        // anchor.setAttribute('class','nav-link ');
+                        // anchor.textContent = responseValue[j].child_id;
+                        // anchor.setAttribute('href', '/child_add.html');
+                        // // checking(${responseValue[j].child_id})`);
+                        // childIdCell.appendChild(anchor);
+
                         // Create cell for child name
                         const childNameCell = document.createElement('td');
                         childNameCell.textContent = responseValue[j].child_name;
                         row.appendChild(childNameCell);
+                          // Create cell for child name
+                          const childClassNameCell = document.createElement('td');
+                        //   childClassNameCell.textContent = responseValue[j].child_name;
+                          row.appendChild(childClassNameCell);
                         
-            
+                        const parentEmaildCell = document.createElement('td');
+                        // childIdCell.textContent = responseValue[j].child_id;
+                        // row.appendChild(childIdCell);
+                        let parentemailanchor = document.createElement('a');
+                        parentemailanchor.setAttribute('class','nav-link ');
+                        parentemailanchor.textContent = responseValue[j].parent_email;
+                        parentemailanchor.setAttribute('href', `/child_add.html?id=${ responseValue[j].parent_email}`);
+                        // checking(${responseValue[j].child_id})`);
+                        parentEmaildCell.appendChild(parentemailanchor);
+                        row.appendChild(parentEmaildCell);
                         // Create cell for parent name
-                        const parentNameCell = document.createElement('td');
-                        parentNameCell.textContent = responseValue[j].parent_name;
-                        row.appendChild(parentNameCell);
+                        const SecondaryParentEmail = document.createElement('td');
+                        SecondaryParentEmail.textContent = responseValue[j].parent_two_email;
+                        row.appendChild(SecondaryParentEmail);
 
                         const applicationStatusCell = document.createElement('td');
-                        applicationStatusCell.textContent = responseValue[j].admission_form_status;
+                        applicationStatusCell.textContent = responseValue[j]. form_status;
                         row.appendChild(applicationStatusCell);
-            
-                        // const enrollmentStatusCell = document.createElement('td');
-                        // enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
-                        // enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
-                        // enrollmentStatusCell.textContent = responseValue[j].enrollment_form_status_level;
-                        // row.appendChild(enrollmentStatusCell);
-
-                        const enrollmentStatusCell = document.createElement('td');
-                        enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
-                        enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
-                        enrollmentStatusCell.setAttribute('style', 'border: none;');
-
-                        // Create a <select> element
-                        const statusSelect = document.createElement('select');
-                        statusSelect.style.color = "red";
-                        statusSelect.setAttribute('style', 'border: none;');
-
-                        // Create <option> elements for each status option
-                        const completedOption = document.createElement('option');
-                        completedOption.value = 'Completed';
-                        completedOption.textContent = 'Completed';
-                        completedOption.style.color = 'green';
-
-
-                        const reviewingOption = document.createElement('option');
-                        reviewingOption.value = 'Reviewing';
-                        reviewingOption.textContent = 'Reviewing';
-                        reviewingOption.style.color = '#a5a202';
-
-                        const incompleteOption = document.createElement('option');
-                        incompleteOption.value = 'Incomplete';
-                        incompleteOption.textContent = 'Incomplete';
-                        incompleteOption.style.color = 'red';
-
-                        // Append the <option> elements to the <select> element
-                        statusSelect.appendChild(incompleteOption);
-                        statusSelect.appendChild(reviewingOption);
-                        statusSelect.appendChild(completedOption);
-                        statusSelect.addEventListener('change',function(){
-                           enrollmentValueSend(statusSelect.value, responseValue[j].child_id, responseValue[j].year,responseValue[j].form_name);
-                        });
-                       
-                        enrollmentStatusCell.appendChild(statusSelect);
-                        row.appendChild(enrollmentStatusCell);
-
-                        // Set the default selected option based on responseValue[j].
-
-
-
-                        // Apply styles based on enrollment status
-                        if (responseValue[j].enrollment_form_status_level === "Completed") {
-                            enrollmentStatusCell.style.color = 'green';
-                            enrollmentStatusCell.style.fontWeight = 'bold';
-                        } else if (responseValue[j].enrollment_form_status_level === "Incomplete") {
-                            enrollmentStatusCell.style.color = 'red';
-                            enrollmentStatusCell.style.fontWeight = 'bold';
-                        } else {
-                            enrollmentStatusCell.style.color = '#a5a202';
-                            enrollmentStatusCell.style.fontWeight = 'bold';
-                        }
             
                         // Append the row to the table body
                         tableBody.appendChild(row);
@@ -124,7 +85,7 @@ function applicationStatusYear() {
 //to display child's year
 function applicationStatusAllYear() {
     // const child_id = localStorage.getItem('child_id')
-    // const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/info'
+    // const url = ' http://localhost:8080/admission/app_status/info'
     // $.ajax({
     //     url: url,
     //     type: 'get',
@@ -160,101 +121,82 @@ function filterTableByEnrollmentStatus(selectedStatus) {
 
 
 function formdetails(val){
-    console.log(val);
-    let form_table_name;
-    if(val == 'ACH Recurring payments form'){
-        form_table_name = 'enrollment_data';
-    }else if(val == '2023-2024 Enrollment Agreement'){
-        form_table_name = 'bill_ach';
-    }
+    // let form_table_name;
+    // if(val == 'ACH Recurring payments form'){
+    //     form_table_name = 'enrollment_data';
+    // }else if(val == '2023-2024 Enrollment Agreement'){
+    //     form_table_name = 'bill_ach';
+    // }
     document.querySelector('[id="applicationStatusLabel"]').innerHTML = `${val} :`;
     const tableBody = document.getElementById('tableBody');
     tableBody.innerHTML = ''; // Clear existing content
 
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/${form_table_name}/all_form_status `,
+       url: `http://localhost:8080/admission_child_personal/form_status?formName=${val}`,
+        // url: ` http://localhost:8080/${form_table_name}/all_form_status `,
         type: 'get',
-        success: function (response1) {
-            console.log(response1);
-            $.ajax({
-                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/admission_status_info`,
-                type: 'get',
-                success: function (response) {
-                    let responseValue = Object.values(response);
-                    console.log(responseValue);
-                    if (Array.isArray(responseValue)) {
-                        const tableBody = document.getElementById('tableBody');
-                        tableBody.innerHTML = ''; // Clear existing content
-                
-                        // for (let i = 0; i < responseValue.length; i++) {
-                        //     const rowData = responseValue[i];
-                            for (let j = 0; j <responseValue.length; j++) {
-                                console.log(responseValue[j].child_name);
-                
-                                // Create a new row for each data set
-                                const row = document.createElement('tr');
-                                // Create cell for child name
-                                const childNameCell = document.createElement('td');
-                                const childNameaCell = document.createElement('a');
-                                childNameaCell.textContent = responseValue[j].child_name;
-                               
-                                if(val == 'ACH Recurring payments form'){
-                                    childNameaCell.href = `./forms/authorization_form.html?id=${responseValue[j].child_id}`;
-                                }else{
-                                    childNameaCell.href = `form.html?id=${responseValue[j].child_id}`;
-                                }
-                                childNameCell.appendChild(childNameaCell);
-                                row.appendChild(childNameaCell);
-                                
+        success: function (response) {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = ''; // Clear existing content
+    
+            // for (let i = 0; i < responseValue.length; i++) {
+            //     const rowData = responseValue[i];
+                for (let j = 0; j <response.length; j++) {
+                    // Create a new row for each data set
+                    const row = document.createElement('tr');
+                    // Create cell for child name
+                    const childNameCell = document.createElement('td');
+                    const childNameaCell = document.createElement('a');
+                    childNameaCell.textContent = response[j].child_name;
                     
-                                // Create cell for parent name
-                                const parentNameCell = document.createElement('td');
-                                parentNameCell.textContent = responseValue[j].parent_name;
-                                row.appendChild(parentNameCell);
+                    childNameaCell.href = `/chid_add.html?id=${response[j].child_id}`;
+                    childNameCell.appendChild(childNameaCell);
+                    row.appendChild(childNameaCell);
+                    
         
-                                const applicationStatusCell = document.createElement('td');
-                                applicationStatusCell.textContent = responseValue[j].admission_form_status;
-                                row.appendChild(applicationStatusCell);
+                    // Create cell for parent name
+                    const SecondaryParentEmail = document.createElement('td');
+                    SecondaryParentEmail.textContent = response[j].parent_two_email;
+                    row.appendChild(SecondaryParentEmail);
 
-                                console.log(response1[j].form_status);
-                                const enrollmentStatusCell = document.createElement('td');
-                                enrollmentStatusCell.textContent = response1[j].form_status;
-                                row.appendChild(enrollmentStatusCell);
-        
-                                // Apply styles based on enrollment status
-                                if (response1[j].form_status === "Completed") {
-                                    enrollmentStatusCell.style.color = 'green';
-                                    enrollmentStatusCell.style.fontWeight = 'bold';
-                                } else if (response1[j].form_status === "Incomplete") {
-                                    enrollmentStatusCell.style.color = 'red';
-                                    enrollmentStatusCell.style.fontWeight = 'bold';
-                                } else {
-                                    enrollmentStatusCell.style.color = '#FFCC00';
-                                    enrollmentStatusCell.style.fontWeight = 'bold';
-                                }
-                    
-                                // Append the row to the table body
-                                tableBody.appendChild(row);
-                            }
-                        // }
+                    const applicationStatusCell = document.createElement('td');
+                    applicationStatusCell.textContent = response[j].admission_form_status;
+                    row.appendChild(applicationStatusCell);
+
+                    const enrollmentStatusCell = document.createElement('td');
+                    enrollmentStatusCell.textContent = response[j].form_status;
+                    row.appendChild(enrollmentStatusCell);
+
+                    // Apply styles based on enrollment status
+                    if (response[j].form_status === "Completed") {
+                        enrollmentStatusCell.style.color = 'green';
+                        enrollmentStatusCell.style.fontWeight = 'bold';
+                    } else if (response[j].form_status === "Incomplete") {
+                        enrollmentStatusCell.style.color = 'red';
+                        enrollmentStatusCell.style.fontWeight = 'bold';
+                    } else {
+                        enrollmentStatusCell.style.color = '#FFCC00';
+                        enrollmentStatusCell.style.fontWeight = 'bold';
                     }
+        
+                    // Append the row to the table body
+                    tableBody.appendChild(row);
                 }
-            });
+            // }
         }
     });
 
 }
 function formNameDetails() {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=true`,
+        url: `http://localhost:8080/goddard_all_form/all_active_forms`,
         type: 'get',
         success: function (response) {
-            console.log(response);
             if (Array.isArray(response) && response.length > 0) {
                 let optionsData = '';
                 document.querySelector('[name="form_name"]').innerHTML = '';
                 for (let i = 0; i < response.length; i++) {
-                    optionsData += '<option value="' + response[i].form_name + '" onchange="formdetails(this.value)">' + response[i].form_name
+                    optionsData += '<option value="' + response[i].main_topic + '" onchange="formdetails(this.value)">' + response[i].main_topic
                                     + '</option>';
                     document.querySelector('[name="form_name"]').innerHTML =
                         optionsData;
@@ -323,15 +265,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // // Function to update the table based on the current page
     // function updateTable() {
     //     const tableRows = document.querySelectorAll("#tableBody tr");
-    //     console.log(tableRows);
     //     const startIndex = (currentPage - 1) * rowsPerPage;
-    //     console.log(startIndex);
     //     const endIndex = currentPage * rowsPerPage;
-    //     console.log(endIndex);
     
     //     tableRows.forEach((row, index) => {
-    //         console.log(row);
-    //         console.log(index);
     //         if (index >= startIndex && index < endIndex) {
     //             row.style.display = "";
     //         } else {

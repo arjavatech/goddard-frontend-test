@@ -24,11 +24,41 @@
         <script src="js/login.js" ></script>
         <script src="js/password_show_hide.js" async></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <style>
+            .success-msg{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            .error-msg, .error-msg-empty, .error-msg-mismatch{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            
+            .alert{
+                display: none;
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+            }  
+    
+            a {
+              color: #337ab7;
+              text-decoration: none;
+            }
+          
+          </style>
     </head>
     <body>
         <!-- Navigation Bar -->
         <nav class="navbar_bg d-flex justify-content-center">
-            <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+            <img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px" height="112px">
         </nav>
         <!-- Navigation Bar End -->
         <!-- Login Card -->
@@ -36,14 +66,23 @@
             <div class="card_position">
                 <div class="card login_card_style">
                     <div class="card-body">
-                        <div class="row" id="errorMessageDiv" style="background-color: #fff ;height: 50px;display: none;">
-                            <div class="col-sm-12">
-                                <span id="errorMessage" style="display: none;color: #ff0000;padding-top: 10px;text-align: center;">
-                                    <b>Password Mismatched</b></span>
-                            </div>
+                        <div class="success-msg alert alert-success">
+                            <a href="#" data-dismiss="alert"></a>
+                            <strong>Success!</strong> You have been signed in successfully!
+                        </div>   
+                        <div class="error-msg-mismatch alert alert-danger">
+                            <a href="#" data-dismiss="alert"></a>
+                            <strong>Oops!</strong> Password Mismatched!
                         </div>
+                        <div class="error-msg alert alert-danger">
+                            <a href="#" data-dismiss="alert" aria-label="close"></a>
+                            <strong>Oops!</strong> Signup not allowed!
+                        </div>  
+                        <div class="error-msg-empty alert alert-danger">
+                            <a href="#" data-dismiss="alert" aria-label="close"></a>
+                            <strong>Oops!</strong> You have to fill all the fields!
+                        </div> 
                         <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
-
                          <!-- Sign Up -->
                         <div class="container">
                             <form id="signup"><br>
@@ -99,20 +138,15 @@
         <!-- Sign Up Card End -->
         <script>
             // document.getElementById('reset_password_span').style.display = "none";
-            let spanMsg = document.getElementById("errorMessage");
-            let spanMsgDiv = document.getElementById("errorMessageDiv");
             function validatePassword() {
                 // Retrieve password input values
                 let password1 = document.getElementById('signup_pswd').value;
                 let password2 = document.getElementById('password').value;
-                if (password1 === password2) {
-                  
-                    spanMsgDiv.style.display = "none";
-                    spanMsg.style.display = "none";
-                    // return true; // Allow form submission
-                }else{
-                    spanMsgDiv.style.display = "block";
-                    spanMsg.style.display = "block";
+                if (password1 !== password2) {
+                    $(".error-msg-mismatch").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-mismatch").hide(); 
+                    }, 3000);
                 }
             }
             //email validation with particular format
@@ -128,50 +162,86 @@
                 }
             }
             function signupFunction() {
+                let email_id = document.getElementById('email_id').value;
                 let password1 = document.getElementById('signup_pswd').value;
                 let password2 = document.getElementById('password').value;
-                if (password1 === password2) {
-                    spanMsgDiv.style.display = "none";
-                    spanMsg.style.display = "none";
-                    const form = document.getElementById("signup");
-                    const formData = new FormData(form);
-                    console.log(formData);
-                    const password = formData.get("password");
+                if (email_id != '' && password1 !='' && password2 !=''){
+                    if (password1 === password2) {
+                        // spanMsgDiv.style.display = "none";
+                        // spanMsg.style.display = "none";
+                        const form = document.getElementById("signup");
+                        const formData = new FormData(form);
+                        const password = formData.get("password");
 
-                    // Hash the password
-                    const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                    console.log(hashedPassword);
-                    
-                    // Replace the original password with the hashed password in the form data
-                    formData.set("password", hashedPassword);
-                    const obj = Object.fromEntries(formData);
-                    console.log(obj);
-                    if(obj.email_id === 'goddard01arjava@gmail.com' || obj.email_id === 'goddard02arjava@gmail.com'){
-                        obj.admin = true;
-                    }else{
-                        obj.admin = false;
-                    }
-
-                    $.ajax({
-                        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/add",
-                        type: "POST",
-                        contentType: "application/json",
-                        data: JSON.stringify(obj),
-                        success: function (response) {
-                            alert(response.message);
-                            window.location.href = "login.html";
-                        },
-                        error: function (xhr, status, error) {
-                            console.log(error);
-                            alert("failed to sign up");
+                        // Hash the password
+                        const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                        console.log(hashedPassword);
+                        
+                        // Replace the original password with the hashed password in the form data
+                        formData.set("password", hashedPassword);
+                        const obj = Object.fromEntries(formData);
+                        obj.invite_id = window.localStorage.getItem('inviteData');
+                        console.log(obj);
+                        if(obj.email_id === 'goddard01arjava@gmail.com' || obj.email_id === 'goddard02arjava@gmail.com'){
+                            obj.admin = true;
+                        }else{
+                            obj.admin = false;
                         }
-                    });
+
+                        $.ajax({
+                            url: "http://localhost:8080/sign_up/add",
+                            type: "POST",
+                            contentType: "application/json",
+                            data: JSON.stringify(obj),
+                            success: function (response) {
+                                if(response.message == "Sign-up not allowed"){
+                                    $(".error-msg").show();
+                                    setTimeout(function(){ 
+                                        $(".error-msg").hide(); 
+                                    }, 3000);
+                                }else{
+                                    $(".success-msg").show();
+                                    setTimeout(function(){ 
+                                        $(".success-msg").hide(); 
+                                        window.location.href = "login.html";
+                                    }, 3000);
+                                }
+                            
+                            },
+                            error: function (xhr, status, error) {
+                                $(".error-msg").show();
+                                setTimeout(function(){ 
+                                    $(".error-msg").hide(); 
+                                }, 3000);
+                            }
+                        });
+                    }
+                    else{
+                        $(".error-msg-mismatch").show();
+                        setTimeout(function(){ 
+                            $(".error-msg-mismatch").hide(); 
+                        }, 3000);
+                    }
                 }else{
-                    spanMsgDiv.style.display = "block";
-                    spanMsg.style.display = "blck";
+                    $(".error-msg-empty").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-empty").hide(); 
+                    }, 3000);
                 }
             }
             $(document).ready(function () {
+                // Check if the URL contains an invite_id parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const inviteId = urlParams.get('invite_id');
+                let regex = /^([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})+$/i;
+                // If invite_id is not present, redirect the user
+                if (!inviteId) {
+                    window.location.href = 'login.html';
+                }else if(!(inviteId.match(regex))){
+                    window.location.href = 'login.html';
+                }else{
+                    window.localStorage.setItem('inviteData',inviteId)
+                }
                 $("#signupButton").on("click", function (e) {
                     e.preventDefault(); // Prevent the default form submission
                     signupFunction();
