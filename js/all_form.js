@@ -50,7 +50,7 @@ function submitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/admission_child_additional/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_additional/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -104,11 +104,11 @@ function childPersonalsubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/admission_child_personal/modify");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/modify");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
     // $.ajax({
-    //     url: "http://localhost:8080/admission_child_personal/modify",
+    //     url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/modify",
     //     type: "PUT",
     //     contentType: "application/json",
     //     data:json,
@@ -188,7 +188,7 @@ function childParentsubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/admission_parent_info/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_parent_info/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -241,7 +241,7 @@ function childHistorysubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", " http://localhost:8080/admission_child_health/update");
+    xhr.open("PUT", " https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_health/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -293,7 +293,7 @@ function childProfilesubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/admission_child_profile/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_profile/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -351,7 +351,7 @@ function saveForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/admission_child_additional/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_additional/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -409,7 +409,7 @@ function authorizationSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/bill_ach/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -468,7 +468,7 @@ function authorizationSaveForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/bill_ach/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -526,7 +526,7 @@ function enrollmentSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/enrollment_agreement/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_agreement/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -585,7 +585,7 @@ function enrollmentSaveForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/enrollment_agreement/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_agreement/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -643,7 +643,7 @@ function handbookSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/hand_book/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/hand_book/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -702,7 +702,7 @@ function handbookSaveForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "http://localhost:8080/hand_book/update");
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/hand_book/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

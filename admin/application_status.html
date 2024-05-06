@@ -316,7 +316,7 @@
                         dom: 'Qlfrtip',
                         //for waking up the aws lambda server
                         ajax: {
-                            url:'http://localhost:8080/admission_child_personal/all_child_status',
+                            url:'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/all_child_status',
                             dataSrc: '',
                         },
                         //it is used to define and configure the individual columns of the table.
@@ -351,7 +351,7 @@
                 console.log("else checking");
                 //for waking up the aws lambda server
                 $.ajax({
-                    url: 'http://localhost:8080/goddard_all_form/all_active_forms',
+                    url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all_active_forms',
                     type: 'get',
                     datasrc:'',
                     dataType:'json',
@@ -383,7 +383,7 @@
                         dom: 'Qlfrtip',
                         //for waking up the aws lambda server
                         ajax: {
-                            url:`http://localhost:8080/admission_child_personal/form_status?formName=${form_name}`,
+                            url:`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/form_status?formName=${form_name}`,
                             dataSrc: '',
                         },
                         //it is used to define and configure the individual columns of the table.

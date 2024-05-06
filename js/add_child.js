@@ -11,7 +11,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
         const json =JSON.stringify(obj);
         // console.log(json);
         $.ajax({
-            url: "http://localhost:8080/admission_child_personal/add",
+            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
             type: "POST",
             contentType: "application/json",
             data: json,
@@ -49,7 +49,7 @@ $(document).ready(function () {
         $('#primary_parent_email').on('focus', function(){
             //for waking up the aws lambda server
             $.ajax({
-                url: 'http://localhost:8080/parent_invite_info/accepted_invite',
+                url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/accepted_invite',
                 type: 'get',
                 datasrc:'',
                 dataType:'json',
@@ -70,7 +70,7 @@ $(document).ready(function () {
         $('#class_name').on('focus', function(){
         //for waking up the aws lambda server
         $.ajax({
-            url: 'http://localhost:8080/ClassId_ClassName_info/all',
+            url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/all',
             type: 'get',
             datasrc:'',
             dataType:'json',

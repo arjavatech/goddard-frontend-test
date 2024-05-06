@@ -14,9 +14,9 @@ function checkParentAuthentication(editID,callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
     let url;
     if(editID != ''){
-        url = `http://localhost:8080/admission_child_personal/parent_email?email=${editID}`
+        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
     }else{
-        url = `http://localhost:8080/admission_child_personal/parent_email?email=${logged_in_email}`
+        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${logged_in_email}`
     }
    
     $.ajax({
@@ -42,9 +42,9 @@ function getAllInfo(editID,callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
     let url;
     if(editID != ''){
-        url = `http://localhost:8080/admission_child_personal/parent_email?email=${editID}`
+        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
     }else{
-        url = `http://localhost:8080/admission_child_personal/parent_email?email=${logged_in_email}`
+        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${logged_in_email}`
     }
    
     $.ajax({

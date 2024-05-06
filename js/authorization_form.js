@@ -3,7 +3,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 export function authorizationFormDetails(callback) {
     $.ajax({
-        url: `http://localhost:8080/bill_ach/fetch/${localStorage.getItem('child_id')}`,
+        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/fetch/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function(response){
             // Set values of form fields
@@ -62,7 +62,7 @@ function submitForm() {
             window.location.reload();
         }
     };
-    xhr.open("POST", "http://localhost:8080/bill_ach/add");
+    xhr.open("POST", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

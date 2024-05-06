@@ -15,7 +15,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 //         let json = JSON.stringify(obj);
 //         console.log(json);
 //         $.ajax({
-//             url: "http://localhost:8080/ClassId_ClassName_info/add",
+//             url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/add",
 //             type: "POST",
 //             contentType: "application/json",
 //             data: json,
@@ -38,7 +38,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 //         let json = JSON.stringify(obj);
 //         console.log(json);
 //         $.ajax({
-//             url: "http://localhost:8080/ClassId_ClassName_info/update",
+//             url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/update",
 //             type: "PUT",
 //             contentType: "application/json",
 //             data: json,
@@ -66,7 +66,7 @@ form.addEventListener("submit", (e) => {
     const obj = Object.fromEntries(formData);
     const json=JSON.stringify(obj);
     $.ajax({
-        url: "http://localhost:8080/ClassId_ClassName_info/add",
+        url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/add",
         type: "POST",
         contentType: "application/json",
         data: json,

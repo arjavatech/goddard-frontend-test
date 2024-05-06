@@ -213,7 +213,7 @@
         
             function fetchDataAndPopulateDropdown() {
                 $.ajax({
-                    url: ' http://localhost:8080/goddard_all_form/all',
+                    url: ' https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all',
                     type: 'GET',
                     success: function(response) {
                         let responsevalue = Object.values(response);
@@ -240,7 +240,7 @@
                 const obj = Object.fromEntries(formData);
                 obj.main_topic = data;
                 $.ajax({
-                    url: "http://localhost:8080/goddard_all_form/add_form",
+                    url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/add_form",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(obj),

@@ -14,7 +14,7 @@ function emailSend() {
         let messageData = $('#messageData').val();
         obj.body = messageData;
         $.ajax({
-               url: "http://localhost:8080/email/send",
+               url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
                type: "POST",
                contentType: "application/json",
                data: JSON.stringify(obj),

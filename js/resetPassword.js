@@ -54,7 +54,7 @@ function signupFunction(){
             const obj = Object.fromEntries(formData);
             console.log(obj);
             $.ajax({
-                url: "http://localhost:8080/sign_up/add",
+                url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/add",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(obj),

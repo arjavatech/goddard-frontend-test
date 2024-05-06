@@ -2,7 +2,7 @@
 function enrollmentValueSend(status,id,year,form_name){
     var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
     $.ajax({
-        url: "http://localhost:8080/child_form/add",
+        url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/child_form/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
@@ -20,7 +20,7 @@ function applicationStatusYear() {
     // let applicationStatusYear = document.getElementById("applicationStatusYear");
     // applicationStatusYear.textContent = val;
     $.ajax({
-        url: `http://localhost:8080/admission_child_personal/all_child_status`,
+        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/all_child_status`,
         type: 'get',
         success: function (response) {
             console.log(response)
@@ -85,7 +85,7 @@ function applicationStatusYear() {
 //to display child's year
 function applicationStatusAllYear() {
     // const child_id = localStorage.getItem('child_id')
-    // const url = ' http://localhost:8080/admission/app_status/info'
+    // const url = ' https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/info'
     // $.ajax({
     //     url: url,
     //     type: 'get',
@@ -132,8 +132,8 @@ function formdetails(val){
     tableBody.innerHTML = ''; // Clear existing content
 
     $.ajax({
-       url: `http://localhost:8080/admission_child_personal/form_status?formName=${val}`,
-        // url: ` http://localhost:8080/${form_table_name}/all_form_status `,
+       url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/form_status?formName=${val}`,
+        // url: ` https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/${form_table_name}/all_form_status `,
         type: 'get',
         success: function (response) {
             const tableBody = document.getElementById('tableBody');
@@ -189,7 +189,7 @@ function formdetails(val){
 }
 function formNameDetails() {
     $.ajax({
-        url: `http://localhost:8080/goddard_all_form/all_active_forms`,
+        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all_active_forms`,
         type: 'get',
         success: function (response) {
             if (Array.isArray(response) && response.length > 0) {

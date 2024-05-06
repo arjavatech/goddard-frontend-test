@@ -382,7 +382,7 @@
                     dom: 'Qlfrtip',
                     //for waking up the aws lambda server
                     ajax: {
-                        url:'http://localhost:8080/ClassId_ClassName_info/all',
+                        url:'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/all',
                         dataSrc: '',
                     },
                     //it is used to define and configure the individual columns of the table.
@@ -412,7 +412,7 @@
             if(editID != ''){
                 //for waking up the aws lambda server
                 $.ajax({
-                    url: `http://localhost:8080/ClassId_ClassName_info/fetch/${editID}`,
+                    url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/fetch/${editID}`,
                     type: 'get',
                     //this is uesd to get the response and return the result
                     success: function(response){
@@ -457,7 +457,7 @@
                             }       
                         };
 
-                        xhr.open("PUT", 'http://localhost:8080/ClassId_ClassName_info/update');
+                        xhr.open("PUT", 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/update');
                         xhr.setRequestHeader("Content-Type", "application/json");
                         xhr.send(json);
                     }

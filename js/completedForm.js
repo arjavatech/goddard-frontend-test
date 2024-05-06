@@ -56,7 +56,7 @@ async function printForm(id) {
 //to display child's year
 function applicationStatusAllYear() {
     const child_id = localStorage.getItem('child_id')
-    const url = 'http://localhost:8080/parent_invite_info/all'
+    const url = 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/all'
     $.ajax({
         url: url,
         type: 'get',
