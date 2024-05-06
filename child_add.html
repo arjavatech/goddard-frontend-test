@@ -243,7 +243,7 @@
                 // var tab_content = document.querySelector(".tab-content");
                 // tab_content.reset();
                 $.ajax({
-                    url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/Incomplete_form_status/${editID}`,
+                    url: `http://localhost:8080/admission_child_personal/Incomplete_form_status/${editID}`,
                     type: 'GET',
                     dataType:'json',
                     success: function(response) {
@@ -275,7 +275,7 @@
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
                                 // $('.menu').load(trimValues + "ListItem.html");
-                                $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                                $(`.menu.${trimValues}`).load(trimValues + "listitem.html");
                                 
                             }
 
@@ -314,7 +314,7 @@
                     dom: 'Qlfrtip',
                     //for waking up the aws lambda server
                     ajax: {
-                        url:`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year${year}`,
+                        url:`http://localhost:8080/admission_child_personal/completed_form_status/${editID}?year${year}`,
                         dataSrc: 'completedFormStatus',
                     },
                     //it is used to define and configure the individual columns of the table.
@@ -344,7 +344,7 @@
                     // addChildDiv.style.display = 'none';
                     //for waking up the aws lambda server   
                     $.ajax({
-                        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+                        url: `http://localhost:8080/admission_child_personal/fetch/${editID}`,
                         type: 'GET',
                         //this is used to get the response and return the result
                         success: function(response)
@@ -2325,7 +2325,7 @@
                     dom: 'Qlfrtip',
                     //for waking up the aws lambda server
                     ajax: {
-                        url:`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year${year}`,
+                        url:`http://localhost:8080/admission_child_personal/completed_form_status/${editID}?year${year}`,
                         dataSrc: 'completedFormStatus',
                     },
                     //it is used to define and configure the individual columns of the table.
