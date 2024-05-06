@@ -113,10 +113,10 @@
                                                 <h6 class="p-3 side-menu"><b>Incomplete</b></h6>
                                                 <div class="menu">
                                                     <!--Child Information -->
-                                                    <div class="menu admissionforms" id="admissionFormMenu"></div>
+                                                    <div class="menu admission_forms" id="admissionFormMenu"></div>
                                                     <div class="menu authorization" id="authorizationMenu"></div>
-                                                    <div class="menu enrollmentagreement" id="enrollmentMenu"></div>
-                                                    <div class="menu parenthandbook" id="parentHandbookMenu"></div>
+                                                    <div class="menu enrollment_agreement" id="enrollmentMenu"></div>
+                                                    <div class="menu parent_handbook" id="parentHandbookMenu"></div>
                                                 </div><br>
                                                 <span onclick="toggleContent('completedFormDetails')">
                                                     <li>
@@ -142,16 +142,16 @@
                     <div class="tab-content">
                         <!--Child Information -->
                         <form id="childInfoAdmission"> 
-                            <div class="tab-content admissionforms" id="admissionforms"></div>
+                            <div class="tab-content admission_forms" id="admissionforms"></div>
                         </form>
                         <form id="childInfoAuthorization"> 
                             <div class="tab-content authorization" id="authorization"></div>
                         </form>
                         <form id="childInfoEnrollment"> 
-                            <div class="tab-content enrollmentagreement" id="enrollmentagreement"></div>
+                            <div class="tab-content enrollment_agreement" id="enrollmentagreement"></div>
                         </form>
                         <form id="childInfoHandbook"> 
-                            <div class="tab-content parenthandbook" id="parenthandbook"></div>
+                            <div class="tab-content parent_handbook" id="parenthandbook"></div>
                         </form>
                     </div><br>
                     <div  id="completedFormDetails"  class="container tab-pane fade pt-3">
@@ -279,6 +279,7 @@
                         for (let i = 0; i < mainTopics.length; i++) {
                             let mainTopic = mainTopics[i];
                             let trimValues = mainTopic.replace(/\s+/g, '_').toLowerCase();
+                            // console.log(trimValues);
 
                             // $.get(trimValues + "ListItem.html", function(data) {
                             //     $("#menu").append(data);
@@ -287,7 +288,9 @@
                             if (trimValues == 'admission_forms' || trimValues == 'authorization' || 
                             trimValues == 'enrollment_agreement' || trimValues == 'parent_handbook') {
                                 // $('.menu').load(trimValues + "ListItem.html");
+                                console.log(trimValues);
                                 $(`.menu.${trimValues}`).load(trimValues + "_list_item.html");
+                                console.log($(`.menu.${trimValues}`).load(trimValues + "_list_item.html"));
                                 
                             }
 
