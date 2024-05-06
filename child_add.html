@@ -287,13 +287,13 @@
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
                                 // $('.menu').load(trimValues + "ListItem.html");
-                                $(`.menu.${trimValues}`).load(trimValues + "listitem.html");
+                                $(`.menu .${trimValues}`).load(trimValues+"listitem.html");
                                 
                             }
 
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
-                                $(`.tab-content.${trimValues}`).load(trimValues + ".html");
+                                $(`.tab-content .${trimValues}`).load(trimValues+".html");
                                 $('.svg').append('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>');
                             }
                         }
