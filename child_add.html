@@ -278,7 +278,7 @@
                         
                         for (let i = 0; i < mainTopics.length; i++) {
                             let mainTopic = mainTopics[i];
-                            let trimValues = mainTopic.replace(/\s+/g, '').toLowerCase();
+                            let trimValues = mainTopic.replace(/\s+/g, '_').toLowerCase();
 
                             // $.get(trimValues + "ListItem.html", function(data) {
                             //     $("#menu").append(data);
@@ -287,7 +287,7 @@
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
                                 // $('.menu').load(trimValues + "ListItem.html");
-                                $(`.menu.${trimValues}`).load(trimValues + "listitem.html");
+                                $(`.menu.${trimValues}`).load(trimValues + "list_item.html");
                                 
                             }
 
