@@ -80,8 +80,8 @@ function emailValidation(inputtxtID,errorSpanID) {
 
 //number validation with particular format
 function validatePhone(inputtxtID, errorSpanId) {
-    let numbersformat =/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/im;
-    if (inputtxtID.value.match(numbersformat) && inputtxtID.value.length <= 15) {
+    let numbersformat =/^\+?1?\s*\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/;
+    if (inputtxtID.value.match(numbersformat) && inputtxtID.value.length <= 16) {
         document.getElementById(errorSpanId).style.display = "none";
     } else if(inputtxtID.value == ''){
         document.getElementById(errorSpanId).style.display = "none";
