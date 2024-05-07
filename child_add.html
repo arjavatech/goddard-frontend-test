@@ -684,7 +684,7 @@
                             let socialBehavior;
                             let environmentalFactor;
                             let parentAgreementTwo;
-                            if(document.getElementById('childandfamilyhistory') !== null ){
+                            if(document.getElementById('childandfamilyhistory') != null ){
                                 if (typeof response.physical_exam_last_date !== "undefined")
                                     document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                                 if (typeof response.dental_exam_last_date !== "undefined")
@@ -1021,7 +1021,7 @@
                            
                             //immunization details
                             let immunizationInstruction;
-                            if(document.getElementById('immunizationinstructions') !== null ){
+                            if(document.getElementById('immunizationinstructions') != null ){
                                 if(response.do_you_agree_this_immunization_instructions == "on" ){
                                     document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
                                     immunizationInstruction = true;
@@ -1052,7 +1052,7 @@
                             let medicalDetails;
                             let parentAgreementThree;
                             //child profile details
-                            if(document.getElementById('childprofile') !== null ){
+                            if(document.getElementById('childprofile') != null ){
                                 
                                 if (typeof response.other_important_family_members !== "undefined")
                                     document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
@@ -1332,7 +1332,7 @@
 
                             //pickup password details
                             let pickupPassword;
-                            if(document.getElementById('pickuppassword') !== null ){                          
+                            if(document.getElementById('pickuppassword') != null ){                          
                                 if (typeof response.child_password_pick_up_password_form !== "undefined")
                                     document.getElementsByName('child_password_pick_up_password_form')[0].value = response.child_password_pick_up_password_form;
                                 if( response.do_you_agree_this_pick_up_password_form == "on" ){
@@ -1363,7 +1363,7 @@
 
                             //photo video permisiion details
                             let photoVideoPermission;
-                            if(document.getElementById('photovideopermission') !== null ){
+                            if(document.getElementById('photovideopermission') != null ){
                                 // if (typeof response.photo_usage_photo_video_permission_form  !== "undefined"){
                                 //         $('#photo_usage_photo_video_permission_form').append($("<option></option>").attr("value", response.photo_usage_photo_video_permission_form).text(response.photo_usage_photo_video_permission_form));
                                 //     }
@@ -1403,7 +1403,7 @@
 
                             // security policy details
                             let securityPolicy;
-                            if(document.getElementById('securitypolicy') !== null ){
+                            if(document.getElementById('securitypolicy') != null ){
                                 if( response.do_you_agree_this_security_release_policy_form == "on" ){
                                     document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
                                 }else{
@@ -1428,7 +1428,7 @@
 
                             //medical transportation details
                             let medicaltransportationWeiver;
-                            if(document.getElementById('medicaltransportation') !== null ){
+                            if(document.getElementById('medicaltransportation') != null ){
                                 if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
                                     document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
                                 
@@ -1457,7 +1457,7 @@
 
                             // health policy details
                             let healthPolicy;
-                            if(document.getElementById('healthpolicies') !== null ){
+                            if(document.getElementById('healthpolicies') != null ){
                                 if( response.do_you_agree_this_health_policies == "on" ){
                                     document.getElementById('do_you_agree_this_health_policies').checked = true;
                                 }else{
@@ -1482,7 +1482,7 @@
 
                             // outside weiver details
                             let outsideWeiver;
-                            if(document.getElementById('outsideengagements') !== null ){
+                            if(document.getElementById('outsideengagements') != null ){
                                 if( response.outside_waiver_parent_sign_outside_engagements_waiver == "on" ){
                                     document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
                                 }else{
@@ -1507,7 +1507,7 @@
                             
                             // Admission form parent agreement
                             let admissionparentsign;
-                            if(document.getElementById('parentsignature') !== null ){
+                            if(document.getElementById('parentsignature') != null ){
                                 if(typeof response.parent_sign_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_admission')[0].value = response.parent_sign_admission;
                                 }
@@ -1566,8 +1566,8 @@
                             }
 
                             //Admission form admin restriction
-                            if(typeof document.getElementById('adminsignature') !== null ){
-                                if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
+                            if(typeof document.getElementById('adminsignature') != null ){
+                                if (localStorage.getItem('logged_in_email') != 'goddard01arjava@gmail.com') {
                                     let adminFinalAgreement = document.getElementById('adminFinalAgreement');
                                     adminFinalAgreement.classList.add('disabled');
                                     
@@ -1580,7 +1580,7 @@
                             //enrollment data
                             let enrollmentDetails;
                             let enrollmentparent;
-                            if(document.getElementById('childenrollmentagreement') !== null ){
+                            if(document.getElementById('childenrollmentagreement') != null ){
                                 if (typeof response.point_one_field_one !== "undefined")
                                     document.getElementsByName("point_one_field_one")[0].value = response.point_one_field_one;
                                 if (typeof response.point_one_field_two !== "undefined")
@@ -1666,7 +1666,7 @@
                                 }
                             }
                            
-                            if(document.getElementById('childenrollmentagreementparentsign') !== null ){
+                            if(document.getElementById('childenrollmentagreementparentsign') != null ){
                                 if(typeof response.parent_sign_enroll !== "undefined" ){
                                     document.getElementsByName('parent_sign_enroll')[0].value = response.parent_sign_enroll;
                                 }
@@ -1706,7 +1706,7 @@
                                 }
                             }
                             //enrollment form admin restriction
-                            if(document.getElementById('childenrollmentagreementadminsign') !== null ){
+                            if(document.getElementById('childenrollmentagreementadminsign') != null ){
                                 if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
                                     let adminFinalAgreement = document.getElementById('enrollmentAdminFinalAgreement');
                                     adminFinalAgreement.classList.add('disabled');
@@ -1720,7 +1720,7 @@
                             //authorization form
                             let authorizationDetails;
                             let achparentsign;
-                            if(document.getElementById('authorizationach') !== null ){
+                            if(document.getElementById('authorizationach') != null ){
                                 if (typeof response.bank_routing !== "undefined")
                                     document.getElementById("bank_routing").value = response.bank_routing;
                                 if (typeof response.bank_account !== "undefined")
@@ -1756,7 +1756,7 @@
                                     authorizationDetails = false;
                                 }
                             }
-                            if(document.getElementById('authorizationparentsign') !== null ){
+                            if(document.getElementById('authorizationparentsign') != null ){
                                 if(typeof response.parent_sign_ach !== "undefined" ){
                                     document.getElementsByName('parent_sign_ach')[0].value = response.parent_sign_ach;
                                 }
@@ -1796,7 +1796,7 @@
                                 }
                             }
                             //authorization form admin restriction
-                            if(document.getElementById('authorizationadminsign') !== null ){
+                            if(document.getElementById('authorizationadminsign') != null ){
                                 if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
                                     let adminFinalAgreement = document.getElementById('achAdminFinalAgreement');
                                     adminFinalAgreement.classList.add('disabled');
@@ -1810,7 +1810,7 @@
                             //parent Handbook form
                             let welcome_goddard_agreement;
                             let parentHandBook;
-                            if(document.getElementById('volumeone') !== null ){
+                            if(document.getElementById('volumeone') != null ){
                                 if( response.parent_hand_book['welcome_goddard_agreement'] == "on" ){
                                     document.getElementById('welcome_goddard_agreement').checked = true;
                                 }else{
@@ -2247,7 +2247,7 @@
                                 parentHandBook = false;
                             }
                         }
-                            if(document.getElementById('parentsignaturehandbook') !== null ){
+                            if(document.getElementById('parentsignaturehandbook') != null ){
                                 if(typeof response.parent_hand_book['parent_sign_handbook'] !== "undefined" ){
                                     document.getElementsByName('parent_sign_handbook')[0].value =response.parent_hand_book['parent_sign_handbook'];
                                 }
@@ -2289,7 +2289,7 @@
                                 }
                             }
                             //authorization form admin restriction
-                            if(document.getElementById('adminsignaturehandbook') !== null ){
+                            if(document.getElementById('adminsignaturehandbook') != null ){
                                 if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
                                     let adminFinalAgreement = document.getElementById('handbookAdminFinalAgreement');
                                     adminFinalAgreement.classList.add('disabled');
