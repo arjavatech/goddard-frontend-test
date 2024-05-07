@@ -328,8 +328,8 @@
                         columns: [
                             { data: 'child_name',
                                 render: function ( data, type, full, meta ) {
-                                    window.location.replace = `${window.location.origin}./child_add.html?id=${full.parent_email}`;
-                                    let url =`${window.location.origin}./child_add.html?id=${full.parent_email} ` //Question
+                                    window.location.replace = `${window.location.origin}../child_add.html?id=${full.parent_email}`;
+                                    let url =`${window.location.origin}../child_add.html?id=${full.parent_email} ` //Question
                                 return `<a href="${url}">${full.child_name}</a>`;
                                 },
                             },
