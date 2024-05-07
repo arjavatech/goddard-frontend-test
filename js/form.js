@@ -8,16 +8,17 @@ function submitForm() {
     formData.append('point_one_field_one', textBoxValue1);
     formData.append('point_one_field_two', textBoxValue2);
     formData.append('point_one_field_three', textBoxValue3);
-    console.log(formData);
     const obj = Object.fromEntries(formData);
-    console.log(obj);
+    let defaultdate = new Date().getFullYear();
     obj.child_id = localStorage.getItem('child_id');
+    obj.year = defaultdate;
+    obj.form_status = 'Reviewing';
     const json = JSON.stringify(obj);
-
+    
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         // const data = xhr.responseText;
-        if (xhr.status == 200) {
+        if (xhr.status === 200) {
             // var confirmationRes = window.confirm(data);
             // if (confirmationRes) {
                 window.location.href = "parent_dashboard.html";
@@ -28,7 +29,7 @@ function submitForm() {
             window.location.reload();
         }
     };
-    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add");
+    xhr.open("POST", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -56,12 +57,38 @@ function clearForm(){
     document.getElementById("point_eighteen_initial_here").value = "";
     document.getElementById("parent_one_sign").value = "";
     document.getElementById("parent_one_sign_date").value = "";
-    document.getElementById("parent_two_sign").value = "";
-    document.getElementById("parent_two_sign_date").value = "";
+    document.getElementById("primary_parent_email").value = "";
+    document.getElementById("primary_parent_cell_number").value = "";
     document.getElementById("child_name").value = "";
     document.getElementById("dob").value = "";
     document.getElementById("school_admin_sign").value = "";
     document.getElementById("school_admin_sign_date").value = "";
+}
+
+//email validation with particular format
+function emailValidation(inputtxtID,errorSpanID) {
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if (reg.test(inputtxtID.value) == true) {
+        document.getElementById(errorSpanID).style.display = "none";
+    } else if(inputtxtID.value == ''){
+        document.getElementById(errorSpanID).style.display = "none";
+    } else {
+        document.getElementById(errorSpanID).style.display = "block";
+        inputtxtID.focus();
+    }
+}
+
+//number validation with particular format
+function validatePhone(inputtxtID, errorSpanId) {
+    let numbersformat =/^\+?1?\s*\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/;
+    if (inputtxtID.value.match(numbersformat) && inputtxtID.value.length <= 16) {
+        document.getElementById(errorSpanId).style.display = "none";
+    } else if(inputtxtID.value == ''){
+        document.getElementById(errorSpanId).style.display = "none";
+    } else {
+        document.getElementById(errorSpanId).style.display = "block";
+        inputtxtID.focus();
+    }
 }
 
 //this function restrict future date
@@ -81,3 +108,4 @@ $(document).ready(function() {
         clearForm();
     });
 });
+

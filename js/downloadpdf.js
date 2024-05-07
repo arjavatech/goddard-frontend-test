@@ -1,7 +1,6 @@
-import {fetchEnrollmentFormTitle, fetchEnrollmentFormBody } from './enrollmentForm.js'
+import {fetchEnrollmentFormTitle, fetchEnrollmentFormBody,fetchEnrollmentPointEight } from './enrollmentForm.js'
 
 // function downloadPDF() {
-//     console.log("Download")
 //     const {jsPDF} = window.jspdf;
 //     const doc = new jsPDF('p', 'mm', [1500, 1400]);
 //     let pdfjs = document.querySelector('#formContent');
@@ -16,7 +15,6 @@ import {fetchEnrollmentFormTitle, fetchEnrollmentFormBody } from './enrollmentFo
 
 
 function downloadPDF() {
-    console.log("Download");
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('p', 'mm', [1500, 1400]);
     let formContent = document.querySelector('#formContent');
@@ -38,7 +36,9 @@ $(document).ready(function() {
     $('#downloadFormAsPDF').click(function() {
         fetchEnrollmentFormTitle(function() {
             fetchEnrollmentFormBody(function() {
-                downloadPDF();
+                fetchEnrollmentPointEight(function(){
+                    downloadPDF();
+                }); 
             });
         });
     });

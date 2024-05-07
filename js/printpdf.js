@@ -18,24 +18,9 @@ function generatePDFContent() {
     });
 }
 
-// async function printForm() {
-//     console.log("Print Form");
-//     const pdfDoc = await generatePDFContent();
-//
-//     // Open a new window or tab for printing
-//     const printWindow = window.open('', '_blank');
-//
-//     // Set the content of the new window to the PDF document
-//     printWindow.document.open();
-//     printWindow.document.write(pdfDoc.output('bloburl'));
-//     printWindow.document.close();
-//
-//     // Trigger the print dialog
-//     printWindow.print();
-// }
+
 
 async function printForm() {
-    console.log("Print Form");
     const pdfDoc = await generatePDFContent();
 
     // Create an object URL for the PDF blob

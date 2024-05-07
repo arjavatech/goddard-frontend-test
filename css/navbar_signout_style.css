@@ -1,0 +1,92 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto', sans-serif;
+    overflow-x: clip;
+}
+
+
+/*****Navigation Style*****/
+
+.navbar_bg {
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signout
+{
+    position: absolute !important;
+    top: 45px;
+    right: 80px !important;
+    color: #0F2D52 !important;
+    box-shadow: 0 1px 1px 0 #0F2D52;
+    border: 2px solid #fff !important;
+}
+
+.signout:hover
+{
+    border: 2px solid #0F2D52 !important;
+    /* box-shadow: 0 1px 1px 0 #0F2D52; */
+    background-color: #D8E9FF;
+}
+
+.signout_icon{
+    color: #0F2D52 !important;
+}
+
+/*****Navigation Style End*****/
+
+
+/***** Side Menu *****/
+
+.btn-primary{
+    background-color: #0F2D52 !important;
+    border: none !important;
+}
+
+.btn-primary:focus{
+    box-shadow: none !important;
+    border: 0 !important;
+}
+
+.btn-primary:hover{
+    background-color: #21446f !important;
+}
+
+.nav-link{
+    color: #0F2D52 !important;
+    font-weight: 700 !important;
+}
+
+.nav-link.active
+{
+    background-color: #0F2D52 !important;
+    color: #fff !important;
+}
+
+
+.nav-link:hover
+{
+    background-color: #4c6788 !important;
+    color: #fff !important;
+}
+
+.offcanvas{
+    width: 20rem !important;
+}
+
+.offcanvas-header
+{
+    color: #0F2D52 !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/***** Side Menu End *****/
+
+/* card shadow */
+.card {
+    border: none !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+

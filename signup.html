@@ -1,0 +1,252 @@
+
+
+<html>
+    <head>
+        <title>Sign Up</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="css/navbar_signout_style.css">
+        <link rel="stylesheet" href="css/login_signup.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <!-- <link rel="stylesheet" href="css/login_style.css"> -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <meta name="google-signin-client_id" content="70072849812-7gjpuusbnoho0v8l80lli57v74rrvch4.apps.googleusercontent.com">
+        <script src="js/login.js" ></script>
+        <script src="js/password_show_hide.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <style>
+            .success-msg{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            .error-msg, .error-msg-empty, .error-msg-mismatch{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            
+            .alert{
+                display: none;
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+            }  
+    
+            a {
+              color: #337ab7;
+              text-decoration: none;
+            }
+          
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar_bg d-flex justify-content-center">
+            <img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px" height="112px">
+        </nav>
+        <!-- Navigation Bar End -->
+        <!-- Login Card -->
+        <div class="container">
+            <div class="card_position">
+                <div class="card login_card_style">
+                    <div class="card-body">
+                        <div class="success-msg alert alert-success">
+                            <a href="#" data-dismiss="alert"></a>
+                            <strong>Success!</strong> You have been signed in successfully!
+                        </div>   
+                        <div class="error-msg-mismatch alert alert-danger">
+                            <a href="#" data-dismiss="alert"></a>
+                            <strong>Oops!</strong> Password Mismatched!
+                        </div>
+                        <div class="error-msg alert alert-danger">
+                            <a href="#" data-dismiss="alert" aria-label="close"></a>
+                            <strong>Oops!</strong> Signup not allowed!
+                        </div>  
+                        <div class="error-msg-empty alert alert-danger">
+                            <a href="#" data-dismiss="alert" aria-label="close"></a>
+                            <strong>Oops!</strong> You have to fill all the fields!
+                        </div> 
+                        <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
+                         <!-- Sign Up -->
+                        <div class="container">
+                            <form id="signup"><br>
+                                <div class="form-group">
+                                    <label for="email_id" class="form-label"><b>Email
+                                        <span style="color:#ff0000;">*</span></b>
+                                    </label><br>
+                                    <input type="email" class="form-control wizard-required" id="email_id" name="email_id"
+                                        onchange="emailValidation(this,'email_id_span')">
+                                    <span id="email_id_span" style="color:red; display:none">
+                                        Enter valid input [should be in @ and .].</span>
+                                    <div class="wizard-form-error"></div>
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="signup_pswd" class="form-label"><b>New Password
+                                        <span style="color:#ff0000;">*</span></b>
+                                    </label><br>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control password" id="signup_pswd"  name="signup_pswd">
+                                        <span class="input-group-text togglePassword" style="cursor: pointer;">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                    <div class="wizard-form-error"></div>
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="password" class="form-label"><b>Confirm Password
+                                        <span style="color:#ff0000;">*</span></b>
+                                    </label><br>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control confirm-password" id="password" 
+                                            name="password" onchange="validatePassword()">
+                                        <span class="input-group-text toggleConfirmPassword" style="cursor: pointer;">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                    <!-- <span id="reset_password_span" style="color:red; display:none">
+                                        password mismatched.</span>
+                                    <div class="wizard-form-error"></div> -->
+                                </div><br>
+                                <div class="d-grid">
+                                    <button type="button" class="btn signup_btn btn-block shadow-none" id="signupButton">Sign Up</button>
+                                </div><br>  
+                                <div class="text-center">
+                                    <span class="fs-5">Already have an account?</span>&nbsp;<a href="login.html" class="fs-5 for_pwd" style="color: #0F2D52;">Login</a>
+                                </div> 
+                            </form><br>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sign Up Card End -->
+        <script>
+            // document.getElementById('reset_password_span').style.display = "none";
+            function validatePassword() {
+                // Retrieve password input values
+                let password1 = document.getElementById('signup_pswd').value;
+                let password2 = document.getElementById('password').value;
+                if (password1 !== password2) {
+                    $(".error-msg-mismatch").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-mismatch").hide(); 
+                    }, 3000);
+                }
+            }
+            //email validation with particular format
+            function emailValidation(inputtxtID,errorSpanID) {
+                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                if (reg.test(inputtxtID.value) == true) {
+                    document.getElementById(errorSpanID).style.display = "none";
+                } else if(inputtxtID.value == ''){
+                    document.getElementById(errorSpanID).style.display = "none";
+                } else {
+                    document.getElementById(errorSpanID).style.display = "block";
+                    inputtxtID.focus();
+                }
+            }
+            function signupFunction() {
+                let email_id = document.getElementById('email_id').value;
+                let password1 = document.getElementById('signup_pswd').value;
+                let password2 = document.getElementById('password').value;
+                if (email_id != '' && password1 !='' && password2 !=''){
+                    if (password1 === password2) {
+                        // spanMsgDiv.style.display = "none";
+                        // spanMsg.style.display = "none";
+                        const form = document.getElementById("signup");
+                        const formData = new FormData(form);
+                        const password = formData.get("password");
+
+                        // Hash the password
+                        const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                        console.log(hashedPassword);
+                        
+                        // Replace the original password with the hashed password in the form data
+                        formData.set("password", hashedPassword);
+                        const obj = Object.fromEntries(formData);
+                        obj.invite_id = window.localStorage.getItem('inviteData');
+                        console.log(obj);
+                        if(obj.email_id === 'goddard01arjava@gmail.com' || obj.email_id === 'goddard02arjava@gmail.com'){
+                            obj.admin = true;
+                        }else{
+                            obj.admin = false;
+                        }
+
+                        $.ajax({
+                            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/add",
+                            type: "POST",
+                            contentType: "application/json",
+                            data: JSON.stringify(obj),
+                            success: function (response) {
+                                if(response.message == "Sign-up not allowed"){
+                                    $(".error-msg").show();
+                                    setTimeout(function(){ 
+                                        $(".error-msg").hide(); 
+                                    }, 3000);
+                                }else{
+                                    $(".success-msg").show();
+                                    setTimeout(function(){ 
+                                        $(".success-msg").hide(); 
+                                        window.location.href = "login.html";
+                                    }, 3000);
+                                }
+                            
+                            },
+                            error: function (xhr, status, error) {
+                                $(".error-msg").show();
+                                setTimeout(function(){ 
+                                    $(".error-msg").hide(); 
+                                }, 3000);
+                            }
+                        });
+                    }
+                    else{
+                        $(".error-msg-mismatch").show();
+                        setTimeout(function(){ 
+                            $(".error-msg-mismatch").hide(); 
+                        }, 3000);
+                    }
+                }else{
+                    $(".error-msg-empty").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-empty").hide(); 
+                    }, 3000);
+                }
+            }
+            $(document).ready(function () {
+                // Check if the URL contains an invite_id parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const inviteId = urlParams.get('invite_id');
+                let regex = /^([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})+$/i;
+                // If invite_id is not present, redirect the user
+                if (!inviteId) {
+                    window.location.href = 'login.html';
+                }else if(!(inviteId.match(regex))){
+                    window.location.href = 'login.html';
+                }else{
+                    window.localStorage.setItem('inviteData',inviteId)
+                }
+                $("#signupButton").on("click", function (e) {
+                    e.preventDefault(); // Prevent the default form submission
+                    signupFunction();
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,131 @@
+
+
+/*****Admin Dashboard Style*****/
+
+
+.admin_cards
+{
+    width: 250px !important;
+    height: 200px !important;
+    background: #D8E9FF !important;
+    border: 2px solid #0F2D52 !important;
+    border-radius: 20px !important;
+    cursor: pointer;
+}
+
+.admin_cards:hover
+{
+    opacity: 0.7;
+    border: 2px solid #0F2D52 !important;
+    cursor: pointer;
+}
+
+.card_icon {
+    color: #0F2D52 !important;
+}
+
+
+.card_title
+{
+    background-color: #0F2D52;
+    color: #D8E9FF;
+    padding: 20px;
+    border-radius: .30rem .30rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.col-form-label
+{
+    font-weight: 500;
+}
+.btn-bg{
+    background: #0F2D52 !important;
+    border: none !important;
+}
+
+.btn-bg:focus
+{
+    box-shadow: none !important;
+}
+
+.btn-bg:hover{
+    background-color: #21446f !important;
+}
+
+.form-control
+{
+    border: 1px solid #999999 !important;
+}
+
+.form-control:focus {
+    border-color: #66afe9 !important;
+    -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+}
+
+a{
+    text-decoration: none !important;
+    color:#0F2D52 !important;
+}
+/* a:hover{
+    color:#21446f !important
+} */
+  /***Modal style End***/
+
+
+
+.active_form_modal
+{
+    height: 500px !important;
+    width: 500px !important;
+}
+
+.form-multi-select.show
+{
+    border-color: #66afe9 !important;
+    -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+}
+
+.form-multi-select-option.form-multi-selected::before {
+    background-color:#0F2D52 !important;
+    border: none !important;
+}
+
+.modal_center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* number input default icon restriction code */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+   -webkit-appearance: none; 
+}
+
+
+/***Button Style***/
+
+    .send-btn, .cancel-btn, .add-btn
+    {
+        background-color: #0F2D52 !important;
+        color: #ffffff;
+        display: inline-block;
+        min-width: 100px;
+        min-width: 120px;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: .20rem;
+    }
+
+    .send-btn:hover, .cancel-btn:hover, .add-btn:hover
+    {
+        opacity: 0.8;
+    }
