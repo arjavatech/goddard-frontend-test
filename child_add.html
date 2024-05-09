@@ -2307,53 +2307,61 @@
                     });
                 }
             }
+            $(document).ready(function() {
+                $(window).keydown(function(event){
+                    if(event.keyCode == 13) {
+                        event.preventDefault();
+                        return false;
+                    }
+                });
+            });
         </script>
          <script>
             function clearDataTable() {
                 $('#example').DataTable().clear().draw();
             }
           
-            function parentDashBoardDetails(editID,year) {
-                //for avoid datatable error popup messages//
-                $.fn.dataTable.ext.errMode = 'none';
-                // Clearing the DataTable
-                clearDataTable();
+            // function parentDashBoardDetails(editID,year) {
+            //     //for avoid datatable error popup messages//
+            //     $.fn.dataTable.ext.errMode = 'none';
+            //     // Clearing the DataTable
+            //     clearDataTable();
 
-                //destroy datatable
-                $('#example').DataTable().destroy();
+            //     //destroy datatable
+            //     $('#example').DataTable().destroy();
 
-                //datatable creating function//
-                $('#example').DataTable({
-                    //for adding horizontal scrool bar
-                    scrollX: true,
-                    Info : false,
-                    //option is used to define the layout and elements that should be displayed around the table.
-                    dom: 'Qlfrtip',
-                    //for waking up the aws lambda server
-                    ajax: {
-                        url:`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year${year}`,
-                        dataSrc: 'completedFormStatus',
-                    },
-                    //it is used to define and configure the individual columns of the table.
-                    columns: [
-                        { data: 'form_name',
-                        render: function ( data, type, full, meta ) {
-                                return full; 
-                                //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
-                            },
-                        },
-                        { data: 'edit',
-                            render: function ( data, type, full, meta ) {
-                                window.location.replace = `${window.location.origin}/admin/addclassroom.html?id=${full.class_id} `;
-                                let url =`${window.location.origin}/admin/addclassroom.html?id=${full.class_id}` //Question
-                               return '<a href="'+ url +'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2" id="downbutton" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2" id="printbutton" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg></a>';
-                               //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
-                            },
-                        },
-                    ],
-                    "pageLength": 5,
-                });
-            }
+            //     //datatable creating function//
+            //     $('#example').DataTable({
+            //         //for adding horizontal scrool bar
+            //         scrollX: true,
+            //         Info : false,
+            //         //option is used to define the layout and elements that should be displayed around the table.
+            //         dom: 'Qlfrtip',
+            //         //for waking up the aws lambda server
+            //         ajax: {
+            //             url:`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year${year}`,
+            //             dataSrc: 'completedFormStatus',
+            //         },
+            //         //it is used to define and configure the individual columns of the table.
+            //         columns: [
+            //             { data: 'form_name',
+            //             render: function ( data, type, full, meta ) {
+            //                     return full; 
+            //                     //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
+            //                 },
+            //             },
+            //             { data: 'edit',
+            //                 render: function ( data, type, full, meta ) {
+            //                     window.location.replace = `${window.location.origin}/admin/addclassroom.html?id=${full.class_id} `;
+            //                     let url =`${window.location.origin}/admin/addclassroom.html?id=${full.class_id}` //Question
+            //                    return '<a href="'+ url +'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2" id="downbutton" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2" id="printbutton" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg></a>';
+            //                    //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
+            //                 },
+            //             },
+            //         ],
+            //         "pageLength": 5,
+            //     });
+            // }
         </script>
     </body>
 </html>

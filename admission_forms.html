@@ -1620,19 +1620,17 @@
                                     <p><b>Has your child been in childcare before?</b></p>
                                     <div class="wizard-form-radio">
                                         <input name="childcare_before" id="childcare_before1"
-                                            value="Yes" type="radio">
+                                            value="Yes" type="radio" onclick="CustomChange(this.value,'childcare_before_reason_div');">
                                         <label for="childcare_before1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="childcare_before" id="childcare_before2"
-                                            type="radio" value="No" checked>
+                                            type="radio" value="No" onclick="CustomChange(this.value,'childcare_before_reason_div');" checked>
                                         <label for="childcare_before2">No</label>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-1 mb-4">
-                            <div class="col-sm">
+                            <div class="col-sm" id="childcare_before_reason_div" style="display: none;">
                                 <div class="form-group"> 
                                     <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b>
                                         
@@ -1648,6 +1646,9 @@
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="what_child_interests" class="form-label"><b>What are you child’s interests</b>
@@ -2178,7 +2179,7 @@
                         <label for="child_password_pick_up_password_form" class="form-label h-3"><b>Password</b>
                             
                         </label>
-                        <input type="text" class="form-control" id="child_password_pick_up_password_form" 
+                        <input type="text" class="form-control" id="child_password_pick_up_password_form" maxlength="5"
                         name="child_password_pick_up_password_form" placeholder="(5 digits, alpha numeric characters)">
                     </div>
                 </div>
