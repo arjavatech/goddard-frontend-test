@@ -59,24 +59,25 @@ function signupFunction(){
                 contentType: "application/json",
                 data: JSON.stringify(obj),
                 success: function (response) {
-                    alert(response.message);
-                    window.location.href = "./login.html";
-                
+                    if(response.message == "User not found"){
+                        $(".error-msg-notfound").show();
+                        setTimeout(function(){ 
+                            $(".error-msg-notfound").hide(); 
+                        }, 3000);
+                    }else{
+                        $(".success-msg-reset").show();
+                        setTimeout(function(){ 
+                            $(".success-msg-reset").hide(); 
+                            window.location.href = "login.html";
+                        }, 3000);
+                    }
                 },
-                error: function (xhr, status, error) {
-                    console.log(status);
-                    console.log(error);
-                    $(".error-msg-mismatch").show();
-                    setTimeout(function(){ 
-                        $(".error-msg-mismatch").hide(); 
-                    }, 3000);
-                }
             });
         } else {
             console.log('else')
-            $(".error-msg-empty").show();
+            $(".error-msg-mismatch").show();
             setTimeout(function(){ 
-                $(".error-msg-empty").hide(); 
+                $(".error-msg-mismatch").hide(); 
             }, 3000);
             // document.getElementById("errorMessage").style.display = "block";
             // document.getElementById("errorMessageDiv").style.display = "block";
