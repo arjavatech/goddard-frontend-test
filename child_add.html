@@ -516,8 +516,8 @@
                                 document.getElementsByName('parent_two_business_zip_address')[0].value = response.parent_two_business_zip_address;
                                 if (typeof response.parent_two_business_cell_number !== "undefined")
                                 document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
-                                if (typeof response.parent_two_email !== "undefined")
-                                document.getElementsByName('parent_two_email')[0].value = response.parent_two_email;
+                                if (typeof response.parent_email !== "undefined")
+                                document.getElementsByName('parent_email')[0].value = response.parent_email;
 
                                 if(typeof response.parent_two_name !== "undefined" && 
                                     typeof response.parent_two_street_address !== "undefined" && 
@@ -532,7 +532,7 @@
                                     typeof response.parent_two_business_city_address !== "undefined" &&  
                                     typeof response.parent_two_business_zip_address !== "undefined" &&  
                                     typeof response.parent_two_business_cell_number !== "undefined" &&  
-                                    typeof response.parent_two_email !== "undefined")
+                                    typeof response.parent_email !== "undefined")
                                 {
                                     document.querySelector('.parent_twodetails-tick').style.display = 'block';
                                     additionalChildparentInfo = true;
