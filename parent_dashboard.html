@@ -179,22 +179,21 @@
 
             function toggleContent(contentId) {
                 var content = document.getElementById(contentId);
-                if (!content) return; // Check if element exists
+                if (!content) return; 
                 var display = window.getComputedStyle(content).display;
                 if (display === "block") {
-                    // Check if the clicked tab is the "Completed Forms" tab
+                    // to check if the clicked tab is the completed forms tab
                     if (contentId !== "completedFormDetails") {
                         content.style.display = "none";
                     }
                 } else {
-                    // Hide all active content except for completedFormDetails
+                    //to hide all active content except for completedFormDetails
                     var activeContents = document.querySelectorAll('.tab-pane[style="display: block;"]');
                     activeContents.forEach(function(activeContent) {
                         if (activeContent.id !== contentId) {
                             activeContent.style.display = "none";
                         }
                     });
-                    // Show the clicked content
                     content.style.display = "block";
                 }
             }                 
@@ -362,9 +361,9 @@
                                 }else {
                                     document.getElementById('do_relevant_custody_papers_apply2').checked = true;
                                 }
-                                if(typeof response.gender == "Male" ){
+                                if(response.gender == "Male" ){
                                     document.getElementById('gender1').checked = true;
-                                }else if(typeof response.gender == "Female"){
+                                }else if(response.gender == "Female"){
                                     document.getElementById('gender2').checked = true;
                                 }else{
                                     document.getElementById('gender3').checked = true;
@@ -1036,7 +1035,7 @@
                                     document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                                 if (typeof response.about_family_celebrations !== "undefined")
                                     document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
-                                if(typeof response.childcare_before == "Yes" ){
+                                if(response.childcare_before == "Yes" ){
                                     document.getElementById('childcare_before').checked = true;
                                     // document.getElementsByName('reason_for_childcare_before')[0].style.display = "block";
                                 }else{
@@ -1191,7 +1190,7 @@
                                 if (typeof response.explain_for_able_to_walk !== "undefined")
                                     document.getElementsByName('explain_for_able_to_walk')[0].value = response.explain_for_able_to_walk;
 
-                                if(typeof response.communicate_their_needs == "Yes" ){
+                                if(response.communicate_their_needs == "Yes" ){
                                     document.getElementById('communicate_their_needs1').checked = true;
                                     document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
                                 }else{
@@ -2123,7 +2122,7 @@
                                 }
 
                                 let expulsion_policy_agreement;
-                                if(typeof response.parent_hand_book['expulsion_policy_agreement'] == "on" ){
+                                if(response.parent_hand_book['expulsion_policy_agreement'] == "on" ){
                                     document.getElementById('expulsion_policy_agreement').checked = true;
                                 }else{
                                     document.getElementById('expulsion_policy_agreement').checked = false;
