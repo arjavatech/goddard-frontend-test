@@ -218,7 +218,7 @@ function childParentTwosubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("POST", "http://localhost:8080/admission_parent_two_info/add");
+    xhr.open("POST", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_parent_two_info/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
