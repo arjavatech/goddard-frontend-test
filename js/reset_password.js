@@ -8,11 +8,6 @@ function validatePassword() {
         setTimeout(function(){ 
             $(".error-msg-mismatch").hide(); 
         }, 3000);
-    //     document.getElementById("errorMessage").style.display = "none";
-    //     document.getElementById("errorMessageDiv").style.display = "none";
-    // }else{
-    //     document.getElementById("errorMessage").style.display = "block";
-    //     document.getElementById("errorMessageDiv").style.display = "block";
     }
 }
 
@@ -31,18 +26,13 @@ function emailValidation(inputtxtID,errorSpanID) {
 }
 
 function signupFunction(){
-    console.log('che')
     let email_id = document.getAnimations('email_id').value;
     var password1 = document.getElementById('reset_pswd').value;
     var password2 = document.getElementById('password').value;
 
     if (email_id != '' && password1 !='' && password2 !=''){
-        console.log('king')
         // Check if passwords match
         if (password1 === password2) {
-            console.log('pas')
-            // document.getElementById("errorMessage").style.display = "none";
-            // document.getElementById("errorMessageDiv").style.display = "none";
             const form = document.getElementById("reset_password");
             const formData = new FormData(form);
             const password = formData.get("password");
@@ -52,7 +42,6 @@ function signupFunction(){
             // Replace the original password with the hashed password in the form data
             formData.set("password", hashedPassword);
             const obj = Object.fromEntries(formData);
-            console.log(obj);
             $.ajax({
                 url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/password_reset",
                 type: "POST",
@@ -74,15 +63,10 @@ function signupFunction(){
                 },
             });
         } else {
-            console.log('else')
             $(".error-msg-mismatch").show();
             setTimeout(function(){ 
                 $(".error-msg-mismatch").hide(); 
             }, 3000);
-            // document.getElementById("errorMessage").style.display = "block";
-            // document.getElementById("errorMessageDiv").style.display = "block";
-            // Display an error message
-            // alert("Passwords do not match!");
         }
     }else{
         $(".error-msg-empty").show();

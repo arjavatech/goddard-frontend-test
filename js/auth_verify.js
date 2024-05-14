@@ -1,4 +1,4 @@
-import { signOut, isAuthenticated} from "./authenticationVerify.js"
+import { signOut, isAuthenticated} from "./authentication_verify.js"
 
 // Signout button event listener
 document.getElementById('btn-signout').addEventListener('click', signOut);

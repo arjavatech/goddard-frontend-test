@@ -1,4 +1,4 @@
-import {isAuthenticated} from "./authenticationVerify.js";
+import {isAuthenticated} from "./authentication_verify.js";
 
  // Function to submit the form data
  function submitForm() {

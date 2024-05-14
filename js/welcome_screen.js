@@ -1,4 +1,4 @@
-import {isAuthenticated} from "./authenticationVerify.js";
+import {isAuthenticated} from "./authentication_verify.js";
 
 let child_response = null;
 
@@ -136,66 +136,6 @@ function loadDynamicCards() {
         div.appendChild(anchor);
         parentContainer.appendChild(div);
     }
-
-    // let div = document.createElement('li');
-    // div.setAttribute('class','nav-item');
-    // // Create "Add Child" button
-    // let outerDiv = document.createElement('li');
-    // outerDiv.setAttribute('style','width:10%;');
-    // // outerDiv.classList.add('class','m-4');
-    // // outerDiv.setAttribute('style','width:10%;hight:50px;');
-    // // outerDiv.setAttribute('style','hight:30px;display:inline-flex;');
-    // outerDiv.setAttribute('id', 'showDiv');
-    // outerDiv.onclick = function(){
-    //     divShow();
-    // }
-
-    // let anchor = document.createElement('a');
-    // anchor.href = '#myBookmark';
-    // anchor.onclick = function () {
-    //     goToBookmark();
-    // };
-
-    // let card = document.createElement('div');
-    // card.classList.add('card', 'dashboard_card_style');
-
-    // let cardBody = document.createElement('div');
-    // cardBody.classList.add('card-body');
-
-    // let iconH5 = document.createElement('h6');
-    // iconH5.classList.add('card-title', 'dashboard_card_icon');
-
-    // let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    // svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    // svg.setAttribute('width', '30');
-    // svg.setAttribute('height', '30');
-    // svg.setAttribute('fill', 'currentColor');
-    // svg.setAttribute('class', 'bi bi-plus-circle-fill');
-    // svg.setAttribute('viewBox', '0 0 17 17');
-   
-    // // svg.setAttribute('value', 'Add child');
-
-    // let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    // path.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z');
-    // // path.setAttribute('style','align-items: center')
-    // // let textH5 = document.createElement('h6');
-    // // textH5.classList.add('text-center', 'dashboard_card_icon');
-    // // textH5.textContent = 'Add Child';
-
-    // iconH5.appendChild(svg);
-    // svg.appendChild(path);
-
-    // cardBody.appendChild(iconH5);
-
-    // // iconH5.appendChild(textH5); 
-
-    // card.appendChild(cardBody);
-
-    // anchor.appendChild(card);
-
-    // outerDiv.appendChild(anchor);
-
-    // parentContainer.appendChild(outerDiv);
 }
 
 function welcomeText() {
@@ -211,38 +151,6 @@ function welcomeText() {
     // createAddChildButton();
     // additionalHtmlContainer.style.display = 'block';
 }
-
-function goToBookmark() {
-    // Set the hash to the ID of the bookmarked section
-    window.location.href = "#myBookmark";
-    // Add a delay before scrolling to the bookmarked section
-    setTimeout(scrollToBookmark, 2);
-}
-
-function scrollToBookmark() {
-    // Scroll to the bookmarked section
-    var element = document.getElementById("myBookmark");
-    if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-    }
-}
-
-var formdiv = document.getElementById('formdiv');
-var addChildDiv = document.getElementById('addChildDiv');
-
-// function divShow(){
-//     if(addChildDiv){
-//         addChildDiv.style.display = 'block';
-//         formdiv.style.display = 'none';;
-//         // formdiv.classList.add('hide1');
-//     }else{
-//         addChildDiv.style.display = 'none';
-//         formdiv.style.display = 'block';
-//         // formdiv.classList.remove('hide1');
-//     }
-//     // formdiv.classList.remove('hide');
-// }
-
 
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {

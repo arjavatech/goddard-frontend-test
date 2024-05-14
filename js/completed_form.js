@@ -1,6 +1,6 @@
-import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPointEight } from './enrollmentForm.js';
-import {isAuthenticated} from "./authenticationVerify.js";
-import {authorizationFormDetails} from "./authorization_form.js";
+// import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPointEight } from './enrollment_form.js';
+import {isAuthenticated} from "./authentication_verify.js";
+// import {authorizationFormDetails} from "./authorization_form.js";
 
 function downloadPDF(id) {
     const { jsPDF } = window.jspdf;
