@@ -78,8 +78,6 @@ function responseToAuthenticationCheck() {
 function loadDynamicCards() {
     let responseSize = localStorage.getItem('number_of_children');
     let parentContainer = document.getElementById('dynamicChildCards');
-
-    // Loop through the response size and create the child divs
     for (let i = 0; i < responseSize; i++) {
         let on_process = child_response[i].on_process;
 
@@ -90,8 +88,6 @@ function loadDynamicCards() {
 
         let anchor = document.createElement('a');
         anchor.setAttribute('class', 'nav-link');
-        
-        // Add an identifier to the anchor element
         anchor.setAttribute('data-child-id', child_response[i].child_id);
 
         let card = document.createElement('div');
@@ -102,19 +98,12 @@ function loadDynamicCards() {
             // Remove 'active' class from all tabs
             let allTabs = document.querySelectorAll('.nav-link');
             allTabs.forEach(tab => tab.classList.remove('active'));
-
-            // Add 'active' class to the clicked tab
             anchor.classList.add('active');
 
             const selectedChildName = child_response[i].child_first_name;
             const selectedChildId = child_response[i].child_id;
             localStorage.setItem('child_name', selectedChildName);
             localStorage.setItem('child_id', selectedChildId);
-
-            // Update the styles for the clicked tab
-           
-
-            // Call your checking function
             checking(selectedChildId);
         });
         // if (on_process === true) {
@@ -163,7 +152,7 @@ $(document).ready(function () {
         window.location.href = 'login.html';
     } else {
         let editID = window.location.search.slice(4);
-        // Checks the parent info table to see if parent entry is present
+        // checks the parent info table to see if parent entry is present
         checkParentAuthentication(editID,function () {
             responseToAuthenticationCheck();
             // Checks the admission info table

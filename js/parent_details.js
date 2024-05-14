@@ -10,7 +10,6 @@ let obj = {
     "attachmentKey": "attachment"
 }
 
-
 async function emailSend(child_full_name,parent_name,
     parent_email,parent_mobile,invite_status) {
     try {
@@ -57,93 +56,7 @@ function applicationStatusYear(val) {
     localStorage.setItem('form_year_value', val);
     let applicationStatusYear = document.getElementById("applicationStatusYear");
     applicationStatusYear.textContent = val;
-    // $.ajax({
-    //     url: ` https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/all`,
-    //     type: 'get',
-    //     success: function (response) {
-    //         let responseValue = Object.values(response);
-    //         if (Array.isArray(responseValue)) {
-    //             const tableBody = document.getElementById('tableBody');
-    //             tableBody.innerHTML = ''; // Clear existing content
-        
-    //             // ...
-    //             for (let i = 0; i < responseValue.length; i++) {
-    //                 const rowData = responseValue[i];
-
-    //                 // Create a new row for each data set
-    //                 const row = document.createElement('tr');
-
-    //                 // Create cell for child name
-    //                 const childNameCell = document.createElement('td');
-    //                 childNameCell.textContent = rowData.child_full_name;
-    //                 row.appendChild(childNameCell);
-
-    //                 // Create cell for parent one name
-    //                 const parentoneNameCell = document.createElement('td');
-    //                 parentoneNameCell.textContent = rowData.parent_name;
-    //                 row.appendChild(parentoneNameCell);
-
-    //                 // Create cell for parent one email
-    //                 const parentOneEmailCell = document.createElement('td');
-    //                 parentOneEmailCell.textContent = rowData.parent_email;
-    //                 row.appendChild(parentOneEmailCell);
-
-    //                 // Create cell for parent one email
-    //                 // const parentOnemobileCell = document.createElement('td');
-    //                 // parentOnemobileCell.textContent = rowData.parent_mobile;
-    //                 // row.appendChild(parentOnemobileCell);
-
-    //                 // Create cell for parent one email
-    //                 const parentOneInviteStatus = document.createElement('td');
-    //                 parentOneInviteStatus.textContent = rowData.invite_status;
-    //                 row.appendChild(parentOneInviteStatus);
-
-    //                 // Create cell for the invite button
-    //                 const inviteButtonCell = document.createElement('td');
-    //                 const inviteButton = document.createElement('button');
-    //                 inviteButton.setAttribute('type', 'button');
-    //                 inviteButton.setAttribute('id', 'sendButton');
-    //                 inviteButton.setAttribute('class', 'invite-button'); // Use class instead of ID
-    //                 inviteButton.textContent = 'Send';
-    //                 inviteButton.addEventListener('click',function(){
-    //                     emailSend(rowData.child_full_name,rowData.parent_name,
-    //                         rowData.parent_email,rowData.parent_mobile,rowData.invite_status);
-    //                 });
-    //                 inviteButtonCell.appendChild(inviteButton);
-    //                 row.appendChild(inviteButtonCell);
-
-    //                 // Append the row to the table body
-    //                 tableBody.appendChild(row);
-    //             }
-    //             // ...
-
-    //         }
-    //     }
-    // });
 }
-
-//to display child's year
-// function applicationStatusAllYear() {
-//     const child_id = localStorage.getItem('child_id')
-//     const url = ' https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/all'
-//     $.ajax({
-//         url: url,
-//         type: 'get',
-//         success: function (response) {
-//             console.log(response);
-//             let yearArray = Object.keys(response);
-//             yearArray.sort().reverse();
-//             let optionsData = '';
-//             document.querySelector('[name="form_year"]').innerHTML = '';
-//             for (let i = 0; i < yearArray.length; i++) {
-//                 optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
-//                                 + '</option>';
-//                 document.querySelector('[name="form_year"]').innerHTML =
-//                     optionsData;
-//             }
-//         }
-//     });
-// }
 
 document.addEventListener("DOMContentLoaded", function () {
     document.body.style.visibility = 'visible';
