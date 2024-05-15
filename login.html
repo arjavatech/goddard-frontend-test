@@ -13,7 +13,7 @@
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <meta name="google-signin-client_id" content="70072849812-7gjpuusbnoho0v8l80lli57v74rrvch4.apps.googleusercontent.com">
         <script src="js/login.js" ></script>
-        
+        <script src="js/validation.js" ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -82,95 +82,5 @@
         </div>
         <!-- Login Card End -->
         <script src="js/password_show_hide.js" ></script>
-        <script>
-            //email validation with particular format
-            function emailValidation(inputtxtID,errorSpanID) {
-                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-                if (reg.test(inputtxtID.value) == true) {
-                    document.getElementById(errorSpanID).style.display = "none";
-                } else if(inputtxtID.value == ''){
-                    document.getElementById(errorSpanID).style.display = "none";
-                } else {
-                    document.getElementById(errorSpanID).style.display = "block";
-                    inputtxtID.focus();
-                }
-            }
-            // Email and password validation with particular format
-            function loginFunction() {
-                const email_id = document.getElementById('login_email').value;
-                const password = document.getElementById('login_pswd').value;
-                if(email_id != '' && password !=''){
-                    const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                    $.ajax({
-                    url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
-                    type: "GET",
-                    success: function (response) {
-                        console.log(response);
-                        let isAuthenticated = false;
-                        if(response.admin === true ){
-                            $(".success-msg").show();
-                                setTimeout(function(){
-                               $(".success-msg").hide(); 
-                                // isAuthenticated = true;
-                                localStorage.setItem('logged_in_email', email_id);
-                                window.location.href = "./admin_dashboard.html"; 
-                            }, 3000);
-                            
-                        }else if (response.admin === false ) {
-                            $(".success-msg").show();
-                            setTimeout(function(){
-                             $(".success-msg").hide(); 
-                                // isAuthenticated = true;
-                                localStorage.setItem('logged_in_email', email_id);
-                                window.location.href = "./parent_dashboard.html";
-                            }, 3000);
-                           
-                        }else{
-                            $(".error-msg").show();
-                            setTimeout(function(){ 
-                                $(".error-msg").hide(); 
-                            }, 3000);
-                        }
-
-                        // if (!isAuthenticated) {
-                        //     // Authentication failed
-                        //     $(".error-msg").show();
-                        //         setTimeout(function(){
-                        //         $(".error-msg").hide(); 
-                        //     }, 3000);
-                        //     // let spanMsg = document.getElementById("errorMessage");
-                        //     // let spanMsgDiv = document.getElementById("errorMessageDiv");
-                        //     // spanMsgDiv.style.display = "block";
-                        //     // spanMsg.style.display = "block";
-                        // }
-                    },
-                    error: function (xhr, status, error) {
-                        $(".error-msg").show();
-                        setTimeout(function(){ 
-                        $(".error-msg").hide(); 
-                        }, 3000);
-                        // console.log(error);
-                        // let spanMsg = document.getElementById("errorMessage");
-                        // let spanMsgDiv = document.getElementById("errorMessageDiv");
-                        // spanMsgDiv.style.display = "block";
-                        // spanMsg.style.display = "block";
-                    }
-                });
-                }else{
-                    // alert('fill the form');
-                    $(".error-msg-empty").show();
-                        setTimeout(function(){
-                        $(".error-msg-empty").hide(); 
-                    }, 3000);
-                }
-            }
-            
-            $(document).ready(function () {
-                $("#loginButton").on("click", function (e) {
-                    e.preventDefault(); // Prevent the default form submission
-                    loginFunction();
-                });
-            });
-        </script>
     </body>
 </html>
