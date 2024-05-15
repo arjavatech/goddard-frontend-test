@@ -32,6 +32,31 @@ a.completedforms:hover
 
 /****** Accordion End ******/
 
+
+/*** Alert Message ***/
+
+.success-msg, .error-msg {
+    position: fixed !important;
+    top: 5px !important; 
+    left:2% !important;
+    width: 96% !important;
+    z-index: 20; 
+}
+
+.alert{
+    display: none;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}  
+
+a {
+  text-decoration: none;
+}
+
+/*** Alert Message End ***/
+
 .parent_dashboard_title, .dashboard_card_icon {
     color: #0F2D52 !important;
     display: flex !important;
