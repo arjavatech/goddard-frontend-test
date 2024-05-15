@@ -40,7 +40,7 @@ import {isAuthenticated} from "./authentication_verify.js";
 }
 $(document).ready(function () {
     if (!isAuthenticated()) {
-        window.location.href = '../login.html';
+        window.location.href = 'login.html';
     } else {
         $("#basic_child_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
