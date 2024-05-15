@@ -25,7 +25,6 @@ function checkParentAuthentication(editID,callback) {
         success: function (response) {
             let keysToKeep = ['logged_in_email'];
             clearLocalStorageExcept(keysToKeep);
-            console.log(response['parent_name']);
             // localStorage.clear()
             if (response['parent_name']) {
                 localStorage.setItem('parent_name',response['parent_name'])
