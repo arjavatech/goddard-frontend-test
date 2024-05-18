@@ -92,11 +92,6 @@ h2.accordion-header.shadow {
     box-shadow: none !important;
 }
 
-.tab_bg {
-    background-color: #D8E9FF !important;
-    width: auto !important;
-}
-
 .form-control
 {
     border: 1px solid #888888 !important;
