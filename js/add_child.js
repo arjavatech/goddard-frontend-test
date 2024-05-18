@@ -49,15 +49,17 @@ $(document).ready(function () {
         $('#primary_parent_email').on('focus', function(){
             //for waking up the aws lambda server
             $.ajax({
-                url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/accepted_invite',
+                url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/all_parent_email',
                 type: 'get',
                 datasrc:'',
                 dataType:'json',
                 //this is uesd to get the response and return the result
                 success: function(response){
+                    console.log(response);
                     var parent_email = ''; 
                     if(response !== ""){
                         for (var i = 0; i < response.length; i++) { 
+                            console.log(response[i].parent_email);
                             if(response[i].parent_email != "" && response[i].parent_email != undefined ){                      
                                 parent_email += '<option value="' + response[i].parent_email + '">' + response[i].parent_email + '</option>';  
                             }  

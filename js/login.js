@@ -61,6 +61,7 @@ function loginFunction() {
                     setTimeout(function(){
                    $(".success-msg").hide(); 
                     // isAuthenticated = true;
+                    localStorage.setItem('is_admin',response.admin)
                     localStorage.setItem('logged_in_email', email_id);
                     window.location.href = "./admin_dashboard.html"; 
                 }, 3000);
@@ -70,6 +71,7 @@ function loginFunction() {
                 setTimeout(function(){
                  $(".success-msg").hide(); 
                     // isAuthenticated = true;
+                    // localStorage.setItem('is_admin',response.admin)
                     localStorage.setItem('logged_in_email', email_id);
                     window.location.href = "./parent_dashboard.html";
                 }, 3000);

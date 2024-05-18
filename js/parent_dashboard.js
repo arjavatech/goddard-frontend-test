@@ -11,30 +11,44 @@ function clearLocalStorageExcept(keysToKeep) {
 }
 
 function checkParentAuthentication(editID,callback) {
+    console.log(editID);
     const logged_in_email = localStorage.getItem('logged_in_email');
+    const is_admin = localStorage.getItem('is_admin');
+    console.log(is_admin);
     let url;
-    if(editID != ''){
-        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
-    }else{
-        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${logged_in_email}`
+    console.log(editID);
+    console.log(logged_in_email);
+    if(editID == logged_in_email || (is_admin) || editID == ''){
+        // (stop user to see other kids || check admin login || default parent login)
+        console.log('if');
+        if(editID != ''){
+            url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
+        }else{
+            url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${logged_in_email}`
+        }
+        $.ajax({
+            url: url,
+            type: 'get',
+            success: function (response) {
+                console.log(response);
+                let keysToKeep = ['logged_in_email'];
+                clearLocalStorageExcept(keysToKeep);
+                // localStorage.clear()
+                if (response['parent_name']) {
+                    localStorage.setItem('parent_name',response['parent_name'])
+                //    localStorage.setItem('parent_id', response[0].id)
+                }
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            }
+        });
+    } else{
+        console.log('else');
+        window.location.href = "login.html";
     }
    
-    $.ajax({
-        url: url,
-        type: 'get',
-        success: function (response) {
-            let keysToKeep = ['logged_in_email'];
-            clearLocalStorageExcept(keysToKeep);
-            // localStorage.clear()
-            if (response['parent_name']) {
-                localStorage.setItem('parent_name',response['parent_name'])
-            //    localStorage.setItem('parent_id', response[0].id)
-            }
-            if (typeof callback === 'function') {
-                callback();
-            }
-        }
-    });
+    
 }
 
 function getAllInfo(editID,callback) {

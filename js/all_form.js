@@ -841,7 +841,9 @@ function checking(editID){
     if(editID != ''){
         // formdiv.classList.remove('hide');
         // addChildDiv.style.display = 'none';
-        //for waking up the aws lambda server   
+        //for waking up the aws lambda server  
+        let is_admin = localStorage.getItem('is_admin');
+        console.log(is_admin); 
         $.ajax({
             url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
             type: 'GET',
@@ -2056,15 +2058,15 @@ function checking(editID){
                     }
                 }
 
+
                 //Admission form admin restriction
-                if(typeof document.getElementById('adminsignature') != null ){
+                if(document.getElementById('adminsignature') != null ){
                     if (localStorage.getItem('logged_in_email') != 'goddard01arjava@gmail.com') {
                         let adminFinalAgreement = document.getElementById('adminFinalAgreement');
-                        adminFinalAgreement.classList.add('disabled');
-                        
+                        adminFinalAgreement.classList.remove('disabled'); 
                     } else {
                         let adminFinalAgreement = document.getElementById('adminFinalAgreement');
-                        adminFinalAgreement.classList.remove('disabled');
+                        adminFinalAgreement.classList.add('disabled');
                     }
                 }
 

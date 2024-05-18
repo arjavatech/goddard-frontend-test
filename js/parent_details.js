@@ -30,9 +30,10 @@ async function emailSend(child_full_name,parent_name,
         obj.attachmentName ="AttachmentForm";
         obj.attachmentKey ="attachment";
         const json =JSON.stringify(obj);
+        console.log(json);
 
         $.ajax({
-            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
+            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/email/resend",
             type: "POST",
             contentType: "application/json",
             data: json,
