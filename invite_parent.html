@@ -16,24 +16,6 @@
         <script src='js/invite_parent_email.js'></script>
         <script src='js/validation.js'></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
-        <style>
-            /* input box focus style */
-            .form-control:focus {
-                border-color: rgb(15, 45, 82) !important;
-                -webkit-box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
-                box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
-            }
-            .card_style
-            {
-                width: 75%;
-            }
-            .card_center
-            {
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }  
-        </style>
     </head>
     <body>
         <!-- Navigation Bar -->
@@ -114,61 +96,57 @@
         </nav><br><br>
         <!-- Navigation Bar End -->
 
-        <div class="container card_center p-3">
-            <div class="card card_style" style="background: #D8E9FF;">
+        <div class="card_center">
+            <div class="card invite_card">
                 <h2 class="card_title">Invite mail send to parent</h2>
                 <div class="row m-5">
-                    <section class="wizard-section">
-                        <div class="form-wizard">
-                            <form id="admission_form">
-                                <fieldset class="wizard-fieldset show">
-                                    <div class="row">
-                                        <div class="col-sm mb-3">
-                                            <label for="messageData" class="col-form-label"><b>Invite Link</b></label>
-                                            <input type="text" class="form-control" id="messageData"
-                                                value="https://arjavatech.github.io/goddard-frontend-test/signup.html" disabled>
-                                        </div>
-                                        <div class="col-sm mb-3">
-                                            <div class="form-group">
-                                                <label for="child_full_name" class="col-form-label"><b>Child Full Name</b></label>
-                                                <input type="text" class="form-control" id="child_full_name"
-                                                    name="child_full_name">
-                                                <div class="wizard-form-error"></div>
-                                            </div>
-                                        </div>
+                    <div class="container">
+                        <form id="admission_form">
+                            <div class="row">
+                                <div class="col-sm mb-3">
+                                    <label for="messageData" class="col-form-label"><b>Invite Link</b></label>
+                                    <input type="text" class="form-control" id="messageData"
+                                        value="https://arjavatech.github.io/goddard-frontend-test/signup.html" disabled>
+                                </div>
+                                <div class="col-sm mb-3">
+                                    <div class="form-group">
+                                        <label for="child_full_name" class="col-form-label"><b>Child Full Name</b></label>
+                                        <input type="text" class="form-control" id="child_full_name"
+                                            name="child_full_name">
+                                        <div class="wizard-form-error"></div>
                                     </div>
-                                    <h5 class="text-center admin_dashboard_title"><b>Parent Details</b></h5>
-                                    <div class="row">
-                                        <div class="col-sm mb-3">
-                                            <div class="form-group">
-                                                <label for="parent_name" class="col-form-label"><b>Full Name</b></label>
-                                                <input type="text" class="form-control" id="parent_name"
-                                                    name="parent_name">
-                                                <div class="wizard-form-error"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm mb-3">
-                                            <div class="form-group">
-                                                <label for="parent_email" class="col-form-label"><b>Email</b></label>
-                                                <input type="mail" class="form-control" id="parent_email"
-                                                    name="parent_email"
-                                                    onchange="emailValidation(this,'parent_email_span')">
-                                                <span id="parent_email_span" style="color:red; display:none">
-                                                    Enter valid input [should be in @ and .].</span>
-                                                <div class="wizard-form-error"></div>
-                                            </div>
-                                        </div>
-                                    </div><br> 
-                                    <div class="form-group clearfix">
-                                            <div class="text-center">
-                                                <button class="cancel-btn">Cancel</button>
-                                                <button id="sendButton" type="button" class="send-btn">Send</button>
-                                            </div>
+                                </div>
+                            </div>
+                            <h5 class="text-center admin_dashboard_title"><b>Parent Details</b></h5>
+                            <div class="row">
+                                <div class="col-sm mb-3">
+                                    <div class="form-group">
+                                        <label for="parent_name" class="col-form-label"><b>Full Name</b></label>
+                                        <input type="text" class="form-control" id="parent_name"
+                                            name="parent_name">
+                                        <div class="wizard-form-error"></div>
                                     </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </section>
+                                </div>
+                                <div class="col-sm mb-3">
+                                    <div class="form-group">
+                                        <label for="parent_email" class="col-form-label"><b>Email</b></label>
+                                        <input type="mail" class="form-control" id="parent_email"
+                                            name="parent_email"
+                                            onchange="emailValidation(this,'parent_email_span')">
+                                        <span id="parent_email_span" style="color:red; display:none">
+                                            Enter valid input [should be in @ and .].</span>
+                                        <div class="wizard-form-error"></div>
+                                    </div>
+                                </div>
+                            </div><br> 
+                            <div class="form-group clearfix">
+                                <div class="text-center">
+                                    <button class="cancel-btn">Cancel</button>
+                                    <button id="sendButton" type="button" class="send-btn">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div><br><br>
         </div>
