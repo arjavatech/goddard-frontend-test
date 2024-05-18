@@ -33,6 +33,37 @@ a.completedforms:hover
 /****** Accordion End ******/
 
 
+/****** Scrollbar ******/
+
+.scrollbar {
+    width: auto;
+    height: 480px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 5px; 
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: #D8E9FF;
+    border-radius: 20px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #0F2D52; 
+    border-radius: 20px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #2f5481;
+    cursor: pointer;
+}
+
+/****** Scrollbar End ******/
+
+
 /*** Alert Message ***/
 
 .success-msg, .error-msg {
@@ -64,16 +95,21 @@ a {
     justify-content: center !important;
 }
 
-.dashboard_card_tex
+.dashboard_card_text
 {
-    position: relative;
-    /* top: px; */
-    /* color: #0f0f0f !important; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tab-bg{
     background: #0F2D52 !important; 
     margin-top: 2px;
+}
+
+.tab_body_bg {
+    background-color: #D8E9FF !important;
+    width: auto !important;
 }
             
 .nav {
