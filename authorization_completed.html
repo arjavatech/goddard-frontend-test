@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/navbar_signout.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     </head>
     <body>
         <div class="m-5">
@@ -123,22 +124,69 @@
                         <!-- End-->
                         <!-- Parent's agreement -->
                         <h4 class="text-center">Parent Agreement</h4>
-                        <div class="row m-4 mb-4">
-                            <div class="form-group wizard-form-checkbox">
-                                <input type="checkbox" class="input-checkbox" id="agree_all_above_information_is_correct"
-                                    name="agree_all_above_information_is_correct">
-                                <label class="form-check-label" for="agree_all_above_information_is_correct"><span>
-                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                        </svg></span>
-                                    <span><b>I agree all the above information is correct.</b></span>
-                                </label>
+                        <div class="row m-3">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="parent_sign_ach" class="form-label"><b>Parent Signature</b>
+                                    </label>
+                                    <input type="text" class="form-control" id="parent_sign_ach"
+                                    name="parent_sign_ach">
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="parent_sign_date_ach"  class="form-label"><b>Date</b>
+                                    </label>
+                                    <input type="date" class="form-control" id="parent_sign_date_ach"
+                                        name="parent_sign_date_ach" onclick="dateValidation('parent_sign_date_ach')">
+                                </div>
+                            </div>
+                        </div><br><br>
                         <!--Authorization Form End-->
                     </div> 
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                let completed_form_child_id= window.location.search.slice(4);
+                checking(completed_form_child_id);
+            });
+            function checking(editID){ 
+                console.log(editID);
+                if(editID != ''){
+                    // formdiv.classList.remove('hide');
+                    // addChildDiv.style.display = 'none';
+                    //for waking up the aws lambda server  
+                    let is_admin = localStorage.getItem('is_admin');
+                    console.log(is_admin); 
+                    $.ajax({
+                        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+                        type: 'GET',
+                        //this is used to get the response and return the result
+                        success: function(response)
+                        {
+                            if (typeof response.bank_routing !== "undefined")
+                                document.getElementById("bank_routing").value = response.bank_routing;
+                            if (typeof response.bank_account !== "undefined")
+                                document.getElementById("bank_account").value = response.bank_account;
+                            if (typeof response.driver_license !== "undefined")
+                                document.getElementById("driver_license").value = response.driver_license;
+                            if (typeof response.state !== "undefined")
+                                document.getElementById("state").value = response.state;
+                            // if (typeof response.email !== "undefined")
+                            //     document.getElementById("email").value = response.email;
+                            if (typeof response.i !== "undefined")
+                                document.getElementById("i").value = response.i;
+                            if (typeof response.parent_sign_ach !== "undefined")
+                            document.getElementById("parent_sign_ach").value = response.parent_sign_ach;
+                            if (typeof response.parent_sign_date_ach !== "undefined")
+                            document.getElementById("parent_sign_date_ach").value = response.parent_sign_date_ach;
+                        
+                        }
+                    });
+                }
+            }
+        </script>
     </body>
 </html>                    
