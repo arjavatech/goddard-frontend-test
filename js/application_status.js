@@ -22,8 +22,8 @@ $(document).ready(function () {
             columns: [
                 { data: 'child_name',
                     render: function ( data, type, full, meta ) {
-                        window.location.replace = `${window.location.origin}./parent_dashboard.html?id=${full.parent_email}`;
-                        let url =`${window.location.origin}./parent_dashboard.html?id=${full.parent_email} ` //Question
+                        window.location.replace = `${window.location.origin}/goddard-frontend-test/parent_dashboard.html?id=${full.parent_email}`;
+                        let url =`${window.location.origin}/goddard-frontend-test/parent_dashboard.html?id=${full.parent_email} ` //Question
                     return `<a href="${url}">${full.child_name}</a>`;
                     },
                 },

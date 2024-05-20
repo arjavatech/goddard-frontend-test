@@ -17,18 +17,10 @@ async function emailSend(child_full_name,parent_name,
         obj.child_full_name = child_full_name;
         obj.parent_name = parent_name;
         obj.parent_email = parent_email;
-        obj.parent_mobile = parent_mobile;
-        obj.invite_status = invite_status;
         obj.from = "noreply.goddard@gmail.com";
-        let email_to =  $('#parent_email').val();
-        obj.to = email_to;
-        let randomID = Math.floor(Date.now() / 1000);
-        obj.invite_id =randomID;
+        obj.to = parent_email;
         obj.subject = 'Invite parents';
-        let messageData = 'https://arjavatech.github.io/goddard-frontend-dev/signup.html';
-        obj.body = `${messageData}?id=${randomID}`;
-        obj.attachmentName ="AttachmentForm";
-        obj.attachmentKey ="attachment";
+        obj.body = "";
         const json =JSON.stringify(obj);
         console.log(json);
 

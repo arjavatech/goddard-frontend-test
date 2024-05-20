@@ -200,7 +200,7 @@
                         { data: 'invite_status'},
                         { data: 'resend',
                             render: function ( data, type, full, meta ) {
-                                return `<button id="sendButton"  name="sendButton" class="invite-button" onclick="emailSend('${full.child_full_name},${full.parent_name},${full.parent_email}')">Send</button>`;
+                                return `<button id="sendButton"  name="sendButton" class="invite-button" onclick="emailSend('${full.child_full_name}','${full.parent_name}','${full.parent_email}')">Send</button>`;
 
                             },
                         },
