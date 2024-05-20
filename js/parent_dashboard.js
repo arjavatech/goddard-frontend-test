@@ -321,8 +321,10 @@ function checking(editID){
     // Add event listeners for download and print buttons
     $(document).on('click', '.download-btn', function() {
         const url = $(this).data('url');
+        console.log(url);
         const link = document.createElement('a');
         link.href = url;
+        console.log(url.substring(url.lastIndexOf('/') + 1))
         link.download = url.substring(url.lastIndexOf('/') + 1);
         document.body.appendChild(link);
         link.click();
