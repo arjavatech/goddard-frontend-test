@@ -125,18 +125,14 @@ a{
 
     /*** Alert Message ***/
 
-    .hide {
-        display: none;
-    }
-
     .success-msg{
-        position: fixed;
+        position: fixed !important;
         top: 5px; 
         left:2%;
         width: 96%;
     }
     .error-msg{
-        position: fixed;
+        position: fixed !important;
         top: 5px; 
         left:2%;
         width: 96%;
