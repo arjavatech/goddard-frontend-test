@@ -20,7 +20,6 @@ function checkParentAuthentication(editID,callback) {
     console.log(logged_in_email);
     if(editID == logged_in_email || logged_in_email == 'goddard01arjava@gmail.com' || editID == ''){
         // (stop user to see other kids || check admin login || default parent login)
-        console.log('if');
         if(editID != ''){
             url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
         }else{
@@ -44,8 +43,6 @@ function checkParentAuthentication(editID,callback) {
             }
         });
     } else{
-        console.log('else');
-        alert('checking');
         window.location.href = "login.html";
     }
    
