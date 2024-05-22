@@ -248,3 +248,24 @@ a{
 
     /***Forms Repository End***/
 
+    /***Parent Details***/
+
+    .invite-button
+    {
+        background-color: #0F2D52 !important;
+        color: #fff;
+        min-width: 70px;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: .20rem;
+    }
+
+    .invite-button:hover
+    {
+        opacity: 0.8;
+    }
+
+    /***Parent Details End***/
+
