@@ -16,7 +16,7 @@
     background-color: #0F2D52 !important;
     color: #fff !important; 
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .side-menu, a.completedforms
@@ -127,6 +127,12 @@ a {
 
 .nav-link:hover {
     border-color: #D8E9FF !important;
+    cursor: pointer;
+}
+
+.action-icons:hover
+{
+    opacity: 0.6;
     cursor: pointer;
 }
 
