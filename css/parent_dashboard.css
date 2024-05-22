@@ -130,4 +130,10 @@ a {
     cursor: pointer;
 }
 
+.action-icons:hover
+{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
 /*****Parent Dashboard Style End*****/
