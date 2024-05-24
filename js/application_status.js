@@ -22,7 +22,7 @@ $(document).ready(function () {
             columns: [
                 { data: 'child_name',
                     render: function ( data, type, full, meta ) {
-                        let url =`${window.location.origin}/parent_dashboard.html?id=${full.parent_email} ` //Question
+                        let url =`${window.location.origin}/goddard-frontend-test/parent_dashboard.html?id=${full.parent_email} ` //Question
                     return `<a href="${url}">${full.child_name}</a>`;
                     },
                 },
