@@ -362,75 +362,136 @@ function checking(editID){
                 type: 'GET',
                 success: function(response) {
                     console.log(response);
-                    let form_name = localStorage.getItem('form_name')
-                    if(form_name == 'Authorization'){
-                        if (typeof response.bank_routing !== "undefined")
-                            document.getElementById("bank_routing").value = response.bank_routing;
-                        if (typeof response.bank_account !== "undefined")
-                            document.getElementById("bank_account").value = response.bank_account;
-                        if (typeof response.driver_license !== "undefined")
-                            document.getElementById("driver_license").value = response.driver_license;
-                        if (typeof response.state !== "undefined")
-                            document.getElementById("state").value = response.state;
-                        if (typeof response.i !== "undefined")
-                            document.getElementById("i").value = response.i;
-                        if (typeof response.parent_sign_ach !== "undefined")
-                            document.getElementById("parent_sign_ach").value = response.parent_sign_ach;
-                        if (typeof response.parent_sign_date_ach !== "undefined")
-                            document.getElementById("parent_sign_date_ach").value = response.parent_sign_date_ach;
-                        if (typeof response.point_one_field_one !== "undefined")
-                            document.getElementsByName("point_one_field_one")[0].value = response.point_one_field_one;
-                    }
-                    if(form_name == 'Enrollment Agreement'){
-                        if (typeof response.point_one_field_two !== "undefined")
-                        document.getElementsByName("point_one_field_two")[0].value = response.point_one_field_two;
-                        if (typeof response.point_one_field_three !== "undefined")
-                            document.getElementsByName("point_one_field_three")[0].value = response.point_one_field_three;
-                        if (typeof response.point_two_initial_here !== "undefined")
-                            document.getElementsByName("point_two_initial_here")[0].value = response.point_two_initial_here;
-                        if (typeof response.point_three_initial_here !== "undefined")
-                            document.getElementsByName("point_three_initial_here")[0].value = response.point_three_initial_here;
-                        if (typeof response.point_four_initial_here !== "undefined")
-                            document.getElementsByName("point_four_initial_here")[0].value = response.point_four_initial_here;
-                        if (typeof response.point_five_initial_here !== "undefined")
-                            document.getElementsByName("point_five_initial_here")[0].value = response.point_five_initial_here;
-                        if (typeof response.point_six_initial_here !== "undefined")
-                            document.getElementsByName("point_six_initial_here")[0].value = response.point_six_initial_here;
-                        if (typeof response.point_seven_initial_here !== "undefined")
-                            document.getElementsByName("point_seven_initial_here")[0].value = response.point_seven_initial_here;
-                        if (typeof response.point_eight_initial_here !== "undefined")
-                            document.getElementsByName("point_eight_initial_here")[0].value = response.point_eight_initial_here;
-                        if (typeof response.point_nine_initial_here !== "undefined")
-                            document.getElementsByName("point_nine_initial_here")[0].value = response.point_nine_initial_here;
-                        if (typeof response.point_ten_initial_here !== "undefined")
-                            document.getElementsByName("point_ten_initial_here")[0].value = response.point_ten_initial_here;
-                        if (typeof response.point_eleven_initial_here !== "undefined")
-                            document.getElementsByName("point_eleven_initial_here")[0].value = response.point_eleven_initial_here;
-                        if (typeof response.point_twelve_initial_here !== "undefined")
-                            document.getElementsByName("point_twelve_initial_here")[0].value = response.point_twelve_initial_here;
-                        if (typeof response.point_thirteen_initial_here !== "undefined")
-                            document.getElementsByName("point_thirteen_initial_here")[0].value = response.point_thirteen_initial_here;
-                        if (typeof response.point_fourteen_initial_here !== "undefined")
-                            document.getElementsByName("point_fourteen_initial_here")[0].value = response.point_fourteen_initial_here;
-                        if (typeof response.point_fifteen_initial_here !== "undefined")
-                            document.getElementsByName("point_fifteen_initial_here")[0].value = response.point_fifteen_initial_here;
-                        if (typeof response.point_sixteen_initial_here !== "undefined")
-                            document.getElementsByName("point_sixteen_initial_here")[0].value = response.point_sixteen_initial_here;
-                        if (typeof response.point_seventeen_initial_here !== "undefined")
-                            document.getElementsByName("point_seventeen_initial_here")[0].value = response.point_seventeen_initial_here;
-                        if (typeof response.point_eighteen_initial_here !== "undefined")
-                            document.getElementsByName("point_eighteen_initial_here")[0].value = response.point_eighteen_initial_here;
-                        if (typeof response.point_nineteen_initial_here !== "undefined")
-                            document.getElementsByName("point_nineteen_initial_here")[0].value = response.point_nineteen_initial_here;
-
-                        
-                        if(typeof response.parent_sign_enroll !== "undefined" ){
-                            document.getElementsByName('parent_sign_enroll')[0].value = response.parent_sign_enroll;
+                    let form_name = localStorage.getItem('form_name');
+                    let form = document.querySelector('#formContent');
+    
+                    // Clear existing form values
+                    let inputs = form.querySelectorAll('input, select, textarea');
+                    inputs.forEach(input => input.value = '');
+    
+                    if (form_name === 'Authorization.pdf') {
+                        if (response.bank_routing !== undefined) {
+                            let element = form.querySelector("#bank_routing");
+                            if (element) element.value = response.bank_routing;
                         }
-                        if(typeof response.parent_sign_date_enroll !== "undefined" ){
-                            document.getElementsByName('parent_sign_date_enroll')[0].value = response.parent_sign_date_enroll;
-                        } 
-                    } 
+                        if (response.bank_account !== undefined) {
+                            let element = form.querySelector("#bank_account");
+                            if (element) element.value = response.bank_account;
+                        }
+                        if (response.driver_license !== undefined) {
+                            let element = form.querySelector("#driver_license");
+                            if (element) element.value = response.driver_license;
+                        }
+                        if (response.state !== undefined) {
+                            let element = form.querySelector("#state");
+                            if (element) element.value = response.state;
+                        }
+                        if (response.i !== undefined) {
+                            let element = form.querySelector("#i");
+                            if (element) element.value = response.i;
+                        }
+                        if (response.parent_sign_ach !== undefined) {
+                            let element = form.querySelector("#parent_sign_ach");
+                            if (element) element.value = response.parent_sign_ach;
+                        }
+                        if (response.parent_sign_date_ach !== undefined) {
+                            let element = form.querySelector("#parent_sign_date_ach");
+                            if (element) element.value = response.parent_sign_date_ach;
+                        }
+                        if (response.point_one_field_one !== undefined) {
+                            let element = form.querySelector("input[name='point_one_field_one']");
+                            if (element) element.value = response.point_one_field_one;
+                        }
+                    } else if (form_name === 'Enrollment Agreement.pdf') {
+                        if (response.point_one_field_two !== undefined) {
+                            let element = form.querySelector("input[name='point_one_field_two']");
+                            if (element) element.value = response.point_one_field_two;
+                        }
+                        if (response.point_one_field_three !== undefined) {
+                            let element = form.querySelector("input[name='point_one_field_three']");
+                            if (element) element.value = response.point_one_field_three;
+                        }
+                        if (response.point_two_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_two_initial_here']");
+                            if (element) element.value = response.point_two_initial_here;
+                        }
+                        if (response.point_three_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_three_initial_here']");
+                            if (element) element.value = response.point_three_initial_here;
+                        }
+                        if (response.point_four_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_four_initial_here']");
+                            if (element) element.value = response.point_four_initial_here;
+                        }
+                        if (response.point_five_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_five_initial_here']");
+                            if (element) element.value = response.point_five_initial_here;
+                        }
+                        if (response.point_six_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_six_initial_here']");
+                            if (element) element.value = response.point_six_initial_here;
+                        }
+                        if (response.point_seven_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_seven_initial_here']");
+                            if (element) element.value = response.point_seven_initial_here;
+                        }
+                        if (response.point_eight_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_eight_initial_here']");
+                            if (element) element.value = response.point_eight_initial_here;
+                        }
+                        if (response.point_nine_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_nine_initial_here']");
+                            if (element) element.value = response.point_nine_initial_here;
+                        }
+                        if (response.point_ten_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_ten_initial_here']");
+                            if (element) element.value = response.point_ten_initial_here;
+                        }
+                        if (response.point_eleven_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_eleven_initial_here']");
+                            if (element) element.value = response.point_eleven_initial_here;
+                        }
+                        if (response.point_twelve_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_twelve_initial_here']");
+                            if (element) element.value = response.point_twelve_initial_here;
+                        }
+                        if (response.point_thirteen_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_thirteen_initial_here']");
+                            if (element) element.value = response.point_thirteen_initial_here;
+                        }
+                        if (response.point_fourteen_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_fourteen_initial_here']");
+                            if (element) element.value = response.point_fourteen_initial_here;
+                        }
+                        if (response.point_fifteen_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_fifteen_initial_here']");
+                            if (element) element.value = response.point_fifteen_initial_here;
+                        }
+                        if (response.point_sixteen_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_sixteen_initial_here']");
+                            if (element) element.value = response.point_sixteen_initial_here;
+                        }
+                        if (response.point_seventeen_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_seventeen_initial_here']");
+                            if (element) element.value = response.point_seventeen_initial_here;
+                        }
+                        if (response.point_eighteen_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_eighteen_initial_here']");
+                            if (element) element.value = response.point_eighteen_initial_here;
+                        }
+                        if (response.point_nineteen_initial_here !== undefined) {
+                            let element = form.querySelector("input[name='point_nineteen_initial_here']");
+                            if (element) element.value = response.point_nineteen_initial_here;
+                        }
+                        if (response.parent_sign_enroll !== undefined) {
+                            let element = form.querySelector("input[name='parent_sign_enroll']");
+                            if (element) element.value = response.parent_sign_enroll;
+                        }
+                        if (response.parent_sign_date_enroll !== undefined) {
+                            let element = form.querySelector("input[name='parent_sign_date_enroll']");
+                            if (element) element.value = response.parent_sign_date_enroll;
+                        }
+                    }
                     resolve();
                 },
                 error: function(err) {
@@ -439,122 +500,147 @@ function checking(editID){
             });
         });
     }
-
-        $('#example').DataTable({
-            scrollX: true,
-            info: false,
-            dom: 'Qlfrtip',
-            ajax: {
-                url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
-                dataSrc: 'completedFormStatus',
-            },
-            columns: [
-                { 
-                    data: 'form_name',
-                    render: function(data, type, full, meta) {
-                        return full; // Assuming full contains the full object with form_name
-                    }
-                },
-                {
-                    data: null,
-                    render: function (data, type, full, meta) {
-                        let url = '';
-                        switch (full) {
-                            case 'Admission':
-                                url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
-                                break;
-                            case 'Authorization':
-                                url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
-                                break;
-                            case 'Enrollment Agreement':
-                                url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
-                                break;
-                            case 'Parent HandBook':
-                                url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
-                                break;
-                            default:
-                                return '';
-                        }
-                        return `
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
-                            </div>`;
-                    }
+    
+    
+    $('#example').DataTable({
+        scrollX: true,
+        info: false,
+        dom: 'Qlfrtip',
+        ajax: {
+            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+            dataSrc: 'completedFormStatus',
+        },
+        columns: [
+            { 
+                data: 'form_name',
+                render: function(data, type, full, meta) {
+                    return full; // Ensure this returns the correct form name
                 }
-            ],
-            pageLength: 5,
-        });
+            },
+            {
+                data: null,
+                render: function (data, type, full, meta) {
+                    let url = '';
+                    switch (full) {
+                        case 'Admission':
+                            url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
+                            break;
+                        case 'Authorization':
+                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
+                            break;
+                        case 'Enrollment Agreement':
+                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
+                            break;
+                        case 'Parent HandBook':
+                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
+                            break;
+                        default:
+                            return '';
+                    }
+                    return `
+                        <div>
+                            <button class="download-btn" data-url="${url}" data-name="${full}.pdf">Download</button>
+                            <button class="print-btn" data-url="${url}">Print</button>
+                        </div>`;
+                }
+            }
+        ],
+        pageLength: 5,
+    });
     
-        $('#example').on('click', '.download-btn', function() {
-            let url = $(this).data('url');
-            let fileName = $(this).data('name');
-            localStorage.setItem('form_name',fileName)
-            fetch(url)
-                .then(response => response.text())
-                .then(text => {
-                    let hiddenDiv = document.createElement('div');
-                    hiddenDiv.id = 'formContent';
-                    hiddenDiv.style.display = 'none';
-                    hiddenDiv.innerHTML = text;
-                    document.body.appendChild(hiddenDiv);
+    $('#example').on('click', '.download-btn', function() {
+        let url = $(this).data('url');
+        let fileName = $(this).data('name');
+        
+        // Extract editID from the URL
+        let editID = extractEditIDFromURL(url);
+        
+        localStorage.setItem('form_name', fileName);
+        fetch(url)
+            .then(response => response.text())
+            .then(text => {
+                let hiddenDiv = document.createElement('div');
+                hiddenDiv.id = 'formContent';
+                hiddenDiv.style.display = 'none';
+                hiddenDiv.innerHTML = text;
+                document.body.appendChild(hiddenDiv);
     
-                    // Populate form data before generating PDF
-                    populateFormData(editID).then(() => {
-                        // Wait for the dynamic content to load
-                        setTimeout(() => {
-                            generatePDFContent().then(doc => {
-                                doc.save(fileName);
-                                document.body.removeChild(hiddenDiv);
-                            });
-                        }, 1000); // Adjust timeout as needed
-                    }).catch(error => {
-                        console.error('Error populating form data:', error);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error downloading the document:', error);
+                // Populate form data before generating PDF
+                populateFormData(editID).then(() => {
+                    // Wait for the dynamic content to load
+                    setTimeout(() => {
+                        generatePDFContent().then(doc => {
+                            doc.save(fileName);
+                            document.body.removeChild(hiddenDiv);
+                        });
+                    }, 1000); // Adjust timeout as needed
+                }).catch(error => {
+                    console.error('Error populating form data:', error);
                 });
-        });
+            })
+            .catch(error => {
+                console.error('Error downloading the document:', error);
+            });
+    });
     
-        $('#example').on('click', '.print-btn', function() {
-            let url = $(this).data('url');
-            fetch(url)
-                .then(response => response.text())
-                .then(text => {
-                    let hiddenDiv = document.createElement('div');
-                    hiddenDiv.id = 'formContent';
-                    hiddenDiv.style.display = 'none';
-                    hiddenDiv.innerHTML = text;
-                    document.body.appendChild(hiddenDiv);
+    // Function to extract editID from URL
+    function extractEditIDFromURL(url) {
+        // Parse the URL to get the editID
+        // For example:
+        // Assuming the URL is like: https://example.com/form?id=1234
+        // You can extract the editID from the URL query parameters
+        const params = new URLSearchParams(new URL(url).search);
+        return params.get('id');
+    }
     
-                    // Populate form data before generating PDF
-                    populateFormData(editID).then(() => {
-                        // Wait for the dynamic content to load
-                        setTimeout(() => {
-                            generatePDFContent().then(doc => {
-                                const pdfBlob = doc.output('blob');
-                                const pdfUrl = URL.createObjectURL(pdfBlob);
+    $('#example').on('click', '.print-btn', function() {
+        let url = $(this).data('url');
+        
+        // Extract editID from the URL
+        let editID = extractEditIDFromURL(url);
+        
+        fetch(url)
+            .then(response => response.text())
+            .then(text => {
+                let hiddenDiv = document.createElement('div');
+                hiddenDiv.id = 'formContent';
+                hiddenDiv.style.display = 'none';
+                hiddenDiv.innerHTML = text;
+                document.body.appendChild(hiddenDiv);
     
-                                let printWindow = window.open(pdfUrl, '_blank');
-                                printWindow.onload = function() {
-                                    printWindow.focus();
-                                    printWindow.print();
-                                    printWindow.onafterprint = function() {
-                                        printWindow.close();
-                                        document.body.removeChild(hiddenDiv);
-                                    };
-                                };
-                            });
-                        }, 1000); // Adjust timeout as needed
-                    }).catch(error => {
-                        console.error('Error populating form data:', error);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching the document:', error);
+                // Populate form data before printing
+                populateFormData(editID).then(() => {
+                    // Wait for the dynamic content to load
+                    setTimeout(() => {
+                        let printWindow = window.open('', '', 'height=1400,width=1500');
+                        printWindow.document.write('<html><head><title>Print Form</title></head><body>');
+                        printWindow.document.write(hiddenDiv.innerHTML);
+                        printWindow.document.write('</body></html>');
+                        printWindow.document.close();
+                        printWindow.print();
+                        document.body.removeChild(hiddenDiv);
+                    }, 1000); // Adjust timeout as needed
+                }).catch(error => {
+                    console.error('Error populating form data:', error);
                 });
-        });
+            })
+            .catch(error => {
+                console.error('Error printing the document:', error);
+            });
+    });
+    
+    // Function to extract editID from URL
+    function extractEditIDFromURL(url) {
+        // Parse the URL to get the editID
+        // For example:
+        // Assuming the URL is like: https://example.com/form?id=1234
+        // You can extract the editID from the URL query parameters
+        const params = new URLSearchParams(new URL(url).search);
+        return params.get('id');
+    }
+    
+    
+    
 
     if(editID != ''){
         // formdiv.classList.remove('hide');
