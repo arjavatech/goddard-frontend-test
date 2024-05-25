@@ -29,7 +29,7 @@ $(document).ready(function () {
     function toChangeClassName(class_name_value, child_id_value) {
         const updateObject = {
             child_id: child_id_value,
-            child_class_name: class_name_value
+            class_name: class_name_value
         };
         const json = JSON.stringify(updateObject);
         console.log(json);
