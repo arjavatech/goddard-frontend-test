@@ -553,10 +553,10 @@ function checking(editID){
     $('#example').on('click', '.download-btn', function() {
         let url = $(this).data('url');
         let fileName = $(this).data('name');
-        
+    
         // Extract editID from the URL
         let editID = extractEditIDFromURL(url);
-        
+    
         localStorage.setItem('form_name', fileName);
         fetch(url)
             .then(response => response.text())
@@ -574,10 +574,14 @@ function checking(editID){
                         generatePDFContent().then(doc => {
                             doc.save(fileName);
                             document.body.removeChild(hiddenDiv);
+                        }).catch(error => {
+                            console.error('Error generating PDF:', error);
+                            document.body.removeChild(hiddenDiv);
                         });
                     }, 1000); // Adjust timeout as needed
                 }).catch(error => {
                     console.error('Error populating form data:', error);
+                    document.body.removeChild(hiddenDiv);
                 });
             })
             .catch(error => {
@@ -585,22 +589,12 @@ function checking(editID){
             });
     });
     
-    // Function to extract editID from URL
-    function extractEditIDFromURL(url) {
-        // Parse the URL to get the editID
-        // For example:
-        // Assuming the URL is like: https://example.com/form?id=1234
-        // You can extract the editID from the URL query parameters
-        const params = new URLSearchParams(new URL(url).search);
-        return params.get('id');
-    }
-    
     $('#example').on('click', '.print-btn', function() {
         let url = $(this).data('url');
-        
+    
         // Extract editID from the URL
         let editID = extractEditIDFromURL(url);
-        
+    
         fetch(url)
             .then(response => response.text())
             .then(text => {
@@ -614,22 +608,49 @@ function checking(editID){
                 populateFormData(editID).then(() => {
                     // Wait for the dynamic content to load
                     setTimeout(() => {
-                        let printWindow = window.open('', '', 'height=1400,width=1500');
-                        printWindow.document.write('<html><head><title>Print Form</title></head><body>');
-                        printWindow.document.write(hiddenDiv.innerHTML);
-                        printWindow.document.write('</body></html>');
-                        printWindow.document.close();
-                        printWindow.print();
-                        document.body.removeChild(hiddenDiv);
+                        printContent(hiddenDiv, editID);
                     }, 1000); // Adjust timeout as needed
                 }).catch(error => {
                     console.error('Error populating form data:', error);
+                    document.body.removeChild(hiddenDiv);
                 });
             })
             .catch(error => {
-                console.error('Error printing the document:', error);
+                console.error('Error fetching the document:', error);
             });
     });
+    
+    function printContent(content, editID) {
+        let printWindow = window.open('', '', 'height=1400,width=1500');
+        if (!printWindow) {
+            console.error('Failed to open print window');
+            return;
+        }
+    
+        printWindow.document.write('<html><head><title>Print Form</title></head><body>');
+        printWindow.document.write(content.innerHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+    
+        // Populate form data before printing
+        populateFormData(editID).then(() => {
+            // Wait for the dynamic content to load
+            setTimeout(() => {
+                printWindow.onload = function() {
+                    printWindow.focus();
+                    printWindow.print();
+                    printWindow.onafterprint = function() {
+                        printWindow.close();
+                    };
+                };
+            }, 1000); // Adjust timeout as needed
+        }).catch(error => {
+            console.error('Error populating form data:', error);
+        });
+    }
+    
+    
+    
     
     // Function to extract editID from URL
     function extractEditIDFromURL(url) {
@@ -640,6 +661,8 @@ function checking(editID){
         const params = new URLSearchParams(new URL(url).search);
         return params.get('id');
     }
+    
+
     
     
     
