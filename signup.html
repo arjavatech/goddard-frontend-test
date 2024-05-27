@@ -166,16 +166,16 @@
                             contentType: "application/json",
                             data: JSON.stringify(obj),
                             success: function (response) {
-                                if(response.message == "Sign-up not allowed"){
-                                    $(".error-msg").show();
-                                    setTimeout(function(){ 
-                                        $(".error-msg").hide(); 
-                                    }, 3000);
-                                }else{
+                                if(response.message == "Successfully signed up"){
                                     $(".success-msg").show();
                                     setTimeout(function(){ 
                                         $(".success-msg").hide(); 
                                         window.location.href = "login.html";
+                                    }, 3000);
+                                }else{
+                                    $(".error-msg").show();
+                                    setTimeout(function(){ 
+                                        $(".error-msg").hide(); 
                                     }, 3000);
                                 }
                             
