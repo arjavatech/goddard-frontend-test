@@ -717,14 +717,14 @@
                                 <div class="form-group wizard-form-checkbox">
                                     <input type="checkbox" class="input-checkbox" id="agree_all_above_information_is_correct"
                                         name="agree_all_above_information_is_correct">
-                                    <label class="form-check-label" for="agree_all_above_information_is_correct">
-                                        <span>
+                                    <!-- <label class="form-check-label" for="agree_all_above_information_is_correct"> -->
+                                        <!-- <span>
                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                             </svg>
-                                        </span>
+                                        </span> -->
                                         <span><b>I agree all the above information is correct.</b></span>
-                                    </label>
+                                    <!-- </label> -->
                                 </div>
                             </div>
                         </div>
@@ -1016,12 +1016,13 @@
                                 <div class="wizard-form-checkbox">
                                     <input type="checkbox" class="input-checkbox"
                                         id="family_history_allergies" name="family_history_allergies">
-                                    <label class="form-check-label" for="family_history_allergies"><span>
-                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                    <!-- <label class="form-check-label" for="family_history_allergies"><span> -->
+                                            <!-- <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                 <polyline points="1.5 6 4.5 9 10.5 1">
                                                 </polyline>
-                                            </svg></span><span><b>Allergies</b></span>
-                                    </label>
+                                            </svg></span> -->
+                                            <span><b>Allergies</b></span>
+                                    <!-- </label> -->
                                 </div>
                             </div>
                             <div class="col-sm m-4">
@@ -1029,13 +1030,14 @@
                                     <input type="checkbox" class="input-checkbox"
                                         id="family_history_heart_problems"
                                         name="family_history_heart_problems">
-                                    <label class="form-check-label"
+                                    <!-- <label class="form-check-label"
                                         for="family_history_heart_problems"><span>
                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                 <polyline points="1.5 6 4.5 9 10.5 1">
                                                 </polyline>
-                                            </svg></span><span><b>Heart Problems</b></span>
-                                    </label>
+                                            </svg></span> -->
+                                            <span><b>Heart Problems</b></span>
+                                    <!-- </label> -->
                                 </div>
                             </div>
                             <div class="col-sm m-4">
@@ -2315,11 +2317,12 @@
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox" id="outside_waiver_parent_sign_outside_engagements_waiver" 
                                         name="outside_waiver_parent_sign_outside_engagements_waiver">
-                                        <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver"><span>
-                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                        <!-- <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver"><span> -->
+                                                <!-- <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                     <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                                </svg></span><span><b>I have read this agreement and understand its terms.</b></span>
-                                        </label>
+                                                </svg></span> -->
+                                                <span><b>I have read this agreement and understand its terms.</b></span>
+                                        <!-- </label> -->
                                     </div>
                                 </div>
                             </div>
@@ -2514,24 +2517,6 @@
                                 }else{
                                     document.getElementById('agree_all_above_information_is_correct').checked = false;
                                 
-                                }
-                                if(typeof response.obtaining_emergency_medical_care !== "undefined" && 
-                                    typeof response.administration_first_aid_procedures !== "undefined" && 
-                                    typeof response.agree_all_above_information_is_correct !== "undefined"
-                                ){
-                                    // Reset the display for both images
-                                    document.querySelector('.parentagreement-tick').style.display = 'none';
-                                    document.querySelector('.parentagreement-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.parentagreement-tick').style.display = 'block';
-                                    childParentAgreementOne = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.parentagreement-tick').style.display = 'none';
-                                    document.querySelector('.parentagreement-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.parentagreement-circle').style.display = 'block';
-                                    childParentAgreementOne = false;
                                 }
 
                                 // child family and history

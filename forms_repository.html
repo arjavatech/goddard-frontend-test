@@ -192,6 +192,7 @@
                                         </table>
                                         <!-- Form Action Table End -->
                                     </div>
+                                    <button class="excelbuttn"  onclick="ExportToExcel('xlsx')"><img src="image/excel.png" alt="image" style="height:25px;width:25px;"></button>
                                 </div>
                             </div>
                         </div>
@@ -303,6 +304,13 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
         <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
         <script>
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('example');
+                var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+            }
             $(document).ready(function () {
 
                 //for avoid datatable error popup messages//
@@ -341,6 +349,13 @@
                     "pageLength": 5,
                 });
             });
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('example');
+                var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+            }
         </script>
         <script>
             let editID = window.location.search.slice(4);

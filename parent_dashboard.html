@@ -161,6 +161,7 @@
                                         </table>
                                         <!-- Form Action Table End -->
                                     </div>
+                                    <button class="excelbuttn"  onclick="ExportToExcel('xlsx')"><img src="image/excel.png" alt="image" style="height:25px;width:25px;"></button>
                                 </div>
                             </div>    
                         </div>
@@ -170,7 +171,13 @@
         </div>  
         
         <script>
-            
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('example');
+                var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+            }
             function closeCompletedFormsTab() {
                 var completedFormsTab = document.getElementById("completedFormDetails");
                 if (completedFormsTab) {

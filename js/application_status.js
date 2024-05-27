@@ -136,6 +136,13 @@ $(document).ready(function () {
     });
 
 });
+function ExportToExcel(type, fn, dl) {
+    var elt = document.getElementById('example');
+    var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+    return dl ?
+    XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+    XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+}
 //this function is used to delete course fields details
 function deletedata(id,email) {
     var delete_object={child_id : id,primary_parent_email : email};
