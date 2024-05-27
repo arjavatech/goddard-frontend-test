@@ -26,15 +26,25 @@ function emailSend() {
             contentType: "application/json",
             data: json,
             success: function (response) {
-                console.log(response.message);
-                alert(response.message);
-                window.location.reload();
+                // console.log(response.message);
+                // alert(response.message);
+                // window.location.reload();
+                $(".success-msg").show();
+                    setTimeout(function(){
+                    $(".success-msg").hide();
+                    window.location.reload();
+                }, 3000);
             },
             error: function (xhr, status, error) {
-                console.log(xhr);
-                console.log(status);
-                console.log(error);
-                alert(error);
+                // console.log(xhr);
+                // console.log(status);
+                // console.log(error);
+                // alert(error);
+                $(".error-msg-empty").show();
+                    setTimeout(function(){
+                    $(".error-msg-empty").hide();
+                    window.location.reload();
+                }, 3000);
             }
         });
     } catch (error) {
