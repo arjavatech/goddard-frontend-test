@@ -131,7 +131,7 @@ a{
         left:2%;
         width: 96%;
     }
-    .error-msg{
+    .error-msg, .error-msg-empty, .error-msg-alreadyexists{
         position: fixed !important;
         top: 5px; 
         left:2%;
