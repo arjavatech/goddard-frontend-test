@@ -641,379 +641,87 @@
                             }else{
                                 document.getElementById('welcome_goddard_agreement').checked = false;
                             }
-                            
-                                if(typeof response.parent_hand_book['welcome_goddard_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.goddard-tick').style.display = 'none';
-                                    document.querySelector('.goddard-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.goddard-tick').style.display = 'block'; 
-                                    welcome_goddard_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.goddard-tick').style.display = 'none';
-                                    document.querySelector('.goddard-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.goddard-circle').style.display = 'block';
-                                    welcome_goddard_agreement = false;
-                                }
-
-                                let mission_statement_agreement;
                                 if( response.parent_hand_book['mission_statement_agreement'] == "on" ){
                                     document.getElementById('mission_statement_agreement').checked = true;
                                 }else{
                                     document.getElementById('mission_statement_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['mission_statement_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.mission-tick').style.display = 'none';
-                                    document.querySelector('.mission-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.mission-tick').style.display = 'block'; 
-                                    mission_statement_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.mission-tick').style.display = 'none';
-                                    document.querySelector('.mission-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.mission-circle').style.display = 'block';
-                                    mission_statement_agreement = false;
-                                }
-
-                                let general_information_agreement;
                                 if( response.parent_hand_book['general_information_agreement'] == "on" ){
                                     document.getElementById('general_information_agreement').checked = true;
                                 }else{
                                     document.getElementById('general_information_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['general_information_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.generalinfo-tick').style.display = 'none';
-                                    document.querySelector('.generalinfo-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.generalinfo-tick').style.display = 'block'; 
-                                    general_information_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.generalinfo-tick').style.display = 'none';
-                                    document.querySelector('.generalinfo-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.generalinfo-circle').style.display = 'block';
-                                    general_information_agreement = false;
-                                }
-
-
-                                let medical_care_provider_agreement;
                                 if( response.parent_hand_book['medical_care_provider_agreement'] == "on" ){
                                     document.getElementById('medical_care_provider_agreement').checked = true;
                                 }else{
                                     document.getElementById('medical_care_provider_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['medical_care_provider_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.statement-tick').style.display = 'none';
-                                    document.querySelector('.statement-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.statement-tick').style.display = 'block'; 
-                                    medical_care_provider_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.statement-tick').style.display = 'none';
-                                    document.querySelector('.statement-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.statement-circle').style.display = 'block';
-                                    medical_care_provider_agreement = false;
-                                }
-
-                                let parent_access_agreement;
                                 if( response.parent_hand_book['parent_access_agreement'] == "on" ){
                                     document.getElementById('parent_access_agreement').checked = true;
                                 }else{
                                     document.getElementById('parent_access_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['parent_access_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.parentaccess-tick').style.display = 'none';
-                                    document.querySelector('.parentaccess-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.parentaccess-tick').style.display = 'block'; 
-                                    parent_access_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.parentaccess-tick').style.display = 'none';
-                                    document.querySelector('.parentaccess-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.parentaccess-circle').style.display = 'block';
-                                    parent_access_agreement = false;
-                                }
-                                let release_of_children_agreement;
                                 if( response.parent_hand_book['release_of_children_agreement'] == "on" ){
                                     document.getElementById('release_of_children_agreement').checked = true;
                                 }else{
                                     document.getElementById('release_of_children_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['release_of_children_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.releasechild-tick').style.display = 'none';
-                                    document.querySelector('.releasechild-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.releasechild-tick').style.display = 'block'; 
-                                    release_of_children_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.releasechild-tick').style.display = 'none';
-                                    document.querySelector('.releasechild-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.releasechild-circle').style.display = 'block';
-                                    release_of_children_agreement = false;
-                                }
-
-                            
-                                let registration_fees_agreement;
                                 if( response.parent_hand_book['registration_fees_agreement'] == "on" ){
                                     document.getElementById('registration_fees_agreement').checked = true;
                                 }else{
                                     document.getElementById('registration_fees_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['registration_fees_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.fees-tick').style.display = 'none';
-                                    document.querySelector('.fees-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.fees-tick').style.display = 'block'; 
-                                    registration_fees_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.fees-tick').style.display = 'none';
-                                    document.querySelector('.fees-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.fees-circle').style.display = 'block';
-                                    registration_fees_agreement = false;
-                                }
-
-                                let outside_engagements_agreement;
                                 if( response.parent_hand_book['outside_engagements_agreement'] == "on" ){
                                     document.getElementById('outside_engagements_agreement').checked = true;
                                 }else{
                                     document.getElementById('outside_engagements_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['outside_engagements_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.outsideengagement-tick').style.display = 'none';
-                                    document.querySelector('.outsideengagement-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.outsideengagement-tick').style.display = 'block'; 
-                                    outside_engagements_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.outsideengagement-tick').style.display = 'none';
-                                    document.querySelector('.outsideengagement-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.outsideengagement-circle').style.display = 'block';
-                                    outside_engagements_agreement = false;
-                                }
-
-                                let health_policies_agreement;
                                 if( response.parent_hand_book['health_policies_agreement'] == "on" ){
                                     document.getElementById('health_policies_agreement').checked = true;
                                 }else{
                                     document.getElementById('health_policies_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['health_policies_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.healthpolicies-tick').style.display = 'none';
-                                    document.querySelector('.healthpolicies-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.healthpolicies-tick').style.display = 'block'; 
-                                    health_policies_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.healthpolicies-tick').style.display = 'none';
-                                    document.querySelector('.healthpolicies-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.healthpolicies-circle').style.display = 'block';
-                                    health_policies_agreement = false;
-                                }
-
-                
-                                let medication_procedures_agreement;
                                 if(  response.parent_hand_book['medication_procedures_agreement'] == "on" ){
                                     document.getElementById('medication_procedures_agreement').checked = true;
                                 }else{
                                     document.getElementById('medication_procedures_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['medication_procedures_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.medicationprocedures-tick').style.display = 'none';
-                                    document.querySelector('.medicationprocedures-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.medicationprocedures-tick').style.display = 'block'; 
-                                    medication_procedures_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.medicationprocedures-tick').style.display = 'none';
-                                    document.querySelector('.medicationprocedures-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.medicationprocedures-circle').style.display = 'block';
-                                    medication_procedures_agreement = false;
-                                }
-                            
-
-                                let bring_to_school_agreement;
                                 if( response.parent_hand_book['bring_to_school_agreement'] == "on" ){
                                     document.getElementById('bring_to_school_agreement').checked = true;
                                 }else{
                                     document.getElementById('bring_to_school_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['bring_to_school_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.toysfromhome-tick').style.display = 'none';
-                                    document.querySelector('.toysfromhome-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.toysfromhome-tick').style.display = 'block'; 
-                                    bring_to_school_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.toysfromhome-tick').style.display = 'none';
-                                    document.querySelector('.toysfromhome-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.toysfromhome-circle').style.display = 'block';
-                                    bring_to_school_agreement = false;
-                                }
-
-                                let rest_time_agreement;
                                 if( response.parent_hand_book['rest_time_agreement'] == "on" ){
                                     document.getElementById('rest_time_agreement').checked = true;
                                 }else{
                                     document.getElementById('rest_time_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['rest_time_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.restmealssnacks-tick').style.display = 'none';
-                                    document.querySelector('.restmealssnacks-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.restmealssnacks-tick').style.display = 'block'; 
-                                    rest_time_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.restmealssnacks-tick').style.display = 'none';
-                                    document.querySelector('.restmealssnacks-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.restmealssnacks-circle').style.display = 'block';
-                                    rest_time_agreement = false;
-                                }
-                                
-                                let training_philosophy_agreement;
                                 if( response.parent_hand_book['training_philosophy_agreement'] == "on" ){
                                     document.getElementById('training_philosophy_agreement').checked = true;
                                 }else{
                                     document.getElementById('training_philosophy_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['training_philosophy_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.transition-tick').style.display = 'none';
-                                    document.querySelector('.transition-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.transition-tick').style.display = 'block'; 
-                                    training_philosophy_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.transition-tick').style.display = 'none';
-                                    document.querySelector('.transition-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.transition-circle').style.display = 'block';
-                                    training_philosophy_agreement = false;
-                                }
-
-                                let affiliation_policy_agreement;
                                 if( response.parent_hand_book['affiliation_policy_agreement'] == "on" ){
                                     document.getElementById('affiliation_policy_agreement').checked = true;
                                 }else{
                                     document.getElementById('affiliation_policy_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['affiliation_policy_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.emergencyclosings-tick').style.display = 'none';
-                                    document.querySelector('.emergencyclosings-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.emergencyclosings-tick').style.display = 'block'; 
-                                    affiliation_policy_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.emergencyclosings-tick').style.display = 'none';
-                                    document.querySelector('.emergencyclosings-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.emergencyclosings-circle').style.display = 'block';
-                                    affiliation_policy_agreement = false;
-                                }
-
-                                let security_issue_agreement;
+                               
                                 if( response.parent_hand_book['security_issue_agreement'] == "on" ){
                                     document.getElementById('security_issue_agreement').checked = true;
                                 }else{
                                     document.getElementById('security_issue_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['security_issue_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.websitesblogs-tick').style.display = 'none';
-                                    document.querySelector('.websitesblogs-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.websitesblogs-tick').style.display = 'block'; 
-                                    security_issue_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.websitesblogs-tick').style.display = 'none';
-                                    document.querySelector('.websitesblogs-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.websitesblogs-circle').style.display = 'block';
-                                    security_issue_agreement = false;
-                                }
-
-                                let expulsion_policy_agreement;
                                 if(response.parent_hand_book['expulsion_policy_agreement'] == "on" ){
                                     document.getElementById('expulsion_policy_agreement').checked = true;
                                 }else{
                                     document.getElementById('expulsion_policy_agreement').checked = false;
-                                }
-                                if(typeof response.parent_hand_book['expulsion_policy_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.expulsionpolicy-tick').style.display = 'none';
-                                    document.querySelector('.expulsionpolicy-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.expulsionpolicy-tick').style.display = 'block'; 
-                                    expulsion_policy_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.expulsionpolicy-tick').style.display = 'none';
-                                    document.querySelector('.expulsionpolicy-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.expulsionpolicy-circle').style.display = 'block';
-                                    expulsion_policy_agreement = false;
-                                }
-
-                                let addressing_individual_child_agreement;
+                                }                             
                                 if( response.parent_hand_book['addressing_individual_child_agreement'] == "on" ){
                                     document.getElementById('addressing_individual_child_agreement').checked = true;
                                 }else{
                                     document.getElementById('addressing_individual_child_agreement').checked = false;
                                 }
-                                if(typeof response.parent_hand_book['addressing_individual_child_agreement'] !== "undefined"){
-                                    // Reset the display for both images
-                                    document.querySelector('.addressing-tick').style.display = 'none';
-                                    document.querySelector('.addressing-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.addressing-tick').style.display = 'block'; 
-                                    addressing_individual_child_agreement = true;
-                                }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.addressing-tick').style.display = 'none';
-                                    document.querySelector('.addressing-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.addressing-circle').style.display = 'block';
-                                    addressing_individual_child_agreement = false;
-                                }
-
-                                let finalword_agreement;
                                 if( response.parent_hand_book['finalword_agreement'] == "on" ){
                                     document.getElementById('finalword_agreement').checked = true;
                                 }else{

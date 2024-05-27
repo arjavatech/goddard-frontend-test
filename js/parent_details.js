@@ -11,7 +11,7 @@ let obj = {
 }
 
 async function emailSend(child_full_name,parent_name,
-    parent_email,parent_mobile,invite_status) {
+    parent_email) {
     try {
         const obj = {};
         obj.child_full_name = child_full_name;
