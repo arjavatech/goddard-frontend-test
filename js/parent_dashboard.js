@@ -200,6 +200,7 @@ function checking(editID){
         }
     });
     let childName = localStorage.getItem('child_name');
+    document.getElementById('childName').innerHTML = childName;
     // Find the anchor tag with class "nav-link"
     var link = document.querySelector(".completedforms");
     let year = new Date().getFullYear();
@@ -405,8 +406,9 @@ function checking(editID){
             });
     });
     
-   
     function printContent(contentHTML, formData) {
+        console.log(contentHTML);
+        console.log(formData);
         let printWindow = window.open('', '', 'height=1400,width=1500');
         if (!printWindow) {
             console.error('Failed to open print window');
@@ -417,11 +419,20 @@ function checking(editID){
         printWindow.document.write('<style>/* Add any additional styles here */</style>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(contentHTML);
+    
+        // Render form data in the print window
         if (formData) {
-            // Assuming formData is an object containing the form data to be displayed
-            printWindow.document.write(`<pre>${JSON.stringify(formData, null, 2)}</pre>`);
+            printWindow.document.write('<div id="formData">');
+            Object.keys(formData).forEach(key => {
+                console.log(key);
+                console.log(formData[key]);
+                printWindow.document.write(`<p><strong>${key}:</strong> ${formData[key]}</p>`);
+            });
+            printWindow.document.write('</div>');
         }
+    
         printWindow.document.write('</body></html>');
+        console.log(printWindow);
         printWindow.document.close();
     
         printWindow.onload = function() {
@@ -432,6 +443,10 @@ function checking(editID){
             };
         };
     }
+    
+    
+    
+    
 
     function generatePDFContent() {
         return new Promise((resolve) => {
@@ -508,65 +523,65 @@ function checking(editID){
         pageLength: 5,
     });
 
-    function populateFormData(editID,form_name) {
-        console.log(editID);
-        console.log(form_name);
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
-                type: 'GET',
-                success: function(response) {
-                    console.log(response);
-                    // let form_name = localStorage.getItem('form_name');
-                    let form = document.querySelector('#formContent');
+    // function populateFormData(editID,form_name) {
+    //     console.log(editID);
+    //     console.log(form_name);
+    //     return new Promise((resolve, reject) => {
+    //         $.ajax({
+    //             url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+    //             type: 'GET',
+    //             success: function(response) {
+    //                 console.log(response);
+    //                 // let form_name = localStorage.getItem('form_name');
+    //                 let form = document.querySelector('#formContent');
     
-                    // Clear existing form values
-                    let inputs = form.querySelectorAll('input, select, textarea');
-                    inputs.forEach(input => input.value = '');
+    //                 // Clear existing form values
+    //                 let inputs = form.querySelectorAll('input, select, textarea');
+    //                 inputs.forEach(input => input.value = '');
     
-                    console.log(form_name);
-                    if (form_name === 'Authorization.pdf') {
-                        if (response.bank_routing !== undefined) {
-                            let element = form.querySelector("#bank_routing");
-                            if (element) element.value = response.bank_routing;
-                        }
-                        if (response.bank_account !== undefined) {
-                            let element = form.querySelector("#bank_account");
-                            if (element) element.value = response.bank_account;
-                        }
-                        if (response.driver_license !== undefined) {
-                            let element = form.querySelector("#driver_license");
-                            if (element) element.value = response.driver_license;
-                        }
-                        if (response.state !== undefined) {
-                            let element = form.querySelector("#state");
-                            if (element) element.value = response.state;
-                        }
-                        if (response.i !== undefined) {
-                            let element = form.querySelector("#i");
-                            if (element) element.value = response.i;
-                        }
-                        if (response.parent_sign_ach !== undefined) {
-                            let element = form.querySelector("#parent_sign_ach");
-                            if (element) element.value = response.parent_sign_ach;
-                        }
-                        if (response.parent_sign_date_ach !== undefined) {
-                            let element = form.querySelector("#parent_sign_date_ach");
-                            if (element) element.value = response.parent_sign_date_ach;
-                        }
-                        if (response.point_one_field_one !== undefined) {
-                            let element = form.querySelector("input[name='point_one_field_one']");
-                            if (element) element.value = response.point_one_field_one;
-                        }
-                    } 
-                    resolve();
-                },
-                error: function(err) {
-                    reject(err);
-                }
-            });
-        });
-    }
+    //                 console.log(form_name);
+    //                 if (form_name === 'Authorization.pdf') {
+    //                     if (response.bank_routing !== undefined) {
+    //                         let element = form.querySelector("#bank_routing");
+    //                         if (element) element.value = response.bank_routing;
+    //                     }
+    //                     if (response.bank_account !== undefined) {
+    //                         let element = form.querySelector("#bank_account");
+    //                         if (element) element.value = response.bank_account;
+    //                     }
+    //                     if (response.driver_license !== undefined) {
+    //                         let element = form.querySelector("#driver_license");
+    //                         if (element) element.value = response.driver_license;
+    //                     }
+    //                     if (response.state !== undefined) {
+    //                         let element = form.querySelector("#state");
+    //                         if (element) element.value = response.state;
+    //                     }
+    //                     if (response.i !== undefined) {
+    //                         let element = form.querySelector("#i");
+    //                         if (element) element.value = response.i;
+    //                     }
+    //                     if (response.parent_sign_ach !== undefined) {
+    //                         let element = form.querySelector("#parent_sign_ach");
+    //                         if (element) element.value = response.parent_sign_ach;
+    //                     }
+    //                     if (response.parent_sign_date_ach !== undefined) {
+    //                         let element = form.querySelector("#parent_sign_date_ach");
+    //                         if (element) element.value = response.parent_sign_date_ach;
+    //                     }
+    //                     if (response.point_one_field_one !== undefined) {
+    //                         let element = form.querySelector("input[name='point_one_field_one']");
+    //                         if (element) element.value = response.point_one_field_one;
+    //                     }
+    //                 } 
+    //                 resolve();
+    //             },
+    //             error: function(err) {
+    //                 reject(err);
+    //             }
+    //         });
+    //     });
+    // }
 
   function populateFormData(editID,form_name) {
     console.log(editID);
@@ -585,6 +600,7 @@ function checking(editID){
                 inputs.forEach(input => input.value = '');
 
                 console.log(form_name);
+                let formData = {};
                 if(form_name === 'Admission Forms.pdf'){
                     console.log('admission');
                     if (typeof response.child_first_name !== "undefined")
@@ -1088,37 +1104,38 @@ function checking(editID){
                 }else if (form_name === 'Authorization.pdf') {
                     if (response.bank_routing !== undefined) {
                         let element = form.querySelector("#bank_routing");
-                        if (element) element.value = response.bank_routing;
+                        formData.bank_routing = response.bank_routing;
                     }
                     if (response.bank_account !== undefined) {
                         let element = form.querySelector("#bank_account");
-                        if (element) element.value = response.bank_account;
+                        formData.bank_account= response.bank_account;
                     }
                     if (response.driver_license !== undefined) {
                         let element = form.querySelector("#driver_license");
-                        if (element) element.value = response.driver_license;
+                        formData.driver_license = response.driver_license;
                     }
                     if (response.state !== undefined) {
                         let element = form.querySelector("#state");
-                        if (element) element.value = response.state;
+                        formData.state = response.state;
                     }
                     if (response.i !== undefined) {
                         let element = form.querySelector("#i");
-                        if (element) element.value = response.i;
+                        formData.i = response.i;
                     }
                     if (response.parent_sign_ach !== undefined) {
                         let element = form.querySelector("#parent_sign_ach");
-                        if (element) element.value = response.parent_sign_ach;
+                        formData.parent_sign_ach= response.parent_sign_ach;
                     }
                     if (response.parent_sign_date_ach !== undefined) {
                         let element = form.querySelector("#parent_sign_date_ach");
-                        if (element) element.value = response.parent_sign_date_ach;
+                        formData.parent_sign_date_ach = response.parent_sign_date_ach;
                     }
+                  
+                } else if (form_name === 'Enrollment Agreement.pdf') {
                     if (response.point_one_field_one !== undefined) {
                         let element = form.querySelector("input[name='point_one_field_one']");
                         if (element) element.value = response.point_one_field_one;
                     }
-                } else if (form_name === 'Enrollment Agreement.pdf') {
                     if (response.point_one_field_two !== undefined) {
                         let element = form.querySelector("input[name='point_one_field_two']");
                         if (element) element.value = response.point_one_field_two;
@@ -1316,7 +1333,7 @@ function checking(editID){
                     //     document.getElementsByName('parent_sign_date_handbook')[0].value =response.parent_hand_book['parent_sign_date_handbook'];
                     // }
                 }
-                resolve();
+                resolve(formData);
             },
             error: function(err) {
                 reject(err);
