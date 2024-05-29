@@ -1143,6 +1143,7 @@ function checking(editID){
                     }
                 } else if (form_name === 'Parent Handbook.pdf') {
                     let parentHandbook = response.parent_hand_book;
+                    console.log(parentHandbook);
                     if (parentHandbook) {
                         let agreements = [
                             'welcome_goddard_agreement',
