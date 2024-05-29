@@ -340,8 +340,8 @@ function checking(editID){
     $('#example').on('click', '.download-btn', function() {
         let url = $(this).data('url');
         let fileName = $(this).data('name');
+        console.log(fileName);
 
-        // Extract editID from the URL
         let editID = extractEditIDFromURL(url);
 
         localStorage.setItem('form_name', fileName);
@@ -354,9 +354,7 @@ function checking(editID){
                 hiddenDiv.innerHTML = text;
                 document.body.appendChild(hiddenDiv);
 
-                // Populate form data before generating PDF
-                populateFormData(editID).then(() => {
-                    // Wait for the dynamic content to load
+                populateFormData(editID,fileName).then(() => {
                     setTimeout(() => {
                         generatePDFContent().then(doc => {
                             doc.save(fileName);
@@ -378,10 +376,10 @@ function checking(editID){
 
     $('#example').on('click', '.print-btn', function() {
         let url = $(this).data('url');
-
-        // Extract editID from the URL
+        let formName = $(this).data('name');
         let editID = extractEditIDFromURL(url);
-
+        localStorage.setItem('form_name', formName);
+    
         fetch(url)
             .then(response => response.text())
             .then(text => {
@@ -390,40 +388,42 @@ function checking(editID){
                 hiddenDiv.style.display = 'none';
                 hiddenDiv.innerHTML = text;
                 document.body.appendChild(hiddenDiv);
-
-                // Populate form data before printing
-                populateFormData(editID).then(() => {
-                    // Wait for the dynamic content to load
-                    setTimeout(() => {
-                        printContent(hiddenDiv.innerHTML);
+    
+                // Fetch and populate form data
+                populateFormData(editID, formName)
+                    .then(formData => {
+                        // Pass the form content and form data to the print function
+                        printContent(hiddenDiv.innerHTML, formData);
+                    })
+                    .catch(error => {
+                        console.error('Error populating form data:', error);
                         document.body.removeChild(hiddenDiv);
-                    }, 1000); // Adjust timeout as needed
-                }).catch(error => {
-                    console.error('Error populating form data:', error);
-                    document.body.removeChild(hiddenDiv);
-                });
+                    });
             })
             .catch(error => {
                 console.error('Error fetching the document:', error);
             });
     });
-
-    // Function to handle printing
-    function printContent(contentHTML) {
+    
+   
+    function printContent(contentHTML, formData) {
         let printWindow = window.open('', '', 'height=1400,width=1500');
         if (!printWindow) {
             console.error('Failed to open print window');
             return;
         }
-
+    
         printWindow.document.write('<html><head><title>Print Form</title>');
         printWindow.document.write('<style>/* Add any additional styles here */</style>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(contentHTML);
+        if (formData) {
+            // Assuming formData is an object containing the form data to be displayed
+            printWindow.document.write(`<pre>${JSON.stringify(formData, null, 2)}</pre>`);
+        }
         printWindow.document.write('</body></html>');
         printWindow.document.close();
-
-        // Ensure the content is loaded and then print
+    
         printWindow.onload = function() {
             printWindow.focus();
             printWindow.print();
@@ -433,19 +433,16 @@ function checking(editID){
         };
     }
 
-    // Helper function to extract editID from the URL
-    function extractEditIDFromURL(url) {
-        let params = new URLSearchParams(url.split('?')[1]);
-        return params.get('id');
-    }
-
-    // Function to generate PDF content
     function generatePDFContent() {
         return new Promise((resolve) => {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF('p', 'mm', [1500, 1400]);
             let formContent = document.querySelector('#formContent');
             formContent.style.display = 'block';
+
+            formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.defaultChecked = checkbox.checked;
+            });
 
             doc.html(formContent, {
                 callback: function () {
@@ -457,6 +454,12 @@ function checking(editID){
             });
         });
     }
+    // Helper function to extract editID from the URL
+    function extractEditIDFromURL(url) {
+        let params = new URLSearchParams(url.split('?')[1]);
+        return params.get('id');
+    }
+    
 
     // DataTable initialization
     $('#example').DataTable({
@@ -497,7 +500,7 @@ function checking(editID){
                     return `
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" data-name="${full}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
                         </div>`;
                 }
             }
@@ -505,22 +508,85 @@ function checking(editID){
         pageLength: 5,
     });
 
+    function populateFormData(editID,form_name) {
+        console.log(editID);
+        console.log(form_name);
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+                type: 'GET',
+                success: function(response) {
+                    console.log(response);
+                    // let form_name = localStorage.getItem('form_name');
+                    let form = document.querySelector('#formContent');
+    
+                    // Clear existing form values
+                    let inputs = form.querySelectorAll('input, select, textarea');
+                    inputs.forEach(input => input.value = '');
+    
+                    console.log(form_name);
+                    if (form_name === 'Authorization.pdf') {
+                        if (response.bank_routing !== undefined) {
+                            let element = form.querySelector("#bank_routing");
+                            if (element) element.value = response.bank_routing;
+                        }
+                        if (response.bank_account !== undefined) {
+                            let element = form.querySelector("#bank_account");
+                            if (element) element.value = response.bank_account;
+                        }
+                        if (response.driver_license !== undefined) {
+                            let element = form.querySelector("#driver_license");
+                            if (element) element.value = response.driver_license;
+                        }
+                        if (response.state !== undefined) {
+                            let element = form.querySelector("#state");
+                            if (element) element.value = response.state;
+                        }
+                        if (response.i !== undefined) {
+                            let element = form.querySelector("#i");
+                            if (element) element.value = response.i;
+                        }
+                        if (response.parent_sign_ach !== undefined) {
+                            let element = form.querySelector("#parent_sign_ach");
+                            if (element) element.value = response.parent_sign_ach;
+                        }
+                        if (response.parent_sign_date_ach !== undefined) {
+                            let element = form.querySelector("#parent_sign_date_ach");
+                            if (element) element.value = response.parent_sign_date_ach;
+                        }
+                        if (response.point_one_field_one !== undefined) {
+                            let element = form.querySelector("input[name='point_one_field_one']");
+                            if (element) element.value = response.point_one_field_one;
+                        }
+                    } 
+                    resolve();
+                },
+                error: function(err) {
+                    reject(err);
+                }
+            });
+        });
+    }
 
-  function populateFormData(editID) {
+  function populateFormData(editID,form_name) {
+    console.log(editID);
+    console.log(form_name);
     return new Promise((resolve, reject) => {
         $.ajax({
             url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
             type: 'GET',
             success: function(response) {
                 console.log(response);
-                let form_name = localStorage.getItem('form_name');
+                // let form_name = localStorage.getItem('form_name');
                 let form = document.querySelector('#formContent');
 
                 // Clear existing form values
                 let inputs = form.querySelectorAll('input, select, textarea');
                 inputs.forEach(input => input.value = '');
 
-                if(form_name === 'Admission.pdf'){
+                console.log(form_name);
+                if(form_name === 'Admission Forms.pdf'){
+                    console.log('admission');
                     if (typeof response.child_first_name !== "undefined")
                         document.getElementsByClassName('child_first_name')[0].value = response.child_first_name;
                         if (typeof response.child_last_name !== "undefined")
@@ -605,8 +671,8 @@ function checking(editID){
                         document.getElementsByName('parent_two_business_zip_address')[0].value = response.parent_two_business_zip_address;
                         if (typeof response.parent_two_business_cell_number !== "undefined")
                         document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
-                        if (typeof response.parent_email !== "undefined")
-                        document.getElementsByName('parent_email')[0].value = response.parent_email;
+                        if (typeof response.parent_two_email !== "undefined")
+                        document.getElementsByName('parent_two_email')[0].value = response.parent_two_email;
 
                         if (typeof response.child_emergency_contact_name !== "undefined")
                         document.getElementsByName('child_emergency_contact_name')[0].value = response.child_emergency_contact_name;
@@ -1141,38 +1207,114 @@ function checking(editID){
                         let element = form.querySelector("input[name='parent_sign_date_enroll']");
                         if (element) element.value = response.parent_sign_date_enroll;
                     }
-                } else if (form_name === 'Parent Handbook.pdf') {
-                    let parentHandbook = response.parent_hand_book;
-                    console.log(parentHandbook);
-                    if (parentHandbook) {
-                        let agreements = [
-                            'welcome_goddard_agreement',
-                            'mission_statement_agreement',
-                            'general_information_agreement',
-                            'medical_care_provider_agreement',
-                            'parent_access_agreement',
-                            'release_of_children_agreement',
-                            'registration_fees_agreement',
-                            'outside_engagements_agreement',
-                            'health_policies_agreement',
-                            'medication_procedures_agreement',
-                            'bring_to_school_agreement',
-                            'rest_time_agreement',
-                            'training_philosophy_agreement',
-                            'affiliation_policy_agreement',
-                            'security_issue_agreement',
-                            'expulsion_policy_agreement',
-                            'addressing_individual_child_agreement',
-                            'finalword_agreement'
-                        ];
-
-                        agreements.forEach(agreement => {
-                            let element = document.getElementById(agreement);
-                            if (element) {
-                                element.checked = parentHandbook[agreement] === "on";
-                            }
-                        });
+                } else if (form_name === 'Parent HandBook.pdf') {
+                    if( response.parent_hand_book['welcome_goddard_agreement'] == "on" ){
+                        document.getElementById('welcome_goddard_agreement').checked = true;
+                    }else{
+                        document.getElementById('welcome_goddard_agreement').checked = false;
                     }
+                    if( response.parent_hand_book['mission_statement_agreement'] == "on" ){
+                        document.getElementById('mission_statement_agreement').checked = true;
+                    }else{
+                        document.getElementById('mission_statement_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['general_information_agreement'] == "on" ){
+                        document.getElementById('general_information_agreement').checked = true;
+                    }else{
+                        document.getElementById('general_information_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['medical_care_provider_agreement'] == "on" ){
+                        document.getElementById('medical_care_provider_agreement').checked = true;
+                    }else{
+                        document.getElementById('medical_care_provider_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['parent_access_agreement'] == "on" ){
+                        document.getElementById('parent_access_agreement').checked = true;
+                    }else{
+                        document.getElementById('parent_access_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['release_of_children_agreement'] == "on" ){
+                        document.getElementById('release_of_children_agreement').checked = true;
+                    }else{
+                        document.getElementById('release_of_children_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['registration_fees_agreement'] == "on" ){
+                        document.getElementById('registration_fees_agreement').checked = true;
+                    }else{
+                        document.getElementById('registration_fees_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['outside_engagements_agreement'] == "on" ){
+                        document.getElementById('outside_engagements_agreement').checked = true;
+                    }else{
+                        document.getElementById('outside_engagements_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['health_policies_agreement'] == "on" ){
+                        document.getElementById('health_policies_agreement').checked = true;
+                    }else{
+                        document.getElementById('health_policies_agreement').checked = false;
+                    }
+                    if(  response.parent_hand_book['medication_procedures_agreement'] == "on" ){
+                        document.getElementById('medication_procedures_agreement').checked = true;
+                    }else{
+                        document.getElementById('medication_procedures_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['bring_to_school_agreement'] == "on" ){
+                        document.getElementById('bring_to_school_agreement').checked = true;
+                    }else{
+                        document.getElementById('bring_to_school_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['rest_time_agreement'] == "on" ){
+                        document.getElementById('rest_time_agreement').checked = true;
+                    }else{
+                        document.getElementById('rest_time_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['training_philosophy_agreement'] == "on" ){
+                        document.getElementById('training_philosophy_agreement').checked = true;
+                    }else{
+                        document.getElementById('training_philosophy_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['affiliation_policy_agreement'] == "on" ){
+                        document.getElementById('affiliation_policy_agreement').checked = true;
+                    }else{
+                        document.getElementById('affiliation_policy_agreement').checked = false;
+                    }
+                    
+                    if( response.parent_hand_book['security_issue_agreement'] == "on" ){
+                        document.getElementById('security_issue_agreement').checked = true;
+                    }else{
+                        document.getElementById('security_issue_agreement').checked = false;
+                    }
+                    if(response.parent_hand_book['expulsion_policy_agreement'] == "on" ){
+                        document.getElementById('expulsion_policy_agreement').checked = true;
+                    }else{
+                        document.getElementById('expulsion_policy_agreement').checked = false;
+                    }                             
+                    if( response.parent_hand_book['addressing_individual_child_agreement'] == "on" ){
+                        document.getElementById('addressing_individual_child_agreement').checked = true;
+                    }else{
+                        document.getElementById('addressing_individual_child_agreement').checked = false;
+                    }
+                    if( response.parent_hand_book['finalword_agreement'] == "on" ){
+                        document.getElementById('finalword_agreement').checked = true;
+                    }else{
+                        document.getElementById('finalword_agreement').checked = false;
+                    }
+                    
+                    if (response.parent_hand_book['parent_sign_handbook'] !== undefined) {
+                        let element = form.querySelector("input[name='parent_sign_handbook']");
+                        if (element) element.value = response.parent_hand_book['parent_sign_handbook'];
+                    }
+                    if (response.parent_hand_book['parent_sign_date_handbook'] !== undefined) {
+                        let element = form.querySelector("input[name='parent_sign_date_handbook']");
+                        if (element) element.value = response.parent_hand_book['parent_sign_date_handbook'];
+                    }
+
+                    // if(typeof response.parent_hand_book['parent_sign_handbook'] !== "undefined" ){
+                    //     document.getElementsByName('parent_sign_handbook')[0].value =response.parent_hand_book['parent_sign_handbook'];
+                    // }
+                    // if(typeof response.parent_hand_book['parent_sign_date_handbook'] !== "undefined" ){
+                    //     document.getElementsByName('parent_sign_date_handbook')[0].value =response.parent_hand_book['parent_sign_date_handbook'];
+                    // }
                 }
                 resolve();
             },
@@ -3175,3 +3317,4 @@ $(document).ready(function () {
         });
     }
 });
+
