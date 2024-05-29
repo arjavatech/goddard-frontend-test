@@ -337,13 +337,116 @@ function checking(editID){
     //     };
     // });
 
+    $('#example').on('click', '.download-btn', function() {
+        let url = $(this).data('url');
+        let fileName = $(this).data('name');
+
+        // Extract editID from the URL
+        let editID = extractEditIDFromURL(url);
+
+        localStorage.setItem('form_name', fileName);
+        fetch(url)
+            .then(response => response.text())
+            .then(text => {
+                let hiddenDiv = document.createElement('div');
+                hiddenDiv.id = 'formContent';
+                hiddenDiv.style.display = 'none';
+                hiddenDiv.innerHTML = text;
+                document.body.appendChild(hiddenDiv);
+
+                // Populate form data before generating PDF
+                populateFormData(editID).then(() => {
+                    // Wait for the dynamic content to load
+                    setTimeout(() => {
+                        generatePDFContent().then(doc => {
+                            doc.save(fileName);
+                            document.body.removeChild(hiddenDiv);
+                        }).catch(error => {
+                            console.error('Error generating PDF:', error);
+                            document.body.removeChild(hiddenDiv);
+                        });
+                    }, 1000); // Adjust timeout as needed
+                }).catch(error => {
+                    console.error('Error populating form data:', error);
+                    document.body.removeChild(hiddenDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error downloading the document:', error);
+            });
+    });
+
+    $('#example').on('click', '.print-btn', function() {
+        let url = $(this).data('url');
+
+        // Extract editID from the URL
+        let editID = extractEditIDFromURL(url);
+
+        fetch(url)
+            .then(response => response.text())
+            .then(text => {
+                let hiddenDiv = document.createElement('div');
+                hiddenDiv.id = 'formContent';
+                hiddenDiv.style.display = 'none';
+                hiddenDiv.innerHTML = text;
+                document.body.appendChild(hiddenDiv);
+
+                // Populate form data before printing
+                populateFormData(editID).then(() => {
+                    // Wait for the dynamic content to load
+                    setTimeout(() => {
+                        printContent(hiddenDiv.innerHTML);
+                        document.body.removeChild(hiddenDiv);
+                    }, 1000); // Adjust timeout as needed
+                }).catch(error => {
+                    console.error('Error populating form data:', error);
+                    document.body.removeChild(hiddenDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching the document:', error);
+            });
+    });
+
+    // Function to handle printing
+    function printContent(contentHTML) {
+        let printWindow = window.open('', '', 'height=1400,width=1500');
+        if (!printWindow) {
+            console.error('Failed to open print window');
+            return;
+        }
+
+        printWindow.document.write('<html><head><title>Print Form</title>');
+        printWindow.document.write('<style>/* Add any additional styles here */</style>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(contentHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+
+        // Ensure the content is loaded and then print
+        printWindow.onload = function() {
+            printWindow.focus();
+            printWindow.print();
+            printWindow.onafterprint = function() {
+                printWindow.close();
+            };
+        };
+    }
+
+    // Helper function to extract editID from the URL
+    function extractEditIDFromURL(url) {
+        let params = new URLSearchParams(url.split('?')[1]);
+        return params.get('id');
+    }
+
+    // Function to generate PDF content
     function generatePDFContent() {
         return new Promise((resolve) => {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF('p', 'mm', [1500, 1400]);
             let formContent = document.querySelector('#formContent');
             formContent.style.display = 'block';
-    
+
             doc.html(formContent, {
                 callback: function () {
                     formContent.style.display = 'none';
@@ -354,7 +457,55 @@ function checking(editID){
             });
         });
     }
-    
+
+    // DataTable initialization
+    $('#example').DataTable({
+        scrollX: true,
+        info: false,
+        dom: 'Qlfrtip',
+        ajax: {
+            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+            dataSrc: 'completedFormStatus',
+        },
+        columns: [
+            { 
+                data: 'form_name',
+                render: function(data, type, full, meta) {
+                    return full; // Ensure this returns the correct form name
+                }
+            },
+            {
+                data: null,
+                render: function (data, type, full, meta) {
+                    let url = '';
+                    switch (full) {
+                        case 'Admission Forms':
+                            url = `${window.location.origin}/admission_forms_completed.html?id=${editID}`;
+                            break;
+                        case 'Authorization':
+                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
+                            break;
+                        case 'Enrollment Agreement':
+                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
+                            break;
+                        case 'Parent HandBook':
+                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
+                            break;
+                        default:
+                            return '';
+                    }
+                    return `
+                        <div>
+                            <button class="download-btn" data-url="${url}" data-name="${full}.pdf">Download</button>
+                            <button class="print-btn" data-url="${url}">Print</button>
+                        </div>`;
+                }
+            }
+        ],
+        pageLength: 5,
+    });
+
+
   function populateFormData(editID) {
     return new Promise((resolve, reject) => {
         $.ajax({
@@ -1030,163 +1181,13 @@ function checking(editID){
         });
     });
 }
+    
+   
+    
+   
+    
+   // Click event handler for the print button
 
-    
-    
-    $('#example').DataTable({
-        scrollX: true,
-        info: false,
-        dom: 'Qlfrtip',
-        ajax: {
-            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
-            dataSrc: 'completedFormStatus',
-        },
-        columns: [
-            { 
-                data: 'form_name',
-                render: function(data, type, full, meta) {
-                    return full; // Ensure this returns the correct form name
-                }
-            },
-            {
-                data: null,
-                render: function (data, type, full, meta) {
-                    let url = '';
-                    switch (full) {
-                        case 'Admission Forms':
-                            url = `${window.location.origin}/admission_forms_completed.html?id=${editID}`;
-                            break;
-                        case 'Authorization':
-                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
-                            break;
-                        case 'Enrollment Agreement':
-                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
-                            break;
-                        case 'Parent HandBook':
-                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
-                            break;
-                        default:
-                            return '';
-                    }
-                    return `
-                        <div>
-                            <button class="download-btn" data-url="${url}" data-name="${full}.pdf">Download</button>
-                            <button class="print-btn" data-url="${url}">Print</button>
-                        </div>`;
-                }
-            }
-        ],
-        pageLength: 5,
-    });
-    
-    $('#example').on('click', '.download-btn', function() {
-        let url = $(this).data('url');
-        let fileName = $(this).data('name');
-    
-        // Extract editID from the URL
-        let editID = extractEditIDFromURL(url);
-    
-        localStorage.setItem('form_name', fileName);
-        fetch(url)
-            .then(response => response.text())
-            .then(text => {
-                let hiddenDiv = document.createElement('div');
-                hiddenDiv.id = 'formContent';
-                hiddenDiv.style.display = 'none';
-                hiddenDiv.innerHTML = text;
-                document.body.appendChild(hiddenDiv);
-    
-                // Populate form data before generating PDF
-                populateFormData(editID).then(() => {
-                    // Wait for the dynamic content to load
-                    setTimeout(() => {
-                        generatePDFContent().then(doc => {
-                            doc.save(fileName);
-                            document.body.removeChild(hiddenDiv);
-                        }).catch(error => {
-                            console.error('Error generating PDF:', error);
-                            document.body.removeChild(hiddenDiv);
-                        });
-                    }, 1000); // Adjust timeout as needed
-                }).catch(error => {
-                    console.error('Error populating form data:', error);
-                    document.body.removeChild(hiddenDiv);
-                });
-            })
-            .catch(error => {
-                console.error('Error downloading the document:', error);
-            });
-    });
-    
-    $('#example').on('click', '.print-btn', function() {
-        let url = $(this).data('url');
-    
-        // Extract editID from the URL
-        let editID = extractEditIDFromURL(url);
-    
-        fetch(url)
-            .then(response => response.text())
-            .then(text => {
-                let hiddenDiv = document.createElement('div');
-                hiddenDiv.id = 'formContent';
-                hiddenDiv.style.display = 'none';
-                hiddenDiv.innerHTML = text;
-                document.body.appendChild(hiddenDiv);
-    
-                // Populate form data before printing
-                populateFormData(editID).then(() => {
-                    // Wait for the dynamic content to load
-                    setTimeout(() => {
-                        printContent(hiddenDiv, editID);
-                    }, 1000); // Adjust timeout as needed
-                }).catch(error => {
-                    console.error('Error populating form data:', error);
-                    document.body.removeChild(hiddenDiv);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching the document:', error);
-            });
-    });
-    
-    function printContent(content, editID) {
-        let printWindow = window.open('', '', 'height=1400,width=1500');
-        if (!printWindow) {
-            console.error('Failed to open print window');
-            return;
-        }
-    
-        printWindow.document.write('<html><head><title>Print Form</title></head><body>');
-        printWindow.document.write(content.innerHTML);
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-    
-        // Populate form data before printing
-        populateFormData(editID).then(() => {
-            // Wait for the dynamic content to load
-            setTimeout(() => {
-                printWindow.onload = function() {
-                    printWindow.focus();
-                    printWindow.print();
-                    printWindow.onafterprint = function() {
-                        printWindow.close();
-                    };
-                };
-            }, 1000); // Adjust timeout as needed
-        }).catch(error => {
-            console.error('Error populating form data:', error);
-        });
-    }
-    
-    // Function to extract editID from URL
-    function extractEditIDFromURL(url) {
-        // Parse the URL to get the editID
-        // For example:
-        // Assuming the URL is like: https://example.com/form?id=1234
-        // You can extract the editID from the URL query parameters
-        const params = new URLSearchParams(new URL(url).search);
-        return params.get('id');
-    }
     
     if(editID != ''){
         // formdiv.classList.remove('hide');
