@@ -4,10 +4,11 @@ p
     font-weight: 500;
 } 
 
-/* card shadow */
-.card {
+
+.header-border {
     border: none !important;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-bottom: 2px solid #0F2D52 !important;
+    border-radius: 0 !important;
 }
 
 .title_bg
