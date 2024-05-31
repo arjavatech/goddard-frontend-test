@@ -76,36 +76,14 @@
                                     </div>
                                     <div id="do_relevant_custody_papers_apply" class="col-sm">
                                         <div class="form-group">
-                                            <p><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></p>
-                                            <div class="wizard-form-radio">
-                                                <input name="do_relevant_custody_papers_apply"
-                                                    id="do_relevant_custody_papers_apply1" value="Yes"
-                                                    type="radio">
-                                                <label for="do_relevant_custody_papers_apply1">Yes</label>
-                                            </div>
-                                            <div class="wizard-form-radio">
-                                                <input name="do_relevant_custody_papers_apply"
-                                                    id="do_relevant_custody_papers_apply2" type="radio"
-                                                    value="No" checked>
-                                                <label for="do_relevant_custody_papers_apply2">No</label>
-                                            </div>
+                                            <label for="do_relevant_custody_papers_apply1" class="form-label"><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></label>
+                                            <input type="text" class="form-control text-box" name="do_relevant_custody_papers_apply" id="do_relevant_custody_papers_apply1">
                                         </div>
                                     </div>
                                     <div id="gender" class="col-sm">
                                         <div class="form-group">
-                                            <p><b>GENDER</b></p>
-                                            <div class="wizard-form-radio">
-                                                <input name="gender" id="gender1" value="Male" type="radio" checked>
-                                                <label for="gender1">Male</label>
-                                            </div>
-                                            <div class="wizard-form-radio">
-                                                <input name="gender" id="gender2" type="radio" value="Female">
-                                                <label for="gender2">Female</label>
-                                            </div>
-                                            <div class="wizard-form-radio">
-                                                <input name="gender" id="gender3" type="radio" value="Others">
-                                                <label for="gender3">Others</label>
-                                            </div>
+                                            <label for="gender1" class="form-label"><b>GENDER</b></label>
+                                            <input type="text" class="form-control text-box" name="gender" id="gender1">
                                         </div>
                                     </div>
                                 </div> 
@@ -1344,35 +1322,18 @@
                             <div class="row m-4 mb-3">
                                 <div id="childcare_before" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Has your child been in childcare before?</b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="childcare_before" id="childcare_before1"
-                                                value="Yes" type="radio">
-                                            <label for="childcare_before1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="childcare_before" id="childcare_before2"
-                                                type="radio" value="No" checked>
-                                            <label for="childcare_before2">No</label>
-                                        </div>
+                                        <label for="childcare_before1" class="form-label"><b>Has your child been in childcare before?</b></label>
+                                        <input type="text" class="form-control text-box" name="childcare_before1" id="childcare_before1">
                                     </div>
                                 </div>
                             </div>
                             <div class="row m-4 mb-3">
                                 <div class="col-sm">
                                     <div class="form-group"> 
-                                        <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b>
-                                            
+                                        <label for="reason_for_childcare_before" class="form-label h-3"><b>If so, what kind?</b>
                                         </label>
-                                        <select class="form-control text-box" aria-label=".form-control-lg example"
-                                            id="reason_for_childcare_before" name="reason_for_childcare_before">
-                                            <option></option>
-                                            <option value="1">Relative’s Care</option>
-                                            <option value="2">Home Care</option>
-                                            <option value="3">Church Care</option>
-                                            <option value="4">Other</option>
-                                        </select>
-                                        <i class="fa fa-chevron-down"></i>
+                                        <input type="text" class="form-control text-box " id="reason_for_childcare_before" 
+                                        name="reason_for_childcare_before">
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -1409,19 +1370,8 @@
                             <div class="row m-4 mb-3">
                                 <div id="restricted_diet" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your child have a special or restricted diet?
-                                            
-                                        </b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio"
-                                            onclick="CustomChange(this.value,'restricted_diet_reason_div');" >
-                                            <label for="restricted_diet1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="restricted_diet" id="restricted_diet2" type="radio" value="No"
-                                            onclick="CustomChange(this.value,'restricted_diet_reason_div');" checked>
-                                            <label for="restricted_diet2">No</label>
-                                        </div>
+                                        <label for="restricted_diet1" class="form-label"><b>Does your child have a special or restricted diet?</b></label>
+                                        <input type="text" class="form-control text-box" name="restricted_diet1" id="restricted_diet1">
                                     </div>
                                 </div>
                             </div>
@@ -1436,19 +1386,8 @@
                             <div class="row m-4 mb-3">
                                 <div id="eat_own" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your child eat on their own?
-                                            
-                                        </b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="eat_own" id="eat_own1" value="Yes" type="radio" 
-                                            onclick="CustomChange(this.value,'eat_own_reason_div');">
-                                            <label for="eat_own1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="eat_own" id="eat_own2" type="radio" value="No"
-                                            onclick="CustomChange(this.value,'eat_own_reason_div');" checked>
-                                            <label for="eat_own2">No</label>
-                                        </div>
+                                        <label for="eat_own1" class="form-label"><b>Does your child eat on their own?</b></label>
+                                        <input type="text" class="form-control text-box" name="eat_own1" id="eat_own1">
                                     </div>
                                 </div>
                             </div>
@@ -1477,19 +1416,8 @@
                             <div class="row m-4 mb-3">
                                 <div id="rest_in_the_middle_day" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your child rest in the middle of the day?
-                                            
-                                        </b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
-                                                type="radio" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');">
-                                            <label for="rest_in_the_middle_day1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
-                                                value="No" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');" checked>
-                                            <label for="rest_in_the_middle_day2">No</label>
-                                        </div>
+                                        <label for="rest_in_the_middle_day" class="form-label"><b>Does your child rest in the middle of the day?</b></label>
+                                        <input type="text" class="form-control text-box" name="rest_in_the_middle_day" id="rest_in_the_middle_day">
                                     </div>
                                 </div>
                             </div>
@@ -1516,19 +1444,8 @@
                             <div class="row m-4 mb-3">
                                 <div id="toilet_trained" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Is your child toilet trained?
-                                            
-                                        </b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="toilet_trained" id="toilet_trained1" value="Yes" type="radio" 
-                                            onclick="CustomChange(this.value,'reason_for_toilet_trained_div');">
-                                            <label for="toilet_trained1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="toilet_trained" id="toilet_trained2" type="radio" value="No"
-                                            onclick="CustomChange(this.value,'reason_for_toilet_trained_div');" checked>
-                                            <label for="toilet_trained2">No</label>
-                                        </div>
+                                        <label for="toilet_trained1" class="form-label"><b>Is your child toilet trained?</b></label>
+                                        <input type="text" class="form-control text-box" name="toilet_trained1" id="toilet_trained1">
                                     </div>
                                 </div>
                             </div>
@@ -1547,19 +1464,8 @@
                             <div class="row m-4 mb-3">
                                 <div id="existing_illness_allergy" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your child have an existing illness/allergy/condition?
-                                            
-                                        </b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="existing_illness_allergy" id="existing_illness_allergy1" value="Yes"
-                                                type="radio" onclick="CustomChange(this.value,'explain_for_existing_illness_allergy_div');">
-                                            <label for="existing_illness_allergy1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="existing_illness_allergy" id="existing_illness_allergy2" type="radio"
-                                                value="No" onclick="CustomChange(this.value,'explain_for_existing_illness_allergy_div');" checked>
-                                            <label for="existing_illness_allergy2">No</label>
-                                        </div>
+                                        <label for="existing_illness_allergy1" class="form-label"><b>Does your child have an existing illness/allergy/condition?</b></label>
+                                        <input type="text" class="form-control text-box" name="existing_illness_allergy1" id="existing_illness_allergy1">
                                     </div>
                                 </div>
                             </div>
@@ -1577,19 +1483,8 @@
                             <div class="row m-4 mb-3">
                                 <div id="functioning_at_age" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your think your child is functioning at age-level?
-                                            
-                                        </b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="functioning_at_age" id="functioning_at_age1" value="Yes" type="radio"
-                                            onclick="CustomChange(this.value,'explain_for_functioning_at_age_div');">
-                                            <label for="functioning_at_age1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="functioning_at_age" id="functioning_at_age2" type="radio" value="No"
-                                            onclick="CustomChange(this.value,'explain_for_functioning_at_age_div');" checked>
-                                            <label for="functioning_at_age2">No</label>
-                                        </div>
+                                        <label for="functioning_at_age1" class="form-label"><b>Does your think your child is functioning at age-level?</b></label>
+                                        <input type="text" class="form-control text-box" name="functioning_at_age1" id="functioning_at_age1">
                                     </div>
                                 </div>
                             </div>
@@ -1605,17 +1500,8 @@
                             <div class="row m-4 mb-3">
                                 <div id="able_to_walk" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Is your child able to walk?</b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="able_to_walk" id="able_to_walk1" value="Yes" type="radio" 
-                                            onclick="CustomChange(this.value,'explain_for_able_to_walk_div');">
-                                            <label for="able_to_walk1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="able_to_walk" id="able_to_walk2" type="radio" value="No"
-                                            onclick="CustomChange(this.value,'explain_for_able_to_walk_div');" checked>
-                                            <label for="able_to_walk2">No</label>
-                                        </div>
+                                        <label for="able_to_walk1" class="form-label"><b>Is your child able to walk?</b></label>
+                                        <input type="text" class="form-control text-box" name="able_to_walk1" id="able_to_walk1">
                                     </div>
                                 </div>
                             </div>
@@ -1631,20 +1517,8 @@
                             <div class="row m-4 mb-3">
                                 <div id="communicate_their_needs" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Is your child able to communicate their needs to others?
-                                            
-                                        </b></p>
-                                        <div class="wizard-form-radio">
-                                            <input name="communicate_their_needs" id="communicate_their_needs1" value="Yes"
-                                                type="radio" onclick="CustomChange(this.value,'explain_for_communicate_their_needs_div');">
-                                            <label for="communicate_their_needs1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="communicate_their_needs"
-                                                id="communicate_their_needs2" type="radio" value="No"
-                                                onclick="CustomChange(this.value,'explain_for_communicate_their_needs_div');" checked>
-                                            <label for="communicate_their_needs2">No</label>
-                                        </div>
+                                        <label for="communicate_their_needs1" class="form-label"><b>Is your child able to communicate their needs to others?</b></label>
+                                        <input type="text" class="form-control text-box" name="communicate_their_needs1" id="communicate_their_needs1">
                                     </div>
                                 </div>
                             </div>
@@ -1660,20 +1534,10 @@
                             <div class="row m-4 mb-3">
                                 <div id="any_medication" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your child require any medication, therapy,
-                                                treatment, or medical assessment (example, blood
-                                                sugar monitoring) while in childcare?</b>
-                                        </p>
-                                        <div class="wizard-form-radio">
-                                            <input name="any_medication" id="any_medication1" value="Yes" type="radio" 
-                                            onclick="CustomChange(this.value,'explain_for_any_medication_div');">
-                                            <label for="any_medication1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="any_medication" id="any_medication2" type="radio" value="No"
-                                            onclick="CustomChange(this.value,'explain_for_any_medication_div');" checked>
-                                            <label for="any_medication2">No</label>
-                                        </div>
+                                        <label for="any_medication1" class="form-label"><b>Does your child require any medication, therapy,
+                                            treatment, or medical assessment (example, blood
+                                            sugar monitoring) while in childcare?</b></label>
+                                        <input type="text" class="form-control text-box" name="any_medication1" id="any_medication1">
                                     </div>
                                 </div>
                             </div>
@@ -1689,20 +1553,10 @@
                             <div class="row m-4 mb-3">
                                 <div id="utilize_special_equipment" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your child utilize any special equipment(such as
-                                                a breathing machine, wheelchair, hearing aid, or
-                                                braces)? </b>
-                                        </p>
-                                        <div class="wizard-form-radio">
-                                            <input name="utilize_special_equipment" id="utilize_special_equipment1" value="Yes"
-                                                type="radio" onclick="CustomChange(this.value,'explain_for_utilize_special_equipment_div');">
-                                            <label for="utilize_special_equipment1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="utilize_special_equipment" id="utilize_special_equipment2" type="radio"
-                                                value="No" onclick="CustomChange(this.value,'explain_for_utilize_special_equipment_div');" checked>
-                                            <label for="utilize_special_equipment2">No</label>
-                                        </div>
+                                        <label for="utilize_special_equipment1" class="form-label"><b>Does your child utilize any special equipment(such as
+                                            a breathing machine, wheelchair, hearing aid, or
+                                            braces)?</b></label>
+                                        <input type="text" class="form-control text-box" name="utilize_special_equipment1" id="utilize_special_equipment1">
                                     </div>
                                 </div>
                             </div>
@@ -1718,19 +1572,9 @@
                             <div class="row m-4 mb-3">
                                 <div id="significant periods" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your child require one-on-one supervision on a
-                                                regular basis for significant periods of time?</b>
-                                        </p>
-                                        <div class="wizard-form-radio">
-                                            <input name="significant_periods" id="significant_periods1" value="Yes" type="radio"
-                                            onclick="CustomChange(this.value,'explain_for_significant_periods_div');">
-                                            <label for="significant_periods1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="significant_periods" id="significant_periods2" type="radio" value="No"
-                                            onclick="CustomChange(this.value,'explain_for_significant_periods_div');" checked>
-                                            <label for="significant_periods2">No</label>
-                                        </div>
+                                        <label for="significant_periods1" class="form-label"><b>Does your child require one-on-one supervision on a
+                                            regular basis for significant periods of time?</b></label>
+                                        <input type="text" class="form-control text-box" name="significant_periods1" id="significant_periods1">
                                     </div>
                                 </div>
                             </div>
@@ -1746,21 +1590,11 @@
                             <div class="row m-4 mb-3">
                                 <div id="desire_any_accommodations" class="col-sm">
                                     <div class="form-group">
-                                        <p><b>Does your child require and/or desire any
-                                                accommodations or modifications in order to fully
-                                                and eually enjoy and participate in The Goddard
-                                                School &reg; group setting?</b></p>
-                                        </p>
-                                        <div class="wizard-form-radio">
-                                            <input name="desire_any_accommodations" id="desire_any_accommodations1" value="Yes"
-                                                type="radio" onclick="CustomChange(this.value,'explain_for_desire_any_accommodations_div');">
-                                            <label for="desire_any_accommodations1">Yes</label>
-                                        </div>
-                                        <div class="wizard-form-radio">
-                                            <input name="desire_any_accommodations" id="desire_any_accommodations2" type="radio"
-                                                value="No" onclick="CustomChange(this.value,'explain_for_desire_any_accommodations_div');" checked>
-                                            <label for="desire_any_accommodations2">No</label>
-                                        </div>
+                                        <label for="desire_any_accommodations1" class="form-label"><b>Does your child require and/or desire any
+                                            accommodations or modifications in order to fully
+                                            and eually enjoy and participate in The Goddard
+                                            School &reg; group setting?</b></label>
+                                        <input type="text" class="form-control text-box" name="desire_any_accommodations1" id="desire_any_accommodations1">
                                     </div>
                                 </div>
                             </div>
@@ -1878,18 +1712,10 @@
                                     <div class="col-3"></div>
                                     <div class="col-6">
                                         <div class="form-group"> 
-                                            <label for="photo_usage_photo_video_permission_form" class="form-label"><b>Select One
-                                                </b>
+                                            <label for="photo_usage_photo_video_permission_form" class="form-label h-3"><b></b>
                                             </label>
-                                            <select class="form-control text-box" aria-label=".form-control-lg example" 
-                                            id="photo_usage_photo_video_permission_form"
-                                                name="photo_usage_photo_video_permission_form">
-                                                <option selected disabled></option>
-                                                <option value="Full Use">Full Use</option>
-                                                <option value="In-House Only">In-House Only*</option>
-                                                <option value="No Photos">No Photos</option>
-                                            </select>
-                                            <i class="fa fa-chevron-down"></i>
+                                            <input type="text" class="form-control text-box " id="photo_usage_photo_video_permission_form" 
+                                            name="photo_usage_photo_video_permission_form">
                                         </div>
                                     </div>
                                     <div class="col-3"></div>
