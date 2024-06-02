@@ -235,10 +235,7 @@
                                             <label for="business_cell_number" class="form-label"><b>CELL NUMBER</b>
                                             </label>
                                             <input type="text" class="form-control text-box " aria-label="Telephone Number"
-                                                id="business_cell_number" name="business_cell_number"
-                                                onchange="validatePhone(this,'business_cell_number_span')">
-                                            <span id="business_cell_number_span" style="color:red; display:none">
-                                                Enter valid input [only numbers,+,-,()].</span>
+                                                id="business_cell_number" name="business_cell_number">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -246,10 +243,8 @@
                                             <label for="primary_parent_email" class="form-label"><b>EMAIL ADDRESS</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="primary_parent_email"
-                                                name="primary_parent_email"
-                                                onchange="emailValidation(this,'primary_parent_email_span')">
-                                            <span id="primary_parent_email_span" style="color:red; display:none">
-                                                Enter valid input [should be in @ and .].</span>
+                                                name="primary_parent_email">
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -1322,20 +1317,20 @@
                             <div class="row m-4 mb-3">
                                 <div id="childcare_before" class="col-sm">
                                     <div class="form-group">
-                                        <label for="childcare_before1" class="form-label"><b>Has your child been in childcare before?</b></label>
-                                        <input type="text" class="form-control text-box" name="childcare_before1" id="childcare_before1">
+                                        <label for="reason_for_childcare_before" class="form-label"><b>Has your child been in childcare before?</b></label>
+                                        <input type="text" class="form-control text-box" name="reason_for_childcare_before" id="reason_for_childcare_before">
                                     </div>
                                 </div>
                             </div>
                             <div class="row m-4 mb-3">
-                                <div class="col-sm">
+                                <!-- <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="reason_for_childcare_before" class="form-label h-3"><b>If so, what kind?</b>
                                         </label>
                                         <input type="text" class="form-control text-box " id="reason_for_childcare_before" 
                                         name="reason_for_childcare_before">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="what_child_interests" class="form-label"><b>What are you child’s interests</b>
@@ -1370,35 +1365,35 @@
                             <div class="row m-4 mb-3">
                                 <div id="restricted_diet" class="col-sm">
                                     <div class="form-group">
-                                        <label for="restricted_diet1" class="form-label"><b>Does your child have a special or restricted diet?</b></label>
-                                        <input type="text" class="form-control text-box" name="restricted_diet1" id="restricted_diet1">
+                                        <label for="restricted_diet_reason" class="form-label"><b>Does your child have a special or restricted diet?</b></label>
+                                        <input type="text" class="form-control text-box" name="restricted_diet_reason" id="restricted_diet_reason">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="restricted_diet_reason_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="restricted_diet_reason_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="restricted_diet_reason" class="form-label">Explain</label>
                                         <input type="text" class="form-control text-box" id="restricted_diet_reason" name="restricted_diet_reason">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div id="eat_own" class="col-sm">
                                     <div class="form-group">
-                                        <label for="eat_own1" class="form-label"><b>Does your child eat on their own?</b></label>
-                                        <input type="text" class="form-control text-box" name="eat_own1" id="eat_own1">
+                                        <label for="eat_own_reason" class="form-label"><b>Does your child eat on their own?</b></label>
+                                        <input type="text" class="form-control text-box" name="eat_own_reason" id="eat_own_reason">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="eat_own_reason_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="eat_own_reason_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="eat_own_reason" class="form-label">Explain</label>
                                         <input type="text" class="form-control text-box " id="eat_own_reason" name="eat_own_reason">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div class="col-sm">
                                     <div class="form-group"> 
@@ -1416,12 +1411,12 @@
                             <div class="row m-4 mb-3">
                                 <div id="rest_in_the_middle_day" class="col-sm">
                                     <div class="form-group">
-                                        <label for="rest_in_the_middle_day" class="form-label"><b>Does your child rest in the middle of the day?</b></label>
-                                        <input type="text" class="form-control text-box" name="rest_in_the_middle_day" id="rest_in_the_middle_day">
+                                        <label for="reason_for_rest_in_the_middle_day" class="form-label"><b>Does your child rest in the middle of the day?</b></label>
+                                        <input type="text" class="form-control text-box" name="reason_for_rest_in_the_middle_day" id="reason_for_rest_in_the_middle_day">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="reason_for_rest_in_the_middle_day_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="reason_for_rest_in_the_middle_day_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain</label>
@@ -1429,7 +1424,7 @@
                                         name="reason_for_rest_in_the_middle_day">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div class="col-sm">
                                     <div class="form-group"> 
@@ -1444,12 +1439,12 @@
                             <div class="row m-4 mb-3">
                                 <div id="toilet_trained" class="col-sm">
                                     <div class="form-group">
-                                        <label for="toilet_trained1" class="form-label"><b>Is your child toilet trained?</b></label>
-                                        <input type="text" class="form-control text-box" name="toilet_trained1" id="toilet_trained1">
+                                        <label for="reason_for_toilet_trained" class="form-label"><b>Is your child toilet trained?</b></label>
+                                        <input type="text" class="form-control text-box" name="reason_for_toilet_trained" id="reason_for_toilet_trained">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="reason_for_toilet_trained_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="reason_for_toilet_trained_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="reason_for_toilet_trained" class="form-label">Explain</label>
@@ -1457,19 +1452,19 @@
                                         name="reason_for_toilet_trained">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!--Medical Details-->
                             <h4 class="text-center"><b>Medical/General</b></h4><br>
                             <div class="row m-4 mb-3">
                                 <div id="existing_illness_allergy" class="col-sm">
                                     <div class="form-group">
-                                        <label for="existing_illness_allergy1" class="form-label"><b>Does your child have an existing illness/allergy/condition?</b></label>
-                                        <input type="text" class="form-control text-box" name="existing_illness_allergy1" id="existing_illness_allergy1">
+                                        <label for="explain_for_existing_illness_allergy" class="form-label"><b>Does your child have an existing illness/allergy/condition?</b></label>
+                                        <input type="text" class="form-control text-box" name="explain_for_existing_illness_allergy" id="explain_for_existing_illness_allergy">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="explain_for_existing_illness_allergy_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="explain_for_existing_illness_allergy_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="explain_for_existing_illness_allergy"  
@@ -1478,17 +1473,17 @@
                                             name="explain_for_existing_illness_allergy">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <br><br><br><br><br>
                             <div class="row m-4 mb-3">
                                 <div id="functioning_at_age" class="col-sm">
                                     <div class="form-group">
-                                        <label for="functioning_at_age1" class="form-label"><b>Does your think your child is functioning at age-level?</b></label>
-                                        <input type="text" class="form-control text-box" name="functioning_at_age1" id="functioning_at_age1">
+                                        <label for="explain_for_functioning_at_age" class="form-label"><b>Does your think your child is functioning at age-level?</b></label>
+                                        <input type="text" class="form-control text-box" name="explain_for_functioning_at_age" id="explain_for_functioning_at_age">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="explain_for_functioning_at_age_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="explain_for_functioning_at_age_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
@@ -1496,16 +1491,16 @@
                                         name="explain_for_functioning_at_age">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div id="able_to_walk" class="col-sm">
                                     <div class="form-group">
-                                        <label for="able_to_walk1" class="form-label"><b>Is your child able to walk?</b></label>
-                                        <input type="text" class="form-control text-box" name="able_to_walk1" id="able_to_walk1">
+                                        <label for="explain_for_able_to_walk" class="form-label"><b>Is your child able to walk?</b></label>
+                                        <input type="text" class="form-control text-box" name="explain_for_able_to_walk" id="explain_for_able_to_walk">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="explain_for_able_to_walk_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="explain_for_able_to_walk_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="explain_for_able_to_walk" class="form-label">Explain</label>
@@ -1513,16 +1508,16 @@
                                         name="explain_for_able_to_walk">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div id="communicate_their_needs" class="col-sm">
                                     <div class="form-group">
-                                        <label for="communicate_their_needs1" class="form-label"><b>Is your child able to communicate their needs to others?</b></label>
-                                        <input type="text" class="form-control text-box" name="communicate_their_needs1" id="communicate_their_needs1">
+                                        <label for="explain_for_communicate_their_needs" class="form-label"><b>Is your child able to communicate their needs to others?</b></label>
+                                        <input type="text" class="form-control text-box" name="explain_for_communicate_their_needs" id="explain_for_communicate_their_needs">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="explain_for_communicate_their_needs_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="explain_for_communicate_their_needs_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
@@ -1530,18 +1525,18 @@
                                             name="explain_for_communicate_their_needs">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div id="any_medication" class="col-sm">
                                     <div class="form-group">
-                                        <label for="any_medication1" class="form-label"><b>Does your child require any medication, therapy,
+                                        <label for="explain_for_any_medication" class="form-label"><b>Does your child require any medication, therapy,
                                             treatment, or medical assessment (example, blood
                                             sugar monitoring) while in childcare?</b></label>
-                                        <input type="text" class="form-control text-box" name="any_medication1" id="any_medication1">
+                                        <input type="text" class="form-control text-box" name="explain_for_any_medication" id="explain_for_any_medication">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="explain_for_any_medication_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="explain_for_any_medication_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="explain_for_any_medication" class="form-label">Explain</label>
@@ -1549,18 +1544,18 @@
                                         name="explain_for_any_medication">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div id="utilize_special_equipment" class="col-sm">
                                     <div class="form-group">
-                                        <label for="utilize_special_equipment1" class="form-label"><b>Does your child utilize any special equipment(such as
+                                        <label for="explain_for_utilize_special_equipment" class="form-label"><b>Does your child utilize any special equipment(such as
                                             a breathing machine, wheelchair, hearing aid, or
                                             braces)?</b></label>
-                                        <input type="text" class="form-control text-box" name="utilize_special_equipment1" id="utilize_special_equipment1">
+                                        <input type="text" class="form-control text-box" name="explain_for_utilize_special_equipment" id="explain_for_utilize_special_equipment">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="explain_for_utilize_special_equipment_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="explain_for_utilize_special_equipment_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
@@ -1568,17 +1563,17 @@
                                         name="explain_for_utilize_special_equipment">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div id="significant periods" class="col-sm">
                                     <div class="form-group">
-                                        <label for="significant_periods1" class="form-label"><b>Does your child require one-on-one supervision on a
+                                        <label for="explain_for_significant_periods" class="form-label"><b>Does your child require one-on-one supervision on a
                                             regular basis for significant periods of time?</b></label>
-                                        <input type="text" class="form-control text-box" name="significant_periods1" id="significant_periods1">
+                                        <input type="text" class="form-control text-box" name="explain_for_significant_periods" id="explain_for_significant_periods">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="explain_for_significant_periods_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="explain_for_significant_periods_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="explain_for_significant_periods" class="form-label">Explain</label>
@@ -1586,19 +1581,19 @@
                                         name="explain_for_significant_periods">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row m-4 mb-3">
                                 <div id="desire_any_accommodations" class="col-sm">
                                     <div class="form-group">
-                                        <label for="desire_any_accommodations1" class="form-label"><b>Does your child require and/or desire any
+                                        <label for="explain_for_desire_any_accommodations" class="form-label"><b>Does your child require and/or desire any
                                             accommodations or modifications in order to fully
                                             and eually enjoy and participate in The Goddard
                                             School &reg; group setting?</b></label>
-                                        <input type="text" class="form-control text-box" name="desire_any_accommodations1" id="desire_any_accommodations1">
+                                        <input type="text" class="form-control text-box" name="explain_for_desire_any_accommodations" id="explain_for_desire_any_accommodations">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-4 mb-3" id="explain_for_desire_any_accommodations_div" style="display: none;">
+                            <!-- <div class="row m-4 mb-3" id="explain_for_desire_any_accommodations_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
@@ -1606,7 +1601,7 @@
                                         name="explain_for_desire_any_accommodations">
                                     </div>
                                 </div>
-                            </div>      
+                            </div>       -->
                             <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
