@@ -727,16 +727,16 @@ function checking(editID){
                     let url = '';
                     switch (full) {
                         case 'Admission Forms':
-                            url = `${window.location.origin}/goddard-frontend-test/admission_forms_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/admission_forms_completed.html?id=${editID}`;
                             break;
                         case 'Authorization':
-                            url = `${window.location.origin}/goddard-frontend-test/authorization_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
                             break;
                         case 'Enrollment Agreement':
-                            url = `${window.location.origin}/goddard-frontend-test/enrollment_agreement_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
                             break;
                         case 'Parent HandBook':
-                            url = `${window.location.origin}/goddard-frontend-test/parent_handbook_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
                             break;
                         default:
                             return '';
