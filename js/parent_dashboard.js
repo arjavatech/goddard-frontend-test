@@ -1273,24 +1273,26 @@ function checking(editID){
                     }else{
                         document.getElementById('family_history_epilepsy').checked = false;
                     }
-                    if ( response.no_illnesses_for_this_child == "on"){
-                        document.getElementById('no_illnesses_for_this_child').checked = true;
-                    }else{
-                        document.getElementById('no_illnesses_for_this_child').checked = false;
-                    }
+                    // if ( response.no_illnesses_for_this_child == "on"){
+                    //     document.getElementById('no_illnesses_for_this_child').checked = true;
+                    // }else{
+                    //     document.getElementById('no_illnesses_for_this_child').checked = false;
+                    // }
 
-                    if(typeof response.family_history_allergies == "on" || 
-                        typeof response.family_history_heart_problems == "on" || 
-                        typeof response.family_history_tuberculosis == "on" ||  
-                        typeof response.family_history_asthma == "on"|| 
-                        typeof response.family_history_high_blood_pressure == "on" ||  
-                        typeof response.family_history_vision_problems == "on"|| 
-                        typeof response.family_history_diabetes == "on" ||  
-                        typeof response.family_history_hyperactivity == "on"|| 
-                        typeof response.family_history_epilepsy == "on"
+                    if( response.family_history_allergies == "on" || 
+                         response.family_history_heart_problems == "on" || 
+                         response.family_history_tuberculosis == "on" ||  
+                         response.family_history_asthma == "on"|| 
+                         response.family_history_high_blood_pressure == "on" ||  
+                         response.family_history_vision_problems == "on"|| 
+                         response.family_history_diabetes == "on" ||  
+                         response.family_history_hyperactivity == "on"|| 
+                         response.family_history_epilepsy == "on"
                     ){
+                        console.log('iff');
                         document.getElementById('no_illnesses_for_this_child').checked = false;
                     }else{
+                        console.log('elssee');
                         document.getElementById('no_illnesses_for_this_child').checked = true;
                     }
 
@@ -1305,6 +1307,7 @@ function checking(editID){
                         typeof response.family_history_epilepsy !== "undefined" || 
                         typeof response.no_illnesses_for_this_child !== "undefined"
                     ){
+                        
                         // Reset the display for both images
                         document.querySelector('.familyhistory-tick').style.display = 'none';
                         document.querySelector('.familyhistory-circle').style.display = 'none';
