@@ -136,4 +136,16 @@ a {
     cursor: pointer;
 }
 
+/***** COmpleted Forms *****/
+
+.completed-forms-year
+{
+    padding: 10px 46px 0 41px !important;
+}
+
+.completed-forms-childname
+{
+    padding: 10px 0 0 21px !important;
+}
+
 /*****Parent Dashboard Style End*****/
