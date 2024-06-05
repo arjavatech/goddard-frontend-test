@@ -125,17 +125,19 @@ a{
 
     /*** Alert Message ***/
 
-    .success-msg{
+    .success-msg, .error-msg-roomedit {
         position: fixed !important;
         top: 5px; 
         left:2%;
         width: 96%;
+        z-index: 20; 
     }
-    .error-msg, .error-msg-empty, .error-msg-alreadyexists{
+    .error-msg, .error-msg-empty, .error-msg-alreadyexists, .error-msg-childdelete, .error-msg-roomdelete {
         position: fixed !important;
         top: 5px; 
         left:2%;
         width: 96%;
+        z-index: 20; 
     }
     
     .alert{
