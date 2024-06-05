@@ -138,14 +138,22 @@
         <div class="success-msg alert alert-success">
             <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
             <strong>Success!</strong>Classroom was successfully added!
-        </div>   
-        <div class="error-msg-roomedit alert alert-danger">
+        </div>  
+        <div class="error-msg-1 alert alert-danger">
             <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-            <strong>Oops!</strong>Class room name updated! 
+            <strong>Oops!</strong>Failed to save classroom! 
         </div>
-        <div class="error-msg-roomdelete alert alert-danger">
+        <div class="error-msg-2 alert alert-danger">
             <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-            <strong>Oops!</strong>Class room name deleted! 
+            <strong>Oops!</strong>You have to fill all the fields! 
+        </div>
+        <div class="success-msg-update alert alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+            <strong>Success!</strong>Class room name updated! 
+        </div>
+        <div class="success-msg-delete alert alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+            <strong>Success!</strong>Class room name deleted! 
         </div>
 
         <!-- Alert Message End-->
@@ -405,10 +413,17 @@
                             if (xhr.status == 200) {
                                 var confirmationRes = window.confirm(data);
                                 if (confirmationRes) {
-                                    // window.location.href = "reg_form/student.html";
-                                    window.location.reload();
+                                    $(".success-msg-delete").show();
+                                        setTimeout(function(){
+                                        $(".success-msg-delete").hide();
+                                        window.location.reload();
+                                    }, 3000);  
                                 } else {
-                                    window.location.href = "forms_repository.html";
+                                    $(".error-msg-1").show();
+                                        setTimeout(function(){
+                                        $(".error-msg-1").hide();
+                                        window.location.href = "forms_repository.html";
+                                    }, 3000); 
                                 }
                             }       
                         };
@@ -435,9 +450,17 @@
                         var confirmationRes = window.confirm(data);
                         if (confirmationRes) {
                             // window.location.href = "../reg_form/sponsorreport.html";
-                            window.location.reload();
+                            $(".success-msg-delete").show();
+                                setTimeout(function(){
+                                $(".success-msg-delete").hide();
+                                window.location.reload();
+                            }, 3000);  
                         } else {
-                            window.location.reload();
+                            $(".error-msg-1").show();
+                                setTimeout(function(){
+                                $(".error-msg-1").hide();
+                                window.location.reload();
+                            }, 3000); 
                         }
                     }
                 };

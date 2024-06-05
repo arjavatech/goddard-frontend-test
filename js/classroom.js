@@ -64,48 +64,42 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const obj = Object.fromEntries(formData);
+    console.log(obj);
     const json=JSON.stringify(obj);
     console.log(json)
-    // $.ajax({
-    //     url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/add",
-    //     type: "POST",
-    //     contentType: "application/json",
-    //     data: json,
-    //     success: function (response) {
-    //         alert(response.message)
-    //         $(".success-msg-save").show();
-    //             setTimeout(function(){
-    //             $(".success-msg-save").hide();
-    //             window.location.reload();
-    //             // window.location.href = 'parent_dashboard.html';
-    //         }, 3000);  
-    //     },
-    //     error: function (xhr, status, error) {
-    //         alert("failed to save admission form");
-    //     }
-    // });
+    if(obj.class_name != ''){
     let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        const data = xhr.responseText;
-        console.log(data)
-        if (xhr.status == 200) {
-            var confirmationRes = window.confirm(data);
-            if (confirmationRes) {
-                alert(response.message)
-                $(".success-msg-save").show();
-                    setTimeout(function(){
-                    $(".success-msg-save").hide();
-                    window.location.reload();
-                }, 3000);  
-            } else {
-                alert("failed to save");
-            }
-        }       
-    };
+        xhr.onload = () => {
+            const data = xhr.responseText;
+            console.log(data)
+            if (xhr.status == 200) {
+                var confirmationRes = window.confirm(data);
+                if (confirmationRes) {
+                    $(".success-msg").show();
+                        setTimeout(function(){
+                        $(".success-msg").hide();
+                        window.location.reload();
+                    }, 3000);  
+                } else {
+                    $(".error-msg-1").show();
+                        setTimeout(function(){
+                        $(".error-msg-1").hide();
+                        window.location.reload();
+                    }, 3000);  
+                }
+            }       
+        };
 
-    xhr.open("POST", 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/add');
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
+        xhr.open("POST", 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/add');
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(json);
+    }else{
+        $(".error-msg-2").show();
+            setTimeout(function(){
+            $(".error-msg-2").hide();
+            window.location.reload();
+        }, 3000);  
+    }
 });
 
 $(document).ready(function () {
