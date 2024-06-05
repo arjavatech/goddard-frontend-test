@@ -30,14 +30,23 @@ async function emailSend(child_full_name,parent_name,
             contentType: "application/json",
             data: json,
             success: function (response) {
-                alert("Email Sent Successfully");
-                window.location.reload();
+                $(".success-msg").show();
+                setTimeout(function(){ 
+                    $(".success-msg").hide(); 
+                    window.location.reload();
+                }, 3000);
+                // alert("Email Sent Successfully");
+                // window.location.reload();
             },
             error: function (xhr, status, error) {
-                console.log(xhr);
-                console.log(status);
-                console.log(error);
-                alert("Email sending failed")
+                $(".error-msg").show();
+                setTimeout(function(){ 
+                    $(".error-msg").hide(); 
+                }, 3000);
+                // console.log(xhr);
+                // console.log(status);
+                // console.log(error);
+                // alert("Email sending failed")
             }
         });
     } catch (error) {
