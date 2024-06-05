@@ -96,7 +96,6 @@ form.addEventListener("submit", (e) => {
                     setTimeout(function(){
                     $(".success-msg-save").hide();
                     window.location.reload();
-                    // window.location.href = 'parent_dashboard.html';
                 }, 3000);  
             } else {
                 alert("failed to save");

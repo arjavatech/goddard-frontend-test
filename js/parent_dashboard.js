@@ -600,54 +600,42 @@ function checking(editID){
                         });
                         
                         // Checkbox handling
-                        const checkboxFields = {
-                            'agree_all_above_information_is_correct' : 'agree_all_above_information_is_correct',
-                            'family_history_allergies': 'family_history_allergies',
-                            'family_history_heart_problems': 'family_history_heart_problems',
-                            'family_history_tuberculosis': 'family_history_tuberculosis',
-                            'family_history_asthma': 'family_history_asthma',
-                            'family_history_high_blood_pressure': 'family_history_high_blood_pressure',
-                            'family_history_vision_problems': 'family_history_vision_problems',
-                            'family_history_diabetes': 'family_history_diabetes',
-                            'family_history_hyperactivity': 'family_history_hyperactivity',
-                            'family_history_epilepsy': 'family_history_epilepsy',
-                            'no_illnesses_for_this_child': 'no_illnesses_for_this_child',
-                            'agree_all_above_info_is_correct': 'agree_all_above_info_is_correct',
-                            'do_you_agree_this_immunization_instructions': 'do_you_agree_this_immunization_instructions',
-                            'childcare_before': 'childcare_before',
-                            'restricted_diet': 'restricted_diet',
-                            'eat_own': 'eat_own',
-                            'rest_in_the_middle_day': 'rest_in_the_middle_day',
-                            'toilet_trained': 'toilet_trained',
-                            'existing_illness_allergy': 'existing_illness_allergy',
-                            'functioning_at_age': 'functioning_at_age',
-                            'able_to_walk': 'able_to_walk',
-                            'communicate_their_needs': 'communicate_their_needs',
-                            'any_medication': 'any_medication',
-                            'utilize_special_equipment': 'utilize_special_equipment',
-                            'significant_periods': 'significant_periods',
-                            'desire_any_accommodations': 'desire_any_accommodations',
-                            'do_you_agree_this': 'do_you_agree_this',
-                            'do_you_agree_this_pick_up_password_form': 'do_you_agree_this_pick_up_password_form',
-                            'photo_permission_agree_group_photos_electronic': 'photo_permission_agree_group_photos_electronic',
-                            'do_you_agree_this_photo_video_permission_form': 'do_you_agree_this_photo_video_permission_form',
-                            'do_you_agree_this_security_release_policy_form': 'do_you_agree_this_security_release_policy_form',
-                            'do_you_agree_this_medical_transportation_waiver': 'do_you_agree_this_medical_transportation_waiver',
-                            'do_you_agree_this_health_policies': 'do_you_agree_this_health_policies',
-                            'outside_waiver_parent_sign_outside_engagements_waiver': 'outside_waiver_parent_sign_outside_engagements_waiver'
-                        };
+                        const checkboxFields = [
+                            'agree_all_above_information_is_correct',
+                            'family_history_allergies','family_history_heart_problems','family_history_tuberculosis',
+                            'family_history_asthma','family_history_high_blood_pressure',
+                            'family_history_vision_problems','family_history_diabetes',
+                            'family_history_hyperactivity','family_history_epilepsy',
+                            'no_illnesses_for_this_child','agree_all_above_info_is_correct',
+                            'do_you_agree_this_immunization_instructions','childcare_before',
+                            'restricted_diet','eat_own','rest_in_the_middle_day','toilet_trained',
+                            'existing_illness_allergy','functioning_at_age',
+                            'able_to_walk','communicate_their_needs',
+                            'any_medication','utilize_special_equipment',
+                            'significant_periods','desire_any_accommodations',
+                            'do_you_agree_this','do_you_agree_this_pick_up_password_form',
+                            'photo_permission_agree_group_photos_electronic','do_you_agree_this_photo_video_permission_form',
+                            'do_you_agree_this_security_release_policy_form','do_you_agree_this_medical_transportation_waiver',
+                            'do_you_agree_this_health_policies','outside_waiver_parent_sign_outside_engagements_waiver'
+                        ];
                         
-                        Object.keys(checkboxFields).forEach(field => {
-                            if (response[field] == "on") {
-                                let element = form.querySelector(`input[name='${field}']`);
-                                if (element) {
-                                    element.setAttribute('checked', true);
-                                }
-                            } else {
-                                let element = form.querySelector(`input[name='${field}']`);
-                                if (element) {
-                                    element.setAttribute('checked', false);
-                                }
+                        // Object.keys(checkboxFields).forEach(field => {
+                        //     if (response[field] == "on") {
+                        //         let element = form.querySelector(`input[name='${field}']`);
+                        //         if (element) {
+                        //             element.setAttribute('checked', true);
+                        //         }
+                        //     } else {
+                        //         let element = form.querySelector(`input[name='${field}']`);
+                        //         if (element) {
+                        //             element.setAttribute('checked', false);
+                        //         }
+                        //     }
+                        // });
+                        checkboxFields.forEach(field => {
+                            let element = form.querySelector(`[name='${field}']`);
+                            if (element && response[field] == "on") {
+                                element.setAttribute('checked', true);
                             }
                         });
                         
@@ -727,16 +715,16 @@ function checking(editID){
                     let url = '';
                     switch (full) {
                         case 'Admission Forms':
-                            url = `${window.location.origin}/goddard-frontend-test/admission_forms_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/admission_forms_completed.html?id=${editID}`;
                             break;
                         case 'Authorization':
-                            url = `${window.location.origin}/goddard-frontend-test/authorization_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
                             break;
                         case 'Enrollment Agreement':
-                            url = `${window.location.origin}/goddard-frontend-test/enrollment_agreement_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
                             break;
                         case 'Parent HandBook':
-                            url = `${window.location.origin}/goddard-frontend-test/parent_handbook_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
                             break;
                         default:
                             return '';
