@@ -11,13 +11,9 @@ function clearLocalStorageExcept(keysToKeep) {
 }
 
 function checkParentAuthentication(editID,callback) {
-    console.log(editID);
     const logged_in_email = localStorage.getItem('logged_in_email');
     // const is_admin = localStorage.getItem('is_admin');
-    // console.log(is_admin);
     let url;
-    console.log(editID);
-    console.log(logged_in_email);
     if(editID == logged_in_email || logged_in_email == 'goddard01arjava@gmail.com' || editID == ''){
         // (stop user to see other kids || check admin login || default parent login)
         if(editID != ''){
@@ -29,7 +25,6 @@ function checkParentAuthentication(editID,callback) {
             url: url,
             type: 'get',
             success: function (response) {
-                console.log(response);
                 let keysToKeep = ['logged_in_email'];
                 clearLocalStorageExcept(keysToKeep);
                 // localStorage.clear()
@@ -218,130 +213,9 @@ function checking(editID){
     //destroy datatable
     $('#example').DataTable().destroy();
 
-    // $('#example').DataTable({
-    //     // for adding horizontal scroll bar
-    //     scrollX: true,
-    //     info: false,
-    //     // option is used to define the layout and elements that should be displayed around the table.
-    //     dom: 'Qlfrtip',
-    //     // for waking up the AWS Lambda server
-    //     ajax: {
-    //         url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
-    //         dataSrc: 'completedFormStatus',
-    //     },
-    //     // it is used to define and configure the individual columns of the table.
-    //     columns: [
-    //         { data: 'form_name',
-    //             render: function (data, type, full, meta) {
-    //                 return full;
-    //             }
-    //         },
-    //         {
-    //             data: null, // Using null as data since the data is not coming directly from the dataset
-    //             render: function (data, type, full, meta) {
-    //                 let url = '';
-    //                 switch (full) { // Correctly refer to form_name
-    //                     case 'Admission':
-    //                         url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
-    //                         break;
-    //                     case 'Authorization':
-    //                         url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
-    //                         break;
-    //                     case 'Enrollment Agreement':
-    //                         url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
-    //                         break;
-    //                     case 'Parent HandBook':
-    //                         url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
-    //                         break;
-    //                     default:
-    //                         return '';
-    //                 }
-    //                 return `<a href="${url}">
-    //                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="17" height="17" class="action-icons m-2" id="editbutton" name="editbutton">
-    //                                 <path fill="#0F2D52" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
-    //                             </svg>
-    //                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="17" height="17" class="action-icons m-2" id="deletebutton" name="deletebutton">
-    //                                 <path fill="#bb1b1b" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
-    //                             </svg>
-    //                         </a>`;
-    //             }
-    //         }
-    //     ],
-    //     pageLength: 5,
-    // });
-    
-
-    // $('#example').DataTable({
-    //     scrollX: true,
-    //     info: false,
-    //     dom: 'Qlfrtip',
-    //     ajax: {
-    //         url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
-    //         dataSrc: 'completedFormStatus',
-    //     },
-    //     columns: [
-    //         { 
-    //             data: 'form_name',
-    //             render: function(data, type, full, meta) {
-    //                 return full;
-    //             }
-    //         },
-    //         {
-    //             data: null, // Using null as data since the data is not coming directly from the dataset
-    //             render: function (data, type, full, meta) {
-    //                 let url = '';
-    //                 switch (full) { // Correctly refer to form_name
-    //                     case 'Admission':
-    //                         url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
-    //                         break;
-    //                     case 'Authorization':
-    //                         url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
-    //                         break;
-    //                     case 'Enrollment Agreement':
-    //                         url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
-    //                         break;
-    //                     case 'Parent HandBook':
-    //                         url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
-    //                         break;
-    //                     default:
-    //                         return '';
-    //                 }
-    //                 return `
-    //                     <div>
-    //                         <button class="download-btn" data-url="${url}">Download</button>
-    //                         <button class="print-btn" data-url="${url}">Print</button>
-    //                     </div>`;
-    //             }
-    //         }
-    //     ],
-    //     pageLength: 5,
-    // });
-
-    // // Add event listeners for download and print buttons
-    // $(document).on('click', '.download-btn', function() {
-    //     const url = $(this).data('url');
-    //     console.log(url);
-    //     const link = document.createElement('a');
-    //     link.href = url;
-    //     console.log(url.substring(url.lastIndexOf('/') + 1))
-    //     link.download = url.substring(url.lastIndexOf('/') + 1);
-    //     document.body.appendChild(link);
-    //     link.click();
-    //     document.body.removeChild(link);
-    // });
-
-    // $(document).on('click', '.print-btn', function() {
-    //     const url = $(this).data('url');
-    //     const printWindow = window.open(url, '_blank');
-    //     printWindow.onload = function() {
-    //         printWindow.print();
-    //     };
-    // });
-
     $('#example').on('click', '.download-btn', function() {
         let url = $(this).data('url');
         let fileName = $(this).data('name');
-        console.log(fileName);
 
         let editID = extractEditIDFromURL(url);
 
@@ -360,13 +234,12 @@ function checking(editID){
                         generatePDFContent().then(doc => {
                             doc.save(fileName);
                             document.body.removeChild(hiddenDiv);
+                            window.location.reload();
                         }).catch(error => {
-                            console.error('Error generating PDF:', error);
                             document.body.removeChild(hiddenDiv);
                         });
                     }, 1000); // Adjust timeout as needed
                 }).catch(error => {
-                    console.error('Error populating form data:', error);
                     document.body.removeChild(hiddenDiv);
                 });
             })
@@ -405,12 +278,10 @@ function checking(editID){
     
         fetch(url)
             .then(response => {
-                console.log('response:'+ response);
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.text();
             })
             .then(text => {
-                console.log('text:'+ text);
                 let hiddenDiv = document.createElement('div');
                 hiddenDiv.id = 'formContent';
                 hiddenDiv.style.display = 'none';
@@ -421,15 +292,14 @@ function checking(editID){
             })
             .then(() => {
                 let hiddenDiv = document.getElementById('formContent');
-                console.log(hiddenDiv);
                 if (hiddenDiv) {
                     printContent(hiddenDiv);
+                    window.location.reload();
                 } else {
                     throw new Error('Form content div not found');
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
                 let hiddenDiv = document.getElementById('formContent');
                 if (hiddenDiv) {
                     document.body.removeChild(hiddenDiv);
@@ -439,11 +309,6 @@ function checking(editID){
     
     function printContent(hiddenDiv) {
         let printWindow = window.open('', '', 'height=1400,width=1500');
-        if (!printWindow) {
-            console.error('Failed to open print window');
-            return;
-        }
-    
         let formContent = hiddenDiv.innerHTML;
         printWindow.document.write('<html><head><title>Print Form</title>');
         printWindow.document.write('</head><body>');
@@ -459,36 +324,29 @@ function checking(editID){
                 document.body.removeChild(hiddenDiv);
             };
         };
+        
     }
     
     function extractEditIDFromURL(url) {
-        console.log('Extracting editID from URL:', url);
         let params = new URLSearchParams(url.split('?')[1]);
         let editID = params.get('id');
-        console.log('Extracted editID:', editID);
         return editID;
     }
     
     function populateFormData(editID, formName) {
-        console.log('editID:', editID);
-        console.log('formName:', formName);
         return new Promise((resolve, reject) => {
             $.ajax({
                 url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
                 type: 'GET',
                 success: function(response) {
-                    console.log('API response:', response);
                     console.log(response.primary_parent_email);
                     let form = document.querySelector('#formContent');
                     if (!form) {
                         reject('Form content not found');
                         return;
                     }
-                    console.log('formName:', formName);
     
                     if (formName === 'Authorization.pdf') {
-                        console.log('Populating form for Authorization.pdf');
-                        
                         const authFields = ['bank_routing', 'bank_account', 'driver_license', 'state', 'i', 'parent_sign_ach', 'parent_sign_date_ach'];
     
                         authFields.forEach(field => {
@@ -498,8 +356,6 @@ function checking(editID){
                             }
                         });
                     } else if (formName === 'Enrollment Agreement.pdf') {
-                        console.log('Populating form for Enrollment Agreement.pdf');
-    
                         const fields = [
                             'point_one_field_one', 'point_one_field_two', 'point_one_field_three',
                             'point_two_initial_here', 'point_three_initial_here', 'point_four_initial_here',
@@ -520,8 +376,6 @@ function checking(editID){
                             }
                         });
                     } else if (formName === 'Parent HandBook.pdf') {
-                        console.log('Populating form for Parent HandBook.pdf');
-    
                         const checkboxFields = [
                             'welcome_goddard_agreement', 'mission_statement_agreement', 'general_information_agreement',
                             'medical_care_provider_agreement', 'parent_access_agreement', 'release_of_children_agreement',
@@ -556,8 +410,6 @@ function checking(editID){
                             }
                         });
                     } else if (formName === 'Admission Forms.pdf') {
-                        console.log('Populating form for Admission Forms.pdf');
-    
                         const inputFields = [
                             'child_first_name', 'child_last_name', 'nick_name', 'dob','gender','do_relevant_custody_papers_apply', 'primary_language', 'school_age_child_school',
                             'parent_name', 'parent_street_address', 'parent_city_address', 'parent_state_address', 'parent_zip_address',
@@ -593,7 +445,10 @@ function checking(editID){
                         ];
                         
                         inputFields.forEach(field => {
+                           
                             let element = form.querySelector(`[name='${field}']`);
+                            console.log(element);
+                            console.log(response[field]);
                             if (element && response[field] !== undefined) {
                                 element.setAttribute('value', response[field]);
                             }
@@ -619,19 +474,6 @@ function checking(editID){
                             'do_you_agree_this_health_policies','outside_waiver_parent_sign_outside_engagements_waiver'
                         ];
                         
-                        // Object.keys(checkboxFields).forEach(field => {
-                        //     if (response[field] == "on") {
-                        //         let element = form.querySelector(`input[name='${field}']`);
-                        //         if (element) {
-                        //             element.setAttribute('checked', true);
-                        //         }
-                        //     } else {
-                        //         let element = form.querySelector(`input[name='${field}']`);
-                        //         if (element) {
-                        //             element.setAttribute('checked', false);
-                        //         }
-                        //     }
-                        // });
                         checkboxFields.forEach(field => {
                             let element = form.querySelector(`[name='${field}']`);
                             if (element && response[field] == "on") {
@@ -639,19 +481,6 @@ function checking(editID){
                             }
                         });
                         
-                        // checkboxFields.forEach(field => {
-                        //     if (response[field] === "on") {
-                        //         let element = form.querySelector(`input[name='${field}']`);
-                        //         if (element) {
-                        //             element.setAttribute('checked', true);
-                        //         }
-                        //     } else {
-                        //         let element = form.querySelector(`input[name='${field}']`);
-                        //         if (element) {
-                        //             element.setAttribute('checked', false);
-                        //         }
-                        //     }
-                        // });
                         inputFields.forEach(field => {
                             if (response[field] === "Yes") {
                                 let element = form.querySelector(`input[name='${field}']`);
@@ -686,7 +515,6 @@ function checking(editID){
                     resolve();
                 },
                 error: function(error) {
-                    console.error('Error fetching form data:', error);
                     reject(error);
                 }
             });
@@ -752,8 +580,6 @@ function checking(editID){
             //this is used to get the response and return the result
             success: function(response)
             {
-                console.log(response);
-                console.log(response.primary_parent_email);
                 let childbasicInfo;
                 let childparentInfo;
                 let additionalChildparentInfo;
@@ -1277,10 +1103,8 @@ function checking(editID){
                          response.family_history_hyperactivity == "on"|| 
                          response.family_history_epilepsy == "on"
                     ){
-                        console.log('iff');
                         document.getElementById('no_illnesses_for_this_child').checked = false;
                     }else{
-                        console.log('elssee');
                         document.getElementById('no_illnesses_for_this_child').checked = true;
                     }
 
@@ -1473,7 +1297,6 @@ function checking(editID){
                         document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                     if (typeof response.about_family_celebrations !== "undefined")
                         document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
-                    console.log(response.childcare_before);
                     if(response.childcare_before == "Yes" ){
                         document.getElementById('childcare_before1').checked = true;
                         document.getElementById('childcare_before_reason_div').style.display = "block";
