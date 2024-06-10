@@ -741,8 +741,6 @@ function clearForm(){
     window.location.reload();
 }
 
-
-
 function clearDataTable() {
     $('#example').DataTable().clear().draw();
 }

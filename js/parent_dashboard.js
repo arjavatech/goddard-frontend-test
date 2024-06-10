@@ -526,6 +526,7 @@ function checking(editID){
         scrollX: true,
         info: false,
         dom: 'Qlfrtip',
+        lengthChange: false,
         ajax: {
             url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
             dataSrc: 'completedFormStatus',
@@ -538,7 +539,7 @@ function checking(editID){
                 }
             },
             {
-                data: null,
+                data: 'edit',
                 render: function (data, type, full, meta) {
                     let url = '';
                     switch (full) {
@@ -565,7 +566,7 @@ function checking(editID){
                 }
             }
         ],
-        pageLength: 5,
+        pageLength: 25,
     });
 
    // Click event handler for the print button

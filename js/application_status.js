@@ -16,14 +16,15 @@ $(document).ready(function () {
 
     // function for create dropdown options
     function getClassroomDropdown(selectedClassName, childId) {
-        let dropdown = `<select class="classroom-dropdown" data-child-id="${childId}">`;
+        let dropdown = `<div class="dropdown-container"><select class="classroom-dropdown" data-child-id="${childId}">`;
         classroomOptions.forEach(option => {
             const selected = option.class_name === selectedClassName ? 'selected' : '';
             dropdown += `<option value="${option.class_name}" ${selected}>${option.class_name}</option>`;
         });
-        dropdown += '</select>';
+        dropdown += '</select></div>';
         return dropdown;
     }
+    
 
     // function to handle dropdown change
     function toChangeClassName(class_name_value, child_id_value) {
@@ -33,25 +34,31 @@ $(document).ready(function () {
         };
         const json = JSON.stringify(updateObject);
         console.log(json);
-        let xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                $(".success-msg").show();
-                setTimeout(function(){ 
-                    $(".success-msg").hide(); 
-                    window.location.reload();
-                }, 3000);
-            } else {
-                $(".error-msg").show();
-                setTimeout(function(){ 
-                    $(".error-msg").hide(); 
-                }, 3000);
-                alert("Wrong message");
-            }
-        };
-        xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update_class_name");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(json);
+        var msg = confirm("Are you sure?"); 
+        //it check the user confirmation if yes or no       
+        if (msg == true) { 
+            let xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    $(".success-msg").show();
+                    setTimeout(function(){ 
+                        $(".success-msg").hide(); 
+                        window.location.reload();
+                    }, 3000);
+                } else {
+                    $(".error-msg").show();
+                    setTimeout(function(){ 
+                        $(".error-msg").hide(); 
+                    }, 3000);
+                    alert("Wrong message");
+                }
+            };
+            xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update_class_name");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(json);
+        }else{
+            window.location.reload();
+        }
     }
 
     // Initialize DataTable
@@ -60,6 +67,7 @@ $(document).ready(function () {
             scrollX: true,
             Info: false,
             dom: 'Qlfrtip',
+            lengthChange: false,
             ajax: {
                 url: url,
                 dataSrc: '',
@@ -88,7 +96,7 @@ $(document).ready(function () {
                     },
                 },
             ],
-            pageLength: 5,
+            pageLength: 25,
         });
 
         // Event delegation for dynamically created dropdown options
