@@ -81,16 +81,96 @@ function responseToAuthenticationCheck() {
     }
 }
 
+// function loadDynamicCards() {
+//     let responseSize = localStorage.getItem('number_of_children');
+//     console.log(responseSize);
+//     let parentContainer = document.getElementById('dynamicChildCards');
+//     // let putcallId = localStorage.getItem('putcallId');
+//     let putcallId = window.location.search.slice(4);
+//     console.log(putcallId);
+
+//     for (let i = 0; i < responseSize; i++) {
+//         let on_process = child_response[i].on_process;
+       
+//         // Create the elements for child card
+//         let div = document.createElement('li');
+//         div.setAttribute('class', 'nav-item');
+//         // div.setAttribute('style', 'width:10%;');
+
+//         let anchor = document.createElement('a');
+//         anchor.setAttribute('class', 'nav-link');
+//         anchor.setAttribute('data-child-id', child_response[i].child_id);
+
+//         let card = document.createElement('div');
+//         card.setAttribute('style', 'height:40px');
+//         // card.classList.add('card', 'dashboard_card_style');
+//         if(putcallId != ''){
+//             console.log(putcallId);
+//             let allTabs = document.querySelectorAll('.nav-link');
+//             allTabs.forEach(tab => tab.classList.remove('active'));
+//             anchor.classList.add('active');
+
+//             const selectedChildName = child_response[i].child_first_name;
+//             const selectedChildId = child_response[i].child_id;
+//             localStorage.setItem('child_name', selectedChildName);
+//             localStorage.setItem('child_id', selectedChildId);
+//             checking(putcallId);
+//         }else{
+//             console.log('elase tab');
+//             let allTabs = document.querySelectorAll('.nav-link');
+//             allTabs.forEach(tab => tab.classList.remove('active'));
+//             anchor.classList.add('active');
+
+//             const selectedChildName = child_response[i].child_first_name;
+//             const selectedChildId = child_response[i].child_id;
+//             localStorage.setItem('child_name', selectedChildName);
+//             localStorage.setItem('child_id', selectedChildId);
+//             checking(child_response[i].child_id)
+//         }
+//         anchor.addEventListener('click', function () {
+//             // Remove 'active' class from all tabs
+//             let allTabs = document.querySelectorAll('.nav-link');
+//             allTabs.forEach(tab => tab.classList.remove('active'));
+//             anchor.classList.add('active');
+
+//             const selectedChildName = child_response[i].child_first_name;
+//             const selectedChildId = child_response[i].child_id;
+//             localStorage.setItem('child_name', selectedChildName);
+//             localStorage.setItem('child_id', selectedChildId);
+//             checking(selectedChildId);
+//         });
+//         // if (on_process === true) {
+//             // card.classList.add('card', 'dashboard_card_style');
+//         // } else {
+//         //     card.classList.add('card', 'dashboard_card_style1');
+//         // }
+//         let cardBody = document.createElement('div');
+//         cardBody.classList.add('card-body');
+
+//         let childName = document.createElement('h6');
+//         childName.id = child_response[i].child_id;
+//         childName.classList.add('text-center', 'dashboard_card_text', 'h6');
+//         childName.innerHTML = child_response[i].child_first_name;
+
+//         cardBody.appendChild(childName);
+//         card.appendChild(cardBody);
+//         anchor.appendChild(card);
+//         div.appendChild(anchor);
+//         parentContainer.appendChild(div);
+//     }
+// }
+
 function loadDynamicCards() {
-    let responseSize = localStorage.getItem('number_of_children');
+    let responseSize = parseInt(localStorage.getItem('number_of_children'), 10);
+    console.log(responseSize);
     let parentContainer = document.getElementById('dynamicChildCards');
+    let putcallId = sessionStorage.getItem('putcallId');
+
     for (let i = 0; i < responseSize; i++) {
         let on_process = child_response[i].on_process;
 
-        // Create the elements for child card
         let div = document.createElement('li');
         div.setAttribute('class', 'nav-item');
-        // div.setAttribute('style', 'width:10%;');
 
         let anchor = document.createElement('a');
         anchor.setAttribute('class', 'nav-link');
@@ -98,10 +178,8 @@ function loadDynamicCards() {
 
         let card = document.createElement('div');
         card.setAttribute('style', 'height:40px');
-        // card.classList.add('card', 'dashboard_card_style');
 
         anchor.addEventListener('click', function () {
-            // Remove 'active' class from all tabs
             let allTabs = document.querySelectorAll('.nav-link');
             allTabs.forEach(tab => tab.classList.remove('active'));
             anchor.classList.add('active');
@@ -112,11 +190,7 @@ function loadDynamicCards() {
             localStorage.setItem('child_id', selectedChildId);
             checking(selectedChildId);
         });
-        // if (on_process === true) {
-            // card.classList.add('card', 'dashboard_card_style');
-        // } else {
-        //     card.classList.add('card', 'dashboard_card_style1');
-        // }
+
         let cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
 
@@ -131,7 +205,32 @@ function loadDynamicCards() {
         div.appendChild(anchor);
         parentContainer.appendChild(div);
     }
+
+    if (!putcallId) {
+        if (responseSize > 0) {
+            let firstAnchor = parentContainer.querySelector('a.nav-link');
+            if (firstAnchor) {
+                firstAnchor.classList.add('active');
+                const selectedChildName = child_response[0].child_first_name;
+                const selectedChildId = child_response[0].child_id;
+                localStorage.setItem('child_name', selectedChildName);
+                localStorage.setItem('child_id', selectedChildId);
+                checking(selectedChildId);
+            }
+        }
+    } else {
+        let selectedAnchor = parentContainer.querySelector(`a.nav-link[data-child-id='${putcallId}']`);
+        if (selectedAnchor) {
+            selectedAnchor.classList.add('active');
+        }
+        localStorage.setItem('child_id', putcallId);
+        checking(putcallId);
+    }
 }
+
+
+
+
 
 function welcomeText() {
     const parentName = localStorage.getItem('parent_name');

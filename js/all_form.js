@@ -9,7 +9,7 @@ function submitForm(editID) {
     //replace the element
     old.parentNode.replaceChild(new_element,old);
     const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
+    const obj = Object.fromEntries(formData); 
     obj.form_year_admission = year;
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
@@ -41,7 +41,11 @@ function submitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                // window.location.href = `./parent_dashboard.html?childid=${child_id_val}`;
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
+
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -95,7 +99,10 @@ function childPersonalsubmitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                // localStorage.setItem()
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -170,7 +177,9 @@ function childParentsubmitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -209,7 +218,9 @@ function childParentTwosubmitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',child_id_val);
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -262,7 +273,9 @@ function childHistorysubmitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
            
         }else{
@@ -315,7 +328,9 @@ function childProfilesubmitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -373,7 +388,9 @@ function saveForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -431,7 +448,9 @@ function authorizationSubmitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -490,7 +509,9 @@ function authorizationSaveForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -548,7 +569,9 @@ function enrollmentSubmitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -607,7 +630,9 @@ function enrollmentSaveForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -665,7 +690,9 @@ function handbookSubmitForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -724,7 +751,9 @@ function handbookSaveForm(editID) {
             $(".success-msg").show();
             setTimeout(function(){ 
                 $(".success-msg").hide(); 
-                window.location.reload();
+                // window.location.reload();
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
             }, 3000);
         }else{
             $(".error-msg").show();
