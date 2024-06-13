@@ -723,14 +723,21 @@ function checking(editID){
         lengthChange: false,
         ajax: {
             // url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
-           url :`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/Incomplete_form_status/${editID}`,
-            dataSrc: 'completedFormStatus',
+           url :`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+            dataSrc: 'CompletedFormStatus',
         },
         columns: [
             { 
-                data: 'form_name',
+                data: 'formName',
                 render: function(data, type, full, meta) {
-                    return full; // Ensure this returns the correct form name
+                    return full.formName; 
+                }
+            },
+            { 
+                data: 'completedTimestamp',
+                render: function(data, type, full, meta) {
+                    console.log(full);
+                    return full.completedTimestamp; 
                 }
             },
             {
