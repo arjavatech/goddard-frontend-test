@@ -730,16 +730,16 @@ function checking(editID){
             { 
                 data: 'formName',
                 render: function(data, type, full, meta) {
-                    return full.formName; 
+                    return full; 
                 }
             },
-            { 
-                data: 'completedTimestamp',
-                render: function(data, type, full, meta) {
-                    console.log(full);
-                    return full.completedTimestamp; 
-                }
-            },
+            // { 
+            //     data: 'completedTimestamp',
+            //     render: function(data, type, full, meta) {
+            //         // console.log(full);
+            //         return full.completedTimestamp; 
+            //     }
+            // },
             {
                 data: 'edit',
                 render: function (data, type, full, meta) {
