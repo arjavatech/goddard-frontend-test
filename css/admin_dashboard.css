@@ -250,6 +250,40 @@ a{
 
     /***Forms Repository End***/
 
+    /***Add class room***/
+
+    .classroom-add-btn
+    {
+    background-color: #0F2D52;
+    color: #fff;
+    padding: 8px 25px;
+    border: none;
+    border-radius: .25rem;
+    }
+
+    .classroom-add-btn:hover
+    {
+    opacity: 0.6;
+    }
+
+    .btn-align
+    {
+    margin-top: 3% !important;
+    }
+
+    .action-icons
+    {
+    color: #0F2D52 !important;
+    cursor: pointer;
+    }
+
+    .action-icons:hover
+    {
+    opacity: 0.6;
+    cursor: pointer;
+    }
+    
+
     /***Parent Details***/
 
     .invite-button
