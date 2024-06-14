@@ -81,16 +81,96 @@ function responseToAuthenticationCheck() {
     }
 }
 
+// function loadDynamicCards() {
+//     let responseSize = localStorage.getItem('number_of_children');
+//     console.log(responseSize);
+//     let parentContainer = document.getElementById('dynamicChildCards');
+//     // let putcallId = localStorage.getItem('putcallId');
+//     let putcallId = window.location.search.slice(4);
+//     console.log(putcallId);
+
+//     for (let i = 0; i < responseSize; i++) {
+//         let on_process = child_response[i].on_process;
+       
+//         // Create the elements for child card
+//         let div = document.createElement('li');
+//         div.setAttribute('class', 'nav-item');
+//         // div.setAttribute('style', 'width:10%;');
+
+//         let anchor = document.createElement('a');
+//         anchor.setAttribute('class', 'nav-link');
+//         anchor.setAttribute('data-child-id', child_response[i].child_id);
+
+//         let card = document.createElement('div');
+//         card.setAttribute('style', 'height:40px');
+//         // card.classList.add('card', 'dashboard_card_style');
+//         if(putcallId != ''){
+//             console.log(putcallId);
+//             let allTabs = document.querySelectorAll('.nav-link');
+//             allTabs.forEach(tab => tab.classList.remove('active'));
+//             anchor.classList.add('active');
+
+//             const selectedChildName = child_response[i].child_first_name;
+//             const selectedChildId = child_response[i].child_id;
+//             localStorage.setItem('child_name', selectedChildName);
+//             localStorage.setItem('child_id', selectedChildId);
+//             checking(putcallId);
+//         }else{
+//             console.log('elase tab');
+//             let allTabs = document.querySelectorAll('.nav-link');
+//             allTabs.forEach(tab => tab.classList.remove('active'));
+//             anchor.classList.add('active');
+
+//             const selectedChildName = child_response[i].child_first_name;
+//             const selectedChildId = child_response[i].child_id;
+//             localStorage.setItem('child_name', selectedChildName);
+//             localStorage.setItem('child_id', selectedChildId);
+//             checking(child_response[i].child_id)
+//         }
+//         anchor.addEventListener('click', function () {
+//             // Remove 'active' class from all tabs
+//             let allTabs = document.querySelectorAll('.nav-link');
+//             allTabs.forEach(tab => tab.classList.remove('active'));
+//             anchor.classList.add('active');
+
+//             const selectedChildName = child_response[i].child_first_name;
+//             const selectedChildId = child_response[i].child_id;
+//             localStorage.setItem('child_name', selectedChildName);
+//             localStorage.setItem('child_id', selectedChildId);
+//             checking(selectedChildId);
+//         });
+//         // if (on_process === true) {
+//             // card.classList.add('card', 'dashboard_card_style');
+//         // } else {
+//         //     card.classList.add('card', 'dashboard_card_style1');
+//         // }
+//         let cardBody = document.createElement('div');
+//         cardBody.classList.add('card-body');
+
+//         let childName = document.createElement('h6');
+//         childName.id = child_response[i].child_id;
+//         childName.classList.add('text-center', 'dashboard_card_text', 'h6');
+//         childName.innerHTML = child_response[i].child_first_name;
+
+//         cardBody.appendChild(childName);
+//         card.appendChild(cardBody);
+//         anchor.appendChild(card);
+//         div.appendChild(anchor);
+//         parentContainer.appendChild(div);
+//     }
+// }
+
 function loadDynamicCards() {
-    let responseSize = localStorage.getItem('number_of_children');
+    let responseSize = parseInt(localStorage.getItem('number_of_children'), 10);
+    console.log(responseSize);
     let parentContainer = document.getElementById('dynamicChildCards');
+    let putcallId = sessionStorage.getItem('putcallId');
+
     for (let i = 0; i < responseSize; i++) {
         let on_process = child_response[i].on_process;
 
-        // Create the elements for child card
         let div = document.createElement('li');
         div.setAttribute('class', 'nav-item');
-        // div.setAttribute('style', 'width:10%;');
 
         let anchor = document.createElement('a');
         anchor.setAttribute('class', 'nav-link');
@@ -98,10 +178,8 @@ function loadDynamicCards() {
 
         let card = document.createElement('div');
         card.setAttribute('style', 'height:40px');
-        // card.classList.add('card', 'dashboard_card_style');
 
         anchor.addEventListener('click', function () {
-            // Remove 'active' class from all tabs
             let allTabs = document.querySelectorAll('.nav-link');
             allTabs.forEach(tab => tab.classList.remove('active'));
             anchor.classList.add('active');
@@ -112,11 +190,7 @@ function loadDynamicCards() {
             localStorage.setItem('child_id', selectedChildId);
             checking(selectedChildId);
         });
-        // if (on_process === true) {
-            // card.classList.add('card', 'dashboard_card_style');
-        // } else {
-        //     card.classList.add('card', 'dashboard_card_style1');
-        // }
+
         let cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
 
@@ -130,6 +204,27 @@ function loadDynamicCards() {
         anchor.appendChild(card);
         div.appendChild(anchor);
         parentContainer.appendChild(div);
+    }
+
+    if (!putcallId) {
+        if (responseSize > 0) {
+            let firstAnchor = parentContainer.querySelector('a.nav-link');
+            if (firstAnchor) {
+                firstAnchor.classList.add('active');
+                const selectedChildName = child_response[0].child_first_name;
+                const selectedChildId = child_response[0].child_id;
+                localStorage.setItem('child_name', selectedChildName);
+                localStorage.setItem('child_id', selectedChildId);
+                checking(selectedChildId);
+            }
+        }
+    } else {
+        let selectedAnchor = parentContainer.querySelector(`a.nav-link[data-child-id='${putcallId}']`);
+        if (selectedAnchor) {
+            selectedAnchor.classList.add('active');
+        }
+        localStorage.setItem('child_id', putcallId);
+        checking(putcallId);
     }
 }
 
@@ -152,13 +247,13 @@ function checking(editID){
     // var tab_content = document.querySelector(".tab-content");
     // tab_content.reset();
     $.ajax({
-        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/Incomplete_form_status/${editID}`,
+        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/incomplete_form_status/${editID}`,
         type: 'GET',
         dataType:'json',
         success: function(response) {
             let mainTopics = [];
             // iterate over the values of incompletedformstatus
-            for (let value of Object.values(response['inCompletedFormStatus'])) {
+            for (let value of Object.values(response['InCompletedFormStatus'])) {
                 mainTopics.push(value);
             }
             // sort the array alphabetically
@@ -409,109 +504,208 @@ function checking(editID){
                                 }
                             }
                         });
-                    } else if (formName === 'Admission Forms.pdf') {
-                        const inputFields = [
-                            'child_first_name', 'child_last_name', 'nick_name', 'dob','gender','do_relevant_custody_papers_apply', 'primary_language', 'school_age_child_school',
-                            'parent_name', 'parent_street_address', 'parent_city_address', 'parent_state_address', 'parent_zip_address',
-                            'home_telephone_number', 'business_name', 'work_hours', 'business_telephone_number', 'business_street_address',
-                            'business_city_address', 'business_state_address', 'business_zip_address', 'business_cell_number',
-                            'primary_parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
-                            'parent_two_state_address', 'parent_two_zip_address', 'parent_two_home_telephone_number', 'parent_two_business_name',
-                            'parent_two_work_hours', 'parent_two_business_telephone_number', 'parent_two_business_street_address',
-                            'parent_two_business_city_address', 'parent_two_business_state_address', 'parent_two_business_zip_address',
-                            'parent_two_business_cell_number', 'parent_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address',
-                            'child_emergency_contact_relationship', 'child_emergency_contact_telephone_number', 'child_care_provider_name',
-                            'child_care_provider_telephone_number', 'child_hospital_affiliation', 'child_care_provider_street_address',
-                            'child_care_provider_city_address', 'child_care_provider_state_address', 'child_care_provider_zip_address',
-                            'child_dentist_name', 'dentist_telephone_number', 'dentist_address', 'special_diabilities', 'allergies_medication_reaction',
-                            'additional_info', 'medication', 'health_insurance', 'policy_number', 'obtaining_emergency_medical_care',
-                            'administration_first_aid_procedures','physical_exam_last_date','dental_exam_last_date', 'age_group_friends', 
-                            'neighborhood_friends', 'relationship_with_mother', 'allergies','asthma','bleeding_problems','diabetes',
-                            'epilepsy','frequent_ear_infections','frequent_illnesses','hearing_problems',
-                            'high_fevers','hospitalization','rheumatic_fever','seizures_convulsions',
-                            'serious_injuries_accidents','surgeries','vision_problems','medical_other',
-                            'illness_during_pregnancy','condition_of_newborn','duration_of_pregnancy','birth_weight_lbs',
-                            'birth_weight_oz','complications','bottle_fed','breast_fed','other_siblings_name','other_siblings_age',
-                            'relationship_with_father', 'relationship_with_siblings', 'relationship_with_extended_family', 'fears_conflicts',
-                            'child_response_frustration', 'favorite_activities', 'last_five_years_moved', 'things_used_at_home', 'hours_of_television_daily',
-                            'language_used_at_home', 'changes_at_home_situation', 'educational_expectations_of_child', 'other_important_family_members',
-                            'about_family_celebrations', 'reason_for_childcare_before', 'what_child_interests', 'drop_off_time', 'pick_up_time', 
-                            'restricted_diet_reason', 'eat_own_reason', 'favorite_foods', 'reason_for_rest_in_the_middle_day', 'rest_routine', 
-                            'reason_for_toilet_trained', 'explain_for_existing_illness_allergy', 'explain_for_functioning_at_age', 'explain_for_able_to_walk', 
-                            'explain_for_communicate_their_needs', 'explain_for_any_medication', 'explain_for_utilize_special_equipment', 
-                            'explain_for_significant_periods', 'explain_for_desire_any_accommodations', 'additional_information', 
-                            'child_password_pick_up_password_form', 'photo_usage_photo_video_permission_form', 'contact_emergency_medical_technicians_medical_transportation_waiver', 
-                            'parent_sign_admission', 'parent_sign_date_admission'
-                        ];
+                    // } else if (formName === 'Admission Forms.pdf') {
+                    //     const inputFields = [
+                    //         'child_first_name', 'child_last_name', 'nick_name', 'dob','gender','do_relevant_custody_papers_apply', 'primary_language', 'school_age_child_school',
+                    //         'parent_name', 'parent_street_address', 'parent_city_address', 'parent_state_address', 'parent_zip_address',
+                    //         'home_telephone_number', 'business_name', 'work_hours', 'business_telephone_number', 'business_street_address',
+                    //         'business_city_address', 'business_state_address', 'business_zip_address', 'business_cell_number',
+                    //         'primary_parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
+                    //         'parent_two_state_address', 'parent_two_zip_address', 'parent_two_home_telephone_number', 'parent_two_business_name',
+                    //         'parent_two_work_hours', 'parent_two_business_telephone_number', 'parent_two_business_street_address',
+                    //         'parent_two_business_city_address', 'parent_two_business_state_address', 'parent_two_business_zip_address',
+                    //         'parent_two_business_cell_number', 'parent_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address',
+                    //         'child_emergency_contact_relationship', 'child_emergency_contact_telephone_number', 'child_care_provider_name',
+                    //         'child_care_provider_telephone_number', 'child_hospital_affiliation', 'child_care_provider_street_address',
+                    //         'child_care_provider_city_address', 'child_care_provider_state_address', 'child_care_provider_zip_address',
+                    //         'child_dentist_name', 'dentist_telephone_number', 'dentist_address', 'special_diabilities', 'allergies_medication_reaction',
+                    //         'additional_info', 'medication', 'health_insurance', 'policy_number', 'obtaining_emergency_medical_care',
+                    //         'administration_first_aid_procedures','physical_exam_last_date','dental_exam_last_date', 'age_group_friends', 
+                    //         'neighborhood_friends', 'relationship_with_mother', 'allergies','asthma','bleeding_problems','diabetes',
+                    //         'epilepsy','frequent_ear_infections','frequent_illnesses','hearing_problems',
+                    //         'high_fevers','hospitalization','rheumatic_fever','seizures_convulsions',
+                    //         'serious_injuries_accidents','surgeries','vision_problems','medical_other',
+                    //         'illness_during_pregnancy','condition_of_newborn','duration_of_pregnancy','birth_weight_lbs',
+                    //         'birth_weight_oz','complications','bottle_fed','breast_fed','other_siblings_name','other_siblings_age',
+                    //         'relationship_with_father', 'relationship_with_siblings', 'relationship_with_extended_family', 'fears_conflicts',
+                    //         'child_response_frustration', 'favorite_activities', 'last_five_years_moved', 'things_used_at_home', 'hours_of_television_daily',
+                    //         'language_used_at_home', 'changes_at_home_situation', 'educational_expectations_of_child', 'other_important_family_members',
+                    //         'about_family_celebrations', 'reason_for_childcare_before', 'what_child_interests', 'drop_off_time', 'pick_up_time', 
+                    //         'restricted_diet_reason', 'eat_own_reason', 'favorite_foods', 'reason_for_rest_in_the_middle_day', 'rest_routine', 
+                    //         'reason_for_toilet_trained', 'explain_for_existing_illness_allergy', 'explain_for_functioning_at_age', 'explain_for_able_to_walk', 
+                    //         'explain_for_communicate_their_needs', 'explain_for_any_medication', 'explain_for_utilize_special_equipment', 
+                    //         'explain_for_significant_periods', 'explain_for_desire_any_accommodations', 'additional_information', 
+                    //         'child_password_pick_up_password_form', 'photo_usage_photo_video_permission_form', 'contact_emergency_medical_technicians_medical_transportation_waiver', 
+                    //         'parent_sign_admission', 'parent_sign_date_admission'
+                    //     ];
                         
-                        inputFields.forEach(field => {
+                    //     inputFields.forEach(field => {
                            
-                            let element = form.querySelector(`[name='${field}']`);
-                            console.log(element);
-                            console.log(response[field]);
-                            if (element && response[field] !== undefined) {
-                                element.setAttribute('value', response[field]);
-                            }
-                        });
+                    //         let element = form.querySelector(`[name='${field}']`);
+                    //         console.log(element);
+                    //         console.log(response[field]);
+                    //         if (element && response[field] !== undefined) {
+                    //             element.setAttribute('value', response[field]);
+                    //         }
+                    //     });
                         
-                        // Checkbox handling
-                        const checkboxFields = [
-                            'agree_all_above_information_is_correct',
-                            'family_history_allergies','family_history_heart_problems','family_history_tuberculosis',
-                            'family_history_asthma','family_history_high_blood_pressure',
-                            'family_history_vision_problems','family_history_diabetes',
-                            'family_history_hyperactivity','family_history_epilepsy',
-                            'no_illnesses_for_this_child','agree_all_above_info_is_correct',
-                            'do_you_agree_this_immunization_instructions','childcare_before',
-                            'restricted_diet','eat_own','rest_in_the_middle_day','toilet_trained',
-                            'existing_illness_allergy','functioning_at_age',
-                            'able_to_walk','communicate_their_needs',
-                            'any_medication','utilize_special_equipment',
-                            'significant_periods','desire_any_accommodations',
-                            'do_you_agree_this','do_you_agree_this_pick_up_password_form',
-                            'photo_permission_agree_group_photos_electronic','do_you_agree_this_photo_video_permission_form',
-                            'do_you_agree_this_security_release_policy_form','do_you_agree_this_medical_transportation_waiver',
-                            'do_you_agree_this_health_policies','outside_waiver_parent_sign_outside_engagements_waiver'
-                        ];
+                    //     // Checkbox handling
+                    //     const checkboxFields = [
+                    //         'agree_all_above_information_is_correct',
+                    //         'family_history_allergies','family_history_heart_problems','family_history_tuberculosis',
+                    //         'family_history_asthma','family_history_high_blood_pressure',
+                    //         'family_history_vision_problems','family_history_diabetes',
+                    //         'family_history_hyperactivity','family_history_epilepsy',
+                    //         'no_illnesses_for_this_child','agree_all_above_info_is_correct',
+                    //         'do_you_agree_this_immunization_instructions','childcare_before',
+                    //         'restricted_diet','eat_own','rest_in_the_middle_day','toilet_trained',
+                    //         'existing_illness_allergy','functioning_at_age',
+                    //         'able_to_walk','communicate_their_needs',
+                    //         'any_medication','utilize_special_equipment',
+                    //         'significant_periods','desire_any_accommodations',
+                    //         'do_you_agree_this','do_you_agree_this_pick_up_password_form',
+                    //         'photo_permission_agree_group_photos_electronic','do_you_agree_this_photo_video_permission_form',
+                    //         'do_you_agree_this_security_release_policy_form','do_you_agree_this_medical_transportation_waiver',
+                    //         'do_you_agree_this_health_policies','outside_waiver_parent_sign_outside_engagements_waiver'
+                    //     ];
                         
-                        checkboxFields.forEach(field => {
-                            let element = form.querySelector(`[name='${field}']`);
-                            if (element && response[field] == "on") {
-                                element.setAttribute('checked', true);
-                            }
-                        });
+                    //     checkboxFields.forEach(field => {
+                    //         let element = form.querySelector(`[name='${field}']`);
+                    //         if (element && response[field] == "on") {
+                    //             element.setAttribute('checked', true);
+                    //         }
+                    //     });
                         
-                        inputFields.forEach(field => {
-                            if (response[field] === "Yes") {
-                                let element = form.querySelector(`input[name='${field}']`);
-                                if (element) {
-                                    element.setAttribute('checked', true);
-                                }
-                            } else {
-                                let element = form.querySelector(`input[name='${field}']`);
-                                if (element) {
-                                    element.setAttribute('checked', false);
-                                }
-                            }
-                        });
+                    //     inputFields.forEach(field => {
+                    //         if (response[field] === "Yes") {
+                    //             let element = form.querySelector(`input[name='${field}']`);
+                    //             if (element) {
+                    //                 element.setAttribute('checked', true);
+                    //             }
+                    //         } else {
+                    //             let element = form.querySelector(`input[name='${field}']`);
+                    //             if (element) {
+                    //                 element.setAttribute('checked', false);
+                    //             }
+                    //         }
+                    //     });
     
-                        if(response.gender === "Male" ){
-                            let element = form.querySelector(`input[id='gender1']`);
-                            if (element) {
-                                element.setAttribute('checked', true);
-                            }
-                        } else if(response.gender === "Female") {
-                            let element = form.querySelector(`input[id='gender2']`);
-                            if (element) {
-                                element.setAttribute('checked', true);
-                            }
-                        } else {
-                            let element = form.querySelector(`input[id='gender3']`);
-                            if (element) {
-                                element.setAttribute('checked', true);
+                    //     if(response.gender === "Male" ){
+                    //         let element = form.querySelector(`input[id='gender1']`);
+                    //         if (element) {
+                    //             element.setAttribute('checked', true);
+                    //         }
+                    //     } else if(response.gender === "Female") {
+                    //         let element = form.querySelector(`input[id='gender2']`);
+                    //         if (element) {
+                    //             element.setAttribute('checked', true);
+                    //         }
+                    //     } else {
+                    //         let element = form.querySelector(`input[id='gender3']`);
+                    //         if (element) {
+                    //             element.setAttribute('checked', true);
+                    //         }
+                    //     }
+                    // }
+                } else if (formName === 'Admission Forms.pdf') {
+                    const inputFields = [
+                        'child_first_name', 'child_last_name', 'nick_name', 'dob', 'gender', 'do_relevant_custody_papers_apply', 'primary_language', 'school_age_child_school',
+                        'parent_name', 'parent_street_address', 'parent_city_address', 'parent_state_address', 'parent_zip_address',
+                        'home_telephone_number', 'business_name', 'work_hours', 'business_telephone_number', 'business_street_address',
+                        'business_city_address', 'business_state_address', 'business_zip_address', 'business_cell_number',
+                        'primary_parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
+                        'parent_two_state_address', 'parent_two_zip_address', 'parent_two_home_telephone_number', 'parent_two_business_name',
+                        'parent_two_work_hours', 'parent_two_business_telephone_number', 'parent_two_business_street_address',
+                        'parent_two_business_city_address', 'parent_two_business_state_address', 'parent_two_business_zip_address',
+                        'parent_two_business_cell_number', 'parent_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address',
+                        'child_emergency_contact_relationship', 'child_emergency_contact_telephone_number', 'child_care_provider_name',
+                        'child_care_provider_telephone_number', 'child_hospital_affiliation', 'child_care_provider_street_address',
+                        'child_care_provider_city_address', 'child_care_provider_state_address', 'child_care_provider_zip_address',
+                        'child_dentist_name', 'dentist_telephone_number', 'dentist_address', 'special_diabilities', 'allergies_medication_reaction',
+                        'additional_info', 'medication', 'health_insurance', 'policy_number', 'obtaining_emergency_medical_care',
+                        'administration_first_aid_procedures', 'physical_exam_last_date', 'dental_exam_last_date', 'age_group_friends',
+                        'neighborhood_friends', 'relationship_with_mother', 'allergies', 'asthma', 'bleeding_problems', 'diabetes',
+                        'epilepsy', 'frequent_ear_infections', 'frequent_illnesses', 'hearing_problems',
+                        'high_fevers', 'hospitalization', 'rheumatic_fever', 'seizures_convulsions',
+                        'serious_injuries_accidents', 'surgeries', 'vision_problems', 'medical_other',
+                        'illness_during_pregnancy', 'condition_of_newborn', 'duration_of_pregnancy', 'birth_weight_lbs',
+                        'birth_weight_oz', 'complications', 'bottle_fed', 'breast_fed', 'other_siblings_name', 'other_siblings_age',
+                        'relationship_with_father', 'relationship_with_siblings', 'relationship_with_extended_family', 'fears_conflicts',
+                        'child_response_frustration', 'favorite_activities', 'last_five_years_moved', 'things_used_at_home', 'hours_of_television_daily',
+                        'language_used_at_home', 'changes_at_home_situation', 'educational_expectations_of_child', 'other_important_family_members',
+                        'about_family_celebrations', 'reason_for_childcare_before', 'what_child_interests', 'drop_off_time', 'pick_up_time',
+                        'restricted_diet_reason', 'eat_own_reason', 'favorite_foods', 'reason_for_rest_in_the_middle_day', 'rest_routine',
+                        'reason_for_toilet_trained', 'explain_for_existing_illness_allergy', 'explain_for_functioning_at_age', 'explain_for_able_to_walk',
+                        'explain_for_communicate_their_needs', 'explain_for_any_medication', 'explain_for_utilize_special_equipment',
+                        'explain_for_significant_periods', 'explain_for_desire_any_accommodations', 'additional_information',
+                        'child_password_pick_up_password_form', 'photo_usage_photo_video_permission_form', 'contact_emergency_medical_technicians_medical_transportation_waiver',
+                        'parent_sign_admission', 'parent_sign_date_admission'
+                    ];
+                
+                    inputFields.forEach(field => {
+                        let element = form.querySelector(`[name='${field}']`);
+                        if (element && response[field] !== undefined) {
+                            element.setAttribute('value', response[field]);
+                        }
+                    });
+                
+                    // Checkbox handling
+                    const checkboxFields = [
+                        'agree_all_above_information_is_correct', 'family_history_allergies', 'family_history_heart_problems', 'family_history_tuberculosis',
+                        'family_history_asthma', 'family_history_high_blood_pressure', 'family_history_vision_problems', 'family_history_diabetes',
+                        'family_history_hyperactivity', 'family_history_epilepsy', 'no_illnesses_for_this_child', 'agree_all_above_info_is_correct',
+                        'do_you_agree_this_immunization_instructions', 'childcare_before', 'restricted_diet', 'eat_own', 'rest_in_the_middle_day', 'toilet_trained',
+                        'existing_illness_allergy', 'functioning_at_age', 'able_to_walk', 'communicate_their_needs', 'any_medication', 'utilize_special_equipment',
+                        'significant_periods', 'desire_any_accommodations', 'do_you_agree_this', 'do_you_agree_this_pick_up_password_form',
+                        'photo_permission_agree_group_photos_electronic', 'do_you_agree_this_photo_video_permission_form', 'do_you_agree_this_security_release_policy_form',
+                        'do_you_agree_this_medical_transportation_waiver', 'do_you_agree_this_health_policies', 'outside_waiver_parent_sign_outside_engagements_waiver'
+                    ];
+                
+                    checkboxFields.forEach(field => {
+                        let element = form.querySelector(`[name='${field}']`);
+                        if (element && response[field] == "on") {
+                            element.setAttribute('checked', true);
+                        }
+                    });
+                
+                    inputFields.forEach(field => {
+                        let element = form.querySelector(`input[name='${field}']`);
+                        if (element) {
+                            element.checked = response[field] === "Yes";
+                        }
+                    });
+                
+                    // Handle related fields based on Yes/No values
+                    Object.entries(relatedFieldsMapping).forEach(([keyField, relatedField]) => {
+                        let keyElement = form.querySelector(`input[name='${keyField}']`);
+                        let relatedElement = form.querySelector(`[name='${relatedField}']`);
+                
+                        if (keyElement && relatedElement) {
+                            if (response[keyField] === "Yes") {
+                                relatedElement.setAttribute('value', response[relatedField] || '');
+                            } else {
+                                relatedElement.setAttribute('value', 'No');
                             }
                         }
+                    });
+                
+                    if (response.gender === "Male") {
+                        let element = form.querySelector(`input[id='gender1']`);
+                        if (element) {
+                            element.setAttribute('checked', true);
+                        }
+                    } else if (response.gender === "Female") {
+                        let element = form.querySelector(`input[id='gender2']`);
+                        if (element) {
+                            element.setAttribute('checked', true);
+                        }
+                    } else {
+                        let element = form.querySelector(`input[id='gender3']`);
+                        if (element) {
+                            element.setAttribute('checked', true);
+                        }
                     }
+                }
                     resolve();
                 },
                 error: function(error) {
@@ -526,19 +720,28 @@ function checking(editID){
         scrollX: true,
         info: false,
         dom: 'Qlfrtip',
+        lengthChange: false,
         ajax: {
-            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
-            dataSrc: 'completedFormStatus',
+            // url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+           url :`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+            dataSrc: 'CompletedFormStatus',
         },
         columns: [
             { 
-                data: 'form_name',
+                data: 'formName',
                 render: function(data, type, full, meta) {
-                    return full; // Ensure this returns the correct form name
+                    return full; 
                 }
             },
+            // { 
+            //     data: 'completedTimestamp',
+            //     render: function(data, type, full, meta) {
+            //         // console.log(full);
+            //         return full.completedTimestamp; 
+            //     }
+            // },
             {
-                data: null,
+                data: 'edit',
                 render: function (data, type, full, meta) {
                     let url = '';
                     switch (full) {
@@ -565,7 +768,7 @@ function checking(editID){
                 }
             }
         ],
-        pageLength: 5,
+        pageLength: 25,
     });
 
    // Click event handler for the print button
