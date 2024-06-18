@@ -717,7 +717,7 @@ function checking(editID){
     
     // DataTable initialization
     $('#example').DataTable({
-        scrollX: true,
+        // scrollX: true,
         info: false,
         dom: 'Qlfrtip',
         lengthChange: false,
