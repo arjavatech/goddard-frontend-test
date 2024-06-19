@@ -2195,9 +2195,7 @@ function checking(editID){
                         typeof response.point_eighteen_initial_here !== "undefined" && 
                         typeof response.point_nineteen_initial_here !== "undefined" &&
                         typeof response.preferred_start_date !== "undefined" && 
-                        typeof response.preferred_schedule !== "undefined" && 
-                        typeof response.full_day !== "undefined" && 
-                        typeof response.half_day !== "undefined"
+                        typeof response.preferred_schedule !== "undefined" 
                     ){
 
                         let enrollmentFinalAgreement = document.getElementById('enrollmentFinalAgreement');
