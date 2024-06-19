@@ -244,6 +244,7 @@ function welcomeText() {
 
 function checking(editID){ 
     window.localStorage.setItem('editChildId',editID);
+    console.log(editID);
     // var tab_content = document.querySelector(".tab-content");
     // tab_content.reset();
     $.ajax({
@@ -310,8 +311,9 @@ function checking(editID){
 
     $('#example').on('click', '.download-btn', function() {
         let url = $(this).data('url');
+        console.log(url);
         let fileName = $(this).data('name');
-
+        console.log(fileName);
         let editID = extractEditIDFromURL(url);
 
         localStorage.setItem('form_name', fileName);
@@ -371,12 +373,17 @@ function checking(editID){
         let editID = extractEditIDFromURL(url);
         localStorage.setItem('form_name', formName);
     
+        console.log('URL:', url);
+        console.log('Form Name:', formName);
+        console.log('Edit ID:', editID);
+    
         fetch(url)
             .then(response => {
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.text();
             })
             .then(text => {
+                console.log('Fetched text:', text);
                 let hiddenDiv = document.createElement('div');
                 hiddenDiv.id = 'formContent';
                 hiddenDiv.style.display = 'none';
@@ -388,13 +395,14 @@ function checking(editID){
             .then(() => {
                 let hiddenDiv = document.getElementById('formContent');
                 if (hiddenDiv) {
+                    console.log('Form content div found:', hiddenDiv);
                     printContent(hiddenDiv);
-                    window.location.reload();
                 } else {
                     throw new Error('Form content div not found');
                 }
             })
             .catch(error => {
+                console.error('Error:', error);
                 let hiddenDiv = document.getElementById('formContent');
                 if (hiddenDiv) {
                     document.body.removeChild(hiddenDiv);
@@ -403,8 +411,10 @@ function checking(editID){
     });
     
     function printContent(hiddenDiv) {
+        console.log('Hidden div to print:', hiddenDiv);
         let printWindow = window.open('', '', 'height=1400,width=1500');
         let formContent = hiddenDiv.innerHTML;
+    
         printWindow.document.write('<html><head><title>Print Form</title>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(formContent);
@@ -419,8 +429,9 @@ function checking(editID){
                 document.body.removeChild(hiddenDiv);
             };
         };
-        
     }
+    
+    
     
     function extractEditIDFromURL(url) {
         let params = new URLSearchParams(url.split('?')[1]);
@@ -459,7 +470,7 @@ function checking(editID){
                             'point_eleven_initial_here', 'point_twelve_initial_here', 'point_thirteen_initial_here',
                             'point_fourteen_initial_here', 'point_fifteen_initial_here', 'point_sixteen_initial_here',
                             'point_seventeen_initial_here', 'point_eighteen_initial_here', 'point_nineteen_initial_here',
-                            'parent_sign_enroll', 'parent_sign_date_enroll'
+                            'parent_sign_enroll', 'parent_sign_date_enroll','preferred_start_date', 'preferred_schedule' 
                         ];
     
                         fields.forEach(field => {
@@ -470,6 +481,17 @@ function checking(editID){
                                 }
                             }
                         });
+                        // Checkbox handling
+                    const checkboxFields = [
+                        'full_day', 'half_day',
+                      ];
+                
+                    checkboxFields.forEach(field => {
+                        let element = form.querySelector(`[name='${field}']`);
+                        if (element && response[field] == "on") {
+                            element.setAttribute('checked', true);
+                        }
+                    });
                     } else if (formName === 'Parent HandBook.pdf') {
                         const checkboxFields = [
                             'welcome_goddard_agreement', 'mission_statement_agreement', 'general_information_agreement',
@@ -639,7 +661,7 @@ function checking(editID){
                         'explain_for_communicate_their_needs', 'explain_for_any_medication', 'explain_for_utilize_special_equipment',
                         'explain_for_significant_periods', 'explain_for_desire_any_accommodations', 'additional_information',
                         'child_password_pick_up_password_form', 'photo_usage_photo_video_permission_form', 'contact_emergency_medical_technicians_medical_transportation_waiver',
-                        'parent_sign_admission', 'parent_sign_date_admission'
+                        'parent_sign_admission', 'parent_sign_date_admission','printed_name_social_media_post'
                     ];
                 
                     inputFields.forEach(field => {
@@ -658,7 +680,8 @@ function checking(editID){
                         'existing_illness_allergy', 'functioning_at_age', 'able_to_walk', 'communicate_their_needs', 'any_medication', 'utilize_special_equipment',
                         'significant_periods', 'desire_any_accommodations', 'do_you_agree_this', 'do_you_agree_this_pick_up_password_form',
                         'photo_permission_agree_group_photos_electronic', 'do_you_agree_this_photo_video_permission_form', 'do_you_agree_this_security_release_policy_form',
-                        'do_you_agree_this_medical_transportation_waiver', 'do_you_agree_this_health_policies', 'outside_waiver_parent_sign_outside_engagements_waiver'
+                        'do_you_agree_this_medical_transportation_waiver', 'do_you_agree_this_health_policies', 'outside_waiver_parent_sign_outside_engagements_waiver',
+                        'do_you_agree_this_social_media_post'
                     ];
                 
                     checkboxFields.forEach(field => {
@@ -674,6 +697,23 @@ function checking(editID){
                             element.checked = response[field] === "Yes";
                         }
                     });
+
+                    const relatedFieldsMapping = {
+                        'childcare_before1': 'reason_for_childcare_before',
+                        'restricted_diet1': 'restricted_diet_reason',
+                        'eat_own1': 'eat_own_reason',
+                        'rest_in_the_middle_day1': 'reason_for_rest_in_the_middle_day',
+                        'toilet_trained1': 'reason_for_toilet_trained',
+                        'existing_illness_allergy1': 'explain_for_existing_illness_allergy',
+                        'functioning_at_age1': 'explain_for_functioning_at_age',
+                        'able_to_walk1': 'explain_for_able_to_walk',
+                        'communicate_their_needs1': 'explain_for_communicate_their_needs',
+                        'any_medication1': 'explain_for_any_medication',
+                        'utilize_special_equipment1': 'explain_for_utilize_special_equipment',
+                        'significant_periods1': 'explain_for_significant_periods',
+                        'desire_any_accommodations1': 'explain_for_desire_any_accommodations'
+                    };
+                    
                 
                     // Handle related fields based on Yes/No values
                     Object.entries(relatedFieldsMapping).forEach(([keyField, relatedField]) => {
@@ -705,6 +745,17 @@ function checking(editID){
                             element.setAttribute('checked', true);
                         }
                     }
+                    if (response.approve_social_media_post === "approve_social_media_post") {
+                        let element = form.querySelector(`input[id='approve_social_media_post1']`);
+                        if (element) {
+                            element.setAttribute('checked', true);
+                        }
+                    }else {
+                        let element = form.querySelector(`input[id='approve_social_media_post2']`);
+                        if (element) {
+                            element.setAttribute('checked', true);
+                        }
+                    }
                 }
                     resolve();
                 },
@@ -722,54 +773,59 @@ function checking(editID){
         dom: 'Qlfrtip',
         lengthChange: false,
         ajax: {
-            // url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
-           url :`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
             dataSrc: 'CompletedFormStatus',
         },
         columns: [
             { 
                 data: 'formName',
                 render: function(data, type, full, meta) {
-                    return full; 
+                    return full.formName; 
                 }
             },
-            // { 
-            //     data: 'completedTimestamp',
-            //     render: function(data, type, full, meta) {
-            //         // console.log(full);
-            //         return full.completedTimestamp; 
-            //     }
-            // },
+            { 
+                data: 'completedTimestamp',
+                render: function(data, type, full, meta) {
+                    // Ensure the timestamp is parsed and formatted correctly
+                    const date = new Date(full.completedTimestamp);
+                    if (!isNaN(date)) {
+                        return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                    } else {
+                        return 'Invalid Date';
+                    }
+                }
+            },
             {
                 data: 'edit',
                 render: function (data, type, full, meta) {
                     let url = '';
-                    switch (full) {
+                    switch (full.formName) {
                         case 'Admission Forms':
-                            url = `${window.location.origin}/goddard-frontend-test/admission_forms_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/admission_forms_completed.html?id=${editID}`;
                             break;
                         case 'Authorization':
-                            url = `${window.location.origin}/goddard-frontend-test/authorization_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
                             break;
                         case 'Enrollment Agreement':
-                            url = `${window.location.origin}/goddard-frontend-test/enrollment_agreement_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
                             break;
                         case 'Parent HandBook':
-                            url = `${window.location.origin}/goddard-frontend-test/parent_handbook_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
                             break;
                         default:
                             return '';
                     }
                     return `
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" data-name="${full}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full.formName}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" data-name="${full.formName}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
                         </div>`;
                 }
             }
         ],
         pageLength: 25,
     });
+
 
    // Click event handler for the print button
 
@@ -1946,6 +2002,45 @@ function checking(editID){
                         outsideWeiver = false;
                     }
                 }
+
+                 // outside weiver details
+                 let socialMedia;
+                 if(document.getElementById('socialmediaapproval') != null ){
+
+                    if(response.approve_social_media_post == "approve_social_media_post" ){
+                        document.getElementById('approve_social_media_post1').checked = true;
+                    }else{
+                        document.getElementById('approve_social_media_post2').checked = true;
+                    }
+                    if (typeof response.printed_name_social_media_post !== "undefined")
+                        document.getElementsByName('printed_name_social_media_post')[0].value = response.administration_first_aid_procedures;
+                    if( response.do_you_agree_this_social_media_post == "on" ){
+                        document.getElementById('do_you_agree_this_social_media_post').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_social_media_post').checked = false;
+                    }
+
+                    if(typeof response.approve_social_media_post !== "undefined" && 
+                        typeof response.printed_name_social_media_post !== "undefined"  && 
+                        typeof response.do_you_agree_this_social_media_post !== "undefined" 
+                       ){
+                        // Reset the display for both images
+                        document.querySelector('.socialmedia-tick').style.display = 'none';
+                        document.querySelector('.socialmedia-circle').style.display = 'none';
+                        // Update the display for the clicked card
+                        document.querySelector('.socialmedia-tick').style.display = 'block';
+                        socialMedia = true;
+                        
+                    }else{
+                        // Reset the display for both images
+                        document.querySelector('.socialmedia-tick').style.display = 'none';
+                        document.querySelector('.socialmedia-circle').style.display = 'none';
+                        // Update the display for the clicked card
+                        document.querySelector('.socialmedia-circle').style.display = 'block';
+                        socialMedia = false;
+                    }
+
+                 }
                 
                 // Admission form parent agreement
                 let admissionparentsign;
@@ -1986,7 +2081,7 @@ function checking(editID){
                         medicalDetails == true && parentAgreementThree == true && 
                         pickupPassword == true && photoVideoPermission == true && 
                         securityPolicy == true && medicaltransportationWeiver == true &&
-                        healthPolicy == true && outsideWeiver == true
+                        healthPolicy == true && outsideWeiver == true && socialMedia == true
                     
                     ){
                         let parentFinalAgreement = document.getElementById('parentFinalAgreement');
@@ -2023,10 +2118,10 @@ function checking(editID){
                 let enrollmentDetails;
                 let enrollmentparent;
                 if(document.getElementById('childenrollmentagreement') != null ){
-                    if (typeof response.point_one_field_one !== "undefined")
-                        document.getElementsByName("point_one_field_one")[0].value = response.point_one_field_one;
-                    if (typeof response.point_one_field_two !== "undefined")
-                        document.getElementsByName("point_one_field_two")[0].value = response.point_one_field_two;
+                    // if (typeof response.point_one_field_one !== "undefined")
+                    //     document.getElementsByName("point_one_field_one")[0].value = response.point_one_field_one;
+                    // if (typeof response.point_one_field_two !== "undefined")
+                    //     document.getElementsByName("point_one_field_two")[0].value = response.point_one_field_two;
                     if (typeof response.point_one_field_three !== "undefined")
                         document.getElementsByName("point_one_field_three")[0].value = response.point_one_field_three;
                     if (typeof response.point_two_initial_here !== "undefined")
@@ -2065,10 +2160,22 @@ function checking(editID){
                         document.getElementsByName("point_eighteen_initial_here")[0].value = response.point_eighteen_initial_here;
                     if (typeof response.point_nineteen_initial_here !== "undefined")
                         document.getElementsByName("point_nineteen_initial_here")[0].value = response.point_nineteen_initial_here;
+                    if (typeof response.preferred_start_date !== "undefined")
+                        document.getElementsByName("preferred_start_date")[0].value = response.preferred_start_date;
+                    if (typeof response.preferred_schedule !== "undefined")
+                        document.getElementsByName("preferred_schedule")[0].value = response.preferred_schedule;
+                    if( response.full_day == "on" ){
+                        document.getElementById('full_day').checked = true;
+                    }else{
+                        document.getElementById('full_day').checked = false;
+                    }
+                    if( response.half_day == "on" ){
+                        document.getElementById('half_day').checked = true;
+                    }else{
+                        document.getElementById('half_day').checked = false;
+                    }
 
-                    if(typeof response.point_one_field_one !== "undefined" && 
-                        typeof response.point_one_field_two !== "undefined" && 
-                        typeof response.point_one_field_three !== "undefined" && 
+                    if( typeof response.point_one_field_three !== "undefined" && 
                         typeof response.point_two_initial_here !== "undefined" && 
                         typeof response.point_three_initial_here !== "undefined" && 
                         typeof response.point_four_initial_here !== "undefined" && 
@@ -2086,7 +2193,12 @@ function checking(editID){
                         typeof response.point_sixteen_initial_here !== "undefined" && 
                         typeof response.point_seventeen_initial_here !== "undefined" && 
                         typeof response.point_eighteen_initial_here !== "undefined" && 
-                        typeof response.point_nineteen_initial_here !== "undefined" ){
+                        typeof response.point_nineteen_initial_here !== "undefined" &&
+                        typeof response.preferred_start_date !== "undefined" && 
+                        typeof response.preferred_schedule !== "undefined" && 
+                        typeof response.full_day !== "undefined" && 
+                        typeof response.half_day !== "undefined"
+                    ){
 
                         let enrollmentFinalAgreement = document.getElementById('enrollmentFinalAgreement');
                         enrollmentFinalAgreement.classList.remove('disabled');
