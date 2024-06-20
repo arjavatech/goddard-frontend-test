@@ -331,7 +331,7 @@ function checking(editID){
                         generatePDFContent().then(doc => {
                             doc.save(fileName);
                             document.body.removeChild(hiddenDiv);
-                            window.location.reload();
+                            // window.location.reload();
                         }).catch(error => {
                             document.body.removeChild(hiddenDiv);
                         });
@@ -445,6 +445,7 @@ function checking(editID){
                 url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
                 type: 'GET',
                 success: function(response) {
+                    console.log(response);
                     console.log(response.primary_parent_email);
                     let form = document.querySelector('#formContent');
                     if (!form) {
@@ -699,35 +700,53 @@ function checking(editID){
                     });
 
                     const relatedFieldsMapping = {
-                        'childcare_before1': 'reason_for_childcare_before',
-                        'restricted_diet1': 'restricted_diet_reason',
-                        'eat_own1': 'eat_own_reason',
-                        'rest_in_the_middle_day1': 'reason_for_rest_in_the_middle_day',
-                        'toilet_trained1': 'reason_for_toilet_trained',
-                        'existing_illness_allergy1': 'explain_for_existing_illness_allergy',
-                        'functioning_at_age1': 'explain_for_functioning_at_age',
-                        'able_to_walk1': 'explain_for_able_to_walk',
-                        'communicate_their_needs1': 'explain_for_communicate_their_needs',
-                        'any_medication1': 'explain_for_any_medication',
-                        'utilize_special_equipment1': 'explain_for_utilize_special_equipment',
-                        'significant_periods1': 'explain_for_significant_periods',
-                        'desire_any_accommodations1': 'explain_for_desire_any_accommodations'
+                        'childcare_before': 'reason_for_childcare_before',
+                        'restricted_diet': 'restricted_diet_reason',
+                        'eat_own': 'eat_own_reason',
+                        'rest_in_the_middle_day': 'reason_for_rest_in_the_middle_day',
+                        'toilet_trained': 'reason_for_toilet_trained',
+                        'existing_illness_allergy': 'explain_for_existing_illness_allergy',
+                        'functioning_at_age': 'explain_for_functioning_at_age',
+                        'able_to_walk': 'explain_for_able_to_walk',
+                        'communicate_their_needs': 'explain_for_communicate_their_needs',
+                        'any_medication': 'explain_for_any_medication',
+                        'utilize_special_equipment': 'explain_for_utilize_special_equipment',
+                        'significant_periods': 'explain_for_significant_periods',
+                        'desire_any_accommodations': 'explain_for_desire_any_accommodations'
                     };
                     
-                
                     // Handle related fields based on Yes/No values
                     Object.entries(relatedFieldsMapping).forEach(([keyField, relatedField]) => {
                         let keyElement = form.querySelector(`input[name='${keyField}']`);
                         let relatedElement = form.querySelector(`[name='${relatedField}']`);
-                
-                        if (keyElement && relatedElement) {
+                    
+                        if (keyElement) {
                             if (response[keyField] === "Yes") {
-                                relatedElement.setAttribute('value', response[relatedField] || '');
+                                if (relatedElement) {
+                                    relatedElement.setAttribute('value', response[relatedField] || '');
+                                } else {
+                                    // Create a new input field if it doesn't exist
+                                    let newInput = document.createElement('input');
+                                    newInput.setAttribute('type', 'text');
+                                    newInput.setAttribute('name', relatedField);
+                                    newInput.setAttribute('value', response[relatedField] || '');
+                                    form.appendChild(newInput);
+                                }
                             } else {
-                                relatedElement.setAttribute('value', 'No');
+                                if (relatedElement) {
+                                    relatedElement.setAttribute('value', 'No');
+                                } else {
+                                    // Create a new input field if it doesn't exist
+                                    let newInput = document.createElement('input');
+                                    newInput.setAttribute('type', 'text');
+                                    newInput.setAttribute('name', relatedField);
+                                    newInput.setAttribute('value', 'No');
+                                    form.appendChild(newInput);
+                                }
                             }
                         }
                     });
+                    
                 
                     if (response.gender === "Male") {
                         let element = form.querySelector(`input[id='gender1']`);
@@ -801,16 +820,16 @@ function checking(editID){
                     let url = '';
                     switch (full.formName) {
                         case 'Admission Forms':
-                            url = `${window.location.origin}/goddard-frontend-test/admission_forms_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontent-test/admission_forms_completed.html?id=${editID}`;
                             break;
                         case 'Authorization':
-                            url = `${window.location.origin}/goddard-frontend-test/authorization_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontent-test/authorization_completed.html?id=${editID}`;
                             break;
                         case 'Enrollment Agreement':
-                            url = `${window.location.origin}/goddard-frontend-test/enrollment_agreement_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontent-test/enrollment_agreement_completed.html?id=${editID}`;
                             break;
                         case 'Parent HandBook':
-                            url = `${window.location.origin}/goddard-frontend-test/parent_handbook_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontent-test/parent_handbook_completed.html?id=${editID}`;
                             break;
                         default:
                             return '';

@@ -60,6 +60,7 @@ function submitForm(editID) {
 }
 
 function childPersonalsubmitForm(editID) {
+    console.log(editID);
     const form = document.getElementById("childInfoAdmission");
     var old = form;
     var new_element = old.cloneNode(true);
@@ -404,6 +405,64 @@ function saveForm(editID) {
     xhr.send(json);
 }
 
+function admissionsubmitForm(editID) {
+    console.log(editID);
+    const form = document.getElementById("childInfoAdmission");
+    var old = form;
+    var new_element = old.cloneNode(true);
+    //replace the element
+    old.parentNode.replaceChild(new_element,old);
+    const formData = new FormData(form);
+    const obj = Object.fromEntries(formData);
+    console.log(obj);
+    obj.form_year_admission = year;
+    //to get values from local storage variable and stored it into response1 variable.
+    var response=JSON.parse(window.localStorage.getItem("responseData"));
+    var outputobject ={};
+    //to set local response variable id value for outputobject id value.
+    if(editID != ''){
+        outputobject.primary_parent_email = editID;
+    }else{
+        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
+    }
+    const child_id_val = localStorage.getItem('child_id');
+
+    if (child_id_val !== null && child_id_val !== undefined) {
+        outputobject.child_id = child_id_val; 
+    }
+    var keys = Object.keys(obj);
+    // alert('hi');
+    //compare new date with old data
+    keys.forEach(function (key) {
+        if(obj[key] != response[key] && obj[key] !=="" ){
+            outputobject[key]=obj[key];
+        }
+    })
+    const json=JSON.stringify(outputobject); 
+    console.log(json);
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                // window.location.reload();
+                // localStorage.setItem()
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html?id=${editID}`;
+            }, 3000);
+        }else{
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
+        }
+    };
+    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/modify");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
+}
+
 function authorizationSubmitForm(editID) {
     const form = document.getElementById("childInfoAuthorization");
     var old = form;
@@ -450,7 +509,7 @@ function authorizationSubmitForm(editID) {
                 $(".success-msg").hide(); 
                 // window.location.reload();
                 sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
+                window.location.href = `./parent_dashboard.html?id=${editID}`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -571,7 +630,7 @@ function enrollmentSubmitForm(editID) {
                 $(".success-msg").hide(); 
                 // window.location.reload();
                 sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
+                window.location.href = `./parent_dashboard.html?id=${editID}`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -692,7 +751,7 @@ function handbookSubmitForm(editID) {
                 $(".success-msg").hide(); 
                 // window.location.reload();
                 sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
+                window.location.href = `./parent_dashboard.html?id=${editID}`;
             }, 3000);
         }else{
             $(".error-msg").show();
@@ -814,7 +873,7 @@ $(document).ready(function () {
         });
         $(document).on("click", ".admission-submit-btn", function(e) {
             e.preventDefault();
-            childPersonalsubmitForm(editChildID);
+            admissionsubmitForm(editChildID);
         });
         $(document).on("click", ".ach-save-btn", function(e) {
             e.preventDefault();

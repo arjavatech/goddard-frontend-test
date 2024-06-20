@@ -1696,29 +1696,30 @@
                 <div id="childproCollapseTwo" class="accordion-collapse collapse" aria-labelledby="childproHeadingTwo" data-bs-parent="#childproAccordionExample">
                     <div class="accordion-body accordion_tab_body">
                         <div class="row m-1 mb-4">
-                        <div id="restricted_diet" class="col-sm">
-                            <div class="form-group">
-                                <p><b>Does your child have a special or restricted diet?
-                                    
-                                </b></p>
-                                <div class="wizard-form-radio">
-                                    <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio"
-                                    onclick="CustomChange(this.value,'restricted_diet_reason_div');" >
-                                    <label for="restricted_diet1">Yes</label>
-                                </div>
-                                <div class="wizard-form-radio">
-                                    <input name="restricted_diet" id="restricted_diet2" type="radio" value="No"
-                                    onclick="CustomChange(this.value,'restricted_diet_reason_div');" checked>
-                                    <label for="restricted_diet2">No</label>
+                            <div id="restricted_diet" class="col-sm">
+                                <div class="form-group">
+                                    <p><b>Does your child have a special or restricted diet?
+                                        
+                                    </b></p>
+                                    <div class="wizard-form-radio">
+                                        <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio"
+                                        onclick="CustomChange(this.value,'restricted_diet_reason_div');" >
+                                        <label for="restricted_diet1">Yes</label>
+                                    </div>
+                                    <div class="wizard-form-radio">
+                                        <input name="restricted_diet" id="restricted_diet2" type="radio" value="No"
+                                        onclick="CustomChange(this.value,'restricted_diet_reason_div');" checked>
+                                        <label for="restricted_diet2">No</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         <div class="row m-1 mb-4" id="restricted_diet_reason_div" style="display: none;">
                         <div class="col-sm">
                             <div class="form-group"> 
                                 <label for="restricted_diet_reason" class="form-label">Explain</label>
-                                <input type="text" class="form-control" id="restricted_diet_reason" name="restricted_diet_reason" placeholder="Specify details.">
+                                <input type="text" class="form-control" id="restricted_diet_reason" 
+                                name="restricted_diet_reason" placeholder="Specify details." value="No">
                             </div>
                         </div>
                     </div>
@@ -1745,7 +1746,8 @@
                         <div class="col-sm">
                             <div class="form-group"> 
                                 <label for="eat_own_reason" class="form-label">Explain</label>
-                                <input type="text" class="form-control " id="eat_own_reason" name="eat_own_reason" placeholder="Indicate if the child eats independently.">
+                                <input type="text" class="form-control " id="eat_own_reason"
+                                 name="eat_own_reason" placeholder="Indicate if the child eats independently." value="No">
                             </div>
                         </div>
                     </div>
@@ -1755,7 +1757,8 @@
                                 <label for="favorite_foods" class="form-label"><b>What are your child’s favorite foods?
                                     </b>
                                 </label>
-                                <input type="text" class="form-control " id="favorite_foods" name="favorite_foods" placeholder="List or describe the child's favorite foods.">
+                                <input type="text" class="form-control " id="favorite_foods" name="favorite_foods" 
+                                placeholder="List or describe the child's favorite foods." value="No">
                                 
                             </div>
                         </div>
@@ -1802,7 +1805,7 @@
                                 <div class="form-group"> 
                                     <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain</label>
                                     <input type="text" class="form-control " id="reason_for_rest_in_the_middle_day"
-                                    name="reason_for_rest_in_the_middle_day" placeholder="Indicate if the child takes a midday rest.">
+                                    name="reason_for_rest_in_the_middle_day" placeholder="Indicate if the child takes a midday rest." value="No">
                                 </div>
                             </div>
                         </div>
@@ -1842,7 +1845,7 @@
                         <div class="form-group"> 
                             <label for="reason_for_toilet_trained" class="form-label">Explain</label>
                             <input type="text" class="form-control " id="reason_for_toilet_trained"
-                            name="reason_for_toilet_trained" placeholder="Indicate if the child is toilet trained.">
+                            name="reason_for_toilet_trained" placeholder="Indicate if the child is toilet trained." value="No">
                         </div>
                     </div>
                     </div>
@@ -1889,7 +1892,7 @@
                                     <label for="explain_for_existing_illness_allergy"  
                                     class="form-label">Explain</label>
                                     <input type="text" class="form-control" id="explain_for_existing_illness_allergy"
-                                        name="explain_for_existing_illness_allergy" placeholder="Specify details if applicable.">
+                                        name="explain_for_existing_illness_allergy" placeholder="Specify details if applicable." value="No">
                                 </div>
                             </div>
                         </div>
@@ -1917,7 +1920,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
                                     <input type="text" class="form-control " id="explain_for_functioning_at_age"
-                                    name="explain_for_functioning_at_age" placeholder="Provide comments if necessary.">
+                                    name="explain_for_functioning_at_age" placeholder="Provide comments if necessary." value="No">
                                 </div>
                             </div>
                         </div>
@@ -1943,7 +1946,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_able_to_walk" class="form-label">Explain</label>
                                     <input type="text" class="form-control" id="explain_for_able_to_walk"
-                                    name="explain_for_able_to_walk" placeholder="Indicate the child's mobility.">
+                                    name="explain_for_able_to_walk" placeholder="Indicate the child's mobility." value="No">
                                 </div>
                             </div>
                         </div>
@@ -1972,7 +1975,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
                                     <input type="text" class="form-control " id="explain_for_communicate_their_needs"
-                                        name="explain_for_communicate_their_needs" placeholder="Indicate the child's communication abilities.">
+                                        name="explain_for_communicate_their_needs" placeholder="Indicate the child's communication abilities." value="No">
                                 </div>
                             </div>
                         </div>
@@ -2001,7 +2004,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_any_medication" class="form-label">Explain</label>
                                     <input type="text" class="form-control " id="explain_for_any_medication"
-                                    name="explain_for_any_medication" placeholder="Provide details if applicable.">
+                                    name="explain_for_any_medication" placeholder="Provide details if applicable." value="No" >
                                 </div>
                             </div>
                         </div>
@@ -2030,7 +2033,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
                                     <input type="text" class="form-control" id="explain_for_utilize_special_equipment"
-                                    name="explain_for_utilize_special_equipment" placeholder="Specify the equipment if applicable.">
+                                    name="explain_for_utilize_special_equipment" placeholder="Specify the equipment if applicable." value="No">
                                 </div>
                             </div>
                         </div>
@@ -2058,7 +2061,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_significant_periods" class="form-label">Explain</label>
                                     <input type="text" class="form-control" id="explain_for_significant_periods"
-                                    name="explain_for_significant_periods" placeholder="Indicate the need for one-on-one supervision.">
+                                    name="explain_for_significant_periods" placeholder="Indicate the need for one-on-one supervision." value="No">
                                 </div>
                             </div>
                         </div>
@@ -2088,7 +2091,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
                                     <input type="text" class="form-control" id="explain_for_desire_any_accommodations"
-                                    name="explain_for_desire_any_accommodations" placeholder="Provide details if necessary.">
+                                    name="explain_for_desire_any_accommodations" placeholder="Provide details if necessary." value="No">
                                 </div>
                             </div>
                         </div>      

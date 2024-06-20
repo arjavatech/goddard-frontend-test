@@ -76,7 +76,7 @@ $(document).ready(function () {
                 { 
                     data: 'child_name',
                     render: function (data, type, full, meta) {
-                        let url = `${window.location.origin}/goddard-frontend-test/parent_dashboard.html?id=${full.parent_email}`;
+                        let url = `${window.location.origin}/goddard-frontent-test/parent_dashboard.html?id=${full.parent_email}`;
                         return `<a href="${url}">${full.child_name}</a>`;
                     },
                 },
