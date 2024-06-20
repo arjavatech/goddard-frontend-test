@@ -820,16 +820,16 @@ function checking(editID){
                     let url = '';
                     switch (full.formName) {
                         case 'Admission Forms':
-                            url = `${window.location.origin}/goddard-frontent-test/admission_forms_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontend-test/admission_forms_completed.html?id=${editID}`;
                             break;
                         case 'Authorization':
-                            url = `${window.location.origin}/goddard-frontent-test/authorization_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontend-test/authorization_completed.html?id=${editID}`;
                             break;
                         case 'Enrollment Agreement':
-                            url = `${window.location.origin}/goddard-frontent-test/enrollment_agreement_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontend-test/enrollment_agreement_completed.html?id=${editID}`;
                             break;
                         case 'Parent HandBook':
-                            url = `${window.location.origin}/goddard-frontent-test/parent_handbook_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontend-test/parent_handbook_completed.html?id=${editID}`;
                             break;
                         default:
                             return '';
