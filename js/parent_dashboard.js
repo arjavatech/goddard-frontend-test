@@ -1617,19 +1617,19 @@ function checking(editID){
 
                     if( response.restricted_diet == "Yes" ){
                         document.getElementById('restricted_diet1').checked = true;
-                        document.getElementById('restricted_diet_reason_div').style.display = "block";
+                        // document.getElementById('restricted_diet_reason_div').style.display = "block";
                     }else{
                         document.getElementById('restricted_diet2').checked = true;
-                        document.getElementById('restricted_diet_reason_div').style.display = "none";
+                        // document.getElementById('restricted_diet_reason_div').style.display = "none";
                     }
                     if (typeof response.restricted_diet_reason !== "undefined")
                         document.getElementsByName('restricted_diet_reason')[0].value = response.restricted_diet_reason;
                     if( response.eat_own == "Yes" ){
                         document.getElementById('eat_own1').checked = true;
-                        document.getElementById('eat_own_reason_div').style.display = "block";
+                        // document.getElementById('eat_own_reason_div').style.display = "block";
                     }else{
                         document.getElementById('eat_own2').checked = true;
-                        document.getElementById('eat_own_reason_div').style.display = "none";
+                        // document.getElementById('eat_own_reason_div').style.display = "none";
                     }
                     if (typeof response.eat_own_reason !== "undefined")
                         document.getElementsByName('eat_own_reason')[0].value = response.eat_own_reason;
@@ -1658,10 +1658,10 @@ function checking(editID){
 
                     if( response.rest_in_the_middle_day == "Yes" ){
                         document.getElementById('rest_in_the_middle_day1').checked = true;
-                        document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
+                        // document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
                     }else{
                         document.getElementById('rest_in_the_middle_day2').checked = true;
-                        document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
+                        // document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
                     }
                     if (typeof response.reason_for_rest_in_the_middle_day !== "undefined")
                         document.getElementsByName('reason_for_rest_in_the_middle_day')[0].value = response.reason_for_rest_in_the_middle_day;
@@ -1669,10 +1669,10 @@ function checking(editID){
                         document.getElementsByName('rest_routine')[0].value = response.rest_routine;
                     if( response.toilet_trained == "Yes" ){
                         document.getElementById('toilet_trained1').checked = true;
-                        document.getElementById('reason_for_toilet_trained_div').style.display = "block";
+                        // document.getElementById('reason_for_toilet_trained_div').style.display = "block";
                     }else{
                         document.getElementById('toilet_trained2').checked = true;
-                        document.getElementById('reason_for_toilet_trained_div').style.display = "none";
+                        // document.getElementById('reason_for_toilet_trained_div').style.display = "none";
                     }
                     if (typeof response.reason_for_toilet_trained !== "undefined")
                         document.getElementsByName('reason_for_toilet_trained')[0].value = response.reason_for_toilet_trained;
@@ -1699,10 +1699,10 @@ function checking(editID){
 
                     if( response.existing_illness_allergy == "Yes" ){
                         document.getElementById('existing_illness_allergy1').checked = true;
-                        document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
+                        // document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
                     }else{
                         document.getElementById('existing_illness_allergy2').checked = true;
-                        document.getElementById('explain_for_existing_illness_allergy_div').style.display = "none";
+                        // document.getElementById('explain_for_existing_illness_allergy_div').style.display = "none";
                     }
 
                     if (typeof response.explain_for_existing_illness_allergy !== "undefined")
@@ -1710,10 +1710,10 @@ function checking(editID){
 
                         if(response.functioning_at_age == "Yes" ){
                         document.getElementById('functioning_at_age1').checked = true;
-                        document.getElementById('explain_for_functioning_at_age_div').style.display = "block";
+                        // document.getElementById('explain_for_functioning_at_age_div').style.display = "block";
                     }else{
                         document.getElementById('functioning_at_age2').checked = true;
-                        document.getElementById('explain_for_functioning_at_age_div').style.display = "none";
+                        // document.getElementById('explain_for_functioning_at_age_div').style.display = "none";
                     }
 
                     if (typeof response.explain_for_functioning_at_age !== "undefined")
@@ -1721,10 +1721,10 @@ function checking(editID){
 
                     if( response.able_to_walk == "Yes" ){
                         document.getElementById('able_to_walk1').checked = true;
-                        document.getElementById('explain_for_able_to_walk_div').style.display = "block";
+                        // document.getElementById('explain_for_able_to_walk_div').style.display = "block";
                     }else{
                         document.getElementById('able_to_walk2').checked = true;
-                        document.getElementById('explain_for_able_to_walk_div').style.display = "none";
+                        // document.getElementById('explain_for_able_to_walk_div').style.display = "none";
                     }
 
                     if (typeof response.explain_for_able_to_walk !== "undefined")
@@ -1732,10 +1732,10 @@ function checking(editID){
 
                     if(response.communicate_their_needs == "Yes" ){
                         document.getElementById('communicate_their_needs1').checked = true;
-                        document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
+                        // document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
                     }else{
                         document.getElementById('communicate_their_needs2').checked = true;
-                        document.getElementById('explain_for_communicate_their_needs_div').style.display = "none";
+                        // document.getElementById('explain_for_communicate_their_needs_div').style.display = "none";
                     }
 
                     if (typeof response.explain_for_communicate_their_needs !== "undefined")
@@ -1743,10 +1743,10 @@ function checking(editID){
 
                     if( response.any_medication == "Yes" ){
                         document.getElementById('any_medication1').checked = true;
-                        document.getElementById('explain_for_any_medication_div').style.display = "block";
+                        // document.getElementById('explain_for_any_medication_div').style.display = "block";
                     }else{
                         document.getElementById('any_medication2').checked = true;
-                        document.getElementById('explain_for_any_medication_div').style.display = "none";
+                        // document.getElementById('explain_for_any_medication_div').style.display = "none";
                     }
 
                     if (typeof response.explain_for_any_medication !== "undefined")
@@ -1754,10 +1754,10 @@ function checking(editID){
 
                     if( response.utilize_special_equipment == "Yes" ){
                         document.getElementById('utilize_special_equipment1').checked = true;
-                        document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
+                        // document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
                     }else{
                         document.getElementById('utilize_special_equipment2').checked = true;
-                        document.getElementById('explain_for_utilize_special_equipment_div').style.display = "none";
+                        // document.getElementById('explain_for_utilize_special_equipment_div').style.display = "none";
                     }
 
                     if (typeof response.explain_for_utilize_special_equipment !== "undefined")
@@ -1765,20 +1765,20 @@ function checking(editID){
                         
                     if( response.significant_periods == "Yes" ){
                         document.getElementById('significant_periods1').checked = true;
-                        document.getElementById('explain_for_significant_periods_div').style.display = "block";
+                        // document.getElementById('explain_for_significant_periods_div').style.display = "block";
                     }else{
                         document.getElementById('significant_periods2').checked = true;
-                        document.getElementById('explain_for_significant_periods_div').style.display = "none";
+                        // document.getElementById('explain_for_significant_periods_div').style.display = "none";
                     }
                     if (typeof response.explain_for_significant_periods !== "undefined")
                         document.getElementsByName('explain_for_significant_periods')[0].value = response.explain_for_significant_periods;
 
                     if( response.desire_any_accommodations == "Yes" ){
                         document.getElementById('desire_any_accommodations1').checked = true;
-                        document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
+                        // document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
                     }else{
                         document.getElementById('desire_any_accommodations2').checked = true;
-                        document.getElementById('explain_for_desire_any_accommodations_div').style.display = "none";
+                        // document.getElementById('explain_for_desire_any_accommodations_div').style.display = "none";
                     }
                     if (typeof response.explain_for_desire_any_accommodations !== "undefined")
                         document.getElementsByName('explain_for_desire_any_accommodations')[0].value = response.explain_for_desire_any_accommodations;
@@ -2022,7 +2022,7 @@ function checking(editID){
                     }
                 }
 
-                 // outside weiver details
+                 // social media details
                  let socialMedia;
                  if(document.getElementById('socialmediaapproval') != null ){
 

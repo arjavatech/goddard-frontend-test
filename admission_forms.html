@@ -1617,21 +1617,19 @@
                                     <p><b>Has your child been in childcare before?</b></p>
                                     <div class="wizard-form-radio">
                                         <input name="childcare_before" id="childcare_before1"
-                                            value="Yes" type="radio" onclick="CustomChange(this.value,'childcare_before_reason_div');">
+                                            value="Yes" type="radio" >
                                         <label for="childcare_before1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="childcare_before" id="childcare_before2"
-                                            type="radio" value="No" onclick="CustomChange(this.value,'childcare_before_reason_div');" checked>
+                                            type="radio" value="No"  >
                                         <label for="childcare_before2">No</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm" id="childcare_before_reason_div" style="display: none;">
+                            <div class="col-sm" >
                                 <div class="form-group"> 
-                                    <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b>
-                                        
-                                    </label>
+                                    <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b></label>
                                     <select class="form-control form-select-lg" aria-label=".form-control-lg example"
                                         id="reason_for_childcare_before" name="reason_for_childcare_before">
                                         <option></option>
@@ -1648,9 +1646,7 @@
                             
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="what_child_interests" class="form-label"><b>What are you child’s interests</b>
-                                        
-                                    </label>
+                                    <label for="what_child_interests" class="form-label"><b>What are you child’s interests</b></label>
                                     <input type="text" class="form-control " id="what_child_interests" name="what_child_interests" placeholder="List or describe your child’s interests.">
                                 </div>
                             </div>
@@ -1702,24 +1698,22 @@
                                         
                                     </b></p>
                                     <div class="wizard-form-radio">
-                                        <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio"
-                                        onclick="CustomChange(this.value,'restricted_diet_reason_div');" >
+                                        <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio">
                                         <label for="restricted_diet1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="restricted_diet" id="restricted_diet2" type="radio" value="No"
-                                        onclick="CustomChange(this.value,'restricted_diet_reason_div');" checked>
+                                        <input name="restricted_diet" id="restricted_diet2" type="radio" value="No">
                                         <label for="restricted_diet2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="restricted_diet_reason_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="restricted_diet_reason_div" >
                         <div class="col-sm">
                             <div class="form-group"> 
-                                <label for="restricted_diet_reason" class="form-label">Explain</label>
+                                <label for="restricted_diet_reason" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                 <input type="text" class="form-control" id="restricted_diet_reason" 
-                                name="restricted_diet_reason" placeholder="Specify details." value="No">
+                                name="restricted_diet_reason" placeholder="Specify details." >
                             </div>
                         </div>
                     </div>
@@ -1730,24 +1724,22 @@
                                     
                                 </b></p>
                                 <div class="wizard-form-radio">
-                                    <input name="eat_own" id="eat_own1" value="Yes" type="radio" 
-                                    onclick="CustomChange(this.value,'eat_own_reason_div');">
+                                    <input name="eat_own" id="eat_own1" value="Yes" type="radio" >
                                     <label for="eat_own1">Yes</label>
                                 </div>
                                 <div class="wizard-form-radio">
-                                    <input name="eat_own" id="eat_own2" type="radio" value="No"
-                                    onclick="CustomChange(this.value,'eat_own_reason_div');" checked>
+                                    <input name="eat_own" id="eat_own2" type="radio" value="No">
                                     <label for="eat_own2">No</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row m-1 mb-4" id="eat_own_reason_div" style="display: none;">
+                    <div class="row m-1 mb-4" id="eat_own_reason_div" >
                         <div class="col-sm">
                             <div class="form-group"> 
-                                <label for="eat_own_reason" class="form-label">Explain</label>
+                                <label for="eat_own_reason" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                 <input type="text" class="form-control " id="eat_own_reason"
-                                 name="eat_own_reason" placeholder="Indicate if the child eats independently." value="No">
+                                 name="eat_own_reason" placeholder="Indicate if the child eats independently." >
                             </div>
                         </div>
                     </div>
@@ -1789,23 +1781,23 @@
                                     </b></p>
                                     <div class="wizard-form-radio">
                                         <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
-                                            type="radio" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');">
+                                            type="radio" >
                                         <label for="rest_in_the_middle_day1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
-                                            value="No" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');" checked>
+                                            value="No" >
                                         <label for="rest_in_the_middle_day2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="reason_for_rest_in_the_middle_day_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="reason_for_rest_in_the_middle_day_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain</label>
+                                    <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control " id="reason_for_rest_in_the_middle_day"
-                                    name="reason_for_rest_in_the_middle_day" placeholder="Indicate if the child takes a midday rest." value="No">
+                                    name="reason_for_rest_in_the_middle_day" placeholder="Indicate if the child takes a midday rest." >
                                 </div>
                             </div>
                         </div>
@@ -1828,24 +1820,22 @@
                                 
                             </b></p>
                             <div class="wizard-form-radio">
-                                <input name="toilet_trained" id="toilet_trained1" value="Yes" type="radio" 
-                                onclick="CustomChange(this.value,'reason_for_toilet_trained_div');">
+                                <input name="toilet_trained" id="toilet_trained1" value="Yes" type="radio" >
                                 <label for="toilet_trained1">Yes</label>
                             </div>
                             <div class="wizard-form-radio">
-                                <input name="toilet_trained" id="toilet_trained2" type="radio" value="No"
-                                onclick="CustomChange(this.value,'reason_for_toilet_trained_div');" checked>
+                                <input name="toilet_trained" id="toilet_trained2" type="radio" value="No">
                                 <label for="toilet_trained2">No</label>
                             </div>
                         </div>
                         </div>
                     </div>
-                <div class="row m-1 mb-4" id="reason_for_toilet_trained_div" style="display: none;">
+                <div class="row m-1 mb-4" id="reason_for_toilet_trained_div" >
                     <div class="col-sm">
                         <div class="form-group"> 
-                            <label for="reason_for_toilet_trained" class="form-label">Explain</label>
+                            <label for="reason_for_toilet_trained" class="form-label">Explain (Fill "NA" if not applicable)</label>
                             <input type="text" class="form-control " id="reason_for_toilet_trained"
-                            name="reason_for_toilet_trained" placeholder="Indicate if the child is toilet trained." value="No">
+                            name="reason_for_toilet_trained" placeholder="Indicate if the child is toilet trained." >
                         </div>
                     </div>
                     </div>
@@ -1875,24 +1865,24 @@
                                     </b></p>
                                     <div class="wizard-form-radio">
                                         <input name="existing_illness_allergy" id="existing_illness_allergy1" value="Yes"
-                                            type="radio" onclick="CustomChange(this.value,'explain_for_existing_illness_allergy_div');">
+                                            type="radio">
                                         <label for="existing_illness_allergy1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="existing_illness_allergy" id="existing_illness_allergy2" type="radio"
-                                            value="No" onclick="CustomChange(this.value,'explain_for_existing_illness_allergy_div');" checked>
+                                            value="No" >
                                         <label for="existing_illness_allergy2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="explain_for_existing_illness_allergy_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="explain_for_existing_illness_allergy_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_existing_illness_allergy"  
-                                    class="form-label">Explain</label>
+                                    class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_existing_illness_allergy"
-                                        name="explain_for_existing_illness_allergy" placeholder="Specify details if applicable." value="No">
+                                        name="explain_for_existing_illness_allergy" placeholder="Specify details if applicable." >
                                 </div>
                             </div>
                         </div>
@@ -1903,24 +1893,22 @@
                                         
                                     </b></p>
                                     <div class="wizard-form-radio">
-                                        <input name="functioning_at_age" id="functioning_at_age1" value="Yes" type="radio"
-                                        onclick="CustomChange(this.value,'explain_for_functioning_at_age_div');">
+                                        <input name="functioning_at_age" id="functioning_at_age1" value="Yes" type="radio">
                                         <label for="functioning_at_age1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="functioning_at_age" id="functioning_at_age2" type="radio" value="No"
-                                        onclick="CustomChange(this.value,'explain_for_functioning_at_age_div');" checked>
+                                        <input name="functioning_at_age" id="functioning_at_age2" type="radio" value="No">
                                         <label for="functioning_at_age2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="explain_for_functioning_at_age_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="explain_for_functioning_at_age_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
+                                    <label for="explain_for_functioning_at_age" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control " id="explain_for_functioning_at_age"
-                                    name="explain_for_functioning_at_age" placeholder="Provide comments if necessary." value="No">
+                                    name="explain_for_functioning_at_age" placeholder="Provide comments if necessary." >
                                 </div>
                             </div>
                         </div>
@@ -1929,24 +1917,22 @@
                                 <div class="form-group">
                                     <p><b>Is your child able to walk?</b></p>
                                     <div class="wizard-form-radio">
-                                        <input name="able_to_walk" id="able_to_walk1" value="Yes" type="radio" 
-                                        onclick="CustomChange(this.value,'explain_for_able_to_walk_div');">
+                                        <input name="able_to_walk" id="able_to_walk1" value="Yes" type="radio" >
                                         <label for="able_to_walk1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="able_to_walk" id="able_to_walk2" type="radio" value="No"
-                                        onclick="CustomChange(this.value,'explain_for_able_to_walk_div');" checked>
+                                        <input name="able_to_walk" id="able_to_walk2" type="radio" value="No" >
                                         <label for="able_to_walk2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="explain_for_able_to_walk_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="explain_for_able_to_walk_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="explain_for_able_to_walk" class="form-label">Explain</label>
+                                    <label for="explain_for_able_to_walk" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_able_to_walk"
-                                    name="explain_for_able_to_walk" placeholder="Indicate the child's mobility." value="No">
+                                    name="explain_for_able_to_walk" placeholder="Indicate the child's mobility.">
                                 </div>
                             </div>
                         </div>
@@ -1958,24 +1944,23 @@
                                     </b></p>
                                     <div class="wizard-form-radio">
                                         <input name="communicate_their_needs" id="communicate_their_needs1" value="Yes"
-                                            type="radio" onclick="CustomChange(this.value,'explain_for_communicate_their_needs_div');">
+                                            type="radio">
                                         <label for="communicate_their_needs1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="communicate_their_needs"
-                                            id="communicate_their_needs2" type="radio" value="No"
-                                            onclick="CustomChange(this.value,'explain_for_communicate_their_needs_div');" checked>
+                                            id="communicate_their_needs2" type="radio" value="No">
                                         <label for="communicate_their_needs2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="explain_for_communicate_their_needs_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="explain_for_communicate_their_needs_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
+                                    <label for="explain_for_communicate_their_needs" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control " id="explain_for_communicate_their_needs"
-                                        name="explain_for_communicate_their_needs" placeholder="Indicate the child's communication abilities." value="No">
+                                        name="explain_for_communicate_their_needs" placeholder="Indicate the child's communication abilities.">
                                 </div>
                             </div>
                         </div>
@@ -1987,24 +1972,22 @@
                                             sugar monitoring) while in childcare?</b>
                                     </p>
                                     <div class="wizard-form-radio">
-                                        <input name="any_medication" id="any_medication1" value="Yes" type="radio" 
-                                        onclick="CustomChange(this.value,'explain_for_any_medication_div');">
+                                        <input name="any_medication" id="any_medication1" value="Yes" type="radio" >
                                         <label for="any_medication1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="any_medication" id="any_medication2" type="radio" value="No"
-                                        onclick="CustomChange(this.value,'explain_for_any_medication_div');" checked>
+                                        <input name="any_medication" id="any_medication2" type="radio" value="No" >
                                         <label for="any_medication2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="explain_for_any_medication_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="explain_for_any_medication_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="explain_for_any_medication" class="form-label">Explain</label>
+                                    <label for="explain_for_any_medication" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control " id="explain_for_any_medication"
-                                    name="explain_for_any_medication" placeholder="Provide details if applicable." value="No" >
+                                    name="explain_for_any_medication" placeholder="Provide details if applicable." >
                                 </div>
                             </div>
                         </div>
@@ -2017,23 +2000,23 @@
                                     </p>
                                     <div class="wizard-form-radio">
                                         <input name="utilize_special_equipment" id="utilize_special_equipment1" value="Yes"
-                                            type="radio" onclick="CustomChange(this.value,'explain_for_utilize_special_equipment_div');">
+                                            type="radio">
                                         <label for="utilize_special_equipment1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="utilize_special_equipment" id="utilize_special_equipment2" type="radio"
-                                            value="No" onclick="CustomChange(this.value,'explain_for_utilize_special_equipment_div');" checked>
+                                            value="No" >
                                         <label for="utilize_special_equipment2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="explain_for_utilize_special_equipment_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="explain_for_utilize_special_equipment_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
+                                    <label for="explain_for_utilize_special_equipment" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_utilize_special_equipment"
-                                    name="explain_for_utilize_special_equipment" placeholder="Specify the equipment if applicable." value="No">
+                                    name="explain_for_utilize_special_equipment" placeholder="Specify the equipment if applicable." >
                                 </div>
                             </div>
                         </div>
@@ -2044,24 +2027,22 @@
                                             regular basis for significant periods of time?</b>
                                     </p>
                                     <div class="wizard-form-radio">
-                                        <input name="significant_periods" id="significant_periods1" value="Yes" type="radio"
-                                        onclick="CustomChange(this.value,'explain_for_significant_periods_div');">
+                                        <input name="significant_periods" id="significant_periods1" value="Yes" type="radio">
                                         <label for="significant_periods1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="significant_periods" id="significant_periods2" type="radio" value="No"
-                                        onclick="CustomChange(this.value,'explain_for_significant_periods_div');" checked>
+                                        <input name="significant_periods" id="significant_periods2" type="radio" value="No" >
                                         <label for="significant_periods2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="explain_for_significant_periods_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="explain_for_significant_periods_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="explain_for_significant_periods" class="form-label">Explain</label>
+                                    <label for="explain_for_significant_periods" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_significant_periods"
-                                    name="explain_for_significant_periods" placeholder="Indicate the need for one-on-one supervision." value="No">
+                                    name="explain_for_significant_periods" placeholder="Indicate the need for one-on-one supervision.">
                                 </div>
                             </div>
                         </div>
@@ -2075,23 +2056,23 @@
                                     </p>
                                     <div class="wizard-form-radio">
                                         <input name="desire_any_accommodations" id="desire_any_accommodations1" value="Yes"
-                                            type="radio" onclick="CustomChange(this.value,'explain_for_desire_any_accommodations_div');">
+                                            type="radio" >
                                         <label for="desire_any_accommodations1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="desire_any_accommodations" id="desire_any_accommodations2" type="radio"
-                                            value="No" onclick="CustomChange(this.value,'explain_for_desire_any_accommodations_div');" checked>
+                                            value="No"  checked>
                                         <label for="desire_any_accommodations2">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4" id="explain_for_desire_any_accommodations_div" style="display: none;">
+                        <div class="row m-1 mb-4" id="explain_for_desire_any_accommodations_div" >
                             <div class="col-sm">
                                 <div class="form-group"> 
-                                    <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
+                                    <label for="explain_for_desire_any_accommodations" class="form-label">Explain (Fill "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_desire_any_accommodations"
-                                    name="explain_for_desire_any_accommodations" placeholder="Provide details if necessary." value="No">
+                                    name="explain_for_desire_any_accommodations" placeholder="Provide details if necessary.">
                                 </div>
                             </div>
                         </div>      
