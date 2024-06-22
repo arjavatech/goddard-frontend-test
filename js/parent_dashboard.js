@@ -1577,10 +1577,10 @@ function checking(editID){
                         document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
                     if(response.childcare_before == "Yes" ){
                         document.getElementById('childcare_before1').checked = true;
-                        document.getElementById('childcare_before_reason_div').style.display = "block";
+                        // document.getElementById('childcare_before_reason_div').style.display = "block";
                     }else{
                         document.getElementById('childcare_before2').checked = true;
-                        document.getElementById('childcare_before_reason_div').style.display = "none";
+                        // document.getElementById('childcare_before_reason_div').style.display = "none";
                     }
                     if (typeof response.reason_for_childcare_before !== "undefined")
                         document.getElementsByName('reason_for_childcare_before')[0].value = response.reason_for_childcare_before;
