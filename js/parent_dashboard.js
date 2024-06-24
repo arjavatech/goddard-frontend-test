@@ -1578,7 +1578,7 @@ function checking(editID){
                     if(response.childcare_before == "Yes" ){
                         document.getElementById('childcare_before1').checked = true;
                         // document.getElementById('childcare_before_reason_div').style.display = "block";
-                    }else{
+                    }else if(response.childcare_before == "No" ){
                         document.getElementById('childcare_before2').checked = true;
                         // document.getElementById('childcare_before_reason_div').style.display = "none";
                     }
@@ -1670,7 +1670,7 @@ function checking(editID){
                     if( response.toilet_trained == "Yes" ){
                         document.getElementById('toilet_trained1').checked = true;
                         // document.getElementById('reason_for_toilet_trained_div').style.display = "block";
-                    }else if(response.eat_own == "No"){
+                    }else if(response.toilet_trained == "No"){
                         document.getElementById('toilet_trained2').checked = true;
                         // document.getElementById('reason_for_toilet_trained_div').style.display = "none";
                     }
