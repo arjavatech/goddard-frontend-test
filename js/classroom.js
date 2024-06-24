@@ -64,7 +64,6 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const obj = Object.fromEntries(formData);
-    console.log(obj);
     const json=JSON.stringify(obj);
     console.log(json)
     if(obj.class_name != ''){
@@ -73,8 +72,9 @@ form.addEventListener("submit", (e) => {
             const data = xhr.responseText;
             console.log(data)
             if (xhr.status == 200) {
-                var confirmationRes = window.confirm(data);
-                if (confirmationRes) {
+                // var confirmationRes = window.confirm(data);
+                // console.log(confirmationRes)
+                if (data) {
                     $(".success-msg").show();
                         setTimeout(function(){
                         $(".success-msg").hide();
@@ -149,12 +149,19 @@ $(document).ready(function () {
                         const data = xhr.responseText;
                         console.log(data)
                         if (xhr.status == 200) {
-                            var confirmationRes = window.confirm(data);
-                            if (confirmationRes) {
-                                // window.location.href = "reg_form/student.html";
-                                window.location.reload();
+                            // var confirmationRes = window.confirm(data);
+                            if (data) {
+                                $(".success-msg-update").show();
+                                    setTimeout(function(){
+                                    $(".success-msg-update").hide();
+                                    window.location.href = "forms_repository.html";
+                                }, 3000);  
                             } else {
-                                window.location.href = "forms_repository.html";
+                                $(".error-msg-1").show();
+                                    setTimeout(function(){
+                                    $(".error-msg-1").hide();
+                                    window.location.href = "forms_repository.html";
+                                }, 3000); 
                             }
                         }       
                     };

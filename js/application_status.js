@@ -164,8 +164,8 @@ function deletedata(id,email) {
         xhr.onload = () => {
             const data = xhr.responseText;
             if (xhr.status == 200) {
-                var confirmationRes = window.confirm(data);
-                if (confirmationRes) {
+                // var confirmationRes = window.confirm(data);
+                if (data) {
                     // window.location.href = "../reg_form/sponsorreport.html";
                     window.location.reload();
                 } else {
