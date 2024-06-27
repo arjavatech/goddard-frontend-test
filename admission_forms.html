@@ -179,7 +179,7 @@
                             </div>
                         </div>
                         <div class="row m-1 mb-4">
-                            <div class="col-sm"><br>
+                            <div class="col-sm">
                                 <div class="form-group">
                                     <label for="home_telephone_number" class="form-label"><b>TELEPHONE
                                             NUMBER</b>
@@ -189,6 +189,28 @@
                                         onchange="validatePhone(this,'home_telephone_number_span')" placeholder=" e.g. +1(555) 555-1234">
                                     <span id="home_telephone_number_span" style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="business_cell_number" class="form-label"><b>CELL NUMBER</b>
+                                    </label>
+                                    <input type="text" class="form-control " aria-label="Telephone Number"
+                                        id="business_cell_number" name="business_cell_number"
+                                        onchange="validatePhone(this,'business_cell_number_span')" placeholder=" e.g. +1-212-456-7890">
+                                    <span id="business_cell_number_span" style="color:red; display:none">
+                                        Enter valid input [only numbers,+,-,()].</span>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="primary_parent_email" class="form-label"><b>EMAIL ADDRESS</b>
+                                    </label>
+                                    <input type="text" class="form-control " id="primary_parent_email"
+                                        name="primary_parent_email"
+                                        onchange="emailValidation(this,'primary_parent_email_span')" placeholder=" e.g. digitalmarketing@gmail.com" disabled>
+                                    <span id="primary_parent_email_span" style="color:red; display:none">
+                                        Enter valid input [should be in @ and .].</span>
                                 </div>
                             </div>
                         </div>
@@ -267,30 +289,6 @@
                         </div>
 
                         <!-- Business address end -->
-                        <div class="row m-1 mb-4">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="business_cell_number" class="form-label"><b>CELL NUMBER</b>
-                                    </label>
-                                    <input type="text" class="form-control " aria-label="Telephone Number"
-                                        id="business_cell_number" name="business_cell_number"
-                                        onchange="validatePhone(this,'business_cell_number_span')" placeholder=" e.g. +1-212-456-7890">
-                                    <span id="business_cell_number_span" style="color:red; display:none">
-                                        Enter valid input [only numbers,+,-,()].</span>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="primary_parent_email" class="form-label"><b>EMAIL ADDRESS</b>
-                                    </label>
-                                    <input type="text" class="form-control " id="primary_parent_email"
-                                        name="primary_parent_email"
-                                        onchange="emailValidation(this,'primary_parent_email_span')" placeholder=" e.g. digitalmarketing@gmail.com" disabled>
-                                    <span id="primary_parent_email_span" style="color:red; display:none">
-                                        Enter valid input [should be in @ and .].</span>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Business info end-->
                         <div class="text-center">
                             <button class="save-btn child_parent_info" id="parent_info">Save</button>
@@ -364,7 +362,7 @@
                             </div>
                         </div>
                         <div class="row m-1 mb-4">
-                            <div class="col-sm"><br>
+                            <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_two_home_telephone_number" class="form-label"><b>TELEPHONE
                                             NUMBER</b>
@@ -374,6 +372,28 @@
                                         onchange="validatePhone(this,'parent_two_home_telephone_number_span')" placeholder=" e.g. +1(555) 555-1234">
                                     <span id="parent_two_home_telephone_number_span" style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="parent_two_business_cell_number" class="form-label"><b>CELL NUMBER</b>
+                                    </label>
+                                    <input type="text" class="form-control " aria-label="Telephone Number"
+                                        id="parent_two_business_cell_number" name="parent_two_business_cell_number"
+                                        onchange="validatePhone(this,'parent_two_business_cell_number_span')" placeholder="e.g. +1-212-456-7890">
+                                    <span id="parent_two_business_cell_number_span" style="color:red; display:none">
+                                        Enter valid input [only numbers,+,-,()].</span>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="parent_email" class="form-label"><b>EMAIL ADDRESS</b>
+                                    </label>
+                                    <input type="text" class="form-control" id="parent_email"
+                                        name="parent_email"
+                                        onchange="emailValidation(this,'parent_email_span')" placeholder="e.g. digitaldesinging@outlook.com">
+                                    <span id="parent_email_span" style="color:red; display:none">
+                                        Enter valid input [should be in @ and .].</span>
                                 </div>
                             </div>
                         </div>
@@ -455,30 +475,6 @@
                         </div>
 
                         <!-- Business address end -->
-                        <div class="row m-1 mb-4">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="parent_two_business_cell_number" class="form-label"><b>CELL NUMBER</b>
-                                    </label>
-                                    <input type="text" class="form-control " aria-label="Telephone Number"
-                                        id="parent_two_business_cell_number" name="parent_two_business_cell_number"
-                                        onchange="validatePhone(this,'parent_two_business_cell_number_span')" placeholder="e.g. +1-212-456-7890">
-                                    <span id="parent_two_business_cell_number_span" style="color:red; display:none">
-                                        Enter valid input [only numbers,+,-,()].</span>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="parent_email" class="form-label"><b>EMAIL ADDRESS</b>
-                                    </label>
-                                    <input type="text" class="form-control" id="parent_email"
-                                        name="parent_email"
-                                        onchange="emailValidation(this,'parent_email_span')" placeholder="e.g. digitaldesinging@outlook.com">
-                                    <span id="parent_email_span" style="color:red; display:none">
-                                        Enter valid input [should be in @ and .].</span>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Business info end-->
                         <div class="text-center">
                             <button class="save-btn child_parent_two_info" id="parent_two_info">Save</button>
