@@ -793,7 +793,18 @@ function checking(editID){
         lengthChange: false,
         ajax: {
             url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
-            dataSrc: 'CompletedFormStatus',
+            dataSrc: function(json) {
+                // Format the timestamp in the JSON data before using it in the DataTable
+                json.CompletedFormStatus.forEach(function(item) {
+                    const date = new Date(item.completedTimestamp);
+                    if (!isNaN(date)) {
+                        item.completedTimestamp = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                    } else {
+                        item.completedTimestamp = 'Invalid Date';
+                    }
+                });
+                return json.CompletedFormStatus;
+            }
         },
         columns: [
             { 
@@ -805,13 +816,7 @@ function checking(editID){
             { 
                 data: 'completedTimestamp',
                 render: function(data, type, full, meta) {
-                    // Ensure the timestamp is parsed and formatted correctly
-                    const date = new Date(full.completedTimestamp);
-                    if (!isNaN(date)) {
-                        return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-                    } else {
-                        return 'Invalid Date';
-                    }
+                    return data; // It's already formatted in dataSrc function
                 }
             },
             {
