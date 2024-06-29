@@ -2105,20 +2105,35 @@ function checking(editID){
                     ){
                         let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                         parentFinalAgreement.classList.remove('disabled');
-                         // Reset the display for both images
-                         document.querySelector('.admission-tick').style.display = 'none';
-                        document.querySelector('.admission-circle').style.display = 'none';
-                        // Update the display for the clicked card
-                        document.querySelector('.admission-tick').style.display = 'block';
                     } else { 
                         let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                         parentFinalAgreement.classList.add('disabled');
-                          // Reset the display for both images
-                          document.querySelector('.admission-tick').style.display = 'none';
-                        document.querySelector('.admission-circle').style.display = 'none';
-                        // Update the display for the clicked card
-                        document.querySelector('.admission-circle').style.display = 'block';
                     }
+                }
+                if(childbasicInfo == true && childparentInfo == true && 
+                    childEmergencyContact == true && childMedicalcare == true && 
+                    childParentAgreementOne == true && childHistory == true &&
+                    medicalHistory == true && pregnancyHistory == true &&
+                    familyHistroy == true && socialBehavior == true &&
+                    environmentalFactor == true && parentAgreementTwo == true &&
+                    immunizationInstruction == true && childProfile == true && 
+                    nutritionDetails == true && restDetails == true &&
+                    medicalDetails == true && parentAgreementThree == true && 
+                    pickupPassword == true && photoVideoPermission == true && 
+                    securityPolicy == true && medicaltransportationWeiver == true &&
+                    healthPolicy == true && outsideWeiver == true && socialMedia == true
+                    && admissionparentsign== true){
+                     // Reset the display for both images
+                     document.querySelector('.admission-tick').style.display = 'none';
+                    document.querySelector('.admission-circle').style.display = 'none';
+                    // Update the display for the clicked card
+                    document.querySelector('.admission-tick').style.display = 'block';
+                } else { 
+                      // Reset the display for both images
+                      document.querySelector('.admission-tick').style.display = 'none';
+                    document.querySelector('.admission-circle').style.display = 'none';
+                    // Update the display for the clicked card
+                    document.querySelector('.admission-circle').style.display = 'block';
                 }
 
 
