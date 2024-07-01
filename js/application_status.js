@@ -62,11 +62,73 @@ $(document).ready(function () {
     }
 
     // Initialize DataTable
+    // function initializeDataTable(url) {
+    //     $('#example').DataTable({
+    //         scrollX: true,
+    //         Info: false,
+    //         dom: 'Qlfrtip',
+    //         lengthChange: false,
+    //         ajax: {
+    //             url: url,
+    //             dataSrc: '',
+    //         },
+    //         columns: [
+    //             { 
+    //                 data: 'child_name',
+    //                 render: function (data, type, full, meta) {
+    //                     let url = `${window.location.origin}/goddard-frontend-test/parent_dashboard.html?id=${full.parent_email}`;
+    //                     return `<a href="${url}">${full.child_name}</a>`;
+    //                 },
+    //             },
+    //             { 
+    //                 data: 'child_class_name', // Use child_class_name to match the dropdown option
+    //                 render: function (data, type, full, meta) {
+    //                     return getClassroomDropdown(full.child_class_name, full.child_id); // Pass the class name for default selection
+    //                 },
+    //             },
+    //             { data: 'parent_email' },
+    //             { data: 'parent_two_email' },
+    //             { data: 'form_status' },
+    //             { 
+    //                 data: 'edit',
+    //                 render: function (data, type, full, meta) {
+    //                     return `<img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton" name="deletebutton" height="20px;" style="text-align:right !important;cursor: pointer !important;" onclick="deletedata(${full.child_id}, '${full.parent_email}');">`;
+    //                 },
+    //             },
+    //         ],
+    //         pageLength: 25,
+    //     });
+
+    //     // Event delegation for dynamically created dropdown options
+    //     $(document).on('change', '.classroom-dropdown', function() {
+    //         const selectedClassName = $(this).val();
+    //         const childId = $(this).data('child-id');
+    //         toChangeClassName(selectedClassName, childId);
+    //     });
+    // }
+
     function initializeDataTable(url) {
         $('#example').DataTable({
             scrollX: true,
-            Info: false,
-            dom: 'Qlfrtip',
+            info: false,
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: 'Export to Excel',
+                    customize: function (xlsx) {
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        var rowIndex = 2; // Excel rows are 1-based
+                        $('#example').find('tbody tr').each(function() {
+                            var childId = $(this).find('.classroom-dropdown').data('child-id');
+                            var selectedClassName = $(this).find('.classroom-dropdown').find('option:selected').text();
+                            // Update the cell in the Excel sheet
+                            $('row:nth-child(' + (rowIndex + 1) + ') c[r^="B"] t', sheet).text(selectedClassName);
+                            rowIndex++;
+                        });
+                    }
+                }
+            ],
             lengthChange: false,
             ajax: {
                 url: url,
@@ -81,9 +143,9 @@ $(document).ready(function () {
                     },
                 },
                 { 
-                    data: 'child_class_name', // Use child_class_name to match the dropdown option
+                    data: 'child_class_name',
                     render: function (data, type, full, meta) {
-                        return getClassroomDropdown(full.child_class_name, full.child_id); // Pass the class name for default selection
+                        return getClassroomDropdown(full.child_class_name, full.child_id);
                     },
                 },
                 { data: 'parent_email' },
@@ -97,6 +159,7 @@ $(document).ready(function () {
                 },
             ],
             pageLength: 25,
+            
         });
 
         // Event delegation for dynamically created dropdown options
@@ -106,6 +169,7 @@ $(document).ready(function () {
             toChangeClassName(selectedClassName, childId);
         });
     }
+    
 
     // Initialize DataTable with default URL
     initializeDataTable('https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/all_child_status');
